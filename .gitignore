@@ -1,0 +1,19 @@
+# Server / hosting artifacts — never commit
+ssl/
+logs/
+mail/
+etc/
+tmp/
+public_ftp/
+*.key
+*.pem
+*.crt
+
+# Archives & OS junk
+*.zip
+.DS_Store
+Thumbs.db
+
+# Secrets
+.env
+.env.*
