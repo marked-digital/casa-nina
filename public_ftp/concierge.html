@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Your Stay — Casa Nina Flamingo</title>
+  <meta name="description" content="Book Casa Nina Flamingo: Full Casa (7 bed / 6 bath, sleeps 14) or Half Casa (3 bed / 2.5 bath). Direct booking or Airbnb.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav nav-dark" id="nav">
+    <a href="index.html" class="nav-logo">Casa Nina Flamingo</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="the-casa.html">The Casa</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="location.html">Location</a></li>
+      <li><a href="concierge.html">Concierge</a></li>
+      <li><a href="#contact" class="nav-contact">Contact</a></li>
+      <li><a href="book.html" class="nav-cta active">Book Now</a></li>
+    </ul>
+    <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="the-casa.html">The Casa</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="location.html">Location</a>
+      <a href="concierge.html">Concierge</a>
+      <a href="#contact">Contact</a>
+      <a href="book.html">Book Now</a>
+    </nav>
+  </div>
+
+  <!-- BOOKING HEADER -->
+  <section class="section-padding" style="background: var(--warm-white); padding-top: 10rem;">
+    <div class="container">
+      <div class="text-center fade-in" style="max-width: 700px; margin: 0 auto;">
+        <p class="heading-sm" style="color: var(--gold); margin-bottom: 1rem;">Reserve Your Stay</p>
+        <h1 class="heading-xl">Book Your<br>Stay</h1>
+        <div class="divider divider-center"></div>
+        <p class="body-text mx-auto" style="margin-top: 1.5rem;">
+          Choose the perfect option for your group. Book the full casa for up to 14 guests, or the half casa for a more intimate escape.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING OPTIONS -->
+  <section class="section-padding-sm" style="background: var(--warm-white);">
+    <div class="container">
+      <div class="booking-options fade-in">
+
+        <!-- FULL CASA -->
+        <div class="booking-card">
+          <p class="heading-sm" style="color: var(--gold); margin-bottom: 0.8rem;">Most Popular</p>
+          <h3>Full Casa</h3>
+          <div class="divider divider-center"></div>
+          <div class="booking-details">
+            <strong>7 Bedrooms &bull; 6 Bathrooms</strong><br>
+            Sleeps up to 14 guests<br><br>
+            All 3 floors &bull; 2 kitchens &bull; 2 living rooms<br>
+            Private infinity pool &bull; Rooftop terrace<br>
+            Elevator access &bull; 24/7 security
+          </div>
+          <a href="https://www.airbnb.ca/rooms/553696885568872196" target="_blank" rel="noopener" class="btn btn-filled" style="margin-bottom: 1rem;">Book on Airbnb</a>
+          <br>
+          <a href="mailto:info@casaninaflamingo.com?subject=Full Casa Booking Inquiry" class="btn">Inquire Direct</a>
+        </div>
+
+        <!-- HALF CASA -->
+        <div class="booking-card">
+          <p class="heading-sm" style="color: var(--gold); margin-bottom: 0.8rem;">Intimate Getaway</p>
+          <h3>Half Casa</h3>
+          <div class="divider divider-center"></div>
+          <div class="booking-details">
+            <strong>3 Bedrooms &bull; 2.5 Bathrooms</strong><br>
+            1st Floor Only<br><br>
+            Private entrance &bull; Full kitchen<br>
+            Living &amp; dining area<br>
+            Pool access &bull; 24/7 security
+          </div>
+          <a href="mailto:info@casaninaflamingo.com?subject=Half Casa Booking Inquiry" class="btn btn-filled" style="margin-bottom: 1rem;">Inquire Direct</a>
+          <br>
+          <a href="https://www.airbnb.ca/rooms/553696885568872196" target="_blank" rel="noopener" class="btn">View on Airbnb</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT FORM -->
+  <section class="section-padding" id="contact" style="background: var(--cream);">
+    <div class="container">
+      <div class="text-center fade-in" style="margin-bottom: 3rem;">
+        <p class="heading-sm" style="color: var(--gold); margin-bottom: 1rem;">Direct Booking</p>
+        <h2 class="heading-lg">Contact Us</h2>
+        <p class="body-text mx-auto" style="margin-top: 1rem;">Have questions or want to book directly? Message us on WhatsApp, send an email, or fill out the form below.</p>
+        <div class="book-contact-row">
+          <a href="https://wa.me/16473284929" target="_blank" rel="noopener" class="btn btn-whatsapp">WhatsApp Us</a>
+          <a href="mailto:info@casaninaflamingo.com" class="btn btn-filled">Email Us</a>
+        </div>
+        <p class="rate-note" style="color: var(--gold);">Contact us for nightly rates</p>
+      </div>
+
+      <form class="contact-form fade-in" action="mailto:info@casaninaflamingo.com" method="POST" enctype="text/plain">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="checkin">Check-in Date</label>
+            <input type="date" id="checkin" name="checkin">
+          </div>
+          <div class="form-group">
+            <label for="checkout">Check-out Date</label>
+            <input type="date" id="checkout" name="checkout">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="guests">Number of Guests</label>
+            <input type="number" id="guests" name="guests" min="1" max="14">
+          </div>
+          <div class="form-group">
+            <label for="option">Booking Option</label>
+            <select id="option" name="option">
+              <option value="full">Full Casa (7 Bed / 6 Bath)</option>
+              <option value="half">Half Casa (3 Bed / 2.5 Bath)</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell us about your trip &mdash; special occasions, concierge requests, or any questions..."></textarea>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-filled">Send Inquiry</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ALSO BOOK ON AIRBNB -->
+  <section class="section-padding-sm" style="background: var(--warm-white);">
+    <div class="container">
+      <div class="text-center fade-in">
+        <p class="body-text mx-auto" style="margin-bottom: 1.5rem;">Prefer to book through a trusted platform? Casa Nina Flamingo is also available on Airbnb with instant booking.</p>
+        <a href="https://www.airbnb.ca/rooms/553696885568872196" target="_blank" rel="noopener" class="btn">Book on Airbnb</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><span class="nav-logo">Casa Nina Flamingo</span><p>A luxury oceanview villa in Playa Flamingo, Costa Rica. Seven bedrooms, private infinity pool, and steps from the beach.</p></div>
+        <div class="footer-col"><h5>Explore</h5><ul><li><a href="the-casa.html">The Casa</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="concierge.html">Concierge</a></li><li><a href="location.html">Location</a></li></ul></div>
+        <div class="footer-col"><h5>Plan</h5><ul><li><a href="book.html">Book Now</a></li><li><a href="https://www.airbnb.ca/rooms/553696885568872196" target="_blank" rel="noopener">Airbnb</a></li></ul></div>
+        <div class="footer-col"><h5>Contact</h5><ul><li><a href="mailto:info@casaninaflamingo.com">info@casaninaflamingo.com</a></li><li>Playa Flamingo, Costa Rica</li></ul></div>
+      </div>
+      <div class="footer-contact-block">
+        <div><span class="fcb-label">Reach Us</span></div>
+        <div class="fcb-links">
+          <a href="https://wa.me/16473284929" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="mailto:info@casaninaflamingo.com">info@casaninaflamingo.com</a>
+          <a href="#" data-coming-soon="true">Instagram</a>
+          <a href="#" data-coming-soon="true">TikTok</a>
+        </div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2026 Casa Nina Flamingo. All rights reserved.</p><div class="footer-social"><a href="#" data-coming-soon="true">Instagram</a><a href="#" data-coming-soon="true">TikTok</a></div></div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
