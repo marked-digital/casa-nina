@@ -1,9 +1,11 @@
-// Navbar scroll effect
+// Header scroll effect: transparent on load, navy once the page scrolls.
+// Solid-variant headers (.xp-header--solid) keep their navy background and
+// only pick up the scrolled shadow.
 const nav = document.getElementById('nav');
-if (nav && !nav.classList.contains('nav-dark')) {
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 80);
-  });
+if (nav) {
+  const setScrolled = () => nav.classList.toggle('is-scrolled', window.scrollY > 10);
+  window.addEventListener('scroll', setScrolled, { passive: true });
+  setScrolled();
 }
 
 // Mobile menu toggle
@@ -11,16 +13,22 @@ const navToggle = document.getElementById('navToggle');
 const mobileMenu = document.getElementById('mobileMenu');
 
 if (navToggle && mobileMenu) {
+  const closeMenu = () => {
+    mobileMenu.classList.remove('active');
+    navToggle.classList.remove('is-open');
+    navToggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  };
+
   navToggle.addEventListener('click', () => {
-    mobileMenu.classList.toggle('active');
-    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    const open = mobileMenu.classList.toggle('active');
+    navToggle.classList.toggle('is-open', open);
+    navToggle.setAttribute('aria-expanded', String(open));
+    document.body.style.overflow = open ? 'hidden' : '';
   });
 
   mobileMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu.classList.remove('active');
-      document.body.style.overflow = '';
-    });
+    link.addEventListener('click', closeMenu);
   });
 }
 
