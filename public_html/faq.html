@@ -21,12 +21,11 @@
   2. SCHEMA: The FAQPage JSON-LD at the bottom includes ONLY questions whose
      answers are final. Add the remaining Q&As to mainEntity as policies are
      confirmed; never ship placeholder text inside schema.
-  3. HEADER / FOOTER: Intentionally left off this page (out of scope for this
-     build). The approved header and footer design is preserved in the
-     companion file header-footer-reference.html. When the shared site header
-     ships, define --xp-header-h in the page override block below (or in
-     styles.css): the hero padding and category rail read it automatically.
-     Then raise --xp-anchor-offset so deep links clear header + rail.
+  3. HEADER / FOOTER: The shared site header now ships on this page (markup
+     below <body>, styles in styles.css section E, behavior in main.js).
+     --xp-header-h (68px) and --xp-anchor-offset (144px) are defined globally
+     in styles.css; the hero padding and category rail read them automatically.
+     The footer design remains preserved in header-footer-reference.html.
   4. STYLES: This page links the shared styles.css (new-brand foundations
      and FAQ layers merged in on 2026-09-08) and opts in to the new-brand
      base with class="page-faq" on <body>. The inline block below is for
@@ -108,6 +107,39 @@
   </style>
 </head>
 <body class="page-faq">
+
+<!-- SITE HEADER (shared chrome; styles live in styles.css section E) -->
+<header class="xp-header" id="nav">
+  <div class="xp-wrap">
+    <a class="xp-logo" href="index.html" aria-label="Casa Nina Flamingo home">
+      <span class="xp-logo-mono" aria-hidden="true">CN</span><!-- TODO: replace with brand monogram SVG -->
+      <span class="xp-logo-text">CASA NINA<em>FLAMINGO</em></span>
+    </a>
+    <nav class="xp-nav" aria-label="Primary">
+      <a href="the-casa.html">The Casa</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="concierge.html">Concierge</a>
+      <a href="explore.html">Explore</a>
+      <a href="faq.html" aria-current="page">FAQs</a>
+    </nav>
+    <div class="xp-header-actions">
+      <a class="xp-cta-btn" href="book.html">Book Now</a>
+      <button class="xp-burger" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <nav aria-label="Mobile">
+    <a href="the-casa.html">The Casa</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="concierge.html">Concierge</a>
+    <a href="explore.html">Explore</a>
+    <a href="faq.html" aria-current="page">FAQs</a>
+    <a href="book.html" class="mobile-menu-cta">Book Now</a>
+  </nav>
+</div>
+
 <!-- ===== Hero ===== -->
 <section class="xp-faq-hero">
   <img class="xp-hero-bg" src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='1920' height='1080'><defs><linearGradient id='g' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='%230F1E33'/><stop offset='1' stop-color='%230A1626'/></linearGradient></defs><rect width='1920' height='1080' fill='url(%23g)'/><g stroke='%23C29A5B' stroke-width='2' fill='none' opacity='.16'><path d='M0 780q160-120 320 0t320 0 320 0 320 0 320 0 320 0'/><path d='M0 880q160-120 320 0t320 0 320 0 320 0 320 0 320 0'/><path d='M0 980q160-120 320 0t320 0 320 0 320 0 320 0 320 0'/></g><text x='960' y='540' fill='%23DCC08C' opacity='.3' font-family='Georgia,serif' font-size='40' text-anchor='middle' letter-spacing='12'>FAQ HERO PLACEHOLDER</text></svg>" alt="" width="1920" height="1080">
@@ -1311,5 +1343,6 @@
   updateToggleAllLabel();
 })();
 </script>
+<script src="main.js"></script>
 </body>
 </html>

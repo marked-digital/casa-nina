@@ -1141,8 +1141,9 @@ a { text-decoration: none; color: inherit; }
   --cn-font-display: "Cormorant Garamond", Georgia, serif;
   --cn-font-body:    "Manrope", -apple-system, "Segoe UI", sans-serif;
 
+  --xp-header-h: 68px;         /* fixed site header (section E below) */
   --xp-cats-h: 56px;
-  --xp-anchor-offset: 76px;    /* sticky category rail + breathing room */
+  --xp-anchor-offset: 144px;   /* header + sticky category rail + breathing room */
   --xp-wrap: 1080px;
   --xp-measure: 62ch;
   --xp-ease: cubic-bezier(.33,.9,.35,1);
@@ -1431,4 +1432,97 @@ body.page-faq{
   .xp-faq-hero{ padding:24px 0; background:none; color:var(--cn-ink); }
   .xp-a{ max-height:none !important; }
   .xp-faq-section{ padding:24px 0; }
+}
+
+/* ============================================================
+   E. SHARED SITE HEADER + MOBILE MENU (new brand)
+   Markup lives on every page: <header class="xp-header" id="nav">.
+   The header loads transparent over each page's hero and gains the
+   navy background once the user scrolls (main.js toggles .is-scrolled).
+   Pages without a dark hero (book.html) add .xp-header--solid to get
+   the navy background from load.
+   ============================================================ */
+
+.xp-header{
+  position:fixed; inset:0 0 auto 0; height:var(--xp-header-h); z-index:1000;
+  background:transparent;
+  color:var(--cn-white);
+  transition:background .35s var(--xp-ease), box-shadow .35s var(--xp-ease);
+}
+.xp-header.is-scrolled,
+.xp-header--solid{
+  background:rgba(15,30,51,.92);
+  -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
+}
+.xp-header.is-scrolled{ box-shadow:0 8px 28px rgba(10,22,38,.35); }
+.xp-header .xp-wrap{
+  height:100%; display:flex; align-items:center; justify-content:space-between; gap:24px;
+}
+
+.xp-logo{ display:flex; align-items:center; gap:14px; text-decoration:none; color:var(--cn-white); }
+.xp-logo-mono{
+  /* Stand-in for the interlocking CN monogram. Swap for the brand SVG asset */
+  width:38px; height:38px; border:1px solid var(--cn-gold);
+  border-radius:50%; display:grid; place-items:center; flex:none;
+  font-family:var(--cn-font-display); font-weight:600; font-size:17px;
+  letter-spacing:.04em; color:var(--cn-gold);
+}
+.xp-logo-text{ font-family:var(--cn-font-display); font-weight:600; font-size:19px; letter-spacing:.22em; line-height:1.1; }
+.xp-logo-text em{ display:block; font-family:var(--cn-font-body); font-style:normal; font-weight:600; font-size:9px; letter-spacing:.5em; color:var(--cn-gold); margin-top:3px; }
+
+.xp-header .xp-nav{ display:flex; align-items:center; gap:28px; }
+.xp-header .xp-nav a{
+  text-decoration:none; font-size:12px; font-weight:600; letter-spacing:.18em;
+  text-transform:uppercase; color:rgba(255,255,255,.82);
+  padding:6px 0; border-bottom:1px solid transparent;
+  transition:color .2s var(--xp-ease);
+}
+.xp-header .xp-nav a:hover{ color:var(--cn-white); }
+.xp-header .xp-nav a[aria-current="page"]{ color:var(--cn-gold); border-bottom-color:var(--cn-gold); }
+
+.xp-header-actions{ display:flex; align-items:center; gap:16px; }
+.xp-cta-btn{
+  text-decoration:none; font-size:12px; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--cn-navy-deep); background:var(--cn-gold);
+  padding:11px 20px; border:1px solid var(--cn-gold); white-space:nowrap;
+  transition:background .25s var(--xp-ease), color .25s var(--xp-ease);
+}
+.xp-cta-btn:hover{ background:transparent; color:var(--cn-gold); }
+
+/* Burger (mobile) */
+.xp-burger{
+  display:none; flex-direction:column; align-items:center; justify-content:center; gap:5px;
+  width:40px; height:40px; padding:0; background:none; border:0; cursor:pointer;
+  z-index:1001;
+}
+.xp-burger span{
+  display:block; width:22px; height:1.5px; background:var(--cn-white);
+  transition:transform .3s var(--xp-ease), opacity .3s var(--xp-ease);
+}
+.xp-burger.is-open span:nth-child(1){ transform:translateY(6.5px) rotate(45deg); }
+.xp-burger.is-open span:nth-child(2){ opacity:0; }
+.xp-burger.is-open span:nth-child(3){ transform:translateY(-6.5px) rotate(-45deg); }
+
+/* Mobile menu overlay — restyled to the new navy brand */
+.mobile-menu{ background:rgba(10,22,38,.97); }
+.mobile-menu a{ font-family:var(--cn-font-display); color:var(--cn-white); }
+.mobile-menu a:hover{ color:var(--cn-gold-soft); }
+.mobile-menu a[aria-current="page"]{ color:var(--cn-gold); }
+.mobile-menu .mobile-menu-cta{
+  display:inline-block; margin-top:1.4rem;
+  font-family:var(--cn-font-body); font-size:12px; font-weight:700;
+  letter-spacing:.16em; text-transform:uppercase;
+  background:var(--cn-gold); color:var(--cn-navy-deep);
+  border:1px solid var(--cn-gold); padding:14px 34px;
+}
+.mobile-menu .mobile-menu-cta:hover{ background:transparent; color:var(--cn-gold); }
+
+@media (max-width: 900px){
+  .xp-header .xp-nav{ display:none; }
+  .xp-burger{ display:flex; }
+}
+@media (max-width: 560px){
+  .xp-header .xp-cta-btn{ display:none; } /* Book Now lives in the mobile menu */
+  .xp-logo-text{ font-size:16px; }
+  .xp-logo-mono{ width:34px; height:34px; font-size:15px; }
 }

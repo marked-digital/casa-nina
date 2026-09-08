@@ -240,9 +240,12 @@
 .xp-header{ position:fixed; inset:0 0 auto 0; z-index:110; padding:22px 0;
   transition:background .45s var(--xp-ease), padding .45s var(--xp-ease), box-shadow .45s; }
 .xp-header .xp-wrap{ display:flex; align-items:center; justify-content:space-between; gap:24px; }
-.xp-brand{ display:flex; align-items:baseline; gap:14px; color:var(--cn-white); }
-.xp-brand__mono{ font-family:var(--cn-display); font-size:26px; font-weight:600; letter-spacing:.02em;
-  color:var(--cn-gold-2); }
+.xp-brand{ display:flex; align-items:center; gap:14px; color:var(--cn-white); }
+.xp-brand__mono{ /* Stand-in for the interlocking CN monogram. Swap for the brand SVG asset */
+  width:38px; height:38px; border:1px solid var(--cn-gold); border-radius:50%;
+  display:grid; place-items:center; flex:none;
+  font-family:var(--cn-display); font-size:17px; font-weight:600; letter-spacing:.04em;
+  color:var(--cn-gold); }
 .xp-brand__word{ font:600 13px/1 var(--cn-body); letter-spacing:.42em; text-transform:uppercase; }
 .xp-brand__word small{ display:block; margin-top:5px; font:500 8.5px/1 var(--cn-body);
   letter-spacing:.5em; color:var(--cn-gold-2); }
@@ -250,19 +253,39 @@
 .xp-nav a{ font:600 11.5px/1 var(--cn-body); letter-spacing:.22em; text-transform:uppercase;
   color:var(--cn-white); opacity:.82; transition:opacity .3s; padding:6px 0; position:relative; }
 .xp-nav a:hover{ opacity:1; }
-.xp-nav a[aria-current="page"]{ opacity:1; }
+.xp-nav a[aria-current="page"]{ opacity:1; color:var(--cn-gold-2); }
 .xp-nav a[aria-current="page"]::after{ content:""; position:absolute; left:0; right:0; bottom:0;
   height:1px; background:var(--cn-gold); }
-.xp-nav__cta{ border:1px solid var(--cn-gold); padding:11px 20px !important; color:var(--cn-gold-2) !important;
-  transition:background .3s, color .3s; }
-.xp-nav__cta:hover{ background:var(--cn-gold); color:var(--cn-ink) !important; }
-.xp-header.is-scrolled{ background:rgba(245,242,235,.94); backdrop-filter:blur(10px);
-  padding:14px 0; box-shadow:0 1px 0 rgba(14,29,48,.1); }
-.xp-header.is-scrolled .xp-brand, .xp-header.is-scrolled .xp-nav a{ color:var(--cn-navy); }
-.xp-header.is-scrolled .xp-brand__mono, .xp-header.is-scrolled .xp-brand__word small{ color:var(--cn-gold); }
-.xp-header.is-scrolled .xp-nav__cta{ color:var(--cn-navy) !important; border-color:var(--cn-navy); }
-.xp-header.is-scrolled .xp-nav__cta:hover{ background:var(--cn-navy); color:var(--cn-cream) !important; }
-@media (max-width:860px){ .xp-nav a:not(.xp-nav__cta){ display:none; } }
+.xp-nav__cta{ background:var(--cn-gold); border:1px solid var(--cn-gold); padding:11px 20px !important;
+  color:var(--cn-ink) !important; font-weight:700; transition:background .3s, color .3s; }
+.xp-nav__cta:hover{ background:transparent; color:var(--cn-gold-2) !important; }
+.xp-header.is-scrolled{ background:rgba(15,30,51,.92);
+  -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
+  padding:14px 0; box-shadow:0 8px 28px rgba(10,22,38,.35); }
+
+/* Burger + mobile menu (mirrors the shared site header) */
+.xp-burger{ display:none; flex-direction:column; align-items:center; justify-content:center; gap:5px;
+  width:40px; height:40px; padding:0; background:none; border:0; cursor:pointer; }
+.xp-burger span{ display:block; width:22px; height:1.5px; background:var(--cn-white);
+  transition:transform .3s var(--xp-ease), opacity .3s var(--xp-ease); }
+.xp-burger.is-open span:nth-child(1){ transform:translateY(6.5px) rotate(45deg); }
+.xp-burger.is-open span:nth-child(2){ opacity:0; }
+.xp-burger.is-open span:nth-child(3){ transform:translateY(-6.5px) rotate(-45deg); }
+.xp-mobile-menu{ position:fixed; inset:0; background:rgba(10,22,38,.97); z-index:105;
+  display:flex; align-items:center; justify-content:center;
+  opacity:0; pointer-events:none; transition:opacity .4s var(--xp-ease); }
+.xp-mobile-menu.active{ opacity:1; pointer-events:all; }
+.xp-mobile-menu nav{ text-align:center; }
+.xp-mobile-menu a{ display:block; font-family:var(--cn-display); font-size:2rem; font-weight:300;
+  color:var(--cn-white); padding:.8rem 0; transition:color .3s; }
+.xp-mobile-menu a:hover{ color:var(--cn-gold-2); }
+.xp-mobile-menu a[aria-current="page"]{ color:var(--cn-gold); }
+.xp-mobile-menu .xp-mobile-cta{ display:inline-block; margin-top:1.4rem;
+  font:700 12px/1 var(--cn-body); letter-spacing:.16em; text-transform:uppercase;
+  background:var(--cn-gold); color:var(--cn-ink); border:1px solid var(--cn-gold); padding:14px 34px; }
+.xp-mobile-menu .xp-mobile-cta:hover{ background:transparent; color:var(--cn-gold-2); }
+@media (max-width:900px){ .xp-nav{ display:none; } .xp-burger{ display:flex; } }
+@media (max-width:560px){ .xp-brand__word{ font-size:11px; } }
 
 /* ─────────────────────────────────────────────
    HERO
@@ -587,21 +610,35 @@
 
 <div class="xp-progress" aria-hidden="true"></div>
 
-<!-- ── HEADER · placeholder: replace with the global site header ── -->
+<!-- ── HEADER · kept self-contained on this page; mirrors the shared site header ── -->
 <header class="xp-header" id="xpHeader">
   <div class="xp-wrap">
     <a class="xp-brand" href="index.html" aria-label="Casa Nina Flamingo — home">
-      <span class="xp-brand__mono">CN</span>
+      <span class="xp-brand__mono">CN</span><!-- TODO: replace with brand monogram SVG -->
       <span class="xp-brand__word">Casa Nina<small>Flamingo</small></span>
     </a>
     <nav class="xp-nav" aria-label="Primary">
-      <a href="index.html">The Villa</a>
-      <a href="explore.html" aria-current="page">Explore</a>
+      <a href="the-casa.html">The Casa</a>
+      <a href="gallery.html">Gallery</a>
       <a href="concierge.html">Concierge</a>
-      <a class="xp-nav__cta" href="index.html#booking">Check availability</a>
+      <a href="explore.html" aria-current="page">Explore</a>
+      <a href="faq.html">FAQs</a>
+      <a class="xp-nav__cta" href="book.html">Book Now</a>
     </nav>
+    <button class="xp-burger" id="xpBurger" aria-label="Open menu" aria-expanded="false" aria-controls="xpMobileMenu"><span></span><span></span><span></span></button>
   </div>
 </header>
+
+<div class="xp-mobile-menu" id="xpMobileMenu">
+  <nav aria-label="Mobile">
+    <a href="the-casa.html">The Casa</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="concierge.html">Concierge</a>
+    <a href="explore.html" aria-current="page">Explore</a>
+    <a href="faq.html">FAQs</a>
+    <a href="book.html" class="xp-mobile-cta">Book Now</a>
+  </nav>
+</div>
 
 <main>
 
@@ -1085,6 +1122,27 @@
   }
   window.addEventListener('scroll', onScroll, { passive:true });
   onScroll();
+
+  /* ── Mobile menu ── */
+  var burger = document.getElementById('xpBurger');
+  var mobileMenu = document.getElementById('xpMobileMenu');
+  if (burger && mobileMenu){
+    var closeMenu = function(){
+      mobileMenu.classList.remove('active');
+      burger.classList.remove('is-open');
+      burger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    };
+    burger.addEventListener('click', function(){
+      var open = mobileMenu.classList.toggle('active');
+      burger.classList.toggle('is-open', open);
+      burger.setAttribute('aria-expanded', String(open));
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    [].slice.call(mobileMenu.querySelectorAll('a')).forEach(function(a){
+      a.addEventListener('click', closeMenu);
+    });
+  }
 
   /* ── Reveal on scroll ── */
   var revealEls = [].slice.call(document.querySelectorAll('[data-reveal]'));
