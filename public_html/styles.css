@@ -1472,12 +1472,15 @@ body.page-faq{
 
 .xp-header .xp-nav{ display:flex; align-items:center; gap:28px; }
 .xp-header .xp-nav a{
-  text-decoration:none; font-size:12px; font-weight:600; letter-spacing:.18em;
+  text-decoration:none; font-size:12px; font-weight:300; letter-spacing:.18em;
   text-transform:uppercase; color:rgba(255,255,255,.82);
   padding:6px 0; border-bottom:1px solid transparent;
-  transition:color .2s var(--xp-ease);
+  transition:color .2s var(--xp-ease), text-shadow .25s var(--xp-ease);
 }
-.xp-header .xp-nav a:hover{ color:var(--cn-white); }
+.xp-header .xp-nav a:hover{
+  color:var(--cn-gold);
+  text-shadow:0 0 10px rgba(194,154,91,.65), 0 0 22px rgba(194,154,91,.35);
+}
 .xp-header .xp-nav a[aria-current="page"]{ color:var(--cn-gold); border-bottom-color:var(--cn-gold); }
 
 .xp-header-actions{ display:flex; align-items:center; gap:16px; }

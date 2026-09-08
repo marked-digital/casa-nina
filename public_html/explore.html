@@ -250,9 +250,11 @@
 .xp-brand__word small{ display:block; margin-top:5px; font:500 8.5px/1 var(--cn-body);
   letter-spacing:.5em; color:var(--cn-gold-2); }
 .xp-nav{ display:flex; align-items:center; gap:clamp(18px,3vw,38px); }
-.xp-nav a{ font:600 11.5px/1 var(--cn-body); letter-spacing:.22em; text-transform:uppercase;
-  color:var(--cn-white); opacity:.82; transition:opacity .3s; padding:6px 0; position:relative; }
-.xp-nav a:hover{ opacity:1; }
+.xp-nav a{ font:300 11.5px/1 var(--cn-body); letter-spacing:.22em; text-transform:uppercase;
+  color:var(--cn-white); opacity:.82; padding:6px 0; position:relative;
+  transition:opacity .3s, color .3s, text-shadow .3s; }
+.xp-nav a:not(.xp-nav__cta):hover{ opacity:1; color:var(--cn-gold);
+  text-shadow:0 0 10px rgba(195,161,95,.65), 0 0 22px rgba(195,161,95,.35); }
 .xp-nav a[aria-current="page"]{ opacity:1; color:var(--cn-gold-2); }
 .xp-nav a[aria-current="page"]::after{ content:""; position:absolute; left:0; right:0; bottom:0;
   height:1px; background:var(--cn-gold); }
