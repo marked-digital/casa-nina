@@ -1109,3 +1109,326 @@ a { text-decoration: none; color: inherit; }
   .half-casa-callout { padding: 1.5rem; }
   .footer-contact-block { flex-direction: column; align-items: flex-start; }
 }
+
+/* ============================================================================
+   MERGED ADDITIONS: Casa Nina new-brand foundations + FAQ page layer
+   Added 2026-09-08 by Marked Digital. Everything below is namespaced
+   (--cn-*, --xp-*, .xp-*) or scoped to body.page-faq, so nothing above this
+   line changes behavior on existing pages. faq.html opts in via
+   <body class="page-faq">.
+   Sticky-header contract: when the shared site header ships, define
+   --xp-header-h (globally or in a page override); the FAQ hero padding and
+   category rail read it with a 0px fallback.
+   ============================================================================ */
+
+/* ============================================================
+   A. NEW-BRAND DESIGN TOKENS
+   ============================================================ */
+
+/* New-brand design tokens (--cn-*, --xp-*), values per the brand boards.
+   The legacy tokens at the top of this file keep serving existing pages. */
+:root{
+  --cn-navy:      #0F1E33;
+  --cn-navy-deep: #0A1626;
+  --cn-ink:       #14171F;
+  --cn-gold:      #C29A5B;
+  --cn-gold-soft: #DCC08C;
+  --cn-cream:     #F5F0E7;
+  --cn-sand:      #ECE5D7;
+  --cn-mist:      #9AA3B0;
+  --cn-white:     #FFFFFF;
+
+  --cn-font-display: "Cormorant Garamond", Georgia, serif;
+  --cn-font-body:    "Manrope", -apple-system, "Segoe UI", sans-serif;
+
+  --xp-cats-h: 56px;
+  --xp-anchor-offset: 76px;    /* sticky category rail + breathing room */
+  --xp-wrap: 1080px;
+  --xp-measure: 62ch;
+  --xp-ease: cubic-bezier(.33,.9,.35,1);
+}
+
+/* ============================================================
+   B. NEW-BRAND BASE + UTILITIES
+   ============================================================ */
+
+/* New-brand base, scoped so existing pages keep their current look.
+   A page opts in with <body class="page-faq"> (rename to a shared
+   .page-cn class when more pages migrate to the new brand). */
+body.page-faq{
+  margin:0;
+  font-family:var(--cn-font-body);
+  font-weight:400;
+  font-size:16px;
+  line-height:1.7;
+  color:var(--cn-ink);
+  background:var(--cn-cream);
+  -webkit-font-smoothing:antialiased;
+}
+
+.xp-wrap{ width:min(var(--xp-wrap), calc(100% - 48px)); margin-inline:auto; }
+
+/* Letterspaced caps = brand vernacular (per brand boards) */
+.xp-caps{
+  font-family:var(--cn-font-body);
+  font-weight:600;
+  font-size:11px;
+  letter-spacing:.32em;
+  text-transform:uppercase;
+}
+
+.xp-skip{
+  position:absolute; left:-9999px; top:0;
+  background:var(--cn-gold); color:var(--cn-navy-deep);
+  padding:10px 18px; z-index:200; font-weight:600; text-decoration:none;
+}
+.xp-skip:focus{ left:16px; top:12px; }
+
+.page-faq :is(a,button,input):focus-visible{
+  outline:2px solid var(--cn-gold);
+  outline-offset:3px;
+  border-radius:2px;
+}
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  *{ transition-duration:.01ms !important; animation-duration:.01ms !important; }
+}
+.page-faq svg{ display:block; max-width:100%; }
+
+/* ============================================================
+   C. SHARED COMPONENTS (buttons, chips, tokens)
+   ============================================================ */
+
+.xp-btn{
+  text-decoration:none; display:inline-block; cursor:pointer;
+  font-family:var(--cn-font-body); font-size:12px; font-weight:700;
+  letter-spacing:.16em; text-transform:uppercase; padding:15px 26px;
+  transition:background .25s var(--xp-ease), color .25s var(--xp-ease), border-color .25s var(--xp-ease);
+}
+.xp-btn--gold{ background:var(--cn-gold); border:1px solid var(--cn-gold); color:var(--cn-navy-deep); }
+.xp-btn--gold:hover{ background:transparent; color:var(--cn-gold); }
+.xp-btn--ghost{ background:transparent; border:1px solid rgba(255,255,255,.45); color:var(--cn-white); }
+.xp-btn--ghost:hover{ border-color:var(--cn-gold); color:var(--cn-gold-soft); }
+.xp-btn--navy{ background:transparent; border:1px solid var(--cn-navy); color:var(--cn-navy); }
+.xp-btn--navy:hover{ background:var(--cn-navy); color:var(--cn-gold-soft); }
+.xp-sec-cta{ margin-top:22px; }
+.xp-chip{
+  flex:none; align-self:center;
+  display:inline-block; font-family:var(--cn-font-body);
+  font-size:9.5px; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--cn-gold); border:1px solid var(--cn-gold);
+  padding:4px 9px; border-radius:999px; white-space:nowrap;
+}
+.xp-token{ color:var(--cn-gold); font-weight:600; white-space:nowrap; }
+
+/* ============================================================
+   D. FAQ PAGE LAYER (hero, search, category rail, accordions, CTA band)
+   ============================================================ */
+
+/* ============ Hero ============ */
+.xp-faq-hero{
+  background:var(--cn-navy-deep);
+  color:var(--cn-white);
+  padding:calc(var(--xp-header-h, 0px) + 110px) 0 92px;
+  position:relative; overflow:hidden;
+}
+.xp-hero-bg{
+  position:absolute; inset:0; z-index:0;
+  width:100%; height:100%; object-fit:cover;
+}
+.xp-hero-overlay{
+  position:absolute; inset:0; z-index:1;
+  background:linear-gradient(180deg, rgba(10,22,38,.72) 0%, rgba(15,30,51,.86) 100%);
+}
+.xp-hero-motif{
+  position:absolute; right:-40px; top:50%; transform:translateY(-50%); z-index:2;
+  width:min(420px,44vw); color:var(--cn-gold); opacity:.14; pointer-events:none;
+}
+.xp-hero-inner{ position:relative; z-index:3; max-width:700px; margin-inline:auto; text-align:center; }
+.xp-breadcrumb{ list-style:none; display:flex; justify-content:center; gap:10px; margin:0 0 26px; padding:0; font-size:11px; font-weight:600; letter-spacing:.28em; text-transform:uppercase; color:var(--cn-mist); }
+.xp-breadcrumb a{ color:var(--cn-gold-soft); text-decoration:none; }
+.xp-breadcrumb a:hover{ color:var(--cn-gold); }
+.xp-breadcrumb li+li::before{ content:"/"; margin-right:10px; color:rgba(255,255,255,.3); }
+.xp-hero-title{
+  font-family:var(--cn-font-display); font-weight:500;
+  font-size:clamp(42px, 6vw, 64px); line-height:1.04; margin:0 0 18px;
+  letter-spacing:.01em;
+}
+.xp-hero-sub{ margin:0 auto 34px; max-width:72ch; text-wrap:balance; font-size:17px; font-weight:300; color:rgba(255,255,255,.85); } /* two balanced lines on desktop */
+
+.xp-search{
+  position:relative; max-width:520px; margin-inline:auto;
+}
+.xp-search svg{ position:absolute; left:18px; top:50%; transform:translateY(-50%); width:17px; height:17px; color:var(--cn-gold); }
+.xp-search input{
+  width:100%; padding:16px 48px 16px 48px; text-align:left;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(220,192,140,.45);
+  color:var(--cn-white);
+  font-family:var(--cn-font-body); font-size:15px;
+  transition:border-color .25s var(--xp-ease), background .25s var(--xp-ease);
+}
+.xp-search input::placeholder{ color:rgba(255,255,255,.45); }
+.xp-search input:focus{ background:rgba(255,255,255,.09); border-color:var(--cn-gold); outline:none; }
+.xp-search-clear{
+  position:absolute; right:8px; top:50%; transform:translateY(-50%);
+  background:none; border:0; color:var(--cn-mist); cursor:pointer;
+  font-size:20px; line-height:1; padding:8px 10px; display:none;
+}
+.xp-search.has-value .xp-search-clear{ display:block; }
+.xp-search-clear:hover{ color:var(--cn-white); }
+.xp-hero-note{ margin:20px auto 0; font-size:13px; color:var(--cn-mist); max-width:56ch; }
+.xp-hero-note .xp-chip{ vertical-align:middle; margin-right:6px; }
+
+/* ============ Sticky category rail ============ */
+.xp-cats{
+  position:sticky; top:var(--xp-header-h, 0px); z-index:90;
+  background:var(--cn-cream);
+  border-bottom:1px solid rgba(20,23,31,.12);
+}
+.xp-cats.is-stuck{ box-shadow:0 10px 24px rgba(20,23,31,.08); }
+.xp-cats-row{ display:flex; align-items:center; gap:16px; height:var(--xp-cats-h); }
+.xp-cats-scroll{
+  display:flex; gap:8px; overflow-x:auto; scrollbar-width:none;
+  -webkit-overflow-scrolling:touch; flex:1; padding-block:4px;
+}
+.xp-cats-scroll::-webkit-scrollbar{ display:none; }
+.xp-pill{
+  flex:none; background:none; cursor:pointer;
+  border:1px solid rgba(20,23,31,.22);
+  color:var(--cn-ink);
+  font-family:var(--cn-font-body); font-size:11.5px; font-weight:600;
+  letter-spacing:.12em; text-transform:uppercase;
+  padding:9px 16px; border-radius:999px;
+  transition:border-color .2s var(--xp-ease), color .2s var(--xp-ease), background .2s var(--xp-ease);
+}
+.xp-pill:hover{ border-color:var(--cn-gold); color:var(--cn-navy); }
+.xp-pill.is-active{ background:var(--cn-navy); border-color:var(--cn-navy); color:var(--cn-gold-soft); }
+.xp-toggle-all{
+  flex:none; background:none; border:0; cursor:pointer;
+  font-family:var(--cn-font-body); font-size:11.5px; font-weight:700;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--cn-gold);
+  padding:10px 2px; white-space:nowrap;
+}
+.xp-toggle-all:hover{ color:var(--cn-navy); }
+
+.xp-meta{
+  margin:14px 0 0; font-size:13px; color:rgba(20,23,31,.6); min-height:1em;
+}
+.xp-meta:empty{ display:none; margin:0; }
+.xp-noresults{
+  display:none; padding:72px 0 40px; text-align:left;
+}
+.xp-noresults.is-visible{ display:block; }
+.xp-noresults h2{ font-family:var(--cn-font-display); font-weight:500; font-size:30px; margin:0 0 10px; color:var(--cn-navy); }
+.xp-noresults p{ margin:0 0 18px; max-width:52ch; }
+.xp-noresults button{
+  background:none; border:1px solid var(--cn-navy); color:var(--cn-navy); cursor:pointer;
+  font-family:var(--cn-font-body); font-size:12px; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
+  padding:12px 22px;
+}
+.xp-noresults button:hover{ background:var(--cn-navy); color:var(--cn-gold-soft); }
+
+/* ============ FAQ sections ============ */
+.xp-faq-section{ padding:76px 0 60px; scroll-margin-top:var(--xp-anchor-offset); }
+.xp-faq-section.xp-alt{ background:var(--cn-white); }
+.xp-sec-head{ max-width:640px; margin-bottom:34px; }
+.xp-kicker{ display:block; color:var(--cn-gold); margin-bottom:14px; }
+.xp-sec-title{
+  font-family:var(--cn-font-display); font-weight:500;
+  font-size:clamp(30px, 4vw, 40px); line-height:1.1;
+  margin:0 0 12px; color:var(--cn-navy);
+}
+.xp-sec-intro{ margin:0; color:rgba(20,23,31,.68); max-width:54ch; }
+
+.xp-items{ border-top:1px solid rgba(20,23,31,.16); }
+
+.xp-item{ border-bottom:1px solid rgba(20,23,31,.16); scroll-margin-top:var(--xp-anchor-offset); position:relative; }
+.xp-item::before{
+  content:""; position:absolute; left:-1px; top:0; bottom:0; width:2px;
+  background:var(--cn-gold); transform:scaleY(0); transform-origin:top;
+  transition:transform .35s var(--xp-ease);
+}
+.xp-item.is-open::before{ transform:scaleY(1); }
+.xp-q-h{ margin:0; }
+.xp-q{
+  width:100%; display:flex; align-items:baseline; gap:16px;
+  background:none; border:0; cursor:pointer; text-align:left;
+  padding:24px 8px 24px 22px; color:var(--cn-ink);
+}
+.xp-q-text{
+  flex:1;
+  font-family:var(--cn-font-display); font-weight:600;
+  font-size:clamp(19px, 2.4vw, 23px); line-height:1.3; color:var(--cn-navy);
+  transition:color .2s var(--xp-ease);
+}
+.xp-q:hover .xp-q-text{ color:var(--cn-gold); }
+.xp-q-text mark{ background:var(--cn-gold-soft); color:var(--cn-navy-deep); padding:0 2px; }
+.xp-icon{
+  flex:none; position:relative; width:14px; height:14px; align-self:center;
+}
+.xp-icon::before,.xp-icon::after{
+  content:""; position:absolute; background:var(--cn-gold); left:50%; top:50%;
+  transition:transform .3s var(--xp-ease);
+}
+.xp-icon::before{ width:14px; height:1.5px; transform:translate(-50%,-50%); }
+.xp-icon::after{ width:1.5px; height:14px; transform:translate(-50%,-50%); }
+.xp-item.is-open .xp-icon::after{ transform:translate(-50%,-50%) scaleY(0); }
+
+.xp-a{
+  max-height:0; overflow:hidden;
+  transition:max-height .4s var(--xp-ease);
+}
+.xp-a-inner{ padding:2px 8px 30px 22px; max-width:var(--xp-measure); }
+.xp-a-inner p{ margin:0 0 14px; color:rgba(20,23,31,.82); font-size:15.5px; }
+.xp-a-inner > :last-child{ margin-bottom:0; }
+.xp-a-inner ul{ margin:0 0 14px; padding-left:20px; color:rgba(20,23,31,.82); font-size:15.5px; }
+.xp-a-inner li{ margin-bottom:6px; }
+
+/* Dark section variant (Staff & Included) */
+.xp-faq-section.xp-dark{ background:var(--cn-navy); color:var(--cn-white); }
+.xp-dark .xp-sec-title{ color:var(--cn-white); }
+.xp-dark .xp-sec-intro{ color:rgba(255,255,255,.72); }
+.xp-dark .xp-items{ border-top-color:rgba(255,255,255,.22); }
+.xp-dark .xp-item{ border-bottom-color:rgba(255,255,255,.22); }
+.xp-dark .xp-q-text{ color:var(--cn-white); }
+.xp-dark .xp-q:hover .xp-q-text{ color:var(--cn-gold-soft); }
+.xp-dark .xp-a-inner p, .xp-dark .xp-a-inner ul{ color:rgba(255,255,255,.82); }
+
+/* ============ CTA band ============ */
+.xp-faq-cta{
+  background:linear-gradient(160deg, var(--cn-navy-deep) 0%, var(--cn-navy) 100%);
+  color:var(--cn-white); padding:88px 0; text-align:center;
+  position:relative; overflow:hidden;
+}
+.xp-faq-cta::after{
+  content:""; position:absolute; right:0; top:0; bottom:0; width:38%;
+  background:radial-gradient(circle at 80% 40%, rgba(194,154,91,.16), transparent 65%);
+  pointer-events:none;
+}
+.xp-cta-kicker{ color:var(--cn-gold); display:block; margin-bottom:16px; }
+.xp-cta-title{ font-family:var(--cn-font-display); font-weight:500; font-size:clamp(34px,4.6vw,50px); line-height:1.08; margin:0 0 16px; }
+.xp-cta-copy{ margin:0 auto 34px; max-width:50ch; color:rgba(255,255,255,.82); font-weight:300; }
+.xp-cta-row{ display:flex; flex-wrap:wrap; gap:14px; justify-content:center; }
+
+/* ============ Responsive ============ */
+@media (max-width: 860px){
+  .xp-hero-motif{ opacity:.08; right:-120px; }
+}
+@media (max-width: 700px){
+  .xp-wrap{ width:calc(100% - 40px); }
+  .xp-faq-hero{ padding-top:calc(var(--xp-header-h, 0px) + 80px); }
+  .xp-faq-section{ padding:56px 0 44px; }
+  .xp-q{ padding:20px 4px 20px 16px; gap:12px; }
+  .xp-a-inner{ padding:0 4px 26px 16px; }
+  .xp-chip{ font-size:8.5px; letter-spacing:.14em; padding:3px 7px; }
+  .xp-cta-row .xp-btn{ flex:1 1 100%; text-align:center; }
+}
+
+/* ============ Motion & print ============ */
+@media print{
+  .xp-cats,.xp-search,.xp-faq-cta,.xp-icon,.xp-hero-bg,.xp-hero-overlay{ display:none !important; }
+  .xp-faq-hero{ padding:24px 0; background:none; color:var(--cn-ink); }
+  .xp-a{ max-height:none !important; }
+  .xp-faq-section{ padding:24px 0; }
+}
