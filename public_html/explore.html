@@ -199,6 +199,17 @@
      added to this page should sit at top:var(--xp-header-h) and
      deep-link scroll margins should clear it.
      ---------------------------------------------------------------- */
+
+  /* Hero — fill the viewport at any resolution; on desktop, keep the
+     text block truly centered in height (was bottom-anchored, which
+     crowded the fold on shorter viewports like 1440). Symmetric padding
+     preserves the exact center while guaranteeing clearance under the
+     fixed header on short windows. Mobile behavior unchanged. */
+  .xp-hero{ min-height:100vh; min-height:100svh; }
+  @media (min-width:761px){
+    .xp-hero{ align-items:center; }
+    .xp-hero__inner{ padding:calc(var(--xp-header-h, 68px) + clamp(32px,5vh,64px)) 0; }
+  }
 </style>
 </head>
 
