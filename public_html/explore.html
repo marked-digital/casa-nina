@@ -842,49 +842,73 @@
     if (prev) prev.addEventListener('click', function(){ strip.scrollBy({ left:-cardStep(), behavior: reduceMotion ? 'auto' : 'smooth' }); });
     if (next) next.addEventListener('click', function(){ strip.scrollBy({ left: cardStep(), behavior: reduceMotion ? 'auto' : 'smooth' }); });
 
-    /* Real <img> cards are natively draggable, which hijacks the mouse
-       gesture before the strip can scroll — disable that, then capture
-       the pointer so the drag survives leaving the strip's bounds. */
+    /* ── Drag to scroll (mouse) ──
+       Plain mouse events, no pointer capture: the simplest pattern that
+       works in every desktop browser. preventDefault on mousedown stops
+       text selection and native image dragging at the source. Touch keeps
+       native scrolling (a tap only produces a mousedown/mouseup pair). */
     strip.querySelectorAll('img').forEach(function(im){ im.setAttribute('draggable','false'); });
     strip.addEventListener('dragstart', function(e){ e.preventDefault(); });
 
+    /* Diagnostics: load the page with ?dragdebug to get an on-screen log */
+    var dbg = /dragdebug/.test(location.search + location.hash), badge = null, moveCount = 0;
+    function log(msg){
+      if (!dbg) return;
+      console.log('[strip] ' + msg);
+      if (!badge){
+        badge = document.createElement('div');
+        badge.style.cssText = 'position:fixed;left:12px;bottom:12px;z-index:99999;max-width:70vw;font:12px/1.5 monospace;background:#0E1D30;color:#DCC391;padding:10px 12px;border:1px solid #C3A15F;white-space:pre-wrap;pointer-events:none';
+        document.body.appendChild(badge);
+      }
+      badge.textContent = (badge.textContent + '\n' + msg).split('\n').slice(-9).join('\n');
+    }
+    if (dbg){
+      var before = strip.scrollLeft;
+      strip.style.scrollSnapType = 'none'; strip.scrollLeft = before + 5;
+      var canScroll = strip.scrollLeft !== before;
+      strip.scrollLeft = before; strip.style.scrollSnapType = '';
+      log('strip found · scrollWidth ' + strip.scrollWidth + ' / clientWidth ' + strip.clientWidth +
+          ' → ' + (strip.scrollWidth > strip.clientWidth ? 'overflows (good)' : 'DOES NOT OVERFLOW'));
+      log('programmatic scroll: ' + (canScroll ? 'OK' : 'FAIL'));
+      log('lenis: ' + (window.siteLenis ? 'active' : 'off') + ' · UA: ' + navigator.userAgent.split(') ').pop());
+      document.addEventListener('mousedown', function(e){
+        var t = e.target, inside = strip.contains(t);
+        log('document saw mousedown on <' + t.tagName.toLowerCase() + '.' + (t.className || '') + '> ' + (inside ? 'inside strip' : 'OUTSIDE strip'));
+      }, true);
+      log('now press on a card and drag…');
+    }
+
     var isDown = false, startX = 0, startLeft = 0, moved = false;
-    strip.addEventListener('pointerdown', function(e){
-      if (e.pointerType !== 'mouse') return; /* touch/pen use native scrolling */
-      isDown = true; moved = false;
+    strip.addEventListener('mousedown', function(e){
+      if (e.button !== 0) return;
+      isDown = true; moved = false; moveCount = 0;
       startX = e.clientX; startLeft = strip.scrollLeft;
       strip.classList.add('is-dragging');
-      /* Self-contained gesture: global scroll-behavior:smooth turns every
-         scrollLeft assignment into an animation the next tick cancels
-         (a dead-feeling drag), and mandatory snap re-snaps each tick.
-         Neutralise both inline so no stylesheet merge can break this. */
-      strip.style.scrollBehavior = 'auto';
       strip.style.scrollSnapType = 'none';
+      strip.style.scrollBehavior = 'auto';
       strip.style.cursor = 'grabbing';
-      strip.style.userSelect = 'none';
-      if (strip.setPointerCapture){ try{ strip.setPointerCapture(e.pointerId); }catch(err){} }
       e.preventDefault();
+      log('strip mousedown · startLeft ' + startLeft);
     });
-    strip.addEventListener('pointermove', function(e){
+    document.addEventListener('mousemove', function(e){
       if (!isDown) return;
       var dx = e.clientX - startX;
       if (Math.abs(dx) > 4) moved = true;
       strip.scrollLeft = startLeft - dx;
+      if (dbg && (++moveCount % 6 === 0)) log('drag dx ' + dx + ' → scrollLeft ' + strip.scrollLeft);
     });
     function endDrag(){
       if (!isDown) return;
       isDown = false;
       strip.classList.remove('is-dragging');
       strip.style.cursor = '';
-      strip.style.userSelect = '';
       strip.style.scrollBehavior = '';
-      /* restore snap a frame later so it settles to the nearest card
-         without fighting the final drag delta */
+      /* restore snap a frame later so it settles onto the nearest card */
       requestAnimationFrame(function(){ strip.style.scrollSnapType = ''; });
+      log('mouseup · scrollLeft ' + strip.scrollLeft);
     }
-    strip.addEventListener('pointerup', endDrag);
-    strip.addEventListener('pointercancel', endDrag);
-    strip.addEventListener('lostpointercapture', endDrag);
+    document.addEventListener('mouseup', endDrag);
+    window.addEventListener('blur', endDrag);
 
     /* Scrub line: segment width = visible fraction, position = scroll progress */
     var scrub = document.querySelector('.xp-strip-scrub i');

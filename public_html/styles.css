@@ -1739,8 +1739,9 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 .xp-stripnav button:hover{ background:var(--cn-navy); color:var(--cn-cream); border-color:var(--cn-navy); }
 .xp-strip{ display:flex; gap:clamp(16px,2vw,26px); overflow-x:auto; scroll-snap-type:x mandatory;
   padding:4px 4px 26px; cursor:grab; scrollbar-width:none;
-  -webkit-mask-image:linear-gradient(90deg, transparent 0, #000 3%, #000 97%, transparent 100%);
-          mask-image:linear-gradient(90deg, transparent 0, #000 3%, #000 97%, transparent 100%); }
+  /* edge-fade mask removed 2026-09-10 while isolating a desktop drag fault:
+     Chromium has shipped stale-repaint bugs for mask-image on scroll
+     containers. Re-add as overlay gradients on a wrapper if the fade is missed. */ }
 .xp-strip::-webkit-scrollbar{ display:none; }
 .xp-strip.is-dragging{ cursor:grabbing; scroll-snap-type:none; user-select:none; }
 .xp-strip:focus-visible{ outline:2px solid var(--cn-gold); outline-offset:6px; }
