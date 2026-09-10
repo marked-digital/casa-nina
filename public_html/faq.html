@@ -179,7 +179,7 @@
 <!-- ===== Sticky category rail ===== -->
 <nav class="xp-cats" id="xpCats" aria-label="Question categories">
   <div class="xp-wrap xp-cats-row">
-    <div class="xp-cats-scroll">
+    <div class="xp-cats-scroll" data-lenis-prevent-horizontal>
       <button class="xp-pill" data-target="booking">Booking &amp; Payments</button>
       <button class="xp-pill" data-target="arrival">Arrival &amp; Check-In</button>
       <button class="xp-pill" data-target="villa">The Villa</button>
@@ -1128,6 +1128,11 @@
 }
 </script>
 
+<!-- Site-wide smooth scrolling: must load before this page's script,
+     which calls window.smoothScrollTo() from openFromHash() at load. -->
+<script src="js/lenis.min.js"></script>
+<script src="js/smooth-scroll.js"></script>
+
 <script>
 (function(){
   "use strict";
@@ -1207,7 +1212,7 @@
       open(item);
       updateToggleAllLabel();
       setTimeout(function(){
-        item.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+        window.smoothScrollTo(item);
       }, 60);
     }
   }
@@ -1309,7 +1314,7 @@
     pill.addEventListener("click", function(){
       var target = d.getElementById(pill.dataset.target);
       if(target){
-        target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+        window.smoothScrollTo(target);
       }
     });
   });
@@ -1343,8 +1348,6 @@
   updateToggleAllLabel();
 })();
 </script>
-<script src="js/lenis.min.js"></script>
-<script src="js/smooth-scroll.js"></script>
 <script src="main.js"></script>
 </body>
 </html>
