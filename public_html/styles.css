@@ -28,6 +28,19 @@ body {
 img { max-width: 100%; height: auto; display: block; }
 a { text-decoration: none; color: inherit; }
 
+/* ===== SMOOTH SCROLL (Lenis 1.3.26, self-hosted in js/) ===== */
+/* Base rules from Lenis's lenis.css, minus `.lenis.lenis-smooth iframe{pointer-events:none}`
+   which would disable every map embed site-wide — nested scrollers and activated embeds
+   use [data-lenis-prevent*] instead. js/smooth-scroll.js does not initialise Lenis when
+   the visitor prefers reduced motion, so the CSS scroll-behavior:smooth above remains the
+   fallback for anchor links. The scroll-behavior:auto rule below is essential: with Lenis
+   driving scrollTop every frame, CSS smooth-behavior would animate each step. */
+html.lenis, html.lenis body{ height:auto; }
+.lenis.lenis-smooth{ scroll-behavior:auto !important; }
+.lenis:not(.lenis-autoToggle).lenis-stopped{ overflow:clip; }
+.lenis [data-lenis-prevent], .lenis [data-lenis-prevent-wheel], .lenis [data-lenis-prevent-touch],
+.lenis [data-lenis-prevent-vertical], .lenis [data-lenis-prevent-horizontal]{ overscroll-behavior:contain; }
+
 /* ===== TYPOGRAPHY ===== */
 .heading-xl {
   font-family: var(--font-serif);
@@ -1552,6 +1565,12 @@ body.page-cn{
      the page now carries the shared site header (section E) and the global
      .footer. Deploy this sheet together with explore.html and faq.html
      (page-faq was renamed page-cn in the same change).
+   · 2026-09-10: hero restored to full-viewport (was min(72svh,720px)) with
+     desktop-centered text; rail-eyebrow nowrap, strip image-drag guards and
+     .xp-strip-scrub added; dead .xp-media__tag rule removed; section[id]
+     scroll margin tokenized to --xp-header-h. Migrated from explore.html's
+     page-overrides block, which is now empty again. DEPLOY-COUPLED with
+     explore.html from the same change.
    ============================================================================ */
 
 :root{
@@ -1598,7 +1617,7 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 /* ─────────────────────────────────────────────
    HERO
    ───────────────────────────────────────────── */
-.xp-hero{ position:relative; min-height:min(72svh, 720px); display:flex; align-items:flex-end;
+.xp-hero{ position:relative; min-height:100vh; min-height:100svh; display:flex; align-items:flex-end;
   padding-top:calc(var(--xp-header-h) + 48px); /* clear the fixed header on short viewports */
   color:var(--cn-white); overflow:hidden; }
 .xp-hero__img{ position:absolute; inset:0; background-position:center; background-size:cover;
@@ -1610,6 +1629,14 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 .xp-hero__veil{ position:absolute; inset:0;
   background:linear-gradient(180deg, rgba(10,20,32,.42) 0%, rgba(10,20,32,.06) 42%, rgba(10,20,32,.78) 100%); }
 .xp-hero__inner{ position:relative; width:100%; padding:0 0 clamp(40px,6vh,64px); }
+/* Desktop: text block truly centered in the full-viewport hero. The section's
+   own padding-top is zeroed so the flex center matches the exact viewport
+   center; the inner's symmetric padding guarantees clearance under the fixed
+   header on short windows. Mobile keeps the bottom-anchored composition. */
+@media (min-width:761px){
+  .xp-hero{ align-items:center; padding-top:0; }
+  .xp-hero__inner{ padding:calc(var(--xp-header-h, 68px) + clamp(32px,5vh,64px)) 0; }
+}
 .xp-hero__kicker{ margin-bottom:26px; }
 .xp-hero h1{ font-size:clamp(58px, 11vw, 138px); letter-spacing:.005em; color:var(--cn-white); }
 .xp-hero__sub{ font-family:var(--cn-display); font-style:italic; font-weight:400;
@@ -1666,6 +1693,8 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
   font-size:clamp(42px,5vw,72px); line-height:1; margin:16px 0 18px; }
 .xp-rail__line{ font-size:15px; font-weight:300; line-height:1.75; max-width:30ch; margin:0; }
 .xp-rail__rule{ width:44px; height:1px; background:var(--cn-gold); margin-top:26px; }
+.xp-rail .xp-eyebrow{ white-space:nowrap; }        /* chapter labels hold one line */
+.xp-rail .xp-eyebrow::before{ flex-shrink:0; }     /* keep the gold dash full-width */
 @media (max-width:960px){
   .xp-chapter__grid{ grid-template-columns:1fr; }
   .xp-rail{ position:static; }
@@ -1686,10 +1715,6 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 .xp-media__img{ position:absolute; inset:-14% 0; background-size:cover; background-position:center; }
 @media (min-width:761px){ .xp-media__img{ will-change:transform; } }
 .xp-media__photo{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
-.xp-media__tag{ position:absolute; left:12px; bottom:12px; z-index:2;
-  font:500 9.5px/1 var(--cn-body); letter-spacing:.14em; text-transform:uppercase;
-  color:rgba(255,255,255,.8); background:rgba(10,20,32,.5); border:1px solid rgba(255,255,255,.18);
-  padding:5px 9px; backdrop-filter:blur(4px); }
 /* gradient fallbacks, brand palette only */
 .xp-ph--sea{ background-image:radial-gradient(90% 70% at 24% 18%, rgba(220,195,145,.2), transparent 52%),
   linear-gradient(160deg,#1A3049 0%, #0E1D30 58%, #0A1622 100%); }
@@ -1719,6 +1744,14 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 .xp-strip::-webkit-scrollbar{ display:none; }
 .xp-strip.is-dragging{ cursor:grabbing; scroll-snap-type:none; user-select:none; }
 .xp-strip:focus-visible{ outline:2px solid var(--cn-gold); outline-offset:6px; }
+.xp-strip img{ -webkit-user-drag:none; user-select:none; } /* no native drag ghost */
+
+/* Scrub line under the strip: the gold segment's width = visible fraction,
+   its position = scroll progress. Updated by JS in explore.html. */
+.xp-strip-scrub{ position:relative; height:2px; margin-top:2px;
+  background:rgba(14,29,48,.12); overflow:hidden; }
+.xp-strip-scrub i{ position:absolute; top:0; bottom:0; left:0; width:40%;
+  background:var(--cn-gold); display:block; }
 .xp-bcard{ flex:0 0 min(76vw, 380px); scroll-snap-align:start; background:var(--cn-white);
   border:1px solid rgba(14,29,48,.1); display:flex; flex-direction:column; }
 .xp-bcard .xp-media{ aspect-ratio:4/4.6; }
@@ -1878,7 +1911,7 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 }
 
 /* ── Mobile refinements ── */
-.xp-page section[id]{ scroll-margin-top:96px; }
+.xp-page section[id]{ scroll-margin-top:calc(var(--xp-header-h, 68px) + 28px); }
 @media (max-width:700px){
   .xp-feature .xp-media{ aspect-ratio:16/11; }
   .xp-feature__cap{ position:static; background:var(--cn-navy-2);

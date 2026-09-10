@@ -193,30 +193,18 @@
   /* ----------------------------------------------------------------
      PAGE OVERRIDES ONLY.
      All styling lives in the shared styles.css (explore layer merged
-     in on 2026-09-08). Use this block solely for explore-specific
-     overrides. Sticky-header contract: the shared fixed header defines
+     in on 2026-09-08; hero/rail/strip fixes + .xp-strip-scrub folded
+     back into that layer on 2026-09-10 — this block is empty again by
+     design). Use it solely for explore-specific overrides.
+     Sticky-header contract: the shared fixed header defines
      --xp-header-h (68px) globally in styles.css; any sticky element
      added to this page should sit at top:var(--xp-header-h) and
      deep-link scroll margins should clear it.
+     Note: the beach-strip drag sets scroll-behavior/scroll-snap inline
+     from JS during the gesture — that is deliberate (the global
+     html{scroll-behavior:smooth} must stay for anchor links) and lives
+     in this page's script, not in CSS.
      ---------------------------------------------------------------- */
-
-  /* Hero — fill the viewport at any resolution; on desktop, keep the
-     text block truly centered in height (was bottom-anchored, which
-     crowded the fold on shorter viewports like 1440). Symmetric padding
-     preserves the exact center while guaranteeing clearance under the
-     fixed header on short windows. Mobile behavior unchanged. */
-  .xp-hero{ min-height:100vh; min-height:100svh; }
-  @media (min-width:761px){
-    .xp-hero{ align-items:center; }
-    .xp-hero__inner{ padding:calc(var(--xp-header-h, 68px) + clamp(32px,5vh,64px)) 0; }
-  }
-
-  /* Chapter rail eyebrows never wrap; keep the dash at full width. */
-  .xp-rail .xp-eyebrow{ white-space:nowrap; }
-  .xp-rail .xp-eyebrow::before{ flex-shrink:0; }
-
-  /* Strip images: no native drag ghost, no text selection mid-drag. */
-  .xp-strip img{ -webkit-user-drag:none; user-select:none; }
 </style>
 </head>
 
@@ -335,7 +323,7 @@
           </div>
         </div>
 
-        <div class="xp-strip" id="beachStrip" tabindex="0" aria-label="Beaches near Casa Nina, scrollable list">
+        <div class="xp-strip" id="beachStrip" tabindex="0" data-lenis-prevent-horizontal aria-label="Beaches near Casa Nina, scrollable list">
 
           <article class="xp-bcard" data-reveal>
             <div class="xp-media"><div class="xp-media__img xp-ph--dusk" data-parallax="0.06"><img class="xp-media__photo" src="images/explore/beach-flamingo.jpg" alt="Calm turquoise water and white sand at Playa Flamingo beach, a short walk from Casa Nina" width="1200" height="1380" loading="lazy" decoding="async" onerror="this.remove()"></div></div>
@@ -392,6 +380,8 @@
           </article>
 
         </div>
+
+        <div class="xp-strip-scrub" aria-hidden="true"><i></i></div>
       </div>
     </div>
   </div>
@@ -761,6 +751,10 @@
   </footer>
 
 <script src="main.js"></script>
+<!-- Site-wide smooth scrolling (shared across all pages) -->
+<script src="js/lenis.min.js"></script>
+<script src="js/smooth-scroll.js"></script>
+
 <script>
 (function(){
   'use strict';
@@ -860,7 +854,16 @@
       isDown = true; moved = false;
       startX = e.clientX; startLeft = strip.scrollLeft;
       strip.classList.add('is-dragging');
+      /* Self-contained gesture: global scroll-behavior:smooth turns every
+         scrollLeft assignment into an animation the next tick cancels
+         (a dead-feeling drag), and mandatory snap re-snaps each tick.
+         Neutralise both inline so no stylesheet merge can break this. */
+      strip.style.scrollBehavior = 'auto';
+      strip.style.scrollSnapType = 'none';
+      strip.style.cursor = 'grabbing';
+      strip.style.userSelect = 'none';
       if (strip.setPointerCapture){ try{ strip.setPointerCapture(e.pointerId); }catch(err){} }
+      e.preventDefault();
     });
     strip.addEventListener('pointermove', function(e){
       if (!isDown) return;
@@ -868,9 +871,33 @@
       if (Math.abs(dx) > 4) moved = true;
       strip.scrollLeft = startLeft - dx;
     });
-    function endDrag(){ isDown = false; strip.classList.remove('is-dragging'); }
+    function endDrag(){
+      if (!isDown) return;
+      isDown = false;
+      strip.classList.remove('is-dragging');
+      strip.style.cursor = '';
+      strip.style.userSelect = '';
+      strip.style.scrollBehavior = '';
+      /* restore snap a frame later so it settles to the nearest card
+         without fighting the final drag delta */
+      requestAnimationFrame(function(){ strip.style.scrollSnapType = ''; });
+    }
     strip.addEventListener('pointerup', endDrag);
     strip.addEventListener('pointercancel', endDrag);
+    strip.addEventListener('lostpointercapture', endDrag);
+
+    /* Scrub line: segment width = visible fraction, position = scroll progress */
+    var scrub = document.querySelector('.xp-strip-scrub i');
+    function updateScrub(){
+      if (!scrub) return;
+      var max = strip.scrollWidth - strip.clientWidth;
+      var frac = strip.scrollWidth > 0 ? strip.clientWidth / strip.scrollWidth : 1;
+      scrub.style.width = (frac * 100) + '%';
+      scrub.style.left = (max > 0 ? (strip.scrollLeft / max) * (1 - frac) * 100 : 0) + '%';
+    }
+    strip.addEventListener('scroll', updateScrub, { passive:true });
+    window.addEventListener('resize', updateScrub);
+    updateScrub();
     strip.addEventListener('click', function(e){
       if (moved){ e.preventDefault(); e.stopPropagation(); moved = false; }
     }, true);
@@ -882,6 +909,9 @@
     if (shield){
       shield.addEventListener('click', function(){
         mapFrame.classList.add('is-active');
+        /* once live, the map owns the wheel (zoom) — tell Lenis to yield here */
+        var embed = mapFrame.querySelector('.xp-map-embed');
+        if (embed) embed.setAttribute('data-lenis-prevent', '');
       });
     }
   }
