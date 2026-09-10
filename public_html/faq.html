@@ -5,22 +5,14 @@
   Built by Marked Digital · Phase 1 deliverable
   ============================================================================
   INTEGRATION NOTES
-  1. TOKENS: All placeholder policy details use [[DOUBLE_BRACKET]] tokens for
-     a clean find-and-replace once the client confirms. Full index:
-       [[DEPOSIT_AMOUNT]] [[BALANCE_DUE_TIMING]] [[PAYMENT_METHODS]]
-       [[CANCELLATION_POLICY]] [[SECURITY_DEPOSIT_DETAILS]] [[MIN_STAY_DETAILS]]
-       [[CHECK_IN_TIME]] [[CHECK_OUT_TIME]] [[EARLY_LATE_POLICY]]
-       [[ACCESSIBILITY_DETAILS]] [[BED_CONFIGURATIONS]] [[AC_LAUNDRY_DETAILS]]
-       [[HOUSE_RULES]] [[POOL_SAFETY_DETAILS]] [[POOL_HEATING]]
-       [[SECURITY_DETAILS]] [[MEDICAL_INFO]] [[WIFI_SPEED]]
-       [[WORKSPACE_DETAILS]] [[CELL_COVERAGE]] [[EVENTS_POLICY]]
-       [[KITCHEN_DETAILS]] [[RESPONSE_TIME]] [[KARINA_WHATSAPP_NUMBER]]
-       [[CONTACT_EMAIL]]
-     Items still carrying tokens show a small gold "Being finalized" chip.
-     Remove the chip (class xp-chip) when the answer is confirmed.
-  2. SCHEMA: The FAQPage JSON-LD at the bottom includes ONLY questions whose
-     answers are final. Add the remaining Q&As to mainEntity as policies are
-     confirmed; never ship placeholder text inside schema.
+  1. TOKENS: Retired. Every double-bracket placeholder was resolved on
+     2026-09-10 from the client's completed worksheet, and the gold
+     "Being finalized" chips were removed with them. Per client direction,
+     the host is never mentioned by name; use "our concierge", "our team"
+     or "your host" in all guest-facing copy.
+  2. SCHEMA: The FAQPage JSON-LD mirrors all 40 on-page answers
+     (completed 2026-09-10). If an answer changes on the page, update its
+     schema twin in the same commit; never let the two drift.
   3. HEADER / FOOTER: The shared site header now ships on this page (markup
      below <body>, styles in styles.css section E, behavior in main.js).
      --xp-header-h (68px) and --xp-anchor-offset (144px) are defined globally
@@ -31,8 +23,6 @@
      base with class="page-cn" on <body>. The inline block below is for
      page overrides only; the page has no standalone styling.
   5. LAUNCH CHECKLIST (mirrors explore.html):
-       · Deploy the merged styles.css together with this file (merge
-         completed 2026-09-08; the page no longer styles itself)
        · Add /faq to sitemap.xml and resubmit in Search Console
        · Internal links from homepage + explore using descriptive anchors,
          e.g. "frequently asked questions about staying at Casa Nina"
@@ -171,7 +161,6 @@
         <input type="search" id="xpSearch" placeholder="Try &ldquo;airport&rdquo;, &ldquo;chef&rdquo; or &ldquo;deposit&rdquo;" autocomplete="off">
         <button class="xp-search-clear" id="xpSearchClear" aria-label="Clear search">&times;</button>
       </div>
-      <p class="xp-hero-note"><span class="xp-chip">Being finalized</span> A few answers are marked like this while we finalize the exact details. They will appear here the moment they are confirmed.</p>
     </div>
   </div>
 </section>
@@ -199,7 +188,7 @@
     <p class="xp-meta" id="xpResultMeta" aria-live="polite"></p>
     <div class="xp-noresults" id="xpNoResults">
       <h2>We haven't answered that one here yet.</h2>
-      <p>Try a different word, or simply ask us. Karina and our concierge team answer every question personally, usually the same day.</p>
+      <p>Try a different word, or simply ask us. Our concierge team answers every question personally, usually the same day.</p>
       <button type="button" id="xpResetSearch">Clear search</button>
     </div>
   </div>
@@ -212,7 +201,7 @@
       <header class="xp-sec-head">
         <span class="xp-kicker xp-caps">Booking &amp; Payments</span>
         <h2 class="xp-sec-title" id="booking-title">Reserve with confidence</h2>
-        <p class="xp-sec-intro">The practical side of planning: dates, deposits and payments. Anything not yet published here, Karina will gladly confirm in writing before you book.</p>
+        <p class="xp-sec-intro">The practical side of planning: dates, deposits and payments. Every figure below is confirmed in writing in your booking summary before you pay.</p>
       </header>
       <div class="xp-items">
 
@@ -232,14 +221,14 @@
         <article class="xp-item" id="q-deposit" data-tags="deposit payment balance due pay methods card wire">
           <h3 class="xp-q-h"><button class="xp-q" aria-expanded="false" aria-controls="a-deposit">
             <span class="xp-q-text">What deposit is required, and when is the balance due?</span>
-            <span class="xp-chip">Being finalized</span>
+           
             <span class="xp-icon" aria-hidden="true"></span>
           </button></h3>
           <div class="xp-a" id="a-deposit" role="region">
             <div class="xp-a-inner">
               <!-- TODO(client): confirm deposit %, balance timing, accepted payment methods -->
-              <p>A deposit of <span class="xp-token">[[DEPOSIT_AMOUNT]]</span> secures your dates, with the balance due <span class="xp-token">[[BALANCE_DUE_TIMING]]</span> before arrival. We accept <span class="xp-token">[[PAYMENT_METHODS]]</span>.</p>
-              <p>We are finalizing the full payment terms for this page. In the meantime, Karina will happily set everything out in writing before you book.</p>
+              <p>A deposit of 50% of your total secures your dates, with the balance due 14 days before arrival. We accept payment by credit card.</p>
+              <p>Both payments are set out in your booking summary, so the numbers are never a surprise.</p>
             </div>
           </div>
         </article>
@@ -247,14 +236,15 @@
         <article class="xp-item" id="q-cancellation" data-tags="cancel cancellation refund policy change dates insurance">
           <h3 class="xp-q-h"><button class="xp-q" aria-expanded="false" aria-controls="a-cancellation">
             <span class="xp-q-text">What is the cancellation policy?</span>
-            <span class="xp-chip">Being finalized</span>
+           
             <span class="xp-icon" aria-hidden="true"></span>
           </button></h3>
           <div class="xp-a" id="a-cancellation" role="region">
             <div class="xp-a-inner">
               <!-- TODO(client): publish full cancellation tiers verbatim -->
-              <p><span class="xp-token">[[CANCELLATION_POLICY]]</span></p>
-              <p>The complete policy is being finalized and will appear here word for word. If you are considering travel insurance, or think your dates might move, mention it to Karina before you book and she will walk you through your options.</p>
+              <p>Full refund up to 30 days before arrival; no refund inside 30 days.</p>
+              <p>For stays over Christmas, New Year's, March Break and Easter: full refund up to 60 days before arrival, 50% up to 30 days, and no refund inside 30 days.</p>
+              <p>If you are considering travel insurance, or think your dates might move, mention it to our concierge before you book and they will walk you through your options.</p>
             </div>
           </div>
         </article>
@@ -262,14 +252,14 @@
         <article class="xp-item" id="q-security-deposit" data-tags="security deposit damage waiver hold refund">
           <h3 class="xp-q-h"><button class="xp-q" aria-expanded="false" aria-controls="a-security-deposit">
             <span class="xp-q-text">Is there a security deposit?</span>
-            <span class="xp-chip">Being finalized</span>
+           
             <span class="xp-icon" aria-hidden="true"></span>
           </button></h3>
           <div class="xp-a" id="a-security-deposit" role="region">
             <div class="xp-a-inner">
               <!-- TODO(client): confirm security deposit / damage waiver terms -->
-              <p><span class="xp-token">[[SECURITY_DEPOSIT_DETAILS]]</span></p>
-              <p>Whatever the final terms, any hold or waiver will be set out clearly in your booking summary before you pay, so there are no surprises when you arrive.</p>
+              <p>A refundable damage hold is placed on your credit card: $2,500 for the Full Casa and $1,500 for the Half Casa, released after your stay.</p>
+              <p>The hold is set out clearly in your booking summary before you pay, so there are no surprises when you arrive.</p>
             </div>
           </div>
         </article>
@@ -277,14 +267,14 @@
         <article class="xp-item" id="q-minimum-stay" data-tags="minimum stay nights length season holidays christmas">
           <h3 class="xp-q-h"><button class="xp-q" aria-expanded="false" aria-controls="a-minimum-stay">
             <span class="xp-q-text">Is there a minimum stay?</span>
-            <span class="xp-chip">Being finalized</span>
+           
             <span class="xp-icon" aria-hidden="true"></span>
           </button></h3>
           <div class="xp-a" id="a-minimum-stay" role="region">
             <div class="xp-a-inner">
               <!-- TODO(client): confirm minimum nights by season -->
-              <p><span class="xp-token">[[MIN_STAY_DETAILS]]</span></p>
-              <p>Minimum stays vary a little by season, especially over the festive weeks. Share your dates with us and we will confirm right away.</p>
+              <p>Casa Nina has a 4-night minimum stay. Over the festive weeks of Christmas, New Year's, March Break and Easter, the minimum is 7 nights.</p>
+              <p>Share your dates with us and we will confirm availability right away.</p>
             </div>
           </div>
         </article>
@@ -321,14 +311,14 @@
         <article class="xp-item" id="q-checkin-times" data-tags="check in out time arrival departure hours">
           <h3 class="xp-q-h"><button class="xp-q" aria-expanded="false" aria-controls="a-checkin-times">
             <span class="xp-q-text">What are check-in and check-out times?</span>
-            <span class="xp-chip">Being finalized</span>
+           
             <span class="xp-icon" aria-hidden="true"></span>
           </button></h3>
           <div class="xp-a" id="a-checkin-times" role="region">
             <div class="xp-a-inner">
               <!-- TODO(client): confirm standard check-in / check-out times -->
-              <p>Check-in from <span class="xp-token">[[CHECK_IN_TIME]]</span> and check-out by <span class="xp-token">[[CHECK_OUT_TIME]]</span>.</p>
-              <p>Karina coordinates your exact arrival over WhatsApp, so everything is ready when you walk in.</p>
+              <p>Check-in is from 3:00 PM and check-out is by 10:00 AM.</p>
+              <p>Our concierge coordinates your exact arrival over WhatsApp, so everything is ready when you walk in.</p>
             </div>
           </div>
         </article>
@@ -349,14 +339,14 @@
         <article class="xp-item" id="q-early-late" data-tags="early check in late check out flight times luggage">
           <h3 class="xp-q-h"><button class="xp-q" aria-expanded="false" aria-controls="a-early-late">
             <span class="xp-q-text">Can we arrange early check-in or late check-out?</span>
-            <span class="xp-chip">Being finalized</span>
+           
             <span class="xp-icon" aria-hidden="true"></span>
           </button></h3>
           <div class="xp-a" id="a-early-late" role="region">
             <div class="xp-a-inner">
               <!-- TODO(client): confirm early/late policy and any fees -->
-              <p>Early check-in and late check-out are often possible, depending on same-day turnovers. <span class="xp-token">[[EARLY_LATE_POLICY]]</span></p>
-              <p>Share your flight times when you book and Karina will build the day around them.</p>
+              <p>Early check-in is often possible when the villa is ready, and we are always happy to hold your luggage while it is being prepared. Late check-out works whenever there is no same-day turnover.</p>
+              <p>Share your flight times when you book and our team will build the day around them.</p>
             </div>
           </div>
         </article>
@@ -368,7 +358,7 @@
           </button></h3>
           <div class="xp-a" id="a-need-a-car" role="region">
             <div class="xp-a-inner">
-              <p>Many of our guests find they do not need a car at all. The beach is a short walk away, airport transfers are included, and Karina can arrange drivers for dinners and day trips.</p>
+              <p>Many of our guests find they do not need a car at all. The beach is a short walk away, airport transfers are included, and our concierge can arrange drivers for dinners and day trips.</p>
               <p>If you would like your own transport, we can arrange a rental car from a Toyota fleet seating 5 to 16 passengers, or an electric golf cart, which is welcome on all local roads and a favorite way to get around Flamingo.</p>
             </div>
           </div>
@@ -419,14 +409,14 @@
         <article class="xp-item" id="q-elevator" data-tags="elevator accessible accessibility wheelchair mobility elderly stairs">
           <h3 class="xp-q-h"><button class="xp-q" aria-expanded="false" aria-controls="a-elevator">
             <span class="xp-q-text">Is there an elevator? How accessible is the villa?</span>
-            <span class="xp-chip">Being finalized</span>
+           
             <span class="xp-icon" aria-hidden="true"></span>
           </button></h3>
           <div class="xp-a" id="a-elevator" role="region">
             <div class="xp-a-inner">
-              <p>Yes. A private elevator connects the villa's floors, a rare comfort in Playa Flamingo. It makes life easier for grandparents, for guests with limited mobility, and for parents carrying a sleeping toddler up to bed.</p>
+              <p>Yes, fully. A ramp at the entrance, a private elevator serving all three floors, and curbless walk-in showers make Casa Nina genuinely wheelchair accessible, a rare comfort in Playa Flamingo.</p>
               <!-- TODO(client): confirm door widths, step-free routes, accessible bathroom details -->
-              <p>Exact accessibility details are being added to this page: <span class="xp-token">[[ACCESSIBILITY_DETAILS]]</span>. If access matters to your group, share your needs with Karina and she will confirm every detail personally.</p>
+              <p>The layout also makes life easier for grandparents and for parents carrying a sleeping toddler up to bed. If access matters to your group, share your needs with our concierge and they will confirm every detail personally.</p>
             </div>
           </div>
         </article>
@@ -447,14 +437,23 @@
         <article class="xp-item" id="q-beds" data-tags="bed configurations king queen twin cribs rooms sleeping arrangements">
           <h3 class="xp-q-h"><button class="xp-q" aria-expanded="false" aria-controls="a-beds">
             <span class="xp-q-text">What are the bed configurations?</span>
-            <span class="xp-chip">Being finalized</span>
+           
             <span class="xp-icon" aria-hidden="true"></span>
           </button></h3>
           <div class="xp-a" id="a-beds" role="region">
             <div class="xp-a-inner">
               <!-- TODO(client): room-by-room bed breakdown, crib/pack-n-play availability -->
-              <p><span class="xp-token">[[BED_CONFIGURATIONS]]</span></p>
-              <p>A room-by-room guide is coming to this page. If you are traveling with little ones or have particular room requests, Karina will plan the rooms with you before you arrive.</p>
+              <p>Seven bedrooms, every one with an ocean view:</p>
+              <ul>
+                <li>Bedroom 1 (Floor 1, Half or Full Casa): king bed, ensuite bathroom, walk-in closet</li>
+                <li>Bedroom 2 (Floor 1, Half or Full Casa): queen bed, shared bathroom</li>
+                <li>Bedroom 3 (Floor 1, Half or Full Casa): king bed, shared bathroom</li>
+                <li>Bedroom 4 (Floor 2, Full Casa): king bed, ensuite bathroom, walk-in closet</li>
+                <li>Bedroom 5 (Floor 2, Full Casa): queen bed, shared bathroom</li>
+                <li>Bedroom 6 (Floor 2, Full Casa): king bed, shared bathroom</li>
+                <li>Bedroom 7 (Floor 3, Full Casa): king bed, ensuite bathroom</li>
+              </ul>
+              <p>A crib is available in Bedroom 1, and if you are traveling with little ones or have particular room requests, our concierge will plan the rooms with you before you arrive.</p>
             </div>
           </div>
         </article>
@@ -462,29 +461,29 @@
         <article class="xp-item" id="q-comfort" data-tags="air conditioning ac laundry washer dryer amenities">
           <h3 class="xp-q-h"><button class="xp-q" aria-expanded="false" aria-controls="a-comfort">
             <span class="xp-q-text">Is there air conditioning and laundry?</span>
-            <span class="xp-chip">Being finalized</span>
+           
             <span class="xp-icon" aria-hidden="true"></span>
           </button></h3>
           <div class="xp-a" id="a-comfort" role="region">
             <div class="xp-a-inner">
               <!-- TODO(client): confirm A/C coverage, washer/dryer, full amenity list -->
-              <p><span class="xp-token">[[AC_LAUNDRY_DETAILS]]</span></p>
-              <p>The full amenity list will be published here shortly. In the meantime, our concierge team can confirm any comfort question within minutes.</p>
+              <p>Every bedroom, living room and kitchen has its own A/C unit, and the first and second floors each have a dedicated laundry room with a washer and dryer.</p>
+              <p>Our concierge team can confirm any other comfort question within minutes.</p>
             </div>
           </div>
         </article>
 
         <article class="xp-item" id="q-house-rules" data-tags="house rules pets smoking quiet hours parties dogs">
           <h3 class="xp-q-h"><button class="xp-q" aria-expanded="false" aria-controls="a-house-rules">
-            <span class="xp-q-text">What are the house rules on pets, smoking and quiet hours?</span>
-            <span class="xp-chip">Being finalized</span>
+            <span class="xp-q-text">What are the house rules on pets and smoking?</span>
+           
             <span class="xp-icon" aria-hidden="true"></span>
           </button></h3>
           <div class="xp-a" id="a-house-rules" role="region">
             <div class="xp-a-inner">
               <!-- TODO(client): confirm pet policy, smoking policy, quiet hours, event/party rules -->
-              <p><span class="xp-token">[[HOUSE_RULES]]</span></p>
-              <p>The pet, smoking and quiet-hours policies are being finalized for this page. Whatever you are dreaming up, from a birthday dinner to a sunrise yoga circle, share it with Karina and she will tell you exactly what is possible.</p>
+              <p>The house keeps two simple rules: no smoking indoors, and no pets.</p>
+              <p>Whatever you are dreaming up, from a birthday dinner to a sunrise yoga circle, share it with our concierge and they will tell you exactly what is possible.</p>
             </div>
           </div>
         </article>
@@ -518,15 +517,15 @@
           </div>
         </article>
 
-        <article class="xp-item" id="q-karina" data-tags="karina concierge house manager contact whatsapp point of contact host">
-          <h3 class="xp-q-h"><button class="xp-q" aria-expanded="false" aria-controls="a-karina">
-            <span class="xp-q-text">Who is Karina?</span>
+        <article class="xp-item" id="q-host" data-tags="host concierge house manager contact whatsapp point of contact team">
+          <h3 class="xp-q-h"><button class="xp-q" aria-expanded="false" aria-controls="a-host">
+            <span class="xp-q-text">Who looks after us during our stay?</span>
             <span class="xp-icon" aria-hidden="true"></span>
           </button></h3>
-          <div class="xp-a" id="a-karina" role="region">
+          <div class="xp-a" id="a-host" role="region">
             <div class="xp-a-inner">
-              <p>Karina is Casa Nina's co-host and house manager, and your single point of contact from booking to checkout. She'll set up a WhatsApp group with the concierge team, coordinate your arrival, and arrange anything from a chef dinner to a catamaran day.</p>
-              <p>Guests mention her by name in their reviews, and once you have met her, you will understand why.</p>
+              <p>Your host and concierge team, your single point of contact from booking to checkout. They will set up a WhatsApp group for your stay, coordinate your arrival, and arrange anything from a chef dinner to a catamaran day.</p>
+              <p>Our hosts are mentioned by name in guest reviews, and once you have been welcomed in, you will understand why.</p>
             </div>
           </div>
         </article>
@@ -539,7 +538,7 @@
           <div class="xp-a" id="a-housekeeping" role="region">
             <div class="xp-a-inner">
               <p>The villa is refreshed daily by our maid service, included with every stay. Additional cleaning or mid-stay turnovers can be arranged whenever you'd like them.</p>
-              <p>Karina will arrange timing around your group's rhythm, whether that means a slow breakfast or an early start at the beach.</p>
+              <p>Our team will arrange timing around your group's rhythm, whether that means a slow breakfast or an early start at the beach.</p>
             </div>
           </div>
         </article>
@@ -588,7 +587,7 @@
                 <li>Craft Burger night: $55 per person, with Japanese Wagyu upgrades available</li>
                 <li>Taco Bar: $55 per person (minimum 6, buffet style)</li>
               </ul>
-              <p>Prices and menus are set by the chef and may evolve with the seasons. Karina will share the latest and reserve your evenings before you arrive.</p>
+              <p>Prices and menus are set by the chef and may evolve with the seasons. Our concierge will share the latest and reserve your evenings before you arrive.</p>
             </div>
           </div>
         </article>
@@ -609,14 +608,14 @@
         <article class="xp-item" id="q-kitchens" data-tags="kitchens dual two cooking equipment appliances">
           <h3 class="xp-q-h"><button class="xp-q" aria-expanded="false" aria-controls="a-kitchens">
             <span class="xp-q-text">What are the kitchens like?</span>
-            <span class="xp-chip">Being finalized</span>
+           
             <span class="xp-icon" aria-hidden="true"></span>
           </button></h3>
           <div class="xp-a" id="a-kitchens" role="region">
             <div class="xp-a-inner">
               <p>There are two full kitchens, one in each living unit, so even a large group has all the room it needs. Cook together one night and invite Chef Rafael in the next.</p>
               <!-- TODO(client): confirm appliance/equipment rundown -->
-              <p>A full equipment rundown is being added here: <span class="xp-token">[[KITCHEN_DETAILS]]</span>.</p>
+              <p>Each kitchen is fully equipped: fridge with ice maker, stove, oven, dishwasher, coffee machine, blender, toaster, and every plate, pot, pan and utensil a group of fourteen could need. You will also find barbecues on the first-floor patio and the rooftop terrace.</p>
             </div>
           </div>
         </article>
@@ -628,7 +627,7 @@
           </button></h3>
           <div class="xp-a" id="a-dietary" role="region">
             <div class="xp-a-inner">
-              <p>Yes, of course. Tell Karina about any allergies, vegetarian preferences or children's plates when you book your chef experiences, and she will coordinate everything with the chef directly.</p>
+              <p>Yes, of course. Tell our concierge about any allergies, vegetarian preferences or children's plates when you book your chef experiences, and they will coordinate everything with the chef directly.</p>
               <p>Buffet-style experiences like the Taco Bar are wonderful for groups with mixed tastes, since everyone composes their own plate.</p>
             </div>
           </div>
@@ -653,14 +652,14 @@
         <article class="xp-item" id="q-pool-kids" data-tags="pool safety children kids toddlers fence depth shallow supervision">
           <h3 class="xp-q-h"><button class="xp-q" aria-expanded="false" aria-controls="a-pool-kids">
             <span class="xp-q-text">Is the pool safe for young children?</span>
-            <span class="xp-chip">Being finalized</span>
+           
             <span class="xp-icon" aria-hidden="true"></span>
           </button></h3>
           <div class="xp-a" id="a-pool-kids" role="region">
             <div class="xp-a-inner">
               <!-- TODO(client): publish pool depth, fencing/gate status, supervision guidance -->
-              <p>We take this seriously, and we want to give you exact specifics rather than a vague yes. Pool depth, fencing and supervision guidance are being finalized for this page: <span class="xp-token">[[POOL_SAFETY_DETAILS]]</span>.</p>
-              <p>Until then, please ask Karina anything at all. She will answer every question fully before you book.</p>
+              <p>Yes, with the usual care around water. The infinity pool is 5 feet deep with easy-access steps, and a fully secured railing runs along the perimeter of the terrace.</p>
+              <p>Please ask our concierge anything at all. Every question is answered fully before you book.</p>
             </div>
           </div>
         </article>
@@ -668,13 +667,13 @@
         <article class="xp-item" id="q-pool-heated" data-tags="pool heated temperature warm water swim">
           <h3 class="xp-q-h"><button class="xp-q" aria-expanded="false" aria-controls="a-pool-heated">
             <span class="xp-q-text">Is the pool heated?</span>
-            <span class="xp-chip">Being finalized</span>
+           
             <span class="xp-icon" aria-hidden="true"></span>
           </button></h3>
           <div class="xp-a" id="a-pool-heated" role="region">
             <div class="xp-a-inner">
               <!-- TODO(client): confirm pool heating setup -->
-              <p>We'll publish the exact pool heating setup here: <span class="xp-token">[[POOL_HEATING]]</span>.</p>
+              <p>The pool is unheated because it simply does not need it: the water typically sits around 75 to 80 degrees.</p>
               <p>Guanacaste is Costa Rica's warmest, sunniest coast, and most of the year here is pool weather.</p>
             </div>
           </div>
@@ -683,14 +682,14 @@
         <article class="xp-item" id="q-security" data-tags="security gated safe community locks neighborhood">
           <h3 class="xp-q-h"><button class="xp-q" aria-expanded="false" aria-controls="a-security">
             <span class="xp-q-text">Is the villa gated or secured?</span>
-            <span class="xp-chip">Being finalized</span>
+           
             <span class="xp-icon" aria-hidden="true"></span>
           </button></h3>
           <div class="xp-a" id="a-security" role="region">
             <div class="xp-a-inner">
               <!-- TODO(client): confirm what security details to publish -->
-              <p>We are finalizing the security details we publish here: <span class="xp-token">[[SECURITY_DETAILS]]</span>.</p>
-              <p>What we can share now: our house team is at the villa daily, Karina is only a WhatsApp message away, and any concern is met with a quick, personal response.</p>
+              <p>The neighborhood is protected by full 24/7 security, with monitored cameras along the streets and around the perimeter of the house, and a dedicated guard stationed outside the villa gate from 6 PM to 6 AM.</p>
+              <p>Our house team is at the villa daily, the concierge is only a WhatsApp message away, and any concern is met with a quick, personal response.</p>
             </div>
           </div>
         </article>
@@ -698,14 +697,14 @@
         <article class="xp-item" id="q-medical" data-tags="medical care doctor clinic hospital pharmacy emergency">
           <h3 class="xp-q-h"><button class="xp-q" aria-expanded="false" aria-controls="a-medical">
             <span class="xp-q-text">What about medical care nearby?</span>
-            <span class="xp-chip">Being finalized</span>
+           
             <span class="xp-icon" aria-hidden="true"></span>
           </button></h3>
           <div class="xp-a" id="a-medical" role="region">
             <div class="xp-a-inner">
               <!-- TODO(client): confirm nearest clinic/pharmacy names, distances, emergency contacts for guest guide -->
-              <p>Clinic and pharmacy details for the guest guide are being confirmed: <span class="xp-token">[[MEDICAL_INFO]]</span>.</p>
-              <p>Playa Flamingo is a well-developed resort town with services close at hand, and our concierge team will always help you reach the right care quickly.</p>
+              <p>Several clinics and pharmacies are close by, the nearest at the Flamingo Marina less than a five-minute drive away, with professional doctors, a full pharmacy, an ambulance and even a heliport for emergencies.</p>
+              <p>Every emergency contact number is in your guest guide, and our concierge team will always help you reach the right care quickly.</p>
             </div>
           </div>
         </article>
@@ -729,14 +728,14 @@
         <article class="xp-item" id="q-wifi" data-tags="wifi internet speed mbps streaming video calls zoom fast">
           <h3 class="xp-q-h"><button class="xp-q" aria-expanded="false" aria-controls="a-wifi">
             <span class="xp-q-text">How fast is the Wi-Fi?</span>
-            <span class="xp-chip">Being finalized</span>
+           
             <span class="xp-icon" aria-hidden="true"></span>
           </button></h3>
           <div class="xp-a" id="a-wifi" role="region">
             <div class="xp-a-inner">
               <!-- TODO(client): run a speed test at the villa and publish verified numbers + coverage -->
-              <p>The villa has Wi-Fi. Verified speeds and coverage are being published here: <span class="xp-token">[[WIFI_SPEED]]</span>.</p>
-              <p>If your stay depends on a particular speed, for video calls or a working holiday, Karina can run a fresh speed test for you before you book.</p>
+              <p>Fast on every floor. Each level has its own dedicated modem, with measured speeds of 278 Mbps down and 52 Mbps up in the main living areas, and 113 Mbps down and 79 Mbps up in the farthest bedroom.</p>
+              <p>If your stay depends on a particular speed, for video calls or a working holiday, our concierge can run a fresh speed test for you before you book.</p>
             </div>
           </div>
         </article>
@@ -744,14 +743,14 @@
         <article class="xp-item" id="q-workspaces" data-tags="workspace desk remote work laptop quiet office">
           <h3 class="xp-q-h"><button class="xp-q" aria-expanded="false" aria-controls="a-workspaces">
             <span class="xp-q-text">Is there space to work?</span>
-            <span class="xp-chip">Being finalized</span>
+           
             <span class="xp-icon" aria-hidden="true"></span>
           </button></h3>
           <div class="xp-a" id="a-workspaces" role="region">
             <div class="xp-a-inner">
               <p>With two living units, seven bedrooms and several living areas, there is always a quiet corner to work from.</p>
               <!-- TODO(client): confirm dedicated desk/workspace details -->
-              <p>Dedicated workspace details are being added here: <span class="xp-token">[[WORKSPACE_DETAILS]]</span>.</p>
+              <p>The third-floor bedroom has a dedicated work desk and chair, and the large dining tables on the first and second floors make generous work-friendly spots.</p>
             </div>
           </div>
         </article>
@@ -759,13 +758,13 @@
         <article class="xp-item" id="q-cell" data-tags="cell phone coverage signal roaming esim data carrier">
           <h3 class="xp-q-h"><button class="xp-q" aria-expanded="false" aria-controls="a-cell">
             <span class="xp-q-text">What is cell coverage like?</span>
-            <span class="xp-chip">Being finalized</span>
+           
             <span class="xp-icon" aria-hidden="true"></span>
           </button></h3>
           <div class="xp-a" id="a-cell" role="region">
             <div class="xp-a-inner">
               <!-- TODO(client): confirm carrier coverage notes at the villa -->
-              <p>Carrier notes for the villa are being confirmed: <span class="xp-token">[[CELL_COVERAGE]]</span>.</p>
+              <p>All local carriers work very well at the house, with Liberty and ICE the two you will typically see.</p>
               <p>Major Costa Rican carriers cover Playa Flamingo well, most international phones roam smoothly, and eSIM data plans are an easy, affordable option for the week.</p>
             </div>
           </div>
@@ -783,7 +782,7 @@
       <header class="xp-sec-head">
         <span class="xp-kicker xp-caps">Activities &amp; Experiences</span>
         <h2 class="xp-sec-title" id="activities-title">Adventures in every direction</h2>
-        <p class="xp-sec-intro">Everything below can be arranged through Karina with a single WhatsApp message.</p>
+        <p class="xp-sec-intro">Everything below can be arranged through our concierge with a single WhatsApp message.</p>
         <div class="xp-sec-cta"><a class="xp-btn xp-btn--navy" href="explore.html">Things to do in Playa Flamingo</a></div>
       </header>
       <div class="xp-items">
@@ -796,7 +795,7 @@
           <div class="xp-a" id="a-things-to-do" role="region">
             <div class="xp-a-inner">
               <p>On the water: surf classes, kayaking and stand-up paddle, snorkeling and scuba, guided fishing charters, and all-inclusive catamaran days with open bar and lunch.</p>
-              <p>On land: horseback riding through mountains and along beaches, ATV and UTV tours, mountain biking, canopy zip-lining, or an at-home spa day with massages, facials and mani-pedis at the villa or on the beach. Karina will happily arrange all of it.</p>
+              <p>On land: horseback riding through mountains and along beaches, ATV and UTV tours, mountain biking, canopy zip-lining, or an at-home spa day with massages, facials and mani-pedis at the villa or on the beach. Our concierge will happily arrange all of it.</p>
             </div>
           </div>
         </article>
@@ -822,7 +821,7 @@
           <div class="xp-a" id="a-multi-day" role="region">
             <div class="xp-a-inner">
               <p>Gladly. Multi-day journeys are part of what our concierge arranges. Arenal and La Fortuna: volcano hikes, La Fortuna Waterfall, hanging bridges and hot springs, with an eco-resort stay at Hotel Montaña de Fuego. Monteverde: the cloud forest's treetop walkways, butterfly gardens and Selvatura Park, with lunch and transport taken care of.</p>
-              <p>Share your dates with Karina and she will build the itinerary around them.</p>
+              <p>Share your dates with our concierge and they will build the itinerary around them.</p>
             </div>
           </div>
         </article>
@@ -830,14 +829,14 @@
         <article class="xp-item" id="q-events" data-tags="wedding retreat event corporate group celebration party host">
           <h3 class="xp-q-h"><button class="xp-q" aria-expanded="false" aria-controls="a-events">
             <span class="xp-q-text">Can we host a wedding, retreat or event?</span>
-            <span class="xp-chip">Being finalized</span>
+           
             <span class="xp-icon" aria-hidden="true"></span>
           </button></h3>
           <div class="xp-a" id="a-events" role="region">
             <div class="xp-a-inner">
               <p>The villa hosts retreat-sized groups by design, with two living units, dual kitchens and room for fourteen overnight.</p>
               <!-- TODO(client): confirm event guest counts, vendor policy, fees -->
-              <p>Event terms covering guest counts, vendors and fees are being finalized: <span class="xp-token">[[EVENTS_POLICY]]</span>. If you are planning a celebration or retreat, start the conversation early and we will plan it properly with you.</p>
+              <p>Special events and celebrations are warmly welcomed as long as they are organized through our management team, with no extra fees or deposit required. If you are planning one, start the conversation early and we will plan it properly with you.</p>
             </div>
           </div>
         </article>
@@ -921,11 +920,11 @@
       <span class="xp-cta-kicker xp-caps">Everyone. Together. Comfortably.</span>
       <h2 class="xp-cta-title" id="cta-title">We’d love to host you.</h2>
       <!-- TODO(client): confirm promised response time; replace WhatsApp number + email tokens -->
-      <p class="xp-cta-copy">Every inquiry receives a personal reply, and Karina typically responds within <span class="xp-token">[[RESPONSE_TIME]]</span>. Whatever this page has not answered, we would love to answer for you.</p>
+      <p class="xp-cta-copy">Every inquiry receives a personal reply, typically the same day and never longer than 24 hours. Whatever this page has not answered, we would love to answer for you.</p>
       <div class="xp-cta-row">
         <a class="xp-btn xp-btn--gold" href="index.html#inquire">Check availability</a>
-        <a class="xp-btn xp-btn--ghost" href="https://wa.me/[[KARINA_WHATSAPP_NUMBER]]">WhatsApp Karina</a>
-        <a class="xp-btn xp-btn--ghost" href="mailto:[[CONTACT_EMAIL]]">Email the team</a>
+        <a class="xp-btn xp-btn--ghost" href="https://wa.me/16473284929">WhatsApp the concierge</a>
+        <a class="xp-btn xp-btn--ghost" href="mailto:info@casaninaflamingo.com">Email the team</a>
       </div>
     </div>
   </section>
@@ -933,11 +932,10 @@
 
 <!-- ============================================================
      Structured data.
-     NOTE: FAQPage mainEntity includes ONLY finalized answers.
-     Add the remaining Q&As here as policies are confirmed.
-     Never ship [[PLACEHOLDER]] text inside schema.
-     Align the VacationRental @id with the node already used
-     on explore.html so Google merges them into one entity.
+     FAQPage mirrors all 40 on-page answers (finalized 2026-09-10).
+     If an answer changes on the page, update its schema twin in the
+     same commit. Align the VacationRental @id with the node already
+     used on explore.html so Google merges them into one entity.
      ============================================================ -->
 <script type="application/ld+json">
 {
@@ -957,6 +955,9 @@
       "url": "https://casaninaflamingo.com/",
       "slogan": "Everyone. Together. Comfortably.",
       "numberOfRooms": 7,
+      "petsAllowed": false,
+      "checkinTime": "15:00",
+      "checkoutTime": "10:00",
       "description": "Luxury seven-bedroom villa in Playa Flamingo, Guanacaste, Costa Rica. Sleeps 14 across two independent living units, with a private elevator, concierge service and included airport transfers.",
       "address": {
         "@type": "PostalAddress",
@@ -978,7 +979,7 @@
       "description": "Answers about booking, deposits, airport transfers, included services, private chef options, pool safety and Wi-Fi at Casa Nina Flamingo, a 7-bedroom villa in Playa Flamingo, Costa Rica.",
       "inLanguage": "en",
       "datePublished": "2026-09-08",
-      "dateModified": "2026-09-08",
+      "dateModified": "2026-09-10",
       "isPartOf": { "@id": "https://casaninaflamingo.com/#website" },
       "about": { "@id": "https://casaninaflamingo.com/#vacationrental" },
       "breadcrumb": { "@id": "https://casaninaflamingo.com/faq.html#breadcrumb" }
@@ -1004,99 +1005,213 @@
         },
         {
           "@type": "Question",
+          "@id": "https://casaninaflamingo.com/faq.html#q-deposit",
+          "name": "What deposit is required, and when is the balance due?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A deposit of 50% of your total secures your dates, with the balance due 14 days before arrival. We accept payment by credit card. Both payments are set out in your booking summary, so the numbers are never a surprise." }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://casaninaflamingo.com/faq.html#q-cancellation",
+          "name": "What is the cancellation policy?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Full refund up to 30 days before arrival; no refund inside 30 days. For stays over Christmas, New Year's, March Break and Easter: full refund up to 60 days before arrival, 50% up to 30 days, and no refund inside 30 days. If you are considering travel insurance, or think your dates might move, mention it to our concierge before you book and they will walk you through your options." }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://casaninaflamingo.com/faq.html#q-security-deposit",
+          "name": "Is there a security deposit?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A refundable damage hold is placed on your credit card: $2,500 for the Full Casa and $1,500 for the Half Casa, released after your stay. The hold is set out clearly in your booking summary before you pay, so there are no surprises when you arrive." }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://casaninaflamingo.com/faq.html#q-minimum-stay",
+          "name": "Is there a minimum stay?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Casa Nina has a 4-night minimum stay. Over the festive weeks of Christmas, New Year's, March Break and Easter, the minimum is 7 nights. Share your dates with us and we will confirm availability right away." }
+        },
+        {
+          "@type": "Question",
           "@id": "https://casaninaflamingo.com/faq.html#q-half-casa",
           "name": "If we book the Half Casa, will another group be in the villa?",
-          "acceptedAnswer": { "@type": "Answer", "text": "No, never. The Half Casa is a private three-bedroom home with its own kitchen and living space, and when you reserve it, the rest of the villa is never rented to anyone else. You share Casa Nina with no one but your own group." }
+          "acceptedAnswer": { "@type": "Answer", "text": "No, never. The Half Casa is a private three-bedroom home with its own kitchen and living space, and when you reserve it, the rest of the villa is never rented to anyone else. Casa Nina is yours and yours alone, shared with no one but your own group." }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://casaninaflamingo.com/faq.html#q-checkin-times",
+          "name": "What are check-in and check-out times?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Check-in is from 3:00 PM and check-out is by 10:00 AM. Our concierge coordinates your exact arrival over WhatsApp, so everything is ready when you walk in." }
         },
         {
           "@type": "Question",
           "@id": "https://casaninaflamingo.com/faq.html#q-airport",
-          "name": "How far is Casa Nina from the airport, and is transportation included?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Casa Nina is about an hour by road from Liberia Guanacaste International Airport (LIR), and private airport pick-up and drop-off are included with every stay. Transfers from San Jos\u00e9 (SJO), roughly four hours by road, can also be arranged." }
+          "name": "How far is the airport, and is transportation included?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Casa Nina is about an hour by road from Liberia Guanacaste International Airport (LIR), and private airport pick-up and drop-off are included with every stay. Your driver will be waiting for you at arrivals. If you are flying into San Jos\u00e9 (SJO) instead, plan for roughly four hours by road. We will gladly arrange that transfer as well." }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://casaninaflamingo.com/faq.html#q-early-late",
+          "name": "Can we arrange early check-in or late check-out?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Early check-in is often possible when the villa is ready, and we are always happy to hold your luggage while it is being prepared. Late check-out works whenever there is no same-day turnover. Share your flight times when you book and our team will build the day around them." }
         },
         {
           "@type": "Question",
           "@id": "https://casaninaflamingo.com/faq.html#q-need-a-car",
-          "name": "Do we need a rental car in Playa Flamingo?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Many of our guests find they do not need a car at all. The beach is a short walk away, airport transfers are included, and Karina can arrange drivers for dinners and day trips. If you would like your own transport, we can arrange a rental car from a Toyota fleet seating 5 to 16 passengers, or an electric golf cart, which is welcome on all local roads." }
+          "name": "Do we need a rental car?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Many of our guests find they do not need a car at all. The beach is a short walk away, airport transfers are included, and our concierge can arrange drivers for dinners and day trips. If you would like your own transport, we can arrange a rental car from a Toyota fleet seating 5 to 16 passengers, or an electric golf cart, which is welcome on all local roads and a favorite way to get around Flamingo." }
         },
         {
           "@type": "Question",
           "@id": "https://casaninaflamingo.com/faq.html#q-sleeps",
           "name": "How many guests does Casa Nina sleep?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Casa Nina sleeps fourteen guests across seven bedrooms and six bathrooms, with two independent living units, dual kitchens and a private elevator connecting the floors." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Casa Nina sleeps fourteen guests across seven bedrooms and six bathrooms, with two independent living units, dual kitchens and a private elevator connecting the floors. It is one of the very few villas in Playa Flamingo where a whole multigenerational family can gather without anyone compromising on comfort." }
         },
         {
           "@type": "Question",
           "@id": "https://casaninaflamingo.com/faq.html#q-two-units",
-          "name": "What does 'two independent living units' mean?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Casa Nina is designed as two self-contained homes under one roof: the main residence and a three-bedroom Half Casa, each with its own kitchen and living areas. Groups can book the full villa and use the separation however they like, or book the Half Casa on its own." }
+          "name": "What does \u201ctwo independent living units\u201d mean?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Casa Nina is designed as two self-contained homes under one roof: the main residence and a three-bedroom unit (the Half Casa), each with its own kitchen and living areas. Book the full villa and use the separation however suits your group: grandparents and early bedtimes on one side, the night owls on the other. Book just the Half Casa, and the rest of the villa simply stays empty." }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://casaninaflamingo.com/faq.html#q-elevator",
+          "name": "Is there an elevator? How accessible is the villa?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, fully. A ramp at the entrance, a private elevator serving all three floors, and curbless walk-in showers make Casa Nina genuinely wheelchair accessible, a rare comfort in Playa Flamingo. The layout also makes life easier for grandparents and for parents carrying a sleeping toddler up to bed. If access matters to your group, share your needs with our concierge and they will confirm every detail personally." }
         },
         {
           "@type": "Question",
           "@id": "https://casaninaflamingo.com/faq.html#q-beach",
-          "name": "How close is Casa Nina to the beach?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Playa Flamingo's white-sand beach is a short walk from the villa. Beach packages with tents, chairs, food and drinks can be arranged so your spot is set up before you stroll down." }
+          "name": "How close is the beach?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Just steps. Playa Flamingo's white sand is a short, easy walk from the villa, close enough to wander back whenever you please. We can also arrange beach packages with tents, chairs, food and drinks, so your spot is set up before you stroll down." }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://casaninaflamingo.com/faq.html#q-beds",
+          "name": "What are the bed configurations?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Seven bedrooms, every one with an ocean view: Bedroom 1 (Floor 1, Half or Full Casa): king bed, ensuite bathroom, walk-in closet; Bedroom 2 (Floor 1, Half or Full Casa): queen bed, shared bathroom; Bedroom 3 (Floor 1, Half or Full Casa): king bed, shared bathroom; Bedroom 4 (Floor 2, Full Casa): king bed, ensuite bathroom, walk-in closet; Bedroom 5 (Floor 2, Full Casa): queen bed, shared bathroom; Bedroom 6 (Floor 2, Full Casa): king bed, shared bathroom; Bedroom 7 (Floor 3, Full Casa): king bed, ensuite bathroom. A crib is available in Bedroom 1, and if you are traveling with little ones or have particular room requests, our concierge will plan the rooms with you before you arrive." }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://casaninaflamingo.com/faq.html#q-comfort",
+          "name": "Is there air conditioning and laundry?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Every bedroom, living room and kitchen has its own A/C unit, and the first and second floors each have a dedicated laundry room with a washer and dryer. Our concierge team can confirm any other comfort question within minutes." }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://casaninaflamingo.com/faq.html#q-house-rules",
+          "name": "What are the house rules on pets and smoking?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The house keeps two simple rules: no smoking indoors, and no pets. Whatever you are dreaming up, from a birthday dinner to a sunrise yoga circle, share it with our concierge and they will tell you exactly what is possible." }
         },
         {
           "@type": "Question",
           "@id": "https://casaninaflamingo.com/faq.html#q-included",
-          "name": "What's included with every stay at Casa Nina?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Every booking includes a dedicated concierge service, private airport pick-up and drop-off, daily maid and turnover service, and a private chef for two breakfasts. Guests pay only the cost of the food." }
+          "name": "What's included with every stay?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Every booking includes a dedicated concierge service, private airport pick-up and drop-off, daily maid and turnover service, and a private chef for two breakfasts. You pay only the cost of the food. Few villas include all of this as standard. Here, it is simply how your stay begins." }
         },
         {
           "@type": "Question",
-          "@id": "https://casaninaflamingo.com/faq.html#q-karina",
-          "name": "Who is Karina at Casa Nina?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Karina is Casa Nina's co-host and house manager, and every group's single point of contact from booking to checkout. She coordinates arrivals on WhatsApp and arranges chefs, transportation, tours and special requests." }
+          "@id": "https://casaninaflamingo.com/faq.html#q-host",
+          "name": "Who looks after us during our stay?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Your host and concierge team, your single point of contact from booking to checkout. They will set up a WhatsApp group for your stay, coordinate your arrival, and arrange anything from a chef dinner to a catamaran day. Our hosts are mentioned by name in guest reviews, and once you have been welcomed in, you will understand why." }
         },
         {
           "@type": "Question",
           "@id": "https://casaninaflamingo.com/faq.html#q-housekeeping",
-          "name": "How does daily housekeeping work at Casa Nina?",
-          "acceptedAnswer": { "@type": "Answer", "text": "The villa is refreshed daily by our maid service, included with every stay. Additional cleaning or mid-stay turnovers can be arranged whenever you'd like them." }
+          "name": "How does daily housekeeping work?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The villa is refreshed daily by our maid service, included with every stay. Additional cleaning or mid-stay turnovers can be arranged whenever you'd like them. Our team will arrange timing around your group's rhythm, whether that means a slow breakfast or an early start at the beach." }
         },
         {
           "@type": "Question",
           "@id": "https://casaninaflamingo.com/faq.html#q-breakfasts",
           "name": "How do the included chef breakfasts work?",
-          "acceptedAnswer": { "@type": "Answer", "text": "A private chef prepares breakfast for your group on two mornings of your stay. It's included with every booking, and guests cover only the cost of the ingredients." }
+          "acceptedAnswer": { "@type": "Answer", "text": "A private chef prepares breakfast for your group on two mornings of your stay. It's included with every booking, and guests cover only the cost of the ingredients. There is no better way to begin a villa morning: everyone around one table while the kitchen is taken care of. If you would like more mornings, or lunches and dinners as well, you will find everything in the chef and dining answers below." }
         },
         {
           "@type": "Question",
           "@id": "https://casaninaflamingo.com/faq.html#q-chef",
           "name": "Can we book a private chef for lunch and dinner?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Chef Rafael cooks at Casa Nina by arrangement, with experiences including a Costa Rican menu at $60 to $70 per person, a Surf & Turf Experience at $80 per person (minimum 6 guests), Fish Night at $75 per person (minimum 6), a Craft Burger night at $55 per person with Japanese Wagyu upgrades, and a buffet-style Taco Bar at $55 per person (minimum 6)." }
+          "acceptedAnswer": { "@type": "Answer", "text": "With pleasure. Chef Rafael cooks at Casa Nina by arrangement, and his current experiences include: Costa Rican menu: $60 to $70 per person; Surf & Turf Experience: $80 per person (minimum 6 guests); Fish Night: $75 per person (minimum 6 guests); Craft Burger night: $55 per person, with Japanese Wagyu upgrades available; Taco Bar: $55 per person (minimum 6, buffet style). Prices and menus are set by the chef and may evolve with the seasons. Our concierge will share the latest and reserve your evenings before you arrive." }
         },
         {
           "@type": "Question",
           "@id": "https://casaninaflamingo.com/faq.html#q-groceries",
-          "name": "How does grocery delivery work at Casa Nina?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Send us your list and we will have everything stocked before you arrive: fridge, pantry and cold drinks. The service is a flat $50 fee plus the cost of your groceries." }
+          "name": "How does grocery delivery work?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Send us your list and we will have everything stocked before you walk in: fridge, pantry and cold drinks. The service is a flat $50 fee plus the cost of your groceries. We can share a suggested starter list with breakfast basics, snacks and the makings of a spaghetti night, or shop to exactly what your group loves." }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://casaninaflamingo.com/faq.html#q-kitchens",
+          "name": "What are the kitchens like?",
+          "acceptedAnswer": { "@type": "Answer", "text": "There are two full kitchens, one in each living unit, so even a large group has all the room it needs. Cook together one night and invite Chef Rafael in the next. Each kitchen is fully equipped: fridge with ice maker, stove, oven, dishwasher, coffee machine, blender, toaster, and every plate, pot, pan and utensil a group of fourteen could need. You will also find barbecues on the first-floor patio and the rooftop terrace." }
         },
         {
           "@type": "Question",
           "@id": "https://casaninaflamingo.com/faq.html#q-dietary",
           "name": "Can the chef handle dietary restrictions?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes, of course. Tell Karina about any allergies, vegetarian preferences or children's plates when you book your chef experiences, and she will coordinate everything with the chef directly. Buffet-style experiences like the Taco Bar are wonderful for groups with mixed tastes, since everyone composes their own plate." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, of course. Tell our concierge about any allergies, vegetarian preferences or children's plates when you book your chef experiences, and they will coordinate everything with the chef directly. Buffet-style experiences like the Taco Bar are wonderful for groups with mixed tastes, since everyone composes their own plate." }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://casaninaflamingo.com/faq.html#q-pool-kids",
+          "name": "Is the pool safe for young children?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, with the usual care around water. The infinity pool is 5 feet deep with easy-access steps, and a fully secured railing runs along the perimeter of the terrace. Please ask our concierge anything at all. Every question is answered fully before you book." }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://casaninaflamingo.com/faq.html#q-pool-heated",
+          "name": "Is the pool heated?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The pool is unheated because it simply does not need it: the water typically sits around 75 to 80 degrees. Guanacaste is Costa Rica's warmest, sunniest coast, and most of the year here is pool weather." }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://casaninaflamingo.com/faq.html#q-security",
+          "name": "Is the villa gated or secured?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The neighborhood is protected by full 24/7 security, with monitored cameras along the streets and around the perimeter of the house, and a dedicated guard stationed outside the villa gate from 6 PM to 6 AM. Our house team is at the villa daily, the concierge is only a WhatsApp message away, and any concern is met with a quick, personal response." }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://casaninaflamingo.com/faq.html#q-medical",
+          "name": "What about medical care nearby?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Several clinics and pharmacies are close by, the nearest at the Flamingo Marina less than a five-minute drive away, with professional doctors, a full pharmacy, an ambulance and even a heliport for emergencies. Every emergency contact number is in your guest guide, and our concierge team will always help you reach the right care quickly." }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://casaninaflamingo.com/faq.html#q-wifi",
+          "name": "How fast is the Wi-Fi?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Fast on every floor. Each level has its own dedicated modem, with measured speeds of 278 Mbps down and 52 Mbps up in the main living areas, and 113 Mbps down and 79 Mbps up in the farthest bedroom. If your stay depends on a particular speed, for video calls or a working holiday, our concierge can run a fresh speed test for you before you book." }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://casaninaflamingo.com/faq.html#q-workspaces",
+          "name": "Is there space to work?",
+          "acceptedAnswer": { "@type": "Answer", "text": "With two living units, seven bedrooms and several living areas, there is always a quiet corner to work from. The third-floor bedroom has a dedicated work desk and chair, and the large dining tables on the first and second floors make generous work-friendly spots." }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://casaninaflamingo.com/faq.html#q-cell",
+          "name": "What is cell coverage like?",
+          "acceptedAnswer": { "@type": "Answer", "text": "All local carriers work very well at the house, with Liberty and ICE the two you will typically see. Major Costa Rican carriers cover Playa Flamingo well, most international phones roam smoothly, and eSIM data plans are an easy, affordable option for the week." }
         },
         {
           "@type": "Question",
           "@id": "https://casaninaflamingo.com/faq.html#q-things-to-do",
           "name": "What is there to do near the villa?",
-          "acceptedAnswer": { "@type": "Answer", "text": "On the water: surf classes, kayaking and stand-up paddle, snorkeling and scuba, fishing charters and all-inclusive catamaran days. On land: horseback riding, ATV and UTV tours, mountain biking, canopy zip-lining, and at-home spa days. The concierge team arranges everything." }
+          "acceptedAnswer": { "@type": "Answer", "text": "On the water: surf classes, kayaking and stand-up paddle, snorkeling and scuba, guided fishing charters, and all-inclusive catamaran days with open bar and lunch. On land: horseback riding through mountains and along beaches, ATV and UTV tours, mountain biking, canopy zip-lining, or an at-home spa day with massages, facials and mani-pedis at the villa or on the beach. Our concierge will happily arrange all of it." }
         },
         {
           "@type": "Question",
           "@id": "https://casaninaflamingo.com/faq.html#q-day-tours",
           "name": "Which full-day tours do guests love?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Guest favorites include the Vandara Explorer Pass (thermal hot springs, mineral mud baths, hanging bridges and jungle water slides beside Rinc\u00f3n de la Vieja National Park), the Diamante Adventure Pass (the country's longest, most scenic zipline plus an animal sanctuary and botanical gardens), and the Palo Verde river tour with crocodiles, monkeys and over 280 bird species." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Our guests return to three again and again. The Vandara Explorer Pass: thermal hot springs, mineral mud baths, hanging bridges and jungle water slides on a rainforest property beside Rinc\u00f3n de la Vieja National Park. The Diamante Adventure Pass: the country's longest, most scenic zipline, plus an animal sanctuary, botanical gardens and Hammock Beach. And the Palo Verde river tour: crocodiles, white-faced monkeys and some of the park's 280+ bird species in a wetland of international importance." }
         },
         {
           "@type": "Question",
           "@id": "https://casaninaflamingo.com/faq.html#q-multi-day",
-          "name": "Can we take multi-day trips to Arenal or Monteverde?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Gladly. Multi-day journeys are part of what our concierge arranges. Arenal and La Fortuna: volcano hikes, La Fortuna Waterfall, hanging bridges and hot springs, with an eco-resort stay at Hotel Monta\u00f1a de Fuego. Monteverde: the cloud forest's treetop walkways, butterfly gardens and Selvatura Park, with lunch and transport taken care of." }
+          "name": "Can we go further afield, like Arenal or Monteverde?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Gladly. Multi-day journeys are part of what our concierge arranges. Arenal and La Fortuna: volcano hikes, La Fortuna Waterfall, hanging bridges and hot springs, with an eco-resort stay at Hotel Monta\u00f1a de Fuego. Monteverde: the cloud forest's treetop walkways, butterfly gardens and Selvatura Park, with lunch and transport taken care of. Share your dates with our concierge and they will build the itinerary around them." }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://casaninaflamingo.com/faq.html#q-events",
+          "name": "Can we host a wedding, retreat or event?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The villa hosts retreat-sized groups by design, with two living units, dual kitchens and room for fourteen overnight. Special events and celebrations are warmly welcomed as long as they are organized through our management team, with no extra fees or deposit required. If you are planning one, start the conversation early and we will plan it properly with you." }
         },
         {
           "@type": "Question",
@@ -1107,19 +1222,19 @@
         {
           "@type": "Question",
           "@id": "https://casaninaflamingo.com/faq.html#q-best-time",
-          "name": "When is the best time to visit Playa Flamingo?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Dry season, roughly December through April, brings reliable sun; green season, May through November, trades a brief afternoon shower for lush landscapes, fewer crowds and gentler rates. There is no bad month here, only different moods." }
+          "name": "When is the best time to visit?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Dry season runs roughly December through April, with reliable sun and long blue days. Green season, May through November, trades a brief afternoon shower for lush green hills, fewer crowds and gentler rates. Many of our guests call it their favorite secret. There is no bad month here, only different moods." }
         },
         {
           "@type": "Question",
           "@id": "https://casaninaflamingo.com/faq.html#q-money",
-          "name": "What currency should we bring, and do people tip?",
+          "name": "What currency should we bring? Do people tip?",
           "acceptedAnswer": { "@type": "Answer", "text": "Costa Rica uses the col\u00f3n, but US dollars are accepted almost everywhere in Guanacaste and cards are widely taken. Restaurants add a 10% service charge by law. Rounding up for great service, and for your guides and drivers, is appreciated but never expected." }
         },
         {
           "@type": "Question",
           "@id": "https://casaninaflamingo.com/faq.html#q-water-language",
-          "name": "Is the tap water safe, and is English spoken?",
+          "name": "Is the tap water safe? What language is spoken?",
           "acceptedAnswer": { "@type": "Answer", "text": "Costa Rican tap water is generally safe to drink, and bottled water is easy to stock through our grocery delivery if you prefer it. Spanish is the local language, English is spoken widely across the area, and our team is happy to host you in English every day." }
         }
       ]
