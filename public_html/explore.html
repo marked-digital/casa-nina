@@ -853,7 +853,7 @@
     var isDown = false, startX = 0, startLeft = 0, moved = false;
     strip.addEventListener('mousedown', function(e){
       if (e.button !== 0) return;
-      isDown = true; moved = false; moveCount = 0;
+      isDown = true; moved = false;
       startX = e.clientX; startLeft = strip.scrollLeft;
       strip.classList.add('is-dragging');
       strip.style.scrollSnapType = 'none';

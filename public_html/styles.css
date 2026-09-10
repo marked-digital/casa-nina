@@ -1575,6 +1575,8 @@ body.page-cn{
      fixed — .xp-chapter__grid's 1fr column took its min-content width (the
      strip's ~2400px of cards), so the strip never overflowed. Now minmax(0,1fr)
      at both breakpoints. Strip edge-fade mask restored.
+   · 2026-09-10 (final): .xp-strip now bleeds to the viewport's right edge
+     (negative margin-right + gutter padding-right) per design review.
    ============================================================================ */
 
 :root{
@@ -1745,8 +1747,15 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
   color:var(--cn-navy); font-size:18px; line-height:1; cursor:pointer;
   transition:background .3s,color .3s,border-color .3s; }
 .xp-stripnav button:hover{ background:var(--cn-navy); color:var(--cn-cream); border-color:var(--cn-navy); }
+/* The strip bleeds past its grid column to the right edge of the viewport
+   (cards run off the page instead of stopping at the column). The negative
+   margin equals the space between the wrap's content edge and the viewport:
+   half the excess beyond --xp-max, plus the gutter. Right padding = gutter so
+   the last card rests a gutter in from the edge. The 100vw/scrollbar overshoot
+   (~15px) is hidden by .xp-page's overflow-x:clip. */
 .xp-strip{ display:flex; gap:clamp(16px,2vw,26px); overflow-x:auto; scroll-snap-type:x mandatory;
-  padding:4px 4px 26px; cursor:grab; scrollbar-width:none;
+  margin-right:calc(-1 * (max(0px, (100vw - var(--xp-max)) / 2) + var(--xp-gutter)));
+  padding:4px var(--xp-gutter) 26px 4px; cursor:grab; scrollbar-width:none;
   -webkit-mask-image:linear-gradient(90deg, transparent 0, #000 3%, #000 97%, transparent 100%);
           mask-image:linear-gradient(90deg, transparent 0, #000 3%, #000 97%, transparent 100%); }
 .xp-strip::-webkit-scrollbar{ display:none; }
