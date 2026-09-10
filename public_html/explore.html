@@ -210,6 +210,13 @@
     .xp-hero{ align-items:center; }
     .xp-hero__inner{ padding:calc(var(--xp-header-h, 68px) + clamp(32px,5vh,64px)) 0; }
   }
+
+  /* Chapter rail eyebrows never wrap; keep the dash at full width. */
+  .xp-rail .xp-eyebrow{ white-space:nowrap; }
+  .xp-rail .xp-eyebrow::before{ flex-shrink:0; }
+
+  /* Strip images: no native drag ghost, no text selection mid-drag. */
+  .xp-strip img{ -webkit-user-drag:none; user-select:none; }
 </style>
 </head>
 
@@ -285,7 +292,7 @@
 
     <div class="xp-ledger" data-reveal>
       <div class="xp-stat">
-        <div class="xp-stat__num xp-stat__num--word">On foot</div>
+        <div class="xp-stat__num xp-stat__num--word">Steps away</div>
         <div class="xp-stat__label">Flamingo Beach</div>
       </div>
       <div class="xp-stat">
@@ -314,7 +321,7 @@
     <div class="xp-chapter__grid">
       <aside class="xp-rail" data-reveal>
         <p class="xp-eyebrow">Chapter I &middot; The beaches</p>
-        <h2 class="xp-display xp-rail__marker">On foot.</h2>
+        <h2 class="xp-display xp-rail__marker">Steps away.</h2>
         <p class="xp-rail__line">The Gold Coast, beach by beach &mdash; starting where the garden path meets the sand, and none more than a short drive away.</p>
         <div class="xp-rail__rule"></div>
       </aside>
@@ -333,7 +340,7 @@
           <article class="xp-bcard" data-reveal>
             <div class="xp-media"><div class="xp-media__img xp-ph--dusk" data-parallax="0.06"><img class="xp-media__photo" src="images/explore/beach-flamingo.jpg" alt="Calm turquoise water and white sand at Playa Flamingo beach, a short walk from Casa Nina" width="1200" height="1380" loading="lazy" decoding="async" onerror="this.remove()"></div></div>
             <div class="xp-bcard__body">
-              <span class="xp-chip">On foot</span>
+              <span class="xp-chip">Steps away</span>
               <h3>Playa Flamingo</h3>
               <p>The home beach: a protected white-sand crescent with water calm enough for every age, and the sunsets the coast is named for.</p>
             </div>
@@ -841,23 +848,29 @@
     if (prev) prev.addEventListener('click', function(){ strip.scrollBy({ left:-cardStep(), behavior: reduceMotion ? 'auto' : 'smooth' }); });
     if (next) next.addEventListener('click', function(){ strip.scrollBy({ left: cardStep(), behavior: reduceMotion ? 'auto' : 'smooth' }); });
 
+    /* Real <img> cards are natively draggable, which hijacks the mouse
+       gesture before the strip can scroll — disable that, then capture
+       the pointer so the drag survives leaving the strip's bounds. */
+    strip.querySelectorAll('img').forEach(function(im){ im.setAttribute('draggable','false'); });
+    strip.addEventListener('dragstart', function(e){ e.preventDefault(); });
+
     var isDown = false, startX = 0, startLeft = 0, moved = false;
     strip.addEventListener('pointerdown', function(e){
       if (e.pointerType !== 'mouse') return; /* touch/pen use native scrolling */
       isDown = true; moved = false;
       startX = e.clientX; startLeft = strip.scrollLeft;
       strip.classList.add('is-dragging');
+      if (strip.setPointerCapture){ try{ strip.setPointerCapture(e.pointerId); }catch(err){} }
     });
-    window.addEventListener('pointermove', function(e){
+    strip.addEventListener('pointermove', function(e){
       if (!isDown) return;
       var dx = e.clientX - startX;
       if (Math.abs(dx) > 4) moved = true;
       strip.scrollLeft = startLeft - dx;
     });
-    window.addEventListener('pointerup', function(){
-      isDown = false;
-      strip.classList.remove('is-dragging');
-    });
+    function endDrag(){ isDown = false; strip.classList.remove('is-dragging'); }
+    strip.addEventListener('pointerup', endDrag);
+    strip.addEventListener('pointercancel', endDrag);
     strip.addEventListener('click', function(e){
       if (moved){ e.preventDefault(); e.stopPropagation(); moved = false; }
     }, true);
