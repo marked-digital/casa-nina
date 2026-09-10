@@ -26,6 +26,7 @@
    data-lenis-prevent to anything that should own the wheel entirely (an
    activated map). Nested vertical scrollers are auto-detected.
    ============================================================================ */
+/* global Lenis */
 (function(){
   'use strict';
 
