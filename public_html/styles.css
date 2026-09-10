@@ -1571,6 +1571,10 @@ body.page-cn{
      scroll margin tokenized to --xp-header-h. Migrated from explore.html's
      page-overrides block, which is now empty again. DEPLOY-COUPLED with
      explore.html from the same change.
+   · 2026-09-10 (later): ROOT CAUSE of the non-scrolling beach strip found and
+     fixed — .xp-chapter__grid's 1fr column took its min-content width (the
+     strip's ~2400px of cards), so the strip never overflowed. Now minmax(0,1fr)
+     at both breakpoints. Strip edge-fade mask restored.
    ============================================================================ */
 
 :root{
@@ -1686,7 +1690,11 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
    CHAPTER SCAFFOLD — sticky rail + flowing content
    ───────────────────────────────────────────── */
 .xp-chapter{ padding:clamp(84px,11vh,140px) 0; }
-.xp-chapter__grid{ display:grid; grid-template-columns:minmax(230px,330px) 1fr;
+/* minmax(0,1fr), not 1fr: a bare 1fr track's minimum is its content's
+   min-content width, and the beach strip's content is ~2400px wide — the
+   column blew out to that width (hidden by body overflow-x:clip), so the
+   strip had zero overflow and nothing to drag. Verified live 2026-09-10. */
+.xp-chapter__grid{ display:grid; grid-template-columns:minmax(230px,330px) minmax(0,1fr);
   gap:clamp(36px,6vw,100px); align-items:start; }
 .xp-rail{ position:sticky; top:104px; }
 .xp-rail__marker{ font-family:var(--cn-display); font-style:italic; font-weight:400;
@@ -1696,7 +1704,7 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 .xp-rail .xp-eyebrow{ white-space:nowrap; }        /* chapter labels hold one line */
 .xp-rail .xp-eyebrow::before{ flex-shrink:0; }     /* keep the gold dash full-width */
 @media (max-width:960px){
-  .xp-chapter__grid{ grid-template-columns:1fr; }
+  .xp-chapter__grid{ grid-template-columns:minmax(0,1fr); } /* same trap on mobile */
   .xp-rail{ position:static; }
   .xp-rail__marker{ font-size:clamp(40px,9vw,58px); }
 }
@@ -1739,9 +1747,8 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 .xp-stripnav button:hover{ background:var(--cn-navy); color:var(--cn-cream); border-color:var(--cn-navy); }
 .xp-strip{ display:flex; gap:clamp(16px,2vw,26px); overflow-x:auto; scroll-snap-type:x mandatory;
   padding:4px 4px 26px; cursor:grab; scrollbar-width:none;
-  /* edge-fade mask removed 2026-09-10 while isolating a desktop drag fault:
-     Chromium has shipped stale-repaint bugs for mask-image on scroll
-     containers. Re-add as overlay gradients on a wrapper if the fade is missed. */ }
+  -webkit-mask-image:linear-gradient(90deg, transparent 0, #000 3%, #000 97%, transparent 100%);
+          mask-image:linear-gradient(90deg, transparent 0, #000 3%, #000 97%, transparent 100%); }
 .xp-strip::-webkit-scrollbar{ display:none; }
 .xp-strip.is-dragging{ cursor:grabbing; scroll-snap-type:none; user-select:none; }
 .xp-strip:focus-visible{ outline:2px solid var(--cn-gold); outline-offset:6px; }

@@ -850,34 +850,6 @@
     strip.querySelectorAll('img').forEach(function(im){ im.setAttribute('draggable','false'); });
     strip.addEventListener('dragstart', function(e){ e.preventDefault(); });
 
-    /* Diagnostics: load the page with ?dragdebug to get an on-screen log */
-    var dbg = /dragdebug/.test(location.search + location.hash), badge = null, moveCount = 0;
-    function log(msg){
-      if (!dbg) return;
-      console.log('[strip] ' + msg);
-      if (!badge){
-        badge = document.createElement('div');
-        badge.style.cssText = 'position:fixed;left:12px;bottom:12px;z-index:99999;max-width:70vw;font:12px/1.5 monospace;background:#0E1D30;color:#DCC391;padding:10px 12px;border:1px solid #C3A15F;white-space:pre-wrap;pointer-events:none';
-        document.body.appendChild(badge);
-      }
-      badge.textContent = (badge.textContent + '\n' + msg).split('\n').slice(-9).join('\n');
-    }
-    if (dbg){
-      var before = strip.scrollLeft;
-      strip.style.scrollSnapType = 'none'; strip.scrollLeft = before + 5;
-      var canScroll = strip.scrollLeft !== before;
-      strip.scrollLeft = before; strip.style.scrollSnapType = '';
-      log('strip found · scrollWidth ' + strip.scrollWidth + ' / clientWidth ' + strip.clientWidth +
-          ' → ' + (strip.scrollWidth > strip.clientWidth ? 'overflows (good)' : 'DOES NOT OVERFLOW'));
-      log('programmatic scroll: ' + (canScroll ? 'OK' : 'FAIL'));
-      log('lenis: ' + (window.siteLenis ? 'active' : 'off') + ' · UA: ' + navigator.userAgent.split(') ').pop());
-      document.addEventListener('mousedown', function(e){
-        var t = e.target, inside = strip.contains(t);
-        log('document saw mousedown on <' + t.tagName.toLowerCase() + '.' + (t.className || '') + '> ' + (inside ? 'inside strip' : 'OUTSIDE strip'));
-      }, true);
-      log('now press on a card and drag…');
-    }
-
     var isDown = false, startX = 0, startLeft = 0, moved = false;
     strip.addEventListener('mousedown', function(e){
       if (e.button !== 0) return;
@@ -888,14 +860,12 @@
       strip.style.scrollBehavior = 'auto';
       strip.style.cursor = 'grabbing';
       e.preventDefault();
-      log('strip mousedown · startLeft ' + startLeft);
     });
     document.addEventListener('mousemove', function(e){
       if (!isDown) return;
       var dx = e.clientX - startX;
       if (Math.abs(dx) > 4) moved = true;
       strip.scrollLeft = startLeft - dx;
-      if (dbg && (++moveCount % 6 === 0)) log('drag dx ' + dx + ' → scrollLeft ' + strip.scrollLeft);
     });
     function endDrag(){
       if (!isDown) return;
@@ -905,7 +875,6 @@
       strip.style.scrollBehavior = '';
       /* restore snap a frame later so it settles onto the nearest card */
       requestAnimationFrame(function(){ strip.style.scrollSnapType = ''; });
-      log('mouseup · scrollLeft ' + strip.scrollLeft);
     }
     document.addEventListener('mouseup', endDrag);
     window.addEventListener('blur', endDrag);
