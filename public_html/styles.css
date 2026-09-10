@@ -1865,6 +1865,13 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 .xp-know__item h3{ font-family:var(--cn-display); font-weight:500; font-size:24px;
   margin:0 0 10px; color:var(--cn-navy); }
 .xp-know__item p{ margin:0; font-size:14.5px; font-weight:300; line-height:1.7; color:#4A5563; }
+.xp-know__more{ margin-top:clamp(40px,6vh,64px); padding-top:26px; border-top:1px solid rgba(14,29,48,.18);
+  display:flex; align-items:center; justify-content:space-between; gap:24px 40px; flex-wrap:wrap; }
+.xp-know__more p{ margin:0; font-size:15px; font-weight:300; line-height:1.7; color:#4A5563; max-width:60ch; }
+.xp-know__link{ display:inline-block; font:600 12px/1 var(--cn-body); letter-spacing:.24em; text-transform:uppercase;
+  color:var(--cn-navy); border:1px solid var(--cn-navy); padding:17px 28px; white-space:nowrap;
+  transition:background .3s, color .3s; }
+.xp-know__link:hover{ background:var(--cn-navy); color:var(--cn-cream); }
 @media (max-width:760px){ .xp-know__grid{ grid-template-columns:1fr; } }
 
 .xp-cta{ position:relative; overflow:hidden; background:var(--cn-ink); color:var(--cn-cream);
@@ -1874,8 +1881,8 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 .xp-cta .xp-eyebrow{ justify-content:center; }
 .xp-cta .xp-eyebrow::before{ display:none; }
 .xp-cta h2{ font-family:var(--cn-display); font-weight:500;
-  font-size:clamp(38px,6vw,72px); line-height:1.04; margin:22px auto 18px; max-width:19ch; }
-.xp-cta h2 em{ font-style:italic; color:var(--cn-gold-2); }
+  font-size:clamp(38px,6vw,72px); line-height:1.04; margin:22px auto 18px; max-width:26ch; }
+.xp-cta h2 em{ font-style:italic; color:var(--cn-gold-2); display:block; } /* gold line always second */
 .xp-cta p{ margin:0 auto; max-width:56ch; font-weight:300; font-size:16px;
   color:rgba(255,255,255,.85); }
 .xp-cta__btns{ margin-top:40px; display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
@@ -1886,8 +1893,11 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 .xp-page .xp-btn--solid:hover{ background:var(--cn-gold-2); border-color:var(--cn-gold-2); }
 .xp-page .xp-btn--ghost{ color:var(--cn-gold-2); }
 .xp-page .xp-btn--ghost:hover{ background:rgba(195,161,95,.14); }
-.xp-cta__tag{ margin-top:52px; font:600 11px/1 var(--cn-body); letter-spacing:.5em;
-  text-transform:uppercase; color:var(--cn-gold-2); opacity:.85; }
+/* .xp-cta p (margin:0 auto; max-width:56ch) outranks a bare class, which is why
+   the tagline used to sit flush under the buttons and wrap — hence the compound
+   selector, explicit top margin and no width cap. */
+.xp-cta .xp-cta__tag{ margin:clamp(52px,7vh,76px) auto 0; max-width:none; font:600 11px/1 var(--cn-body);
+  letter-spacing:.5em; text-transform:uppercase; color:var(--cn-gold-2); opacity:.85; }
 
 /* Footer rules dropped: this page now uses the global .footer. */
 
