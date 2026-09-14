@@ -586,86 +586,99 @@ html.lenis, html.lenis body{ height:auto; }
 }
 
 /* ===== BOOKING OPTIONS ===== */
+/* Booking cards + inquiry form: book.html only. Rewritten 2026-09-14 on the
+   universal values (white card with the .xp-card light border, .xp-chip label,
+   display h3, hairline-ruled detail list, stacked .xp-btn pair; inputs are
+   white fields with the pill hairline, gold on focus). Buttons are .xp-btn in
+   the markup, so the old .booking-card .btn rule is gone. */
 .booking-options {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  margin-bottom: 4rem;
+  gap: clamp(20px, 3vw, 40px);
 }
 
 .booking-card {
-  background: var(--warm-white);
-  border: 2px solid var(--sand);
-  padding: 3rem;
+  background: var(--cn-white);
+  border: 1px solid rgba(14,29,48,.1);
+  padding: clamp(28px, 3.5vw, 44px) clamp(24px, 3vw, 40px);
   text-align: center;
-  transition: all 0.4s ease;
+  transition: border-color .3s var(--xp-ease), box-shadow .3s var(--xp-ease);
 }
 
 .booking-card:hover {
-  border-color: var(--gold);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+  border-color: var(--cn-gold);
+  box-shadow: 0 18px 44px rgba(14,29,48,.08);
 }
+
+.booking-card .xp-chip { margin-bottom: 18px; }
 
 .booking-card h3 {
-  font-family: var(--font-serif);
-  font-size: 1.8rem;
-  font-weight: 400;
-  margin-bottom: 0.5rem;
+  font: 500 clamp(30px, 3vw, 38px)/1.08 var(--cn-display);
+  color: var(--cn-navy);
+  margin: 0 0 20px;
 }
 
-.booking-card .booking-details {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  margin-bottom: 2rem;
-  line-height: 1.8;
+.booking-details {
+  list-style: none;
+  margin: 0 0 28px;
+  padding: 22px 0 0;
+  border-top: 1px solid rgba(14,29,48,.1);
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--cn-ink-muted);
 }
+.booking-details strong { font-weight: 600; color: var(--cn-navy); }
+.booking-details .booking-details__break { margin-bottom: 14px; }
 
-.booking-card .btn { width: 100%; text-align: center; }
+.booking-card__btns { display: flex; flex-direction: column; gap: 10px; }
+.booking-card__btns .xp-btn { text-align: center; }
 
 /* Contact form */
 .contact-form {
-  max-width: 600px;
+  max-width: 640px;
   margin: 0 auto;
 }
 
-.form-group { margin-bottom: 1.5rem; }
+.form-group { margin-bottom: 22px; }
 
 .form-group label {
   display: block;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
+  font: 600 11px/1 var(--cn-body);
+  letter-spacing: .2em;
   text-transform: uppercase;
-  margin-bottom: 0.5rem;
-  color: var(--charcoal);
+  color: var(--cn-navy);
+  margin-bottom: 10px;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
   width: 100%;
-  padding: 0.8rem 1rem;
-  font-family: var(--font-sans);
-  font-size: 0.9rem;
-  font-weight: 300;
-  border: 1px solid var(--sand);
-  background: var(--warm-white);
-  color: var(--charcoal);
-  transition: border-color 0.3s ease;
-  outline: none;
+  padding: 14px 16px;
+  font: 400 15px/1.5 var(--cn-body);
+  color: var(--cn-ink);
+  background: var(--cn-white);
+  border: 1px solid rgba(20,23,31,.22);
+  border-radius: 0;
+  transition: border-color .25s var(--xp-ease), box-shadow .25s var(--xp-ease);
 }
+.form-group ::placeholder { color: rgba(20,23,31,.45); }
 
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus { border-color: var(--gold); }
+/* Focus is shown on the field itself (gold hairline + soft ring); the shared
+   .page-cn outline would double it up on inputs. */
+.form-group input:focus-visible,
+.form-group select:focus-visible,
+.form-group textarea:focus-visible { outline: none; border-color: var(--cn-gold); box-shadow: 0 0 0 3px rgba(194,154,91,.18); }
 
-.form-group textarea { min-height: 120px; resize: vertical; }
+.form-group textarea { min-height: 140px; resize: vertical; }
 
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
+  gap: 20px;
 }
+.contact-form__submit { text-align: center; margin-top: 8px; }
 
 /* ===== FOOTER ===== */
 .footer {
@@ -821,13 +834,8 @@ html.lenis, html.lenis body{ height:auto; }
   line-height: 1.6;
 }
 
-/* ===== WHATSAPP BUTTON ===== */
-.btn-whatsapp {
-  background: #25D366;
-  color: #fff !important;
-  border-color: #25D366 !important;
-}
-.btn-whatsapp:hover { background: #1ebe57; border-color: #1ebe57 !important; }
+/* .btn-whatsapp removed 2026-09-14: book.html was its only user and now
+   pairs a solid + navy .xp-btn like the FAQ's CTA row (no brand green). */
 
 /* ===== FOOTER CONTACT BLOCK ===== */
 .footer-contact-block {
@@ -1892,9 +1900,11 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 }
 
 /* ============================================================================
-   F. HOMEPAGE LAYER (index.html) — universal-styling pass, 2026-09-14
-   index.html opts in via <body class="page-cn page-home">. Every rule here is
-   scoped to .page-home because the legacy homepage classes it retunes
+   F. MIGRATED LEGACY PAGES (index.html, book.html) — universal-styling pass, 2026-09-14
+   A legacy page opts in via <body class="page-cn page-<name>"> and is added
+   to the :is() list on the shared rules below; the rest of this section is
+   per page. index.html rules are scoped to .page-home because the legacy
+   homepage classes they retune
    (.body-text, .section-padding, .intro-*, .villa-*, .experience-*,
    .half-casa-callout, .review-*) are still used by the-casa, location,
    concierge, gallery and book. Unscope as those pages migrate.
@@ -1951,8 +1961,9 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
   .page-home .xp-hero__btns .xp-btn{ text-align:center; }
 }
 
-.page-home .section-padding{ padding:clamp(84px,11vh,140px) 0; }
-.page-home .body-text{ font-weight:300; color:var(--cn-ink-muted); }
+:is(.page-home,.page-book) .section-padding{ padding:clamp(84px,11vh,140px) 0; }
+:is(.page-home,.page-book) .section-padding-sm{ padding:clamp(56px,8vh,90px) 0; }
+:is(.page-home,.page-book) .body-text{ font-weight:300; color:var(--cn-ink-muted); }
 
 /* Surfaces (explore's palette; see banner). Scoped: .intro/.gallery/.villa/
    .experience/.villa-card/.half-casa-callout are still used by legacy pages. */
@@ -1969,11 +1980,11 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 .page-home .half-casa-callout{ border-left:3px solid var(--cn-gold); }
 
 /* Section heads: eyebrow → title → lede rhythm (explore: 16–18px, then 22px) */
-.page-home .xp-display{ color:var(--cn-navy); }
-.page-home .xp-eyebrow + .xp-display{ margin-top:16px; }
-.page-home .xp-display + .body-text{ margin-top:22px; }
-.page-home .body-text + .body-text{ margin-top:1rem; }   /* was inline on the intro's second paragraph */
-.page-home .xp-sec-cta--center{ margin-top:48px; }        /* under grids; the FAQ's 22px is for text */
+:is(.page-home,.page-book) .xp-display{ color:var(--cn-navy); }
+:is(.page-home,.page-book) .xp-eyebrow + .xp-display{ margin-top:16px; }
+:is(.page-home,.page-book) .xp-display + .body-text{ margin-top:22px; }
+:is(.page-home,.page-book) .body-text + .body-text{ margin-top:1rem; }   /* was inline on the intro's second paragraph */
+:is(.page-home,.page-book) .xp-sec-cta--center{ margin-top:48px; }        /* under grids; the FAQ's 22px is for text */
 
 /* Half Casa band + callout (homepage-only component, type on the universal scale) */
 .half-casa-band{ background:var(--cream); padding:3rem 0 1rem; } /* was inline */
@@ -2003,4 +2014,20 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 
 /* Booking CTA: universal .xp-cta; the rate note is the one homepage-specific line.
    .xp-cta p (0,1,1) would otherwise size and colour it as body copy. */
-.page-home .xp-cta .rate-note{ margin:18px auto 0; max-width:none; font-size:.78rem; color:var(--cn-gold-soft); }
+:is(.page-home,.page-book) .xp-cta .rate-note{ margin:18px auto 0; max-width:none; font-size:.78rem; color:var(--cn-gold-soft); }
+
+/* ── book.html (2026-09-14) ──
+   Utility-page hero shared with faq.html (.xp-faq-hero, breadcrumb, title,
+   sub) replaces the light "Book Your Stay" header, so the site header is
+   transparent over navy here like every other page (xp-header--solid
+   dropped). Surfaces: hero navy-deep → cream option cards → sand contact +
+   form → ink .xp-cta Airbnb band → footer. Card and form component rules live
+   with their legacy blocks above (book-only classes, rewritten in place).
+   DEPLOY-COUPLED with book.html. */
+.page-book .xp-hero-sub{ margin-bottom:0; }              /* the FAQ's 34px sat above its search box */
+.page-book .book-options{ background:var(--cn-cream); }
+.page-book .book-contact{ background:var(--cn-sand); }
+.page-book .book-contact__head{ text-align:center; max-width:640px; margin:0 auto 48px; }
+.page-book .book-contact__head .body-text{ max-width:none; }
+.page-book .book-contact-row{ margin-top:32px; }
+.page-book .book-contact__head .rate-note{ margin-top:18px; }
