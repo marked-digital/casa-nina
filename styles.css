@@ -1,0 +1,2006 @@
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* Legacy homepage tokens, aliased to the brand tokens (:root block in the
+   new-brand section below) on 2026-09-13 so legacy pages pick up the brand
+   palette and type without markup changes. Two exceptions, on purpose:
+   --warm-white stays its own value (the legacy inner pages still alternate
+   warm-white and cream; the homepage moved to explore's cream / sand / navy
+   surfaces on 2026-09-14, see section F) and --text-muted has no brand
+   counterpart. */
+:root {
+  --cream: var(--cn-cream);
+  --warm-white: #FAF8F5;
+  --sand: var(--cn-sand);
+  --charcoal: var(--cn-ink);
+  --dark: var(--cn-navy-deep);
+  --gold: var(--cn-gold);
+  --gold-light: var(--cn-gold-soft);
+  --text-muted: #6B6560;
+  --font-serif: var(--cn-font-display);
+  --font-sans: var(--cn-font-body);
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: var(--font-sans);
+  color: var(--charcoal);
+  background: var(--warm-white);
+  line-height: 1.7;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { text-decoration: none; color: inherit; }
+
+/* ===== SMOOTH SCROLL (Lenis 1.3.26, self-hosted in js/) ===== */
+/* Base rules from Lenis's lenis.css, minus `.lenis.lenis-smooth iframe{pointer-events:none}`
+   which would disable every map embed site-wide — nested scrollers and activated embeds
+   use [data-lenis-prevent*] instead. js/smooth-scroll.js does not initialise Lenis when
+   the visitor prefers reduced motion, so the CSS scroll-behavior:smooth above remains the
+   fallback for anchor links. The scroll-behavior:auto rule below is essential: with Lenis
+   driving scrollTop every frame, CSS smooth-behavior would animate each step. */
+html.lenis, html.lenis body{ height:auto; }
+.lenis.lenis-smooth{ scroll-behavior:auto !important; }
+.lenis:not(.lenis-autoToggle).lenis-stopped{ overflow:clip; }
+.lenis [data-lenis-prevent], .lenis [data-lenis-prevent-wheel], .lenis [data-lenis-prevent-touch],
+.lenis [data-lenis-prevent-vertical], .lenis [data-lenis-prevent-horizontal]{ overscroll-behavior:contain; }
+
+/* ===== TYPOGRAPHY ===== */
+.heading-xl {
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.heading-lg {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.heading-md {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.heading-sm {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.body-text {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+  max-width: 560px;
+}
+
+/* ===== UTILITIES ===== */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+.container-wide { max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
+.section-padding { padding: 8rem 0; }
+.section-padding-sm { padding: 5rem 0; }
+.text-center { text-align: center; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+
+.divider { width: 60px; height: 1px; background: var(--gold); margin: 1.5rem 0; }
+.divider-center { margin-left: auto; margin-right: auto; }
+
+/* ===== BUTTONS ===== */
+.btn {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  padding: 1rem 2.5rem;
+  border: 1px solid var(--charcoal);
+  background: transparent;
+  color: var(--charcoal);
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.btn:hover { background: var(--charcoal); color: var(--warm-white); }
+.btn-gold { border-color: var(--gold); color: var(--gold); }
+.btn-gold:hover { background: var(--gold); color: var(--warm-white); }
+.btn-filled { background: var(--charcoal); color: var(--warm-white); border-color: var(--charcoal); }
+.btn-filled:hover { background: transparent; color: var(--charcoal); }
+.btn-white { border-color: var(--warm-white); color: var(--warm-white); }
+.btn-white:hover { background: var(--warm-white); color: var(--charcoal); }
+
+/* ===== NAVIGATION ===== */
+/* The legacy fixed-nav rules (.nav, .nav-links, .nav-toggle, .nav-cta,
+   .nav-dark) were removed 2026-09-13: no page carries that markup any more —
+   every page uses the shared .xp-header (section E below). .nav-logo stays:
+   the footers still use it (see .footer-brand .nav-logo). The legacy
+   .mobile-menu block moved to section E, consolidated with its brand skin. */
+.nav-logo {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--warm-white);
+  letter-spacing: 0.08em;
+  transition: color 0.4s ease;
+}
+
+/* ===== PAGE HERO (shorter, for inner pages) ===== */
+.page-hero {
+  position: relative;
+  height: 50vh;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--warm-white);
+  overflow: hidden;
+}
+
+.page-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+.page-hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.page-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  padding: 0 2rem;
+}
+
+/* ===== FULL HERO (homepage) ===== */
+/* Removed 2026-09-14: index.html's hero is now the universal .xp-hero from
+   the explore layer (section F holds the homepage-specific sizing). The
+   legacy .hero / .hero-bg / .hero-content / .hero-tagline / .hero-subtitle /
+   .hero-cta / .hero-scroll / .scroll-line rules and the scrollPulse keyframes
+   had no other page using them. .page-hero (inner pages) is unaffected. */
+
+/* ===== INTRO SECTION ===== */
+.intro { background: var(--warm-white); }
+
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.intro-image {
+  aspect-ratio: 4/5;
+  background: var(--sand);
+  overflow: hidden;
+}
+
+.intro-content .heading-sm { color: var(--gold); margin-bottom: 1rem; }
+.intro-content .heading-lg { margin-bottom: 1.5rem; }
+.intro-content .body-text { margin-bottom: 2rem; }
+
+.intro-stats {
+  display: flex;
+  gap: 3rem;
+  margin-top: 2.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--sand);
+}
+
+.stat-item h3 {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: var(--charcoal);
+  line-height: 1;
+}
+
+.stat-item p {
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 0.4rem;
+}
+
+/* ===== FEATURES RIBBON ===== */
+.features-ribbon {
+  background: var(--charcoal);
+  color: var(--warm-white);
+  padding: 4rem 0;
+}
+
+.ribbon-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  text-align: center;
+}
+
+.ribbon-item h4 {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.ribbon-item p {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ===== VILLA CARDS ===== */
+.villa { background: var(--cream); }
+
+.villa-header { text-align: center; margin-bottom: 4rem; }
+.villa-header .heading-sm { color: var(--gold); margin-bottom: 1rem; }
+.villa-header .body-text { margin-top: 1.5rem; }
+
+.villa-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.villa-card {
+  background: var(--warm-white);
+  overflow: hidden;
+  transition: transform 0.4s ease;
+}
+
+.villa-card:hover { transform: translateY(-4px); }
+
+.villa-card-image {
+  aspect-ratio: 3/2;
+  background: var(--sand);
+  overflow: hidden;
+}
+
+.villa-card-image img { width: 100%; height: 100%; object-fit: cover; }
+
+.villa-card-content { padding: 1.5rem; }
+
+.villa-card-content h3 {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.villa-card-content p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ===== GALLERY GRID ===== */
+.gallery { background: var(--warm-white); }
+
+.gallery-header { text-align: center; margin-bottom: 4rem; }
+.gallery-header .heading-sm { color: var(--gold); margin-bottom: 1rem; }
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+.gallery-item {
+  aspect-ratio: 1;
+  background: var(--sand);
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+}
+
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.gallery-item:hover img { transform: scale(1.05); }
+
+.gallery-item:nth-child(1) {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.gallery-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0);
+  transition: background 0.3s ease;
+}
+
+.gallery-item:hover::after { background: rgba(0,0,0,0.1); }
+
+/* Gallery category layout */
+.gallery-category { margin-bottom: 4rem; }
+.gallery-category:last-child { margin-bottom: 0; }
+
+.gallery-category h3 {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--sand);
+}
+
+.gallery-cat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.gallery-cat-grid .gallery-item { aspect-ratio: 3/2; }
+.gallery-cat-grid .gallery-item:first-child { grid-column: span 2; grid-row: span 1; }
+
+/* ===== AMENITIES ===== */
+.amenities { background: var(--charcoal); color: var(--warm-white); }
+
+.amenities-header { text-align: center; margin-bottom: 4rem; }
+.amenities-header .heading-sm { color: var(--gold); margin-bottom: 1rem; }
+.amenities-header .body-text { color: rgba(255,255,255,0.5); margin-top: 1.5rem; }
+
+.amenities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+}
+
+.amenity-group h4 {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.amenity-group ul { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; }
+
+.amenity-group li {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.6);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.amenity-group li::before {
+  content: '';
+  width: 6px; height: 1px;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+/* ===== EXPERIENCE / SPLIT SECTIONS ===== */
+.experience { background: var(--cream); }
+
+.experience-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.experience-content .heading-sm { color: var(--gold); margin-bottom: 1rem; }
+.experience-content .heading-lg { margin-bottom: 1.5rem; }
+.experience-content .body-text { margin-bottom: 2rem; }
+
+.experience-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.experience-list li {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.experience-list li::before {
+  content: '';
+  width: 20px; height: 1px;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+.experience-image {
+  aspect-ratio: 4/5;
+  background: var(--sand);
+  overflow: hidden;
+}
+
+.experience-image img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ===== LOCATION ===== */
+.location { background: var(--warm-white); }
+
+.location-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.location-map {
+  aspect-ratio: 1;
+  background: var(--sand);
+  overflow: hidden;
+}
+
+.location-map iframe { width: 100%; height: 100%; border: 0; }
+
+.location-content .heading-sm { color: var(--gold); margin-bottom: 1rem; }
+.location-content .heading-lg { margin-bottom: 1.5rem; }
+
+.location-highlights {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-top: 2rem;
+}
+
+.location-highlights li {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.location-highlights .highlight-label {
+  font-weight: 500;
+  color: var(--charcoal);
+  min-width: 140px;
+}
+
+/* ===== REVIEWS ===== */
+.reviews { background: var(--cream); }
+
+.reviews-header { text-align: center; margin-bottom: 4rem; }
+.reviews-header .heading-sm { color: var(--gold); margin-bottom: 1rem; }
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.review-card {
+  background: var(--warm-white);
+  padding: 2.5rem;
+}
+
+.review-stars {
+  color: var(--gold);
+  font-size: 1rem;
+  letter-spacing: 0.15em;
+  margin-bottom: 1.5rem;
+}
+
+.review-text {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--charcoal);
+  margin-bottom: 1.5rem;
+}
+
+.review-author {
+  padding-top: 1rem;
+  border-top: 1px solid var(--sand);
+}
+
+.review-name { font-size: 0.8rem; font-weight: 500; color: var(--charcoal); }
+.review-date { font-size: 0.7rem; color: var(--text-muted); margin-top: 0.2rem; }
+
+/* ===== CTA / BOOKING ===== */
+.cta-section {
+  background: linear-gradient(135deg, #2C3E50 0%, #1a1a2e 50%, #16213e 100%);
+  color: var(--warm-white);
+  text-align: center;
+  padding: 10rem 0;
+  position: relative;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 50%, rgba(196, 162, 101, 0.08) 0%, transparent 60%);
+}
+
+.cta-section .container { position: relative; z-index: 1; }
+.cta-section .heading-sm { color: var(--gold-light); margin-bottom: 1rem; }
+.cta-section .heading-xl { margin-bottom: 1.5rem; }
+.cta-section .body-text { color: rgba(255,255,255,0.6); margin-bottom: 3rem; }
+
+.cta-buttons { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
+
+/* ===== CONCIERGE SERVICES ===== */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.service-card {
+  background: var(--warm-white);
+  padding: 2.5rem;
+  text-align: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border: 1px solid var(--sand);
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+}
+
+.service-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.service-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin-bottom: 0.8rem;
+}
+
+.service-card p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* ===== BOOKING OPTIONS ===== */
+.booking-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.booking-card {
+  background: var(--warm-white);
+  border: 2px solid var(--sand);
+  padding: 3rem;
+  text-align: center;
+  transition: all 0.4s ease;
+}
+
+.booking-card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+}
+
+.booking-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.booking-card .booking-details {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  line-height: 1.8;
+}
+
+.booking-card .btn { width: 100%; text-align: center; }
+
+/* Contact form */
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-group { margin-bottom: 1.5rem; }
+
+.form-group label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  color: var(--charcoal);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 300;
+  border: 1px solid var(--sand);
+  background: var(--warm-white);
+  color: var(--charcoal);
+  transition: border-color 0.3s ease;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: var(--gold); }
+
+.form-group textarea { min-height: 120px; resize: vertical; }
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--dark);
+  color: rgba(255,255,255,0.4);
+  padding: 4rem 0 2rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.footer-brand .nav-logo {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.footer-brand p {
+  font-size: 0.8rem;
+  line-height: 1.8;
+  max-width: 280px;
+}
+
+.footer-col h5 {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 1.2rem;
+}
+
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+.footer-col a { font-size: 0.8rem; transition: color 0.3s ease; }
+.footer-col a:hover { color: var(--gold); }
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.7rem;
+}
+
+.footer-social { display: flex; gap: 1.5rem; }
+.footer-social a:hover { color: var(--gold); }
+
+/* ===== ANIMATIONS ===== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .section-padding { padding: 5rem 0; }
+  .intro-grid, .experience-grid, .location-grid { gap: 3rem; }
+  .villa-grid { grid-template-columns: repeat(2, 1fr); }
+  .amenities-grid { grid-template-columns: repeat(2, 1fr); }
+  .ribbon-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-cat-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .page-hero { height: 40vh; min-height: 300px; }
+  .section-padding { padding: 4rem 0; }
+  .intro-grid, .experience-grid, .location-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .intro-image { aspect-ratio: 3/2; }
+  .experience-image { aspect-ratio: 3/2; order: -1; }
+  .villa-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-cat-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-cat-grid .gallery-item:first-child { grid-column: span 2; }
+  .amenities-grid { grid-template-columns: 1fr; }
+  .ribbon-grid { grid-template-columns: 1fr; }
+  .services-grid { grid-template-columns: 1fr; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .booking-options { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .footer-brand { grid-column: span 2; }
+  .intro-stats { gap: 2rem; }
+  .cta-section { padding: 6rem 0; }
+  .location-map { aspect-ratio: 16/9; }
+  .form-row { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .container { padding: 0 1.25rem; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-brand { grid-column: span 1; }
+  .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+  .intro-stats { flex-direction: column; gap: 1.5rem; }
+  .cta-buttons { flex-direction: column; align-items: center; }
+}
+
+/* ===== PHOTO NUMBER BADGE ===== */
+.gallery-item { position: relative; }
+.photo-num {
+  position: absolute;
+  top: 0.6rem;
+  left: 0.6rem;
+  z-index: 2;
+  background: rgba(0,0,0,0.45);
+  color: var(--gold-light);
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  padding: 0.25rem 0.55rem;
+  border-radius: 2px;
+  backdrop-filter: blur(4px);
+  pointer-events: none;
+}
+
+/* ===== HALF CASA CALLOUT ===== */
+.half-casa-callout {
+  background: var(--warm-white);
+  border: 1px solid var(--sand);
+  border-left: 3px solid var(--gold);
+  padding: 2rem 2.5rem;
+  margin: 2rem auto;
+  max-width: 880px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+}
+.half-casa-callout .hc-text { flex: 1 1 360px; }
+.half-casa-callout h4 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+  color: var(--charcoal);
+}
+.half-casa-callout p {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  color: var(--charcoal);
+  opacity: 0.8;
+  line-height: 1.6;
+}
+
+/* ===== WHATSAPP BUTTON ===== */
+.btn-whatsapp {
+  background: #25D366;
+  color: #fff !important;
+  border-color: #25D366 !important;
+}
+.btn-whatsapp:hover { background: #1ebe57; border-color: #1ebe57 !important; }
+
+/* ===== FOOTER CONTACT BLOCK ===== */
+.footer-contact-block {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 2rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 2.5rem;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-contact-block .fcb-label {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.footer-contact-block .fcb-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  align-items: center;
+}
+.footer-contact-block a {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.75);
+  letter-spacing: 0.03em;
+}
+.footer-contact-block a:hover { color: var(--gold-light); }
+.footer-contact-block a[data-coming-soon="true"] {
+  opacity: 0.55;
+  cursor: default;
+}
+.footer-contact-block a[data-coming-soon="true"]::after {
+  content: ' (soon)';
+  font-size: 0.7rem;
+  opacity: 0.7;
+  letter-spacing: 0.05em;
+}
+
+/* ===== BOOK PAGE CONTACT BUTTONS ===== */
+.book-contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+/* ===== LOCATION MAP FULL ===== */
+.map-embed-wrap {
+  width: 100%;
+  margin: 0 auto 2.5rem;
+  border: 1px solid var(--sand);
+  overflow: hidden;
+}
+.map-embed-wrap iframe { display: block; width: 100%; border: 0; }
+
+/* ===== RATE NOTE ===== */
+.rate-note {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  opacity: 0.85;
+  margin-top: 1.25rem;
+}
+
+/* ===== STORY OF NINA ===== */
+.story-nina {
+  background: var(--warm-white);
+  padding: 5rem 0;
+  border-top: 1px solid var(--sand);
+  border-bottom: 1px solid var(--sand);
+}
+.story-nina .story-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+.story-nina h2 {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  margin-bottom: 1.5rem;
+  color: var(--charcoal);
+}
+.story-nina p {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--charcoal);
+  opacity: 0.85;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .half-casa-callout { padding: 1.5rem; }
+  .footer-contact-block { flex-direction: column; align-items: flex-start; }
+}
+
+/* ============================================================================
+   MERGED ADDITIONS: Casa Nina new-brand foundations + FAQ page layer
+   Added 2026-09-08 by Marked Digital. Everything below is namespaced
+   (--cn-*, --xp-*, .xp-*) or scoped to body.page-cn, so nothing above this
+   line changes behavior on existing pages. faq.html opts in via
+   <body class="page-cn">.
+   Sticky-header contract: when the shared site header ships, define
+   --xp-header-h (globally or in a page override); the FAQ hero padding and
+   category rail read it with a 0px fallback.
+   ============================================================================ */
+
+/* ============================================================
+   A. NEW-BRAND DESIGN TOKENS
+   ============================================================ */
+
+/* New-brand design tokens (--cn-*, --xp-*), values per the brand boards.
+   This is the site's single token block: the legacy :root at the top of
+   this file aliases into it (2026-09-13), and the explore layer's tokens
+   were merged in here in the same pass (alias names kept so existing
+   rules keep resolving). */
+:root{
+  --cn-navy:      #0F1E33;
+  --cn-navy-deep: #0A1626;
+  --cn-ink:       #14171F;
+  --cn-gold:      #C29A5B;
+  --cn-gold-soft: #DCC08C;
+  --cn-cream:     #F5F0E7;
+  --cn-sand:      #ECE5D7;
+  --cn-mist:      #9AA3B0;
+  --cn-white:     #FFFFFF;
+
+  /* merged from the explore layer (2026-09-13) */
+  --cn-navy-2:    #14263C;                /* raised dark surface (explore) */
+  --cn-gold-2:    var(--cn-gold-soft);    /* alias: explore's soft gold */
+  --cn-stone:     #837E70;                /* muted text on light (explore) */
+  --cn-ink-muted: rgba(20,23,31,.72);     /* muted BODY copy on cream/warm-white (2026-09-14):
+                                             derived from --cn-ink, 6.6:1 on cream. --cn-stone
+                                             is 3.4:1 there, fine for 10px caps labels, not copy. */
+
+  --cn-font-display: "Cormorant Garamond", Georgia, serif;
+  --cn-font-body:    "Manrope", -apple-system, "Segoe UI", sans-serif;
+  --cn-display: var(--cn-font-display);   /* alias: explore token names */
+  --cn-body:    var(--cn-font-body);
+
+  /* Universal type scale, taken from the explore page (2026-09-13). The
+     explore rules read these tokens; homepage headings (.heading-*) are
+     NOT yet migrated — the scale is available for that pass. */
+  --xp-display-1:  clamp(58px, 11vw, 138px);  /* page hero display */
+  --xp-display-2:  clamp(42px, 5vw, 72px);    /* chapter marker */
+  --xp-display-3:  clamp(32px, 4vw, 48px);    /* section titles */
+  --xp-title-card: 27px;                      /* card headings */
+
+  --xp-header-h: 68px;         /* fixed site header (section E below) */
+  --xp-cats-h: 56px;
+  --xp-anchor-offset: 144px;   /* header + sticky category rail + breathing room */
+
+  /* Content wrap widths — a deliberate per-page layout decision, not a
+     conflict: --xp-wrap is the FAQ's reading width, --xp-max the explore
+     page's wider canvas. Do not unify. */
+  --xp-wrap: 1080px;           /* FAQ content wrap */
+  --xp-max:  1240px;           /* explore content wrap */
+  --xp-gutter: clamp(20px, 5vw, 64px);
+
+  --xp-measure: 62ch;
+  --xp-ease: cubic-bezier(.33,.9,.35,1);
+}
+
+/* ============================================================
+   B. NEW-BRAND BASE + UTILITIES
+   ============================================================ */
+
+/* New-brand base, scoped so existing pages keep their current look.
+   A page opts in with <body class="page-cn"> (rename to a shared
+   .page-cn class when more pages migrate to the new brand). */
+body.page-cn{
+  margin:0;
+  font-family:var(--cn-font-body);
+  font-weight:400;
+  font-size:16px;
+  line-height:1.7;
+  color:var(--cn-ink);
+  background:var(--cn-cream);
+  -webkit-font-smoothing:antialiased;
+}
+
+.xp-wrap{ width:min(var(--xp-wrap), calc(100% - 48px)); margin-inline:auto; }
+
+/* Letterspaced caps = brand vernacular (per brand boards) */
+.xp-caps{
+  font-family:var(--cn-font-body);
+  font-weight:600;
+  font-size:11px;
+  letter-spacing:.32em;
+  text-transform:uppercase;
+}
+
+.xp-skip{
+  position:absolute; left:-9999px; top:0;
+  background:var(--cn-gold); color:var(--cn-navy-deep);
+  padding:10px 18px; z-index:200; font-weight:600; text-decoration:none;
+}
+.xp-skip:focus{ left:16px; top:12px; }
+
+.page-cn :is(a,button,input):focus-visible{
+  outline:2px solid var(--cn-gold);
+  outline-offset:3px;
+  border-radius:2px;
+}
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  *{ transition-duration:.01ms !important; animation-duration:.01ms !important; }
+}
+.page-cn svg{ display:block; max-width:100%; }
+
+/* ============================================================
+   C. SHARED COMPONENTS (buttons, chips, tokens)
+   ============================================================ */
+
+/* Universal button (2026-09-13): one .xp-btn for every page, using the
+   explore page's values (explore wins where layers disagreed — the old
+   15px/26px .16em base and the white-outline ghost were the FAQ's).
+   Modifiers are written compound (.xp-btn.xp-btn--*) so they outrank the
+   explore layer's `.xp-page a{color:inherit}` (0,1,1) without !important —
+   same approach as the .xp-cta .xp-cta__tag fix. */
+.xp-btn{
+  text-decoration:none; display:inline-block; cursor:pointer;
+  font:600 12px/1 var(--cn-body); letter-spacing:.24em; text-transform:uppercase;
+  padding:19px 34px; border:1px solid var(--cn-gold);
+  transition:background .3s, color .3s;
+}
+.xp-btn.xp-btn--solid,
+.xp-btn.xp-btn--gold{ background:var(--cn-gold); color:var(--cn-ink); } /* --gold = legacy alias of --solid */
+.xp-btn.xp-btn--solid:hover,
+.xp-btn.xp-btn--gold:hover{ background:var(--cn-gold-2); border-color:var(--cn-gold-2); }
+.xp-btn.xp-btn--ghost{ background:transparent; color:var(--cn-gold-2); }
+.xp-btn.xp-btn--ghost:hover{ background:rgba(195,161,95,.14); }
+.xp-btn.xp-btn--navy{ background:transparent; border-color:var(--cn-navy); color:var(--cn-navy); }
+.xp-btn.xp-btn--navy:hover{ background:var(--cn-navy); color:var(--cn-gold-soft); }
+.xp-sec-cta{ margin-top:22px; }
+/* 2026-09-14 (homepage universal pass): small generic modifiers so a migrated
+   page can read the type scale and centre the shared pieces without
+   page-scoped rules. Explore's own titles keep their element rules. */
+.xp-display--1{ font-size:var(--xp-display-1); }
+.xp-display--2{ font-size:var(--xp-display-2); }
+.xp-display--3{ font-size:var(--xp-display-3); }
+.xp-eyebrow--center{ justify-content:center; }
+.xp-eyebrow--center::before{ display:none; } /* centred eyebrows are rule-less, as in .xp-cta */
+.xp-sec-cta--center{ text-align:center; }
+.xp-chip{
+  flex:none; align-self:center;
+  display:inline-block; font-family:var(--cn-font-body);
+  font-size:9.5px; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--cn-gold); border:1px solid var(--cn-gold);
+  padding:4px 9px; border-radius:999px; white-space:nowrap;
+}
+.xp-token{ color:var(--cn-gold); font-weight:600; white-space:nowrap; }
+
+/* ============================================================
+   D. FAQ PAGE LAYER (hero, search, category rail, accordions, CTA band)
+   ============================================================ */
+
+/* ============ Hero ============ */
+.xp-faq-hero{
+  background:var(--cn-navy-deep);
+  color:var(--cn-white);
+  padding:calc(var(--xp-header-h, 0px) + 110px) 0 92px;
+  position:relative; overflow:hidden;
+}
+.xp-hero-bg{
+  position:absolute; inset:0; z-index:0;
+  width:100%; height:100%; object-fit:cover;
+}
+.xp-hero-overlay{
+  position:absolute; inset:0; z-index:1;
+  background:linear-gradient(180deg, rgba(10,22,38,.72) 0%, rgba(15,30,51,.86) 100%);
+}
+.xp-hero-motif{
+  position:absolute; right:-40px; top:50%; transform:translateY(-50%); z-index:2;
+  width:min(420px,44vw); color:var(--cn-gold); opacity:.14; pointer-events:none;
+}
+.xp-hero-inner{ position:relative; z-index:3; max-width:700px; margin-inline:auto; text-align:center; }
+.xp-breadcrumb{ list-style:none; display:flex; justify-content:center; gap:10px; margin:0 0 26px; padding:0; font-size:11px; font-weight:600; letter-spacing:.28em; text-transform:uppercase; color:var(--cn-mist); }
+.xp-breadcrumb a{ color:var(--cn-gold-soft); text-decoration:none; }
+.xp-breadcrumb a:hover{ color:var(--cn-gold); }
+.xp-breadcrumb li+li::before{ content:"/"; margin-right:10px; color:rgba(255,255,255,.3); }
+.xp-hero-title{
+  font-family:var(--cn-font-display); font-weight:500;
+  font-size:clamp(42px, 6vw, 64px); line-height:1.04; margin:0 0 18px;
+  letter-spacing:.01em;
+}
+.xp-hero-sub{ margin:0 auto 34px; max-width:72ch; text-wrap:balance; font-size:17px; font-weight:300; color:rgba(255,255,255,.85); } /* two balanced lines on desktop */
+
+.xp-search{
+  position:relative; max-width:520px; margin-inline:auto;
+}
+.xp-search svg{ position:absolute; left:18px; top:50%; transform:translateY(-50%); width:17px; height:17px; color:var(--cn-gold); }
+.xp-search input{
+  width:100%; padding:16px 48px 16px 48px; text-align:left;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(220,192,140,.45);
+  color:var(--cn-white);
+  font-family:var(--cn-font-body); font-size:15px;
+  transition:border-color .25s var(--xp-ease), background .25s var(--xp-ease);
+}
+.xp-search input::placeholder{ color:rgba(255,255,255,.45); }
+.xp-search input:focus{ background:rgba(255,255,255,.09); border-color:var(--cn-gold); outline:none; }
+.xp-search-clear{
+  position:absolute; right:8px; top:50%; transform:translateY(-50%);
+  background:none; border:0; color:var(--cn-mist); cursor:pointer;
+  font-size:20px; line-height:1; padding:8px 10px; display:none;
+}
+.xp-search.has-value .xp-search-clear{ display:block; }
+.xp-search-clear:hover{ color:var(--cn-white); }
+.xp-hero-note{ margin:20px auto 0; font-size:13px; color:var(--cn-mist); max-width:56ch; }
+.xp-hero-note .xp-chip{ vertical-align:middle; margin-right:6px; }
+
+/* ============ Sticky category rail ============ */
+.xp-cats{
+  position:sticky; top:var(--xp-header-h, 0px); z-index:90;
+  background:var(--cn-cream);
+  border-bottom:1px solid rgba(20,23,31,.12);
+}
+.xp-cats.is-stuck{ box-shadow:0 10px 24px rgba(20,23,31,.08); }
+.xp-cats-row{ display:flex; align-items:center; gap:16px; height:var(--xp-cats-h); }
+/* 2026-09-14: the pill run used to hard-clip against "Expand all" with nothing
+   saying it scrolls. Now the explore strip pattern: a track with cream edge
+   fades on whichever side has more pills, a scrub line showing position, and
+   prev/next arrows (hidden on touch widths, where the fade + peeking pill +
+   the active pill re-centring as you read carry the affordance). No scroll
+   snapping: it fights the programmatic centring. States are set by faq.html. */
+.xp-cats-track{ position:relative; flex:1 1 auto; min-width:0; /* min-width:0 — same trap as the beach strip: a flex child's min-content width is the whole pill run */
+  align-self:stretch; display:flex; align-items:center; }
+.xp-cats-scroll{
+  position:relative; display:flex; gap:8px; overflow-x:auto; scrollbar-width:none;
+  -webkit-overflow-scrolling:touch; flex:1; min-width:0; padding-block:4px;
+}
+.xp-cats-scroll::-webkit-scrollbar{ display:none; }
+.xp-cats-track::before,
+.xp-cats-track::after{ content:""; position:absolute; top:0; bottom:2px; width:56px; z-index:1;
+  pointer-events:none; opacity:0; transition:opacity .25s var(--xp-ease); }
+.xp-cats-track::before{ left:0;  background:linear-gradient(90deg,  var(--cn-cream) 20%, rgba(245,240,231,0)); }
+.xp-cats-track::after { right:0; background:linear-gradient(270deg, var(--cn-cream) 20%, rgba(245,240,231,0)); }
+.xp-cats-track.can-prev::before,
+.xp-cats-track.can-next::after{ opacity:1; }
+.xp-cats-scrub{ position:absolute; left:0; right:0; bottom:0; height:2px;
+  background:rgba(14,29,48,.12); overflow:hidden; }
+.xp-cats-scrub i{ position:absolute; top:0; bottom:0; left:0; width:40%; background:var(--cn-gold);
+  transition:left .25s var(--xp-ease), width .25s var(--xp-ease); }
+.xp-cats-track.no-scroll::before,
+.xp-cats-track.no-scroll::after,
+.xp-cats-track.no-scroll .xp-cats-scrub{ display:none; }
+.xp-cats-nav{ display:flex; gap:6px; flex:none; }
+.xp-cats-arrow{
+  width:34px; height:34px; border-radius:999px; display:grid; place-items:center; padding:0;
+  border:1px solid rgba(20,23,31,.28); background:none; color:var(--cn-navy); cursor:pointer;
+  transition:background .25s var(--xp-ease), color .25s var(--xp-ease), border-color .25s var(--xp-ease), opacity .25s var(--xp-ease);
+}
+.xp-cats-arrow svg{ width:14px; height:14px; display:block; fill:none; stroke:currentColor;
+  stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; } /* chevrons drawn inline; the text arrows fell back to a mismatched glyph */
+.xp-cats-arrow:hover:not(:disabled){ background:var(--cn-navy); border-color:var(--cn-navy); color:var(--cn-gold-soft); }
+.xp-cats-arrow:disabled{ opacity:.28; cursor:default; }
+@media (max-width:760px){
+  .xp-cats-nav{ display:none; }
+  .xp-cats-track::before, .xp-cats-track::after{ width:36px; } /* the scroller is ~240px wide here; keep the fades off the centred pill */
+}
+.xp-pill{
+  flex:none; background:none; cursor:pointer;
+  border:1px solid rgba(20,23,31,.22);
+  color:var(--cn-ink);
+  font-family:var(--cn-font-body); font-size:11.5px; font-weight:600;
+  letter-spacing:.12em; text-transform:uppercase;
+  padding:9px 16px; border-radius:999px;
+  transition:border-color .2s var(--xp-ease), color .2s var(--xp-ease), background .2s var(--xp-ease);
+}
+.xp-pill:hover{ border-color:var(--cn-gold); color:var(--cn-navy); }
+.xp-pill.is-active{ background:var(--cn-navy); border-color:var(--cn-navy); color:var(--cn-gold-soft); }
+.xp-toggle-all{
+  flex:none; background:none; border:0; cursor:pointer;
+  font-family:var(--cn-font-body); font-size:11.5px; font-weight:700;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--cn-gold);
+  padding:10px 2px; white-space:nowrap;
+}
+.xp-toggle-all:hover{ color:var(--cn-navy); }
+
+.xp-meta{
+  margin:14px 0 0; font-size:13px; color:rgba(20,23,31,.6); min-height:1em;
+}
+.xp-meta:empty{ display:none; margin:0; }
+.xp-noresults{
+  display:none; padding:72px 0 40px; text-align:left;
+}
+.xp-noresults.is-visible{ display:block; }
+.xp-noresults h2{ font-family:var(--cn-font-display); font-weight:500; font-size:30px; margin:0 0 10px; color:var(--cn-navy); }
+.xp-noresults p{ margin:0 0 18px; max-width:52ch; }
+.xp-noresults button{
+  background:none; border:1px solid var(--cn-navy); color:var(--cn-navy); cursor:pointer;
+  font-family:var(--cn-font-body); font-size:12px; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
+  padding:12px 22px;
+}
+.xp-noresults button:hover{ background:var(--cn-navy); color:var(--cn-gold-soft); }
+
+/* ============ FAQ sections ============ */
+.xp-faq-section{ padding:76px 0 60px; scroll-margin-top:var(--xp-anchor-offset); }
+.xp-faq-section.xp-alt{ background:var(--cn-white); }
+.xp-sec-head{ max-width:640px; margin-bottom:34px; }
+.xp-kicker{ display:block; color:var(--cn-gold); margin-bottom:14px; }
+.xp-sec-title{
+  font-family:var(--cn-font-display); font-weight:500;
+  font-size:clamp(30px, 4vw, 40px); line-height:1.1;
+  margin:0 0 12px; color:var(--cn-navy);
+}
+.xp-sec-intro{ margin:0; color:rgba(20,23,31,.68); max-width:54ch; }
+
+.xp-items{ border-top:1px solid rgba(20,23,31,.16); }
+
+.xp-item{ border-bottom:1px solid rgba(20,23,31,.16); scroll-margin-top:var(--xp-anchor-offset); position:relative; }
+.xp-item::before{
+  content:""; position:absolute; left:-1px; top:0; bottom:0; width:2px;
+  background:var(--cn-gold); transform:scaleY(0); transform-origin:top;
+  transition:transform .35s var(--xp-ease);
+}
+.xp-item.is-open::before{ transform:scaleY(1); }
+.xp-q-h{ margin:0; }
+.xp-q{
+  width:100%; display:flex; align-items:baseline; gap:16px;
+  background:none; border:0; cursor:pointer; text-align:left;
+  padding:24px 8px 24px 22px; color:var(--cn-ink);
+}
+.xp-q-text{
+  flex:1;
+  font-family:var(--cn-font-display); font-weight:600;
+  font-size:clamp(19px, 2.4vw, 23px); line-height:1.3; color:var(--cn-navy);
+  transition:color .2s var(--xp-ease);
+}
+.xp-q:hover .xp-q-text{ color:var(--cn-gold); }
+.xp-q-text mark{ background:var(--cn-gold-soft); color:var(--cn-navy-deep); padding:0 2px; }
+.xp-icon{
+  flex:none; position:relative; width:14px; height:14px; align-self:center;
+}
+.xp-icon::before,.xp-icon::after{
+  content:""; position:absolute; background:var(--cn-gold); left:50%; top:50%;
+  transition:transform .3s var(--xp-ease);
+}
+.xp-icon::before{ width:14px; height:1.5px; transform:translate(-50%,-50%); }
+.xp-icon::after{ width:1.5px; height:14px; transform:translate(-50%,-50%); }
+.xp-item.is-open .xp-icon::after{ transform:translate(-50%,-50%) scaleY(0); }
+
+.xp-a{
+  max-height:0; overflow:hidden;
+  transition:max-height .4s var(--xp-ease);
+}
+.xp-a-inner{ padding:2px 8px 30px 22px; max-width:var(--xp-measure); }
+.xp-a-inner p{ margin:0 0 14px; color:rgba(20,23,31,.82); font-size:15.5px; }
+.xp-a-inner > :last-child{ margin-bottom:0; }
+.xp-a-inner ul{ margin:0 0 14px; padding-left:20px; color:rgba(20,23,31,.82); font-size:15.5px; }
+.xp-a-inner li{ margin-bottom:6px; }
+
+/* Dark section variant (Staff & Included) */
+.xp-faq-section.xp-dark{ background:var(--cn-navy); color:var(--cn-white); }
+.xp-dark .xp-sec-title{ color:var(--cn-white); }
+.xp-dark .xp-sec-intro{ color:rgba(255,255,255,.72); }
+.xp-dark .xp-items{ border-top-color:rgba(255,255,255,.22); }
+.xp-dark .xp-item{ border-bottom-color:rgba(255,255,255,.22); }
+.xp-dark .xp-q-text{ color:var(--cn-white); }
+.xp-dark .xp-q:hover .xp-q-text{ color:var(--cn-gold-soft); }
+.xp-dark .xp-a-inner p, .xp-dark .xp-a-inner ul{ color:rgba(255,255,255,.82); }
+
+/* ============ CTA band ============ */
+.xp-faq-cta{
+  background:linear-gradient(160deg, var(--cn-navy-deep) 0%, var(--cn-navy) 100%);
+  color:var(--cn-white); padding:88px 0; text-align:center;
+  position:relative; overflow:hidden;
+}
+.xp-faq-cta::after{
+  content:""; position:absolute; right:0; top:0; bottom:0; width:38%;
+  background:radial-gradient(circle at 80% 40%, rgba(194,154,91,.16), transparent 65%);
+  pointer-events:none;
+}
+.xp-cta-kicker{ color:var(--cn-gold); display:block; margin-bottom:16px; }
+.xp-cta-title{ font-family:var(--cn-font-display); font-weight:500; font-size:clamp(34px,4.6vw,50px); line-height:1.08; margin:0 0 16px; }
+.xp-cta-copy{ margin:0 auto 34px; max-width:50ch; color:rgba(255,255,255,.82); font-weight:300; }
+.xp-cta-row{ display:flex; flex-wrap:wrap; gap:14px; justify-content:center; }
+
+/* ============ Responsive ============ */
+@media (max-width: 860px){
+  .xp-hero-motif{ opacity:.08; right:-120px; }
+}
+@media (max-width: 700px){
+  .xp-wrap{ width:calc(100% - 40px); }
+  .xp-faq-hero{ padding-top:calc(var(--xp-header-h, 0px) + 80px); }
+  .xp-faq-section{ padding:56px 0 44px; }
+  .xp-q{ padding:20px 4px 20px 16px; gap:12px; }
+  .xp-a-inner{ padding:0 4px 26px 16px; }
+  .xp-chip{ font-size:8.5px; letter-spacing:.14em; padding:3px 7px; }
+  .xp-cta-row .xp-btn{ flex:1 1 100%; text-align:center; }
+}
+
+/* ============ Motion & print ============ */
+@media print{
+  .xp-cats,.xp-search,.xp-faq-cta,.xp-icon,.xp-hero-bg,.xp-hero-overlay{ display:none !important; }
+  .xp-faq-hero{ padding:24px 0; background:none; color:var(--cn-ink); }
+  .xp-a{ max-height:none !important; }
+  .xp-faq-section{ padding:24px 0; }
+}
+
+/* ============================================================
+   E. SHARED SITE HEADER + MOBILE MENU (new brand)
+   Markup lives on every page: <header class="xp-header" id="nav">.
+   The header loads transparent over each page's hero and gains the
+   navy background once the user scrolls (main.js toggles .is-scrolled).
+   Pages without a dark hero (book.html) add .xp-header--solid to get
+   the navy background from load.
+   ============================================================ */
+
+.xp-header{
+  position:fixed; inset:0 0 auto 0; height:var(--xp-header-h); z-index:1000;
+  background:transparent;
+  color:var(--cn-white);
+  transition:background .35s var(--xp-ease), box-shadow .35s var(--xp-ease);
+}
+.xp-header.is-scrolled,
+.xp-header--solid{
+  background:rgba(15,30,51,.92);
+  -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
+}
+.xp-header.is-scrolled{ box-shadow:0 8px 28px rgba(10,22,38,.35); }
+.xp-header .xp-wrap{
+  /* Wider than the page's 1080px content wrap: aligns the header with the
+     widest content column (1200px legacy container / 1240px explore wrap)
+     so it doesn't read narrower than the page on large monitors */
+  width:min(1240px, calc(100% - 48px));
+  height:100%; display:flex; align-items:center; justify-content:space-between; gap:24px;
+}
+
+.xp-logo{ display:flex; align-items:center; gap:14px; text-decoration:none; color:var(--cn-white); }
+.xp-logo-mono{
+  /* Stand-in for the interlocking CN monogram. Swap for the brand SVG asset */
+  width:38px; height:38px; border:1px solid var(--cn-gold);
+  border-radius:50%; display:grid; place-items:center; flex:none;
+  font-family:var(--cn-font-display); font-weight:600; font-size:17px;
+  letter-spacing:.04em; color:var(--cn-gold);
+}
+.xp-logo-text{ font-family:var(--cn-font-display); font-weight:600; font-size:19px; letter-spacing:.22em; line-height:1.1; }
+.xp-logo-text em{ display:block; font-family:var(--cn-font-body); font-style:normal; font-weight:600; font-size:9px; letter-spacing:.5em; color:var(--cn-gold); margin-top:3px; }
+
+.xp-header .xp-nav{ display:flex; align-items:center; gap:28px; }
+.xp-header .xp-nav a{
+  text-decoration:none; font-size:12px; font-weight:300; letter-spacing:.18em;
+  text-transform:uppercase; color:rgba(255,255,255,.82);
+  padding:6px 0; border-bottom:1px solid transparent;
+  transition:color .2s var(--xp-ease), text-shadow .25s var(--xp-ease);
+}
+.xp-header .xp-nav a:hover{
+  color:var(--cn-gold);
+  text-shadow:0 0 10px rgba(194,154,91,.65), 0 0 22px rgba(194,154,91,.35);
+}
+.xp-header .xp-nav a[aria-current="page"]{ color:var(--cn-gold); border-bottom-color:var(--cn-gold); }
+
+.xp-header-actions{ display:flex; align-items:center; gap:16px; }
+.xp-cta-btn{
+  text-decoration:none; font-size:12px; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--cn-navy-deep); background:var(--cn-gold);
+  padding:11px 20px; border:1px solid var(--cn-gold); white-space:nowrap;
+  transition:background .25s var(--xp-ease), color .25s var(--xp-ease);
+}
+.xp-cta-btn:hover{ background:transparent; color:var(--cn-gold); }
+
+/* Burger (mobile) */
+.xp-burger{
+  display:none; flex-direction:column; align-items:center; justify-content:center; gap:5px;
+  width:40px; height:40px; padding:0; background:none; border:0; cursor:pointer;
+  z-index:1001;
+}
+.xp-burger span{
+  display:block; width:22px; height:1.5px; background:var(--cn-white);
+  transition:transform .3s var(--xp-ease), opacity .3s var(--xp-ease);
+}
+.xp-burger.is-open span:nth-child(1){ transform:translateY(6.5px) rotate(45deg); }
+.xp-burger.is-open span:nth-child(2){ opacity:0; }
+.xp-burger.is-open span:nth-child(3){ transform:translateY(-6.5px) rotate(-45deg); }
+
+/* Mobile menu overlay. Consolidated 2026-09-13: the structural base
+   (fixed full-screen flex overlay, opacity/pointer-events toggle) moved
+   here from the legacy layer and merged with the navy brand skin that
+   used to only override colours/fonts. main.js toggles .active on the
+   overlay, .is-open on the burger, and locks scroll via body overflow. */
+.mobile-menu{
+  position:fixed;
+  inset:0;
+  background:rgba(10,22,38,.97);
+  z-index:999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .4s ease;
+}
+.mobile-menu.active{ opacity:1; pointer-events:all; }
+.mobile-menu nav{ text-align:center; }
+/* nav in the selector (0,1,2): the explore layer's `.xp-page a{color:inherit}`
+   (0,1,1) ties a bare `.mobile-menu a` and sits later in the file, which left
+   the menu links ink-on-navy on explore — every page wraps the links in
+   <nav aria-label="Mobile">, so this raise is safe (and no !important). */
+.mobile-menu nav a{
+  display:block;
+  font-family:var(--cn-font-display);
+  font-size:2rem;
+  font-weight:300;
+  color:var(--cn-white);
+  padding:0.8rem 0;
+  transition:color .3s ease;
+}
+.mobile-menu nav a:hover{ color:var(--cn-gold-soft); }
+.mobile-menu nav a[aria-current="page"]{ color:var(--cn-gold); }
+.mobile-menu .mobile-menu-cta{
+  display:inline-block; margin-top:1.4rem;
+  font-family:var(--cn-font-body); font-size:12px; font-weight:700;
+  letter-spacing:.16em; text-transform:uppercase;
+  background:var(--cn-gold); color:var(--cn-navy-deep);
+  border:1px solid var(--cn-gold); padding:14px 34px;
+}
+.mobile-menu .mobile-menu-cta:hover{ background:transparent; color:var(--cn-gold); }
+
+@media (max-width: 900px){
+  .xp-header .xp-nav{ display:none; }
+  .xp-burger{ display:flex; }
+}
+@media (max-width: 560px){
+  .xp-header .xp-cta-btn{ display:none; } /* Book Now lives in the mobile menu */
+  .xp-logo-text{ font-size:16px; }
+  .xp-logo-mono{ width:34px; height:34px; font-size:15px; }
+}
+
+
+/* ============================================================================
+   MERGED ADDITIONS: Explore page layer
+   Added 2026-09-08 by Marked Digital, migrated from explore.html's inline
+   <style> block. Everything below is namespaced (.xp-*) or scoped under
+   .xp-page, so nothing above this line changes behavior on other pages.
+   explore.html opts in via <body class="xp-page page-cn">.
+   Merge notes:
+   · Tokens: explore's --cn- and --xp- palette drift was dropped in favor of the
+     brand-board values in the new-brand :root block above; only the seven
+     tokens this page alone uses are added here (--cn-display / --cn-body /
+     --cn-gold-2 alias the canonical font and gold tokens).
+   · .xp-wrap, .xp-btn and .xp-chip exist above as shared components with
+     different values; explore's variants are scoped under .xp-page.
+   · Explore's placeholder header, footer and mobile-menu rules were dropped:
+     the page now carries the shared site header (section E) and the global
+     .footer. Deploy this sheet together with explore.html and faq.html
+     (page-faq was renamed page-cn in the same change).
+   · 2026-09-10: hero restored to full-viewport (was min(72svh,720px)) with
+     desktop-centered text; rail-eyebrow nowrap, strip image-drag guards and
+     .xp-strip-scrub added; dead .xp-media__tag rule removed; section[id]
+     scroll margin tokenized to --xp-header-h. Migrated from explore.html's
+     page-overrides block, which is now empty again. DEPLOY-COUPLED with
+     explore.html from the same change.
+   · 2026-09-10 (later): ROOT CAUSE of the non-scrolling beach strip found and
+     fixed — .xp-chapter__grid's 1fr column took its min-content width (the
+     strip's ~2400px of cards), so the strip never overflowed. Now minmax(0,1fr)
+     at both breakpoints. Strip edge-fade mask restored.
+   · 2026-09-10 (final): .xp-strip now bleeds to the viewport's right edge
+     (negative margin-right + gutter padding-right) per design review.
+   · 2026-09-13: universal-styling pass, explore as the source of truth.
+     This layer's :root block was merged into the single brand :root
+     (section A) — alias names --cn-gold-2/--cn-display/--cn-body kept.
+     .xp-btn went universal in section C with THIS page's values (compound
+     .xp-btn.xp-btn--* modifiers outrank `.xp-page a` without !important);
+     the .xp-page .xp-btn* duplicates below were deleted, only the 480px
+     padding refinement remains, now unscoped. New :root type-scale tokens
+     (--xp-display-1/2/3, --xp-title-card) source from this page; the hero
+     h1, .xp-rail__marker, .xp-bcard/.xp-card h3 now read them. The Good
+     to Know heading's inline font-size/margin moved to .xp-know__title.
+     Legacy :root now aliases the brand tokens (homepage: Manrope body,
+     navy dark sections); legacy .nav*/.mobile-menu rules deleted or
+     consolidated into section E; Montserrat dropped from every page's
+     Google Fonts link. DEPLOY-COUPLED with all touched *.html.
+   ============================================================================ */
+
+/* Tokens: unified into the single :root brand block (section A above),
+   including the explore-only tokens (--cn-navy-2, --cn-stone, --xp-max,
+   --xp-gutter) and the alias names this layer's rules resolve through. */
+
+/* ── Base ── */
+body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn base */
+  margin:0; background:var(--cn-cream); color:var(--cn-navy);
+  font-family:var(--cn-body); font-weight:400; font-size:16px; line-height:1.7;
+  -webkit-font-smoothing:antialiased; overflow-x:clip; }
+.xp-page *{ box-sizing:border-box; }
+.xp-page img{ max-width:100%; display:block; }
+.xp-page a{ color:inherit; text-decoration:none; }
+.xp-page ::selection{ background:var(--cn-gold); color:var(--cn-ink); }
+
+.xp-page .xp-wrap{ width:auto; max-width:var(--xp-max); margin:0 auto; padding:0 var(--xp-gutter); }
+/* The shared site header keeps its cross-site geometry on this page */
+.xp-page .xp-header .xp-wrap{ width:min(1240px, calc(100% - 48px)); max-width:none; padding:0; }
+
+/* ── Type utilities ── */
+.xp-eyebrow{ font:600 11px/1 var(--cn-body); letter-spacing:.34em; text-transform:uppercase;
+  color:var(--cn-gold); display:inline-flex; align-items:center; gap:14px; }
+.xp-eyebrow::before{ content:""; width:34px; height:1px; background:var(--cn-gold); }
+.xp-display{ font-family:var(--cn-display); font-weight:500; line-height:1.02; margin:0; }
+.xp-italic{ font-style:italic; font-weight:400; }
+
+/* ── Scroll progress ── */
+.xp-progress{ position:fixed; top:0; left:0; height:2px; width:0%;
+  background:linear-gradient(90deg,var(--cn-gold),var(--cn-gold-2)); z-index:1002; /* above the fixed site header */ }
+
+/* Header/burger/mobile-menu rules dropped: this page now uses the shared
+   site header + mobile menu (section E above). */
+
+/* ─────────────────────────────────────────────
+   HERO
+   ───────────────────────────────────────────── */
+.xp-hero{ position:relative; min-height:100vh; min-height:100svh; display:flex; align-items:flex-end;
+  padding-top:calc(var(--xp-header-h) + 48px); /* clear the fixed header on short viewports */
+  color:var(--cn-white); overflow:hidden; }
+.xp-hero__img{ position:absolute; inset:0; background-position:center; background-size:cover;
+  background-image:
+    radial-gradient(120% 90% at 78% 8%, rgba(220,195,145,.32), transparent 55%),
+    linear-gradient(168deg, #16283F 0%, #0E1D30 46%, #0A1420 100%);
+  transform:scale(1.07); animation:xpHeroDrift 16s var(--xp-ease) forwards; }
+@keyframes xpHeroDrift{ to{ transform:scale(1); } }
+.xp-hero__veil{ position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(10,20,32,.42) 0%, rgba(10,20,32,.06) 42%, rgba(10,20,32,.78) 100%); }
+.xp-hero__inner{ position:relative; width:100%; padding:0 0 clamp(40px,6vh,64px); }
+/* Desktop: text block truly centered in the full-viewport hero. The section's
+   own padding-top is zeroed so the flex center matches the exact viewport
+   center; the inner's symmetric padding guarantees clearance under the fixed
+   header on short windows. Mobile keeps the bottom-anchored composition. */
+@media (min-width:761px){
+  .xp-hero{ align-items:center; padding-top:0; }
+  .xp-hero__inner{ padding:calc(var(--xp-header-h, 68px) + clamp(32px,5vh,64px)) 0; }
+}
+.xp-hero__kicker{ margin-bottom:26px; }
+.xp-hero h1{ font-size:var(--xp-display-1); letter-spacing:.005em; color:var(--cn-white); }
+.xp-hero__sub{ font-family:var(--cn-display); font-style:italic; font-weight:400;
+  font-size:clamp(24px, 3.4vw, 42px); color:var(--cn-gold-2); margin:10px 0 26px; line-height:1.15; }
+.xp-hero__dek{ max-width:52ch; font-size:clamp(15px,1.4vw,17.5px); font-weight:300;
+  color:rgba(255,255,255,.86); margin:0; }
+.xp-hero__cue{ position:absolute; right:var(--xp-gutter); bottom:clamp(40px,6vh,64px);
+  display:flex; flex-direction:column; align-items:center; gap:14px; }
+.xp-hero__cue span{ writing-mode:vertical-rl; font:600 10px/1 var(--cn-body);
+  letter-spacing:.4em; text-transform:uppercase; color:var(--cn-gold-2); }
+.xp-hero__cue i{ width:1px; height:64px; background:rgba(255,255,255,.28); position:relative; overflow:hidden; display:block; }
+.xp-hero__cue i::after{ content:""; position:absolute; left:0; top:-40%; width:100%; height:40%;
+  background:var(--cn-gold); animation:xpCue 2.2s ease-in-out infinite; }
+@keyframes xpCue{ 0%{ top:-40%; } 60%,100%{ top:110%; } }
+@media (max-width:760px){ .xp-hero__cue{ display:none; } }
+
+/* ─────────────────────────────────────────────
+   ARRIVAL — intro copy + distance ledger
+   ───────────────────────────────────────────── */
+.xp-arrival{ padding:clamp(88px,12vh,150px) 0 clamp(64px,9vh,110px); background:var(--cn-cream); }
+.xp-arrival__grid{ display:grid; grid-template-columns:minmax(240px,340px) 1fr;
+  gap:clamp(36px,6vw,100px); align-items:start; }
+.xp-arrival__title{ font-size:clamp(34px,4.2vw,52px); color:var(--cn-navy); margin-top:18px; }
+.xp-arrival__body p{ margin:0 0 1.4em; font-size:clamp(15.5px,1.35vw,18px); font-weight:300;
+  color:#33404F; max-width:62ch; }
+.xp-arrival__body p:last-child{ margin-bottom:0; }
+.xp-arrival__body strong{ font-weight:600; color:var(--cn-navy); }
+
+.xp-ledger{ margin-top:clamp(56px,8vh,90px); border-top:1px solid rgba(14,29,48,.14);
+  display:grid; grid-template-columns:repeat(5,1fr); }
+.xp-stat{ padding:30px 18px 6px 0; border-right:1px solid rgba(14,29,48,.1); margin-right:18px; }
+.xp-stat:last-child{ border-right:0; margin-right:0; }
+.xp-ledger--3{ grid-template-columns:repeat(3,1fr); } /* 2026-09-14: homepage's 7 / 6 / 14 */
+.xp-stat__num{ font-family:var(--cn-display); font-weight:500; font-size:clamp(38px,4.6vw,60px);
+  line-height:1; color:var(--cn-navy); }
+.xp-stat__num em{ font-style:italic; font-size:.5em; color:var(--cn-gold); letter-spacing:.02em; }
+.xp-stat__num--word{ font-style:italic; font-weight:400; color:var(--cn-gold);
+  font-size:clamp(28px,3.5vw,44px); line-height:1.25; }
+.xp-stat__label{ margin-top:10px; font:600 10.5px/1.5 var(--cn-body); letter-spacing:.24em;
+  text-transform:uppercase; color:var(--cn-stone); }
+@media (max-width:960px){
+  .xp-arrival__grid{ grid-template-columns:1fr; }
+  .xp-ledger{ grid-template-columns:repeat(2,1fr); row-gap:26px; }
+  .xp-stat:nth-child(2n){ border-right:0; }
+  .xp-ledger--3{ grid-template-columns:repeat(3,1fr); } /* three stats never orphan */
+  .xp-ledger--3 .xp-stat:nth-child(2n){ border-right:1px solid rgba(14,29,48,.1); }
+}
+
+/* ─────────────────────────────────────────────
+   CHAPTER SCAFFOLD — sticky rail + flowing content
+   ───────────────────────────────────────────── */
+.xp-chapter{ padding:clamp(84px,11vh,140px) 0; }
+/* minmax(0,1fr), not 1fr: a bare 1fr track's minimum is its content's
+   min-content width, and the beach strip's content is ~2400px wide — the
+   column blew out to that width (hidden by body overflow-x:clip), so the
+   strip had zero overflow and nothing to drag. Verified live 2026-09-10. */
+.xp-chapter__grid{ display:grid; grid-template-columns:minmax(230px,330px) minmax(0,1fr);
+  gap:clamp(36px,6vw,100px); align-items:start; }
+.xp-rail{ position:sticky; top:104px; }
+.xp-rail__marker{ font-family:var(--cn-display); font-style:italic; font-weight:400;
+  font-size:var(--xp-display-2); line-height:1; margin:16px 0 18px; }
+.xp-rail__line{ font-size:15px; font-weight:300; line-height:1.75; max-width:30ch; margin:0; }
+.xp-rail__rule{ width:44px; height:1px; background:var(--cn-gold); margin-top:26px; }
+.xp-rail .xp-eyebrow{ white-space:nowrap; }        /* chapter labels hold one line */
+.xp-rail .xp-eyebrow::before{ flex-shrink:0; }     /* keep the gold dash full-width */
+@media (max-width:960px){
+  .xp-chapter__grid{ grid-template-columns:minmax(0,1fr); } /* same trap on mobile */
+  .xp-rail{ position:static; }
+  .xp-rail__marker{ font-size:clamp(40px,9vw,58px); }
+}
+
+/* light + dark chapter palettes */
+.xp-chapter--light{ background:var(--cn-cream); color:var(--cn-navy); }
+.xp-chapter--sand{ background:var(--cn-sand); color:var(--cn-navy); }
+.xp-chapter--light .xp-rail__marker, .xp-chapter--sand .xp-rail__marker{ color:var(--cn-navy); }
+.xp-chapter--light .xp-rail__line, .xp-chapter--sand .xp-rail__line{ color:#4A5563; }
+.xp-chapter--dark{ background:var(--cn-navy); color:var(--cn-cream); }
+.xp-chapter--dark .xp-rail__marker{ color:var(--cn-gold-2); }
+.xp-chapter--dark .xp-rail__line{ color:var(--cn-mist); }
+
+/* ── Media panels (photo with gradient fallback + parallax layer) ── */
+.xp-media{ position:relative; overflow:hidden; background:var(--cn-navy-2); }
+.xp-media__img{ position:absolute; inset:-14% 0; background-size:cover; background-position:center; }
+@media (min-width:761px){ .xp-media__img{ will-change:transform; } }
+.xp-media__photo{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+/* gradient fallbacks, brand palette only */
+.xp-ph--sea{ background-image:radial-gradient(90% 70% at 24% 18%, rgba(220,195,145,.2), transparent 52%),
+  linear-gradient(160deg,#1A3049 0%, #0E1D30 58%, #0A1622 100%); }
+.xp-ph--dusk{ background-image:radial-gradient(110% 62% at 50% 96%, rgba(195,161,95,.5), transparent 58%),
+  linear-gradient(180deg,#16283F 0%, #0E1D30 62%, #0B1826 100%); }
+.xp-ph--sand{ background-image:radial-gradient(85% 70% at 76% 22%, rgba(220,195,145,.55), transparent 55%),
+  linear-gradient(165deg,#EFE9DB 0%, #E2D8C2 55%, #CDBD9C 100%); }
+.xp-ph--ink{ background-image:radial-gradient(80% 60% at 70% 30%, rgba(195,161,95,.16), transparent 55%),
+  linear-gradient(150deg,#122236 0%, #0A1420 70%); }
+
+/* ─────────────────────────────────────────────
+   CHAPTER I — BEACHES (horizontal snap strip)
+   ───────────────────────────────────────────── */
+.xp-striphead{ display:flex; align-items:flex-end; justify-content:space-between; gap:20px;
+  margin-bottom:26px; }
+.xp-striphead p{ margin:0; font:600 11px/1 var(--cn-body); letter-spacing:.28em;
+  text-transform:uppercase; color:var(--cn-stone); }
+.xp-stripnav{ display:flex; gap:10px; }
+.xp-stripnav button{ width:46px; height:46px; border:1px solid rgba(14,29,48,.28); background:transparent;
+  color:var(--cn-navy); font-size:18px; line-height:1; cursor:pointer;
+  transition:background .3s,color .3s,border-color .3s; }
+.xp-stripnav button:hover{ background:var(--cn-navy); color:var(--cn-cream); border-color:var(--cn-navy); }
+/* The strip bleeds past its grid column to the right edge of the viewport
+   (cards run off the page instead of stopping at the column). The negative
+   margin equals the space between the wrap's content edge and the viewport:
+   half the excess beyond --xp-max, plus the gutter. Right padding = gutter so
+   the last card rests a gutter in from the edge. The 100vw/scrollbar overshoot
+   (~15px) is hidden by .xp-page's overflow-x:clip. */
+.xp-strip{ display:flex; gap:clamp(16px,2vw,26px); overflow-x:auto; scroll-snap-type:x mandatory;
+  margin-right:calc(-1 * (max(0px, (100vw - var(--xp-max)) / 2) + var(--xp-gutter)));
+  padding:4px var(--xp-gutter) 26px 4px; cursor:grab; scrollbar-width:none;
+  -webkit-mask-image:linear-gradient(90deg, transparent 0, #000 3%, #000 97%, transparent 100%);
+          mask-image:linear-gradient(90deg, transparent 0, #000 3%, #000 97%, transparent 100%); }
+.xp-strip::-webkit-scrollbar{ display:none; }
+.xp-strip.is-dragging{ cursor:grabbing; scroll-snap-type:none; user-select:none; }
+.xp-strip:focus-visible{ outline:2px solid var(--cn-gold); outline-offset:6px; }
+.xp-strip img{ -webkit-user-drag:none; user-select:none; } /* no native drag ghost */
+
+/* Scrub line under the strip: the gold segment's width = visible fraction,
+   its position = scroll progress. Updated by JS in explore.html. */
+.xp-strip-scrub{ position:relative; height:2px; margin-top:2px;
+  background:rgba(14,29,48,.12); overflow:hidden; }
+.xp-strip-scrub i{ position:absolute; top:0; bottom:0; left:0; width:40%;
+  background:var(--cn-gold); display:block; }
+.xp-bcard{ flex:0 0 min(76vw, 380px); scroll-snap-align:start; background:var(--cn-white);
+  border:1px solid rgba(14,29,48,.1); display:flex; flex-direction:column; }
+.xp-bcard .xp-media{ aspect-ratio:4/4.6; }
+.xp-bcard__body{ padding:24px 24px 28px; }
+.xp-page .xp-chip{ display:inline-block; font:700 10px/1 var(--cn-body); letter-spacing:.22em;
+  text-transform:uppercase; color:var(--cn-gold); border:1px solid rgba(195,161,95,.55);
+  padding:7px 11px; margin-bottom:14px; border-radius:0; white-space:normal; }
+.xp-bcard h3{ font-family:var(--cn-display); font-weight:500; font-size:var(--xp-title-card); line-height:1.08;
+  margin:0 0 10px; color:var(--cn-navy); }
+.xp-bcard p{ margin:0; font-size:14.5px; font-weight:300; line-height:1.7; color:#4A5563; }
+
+/* ─────────────────────────────────────────────
+   CHAPTER II — ON THE WATER (dark)
+   ───────────────────────────────────────────── */
+.xp-feature{ position:relative; overflow:hidden; }
+.xp-feature .xp-media{ aspect-ratio:16/8.4; }
+.xp-feature__cap{ position:absolute; left:0; right:0; bottom:0; z-index:2;
+  padding:clamp(24px,4vw,44px);
+  background:linear-gradient(180deg, transparent, rgba(10,20,32,.82)); color:var(--cn-white); }
+.xp-feature__cap .xp-chip{ color:var(--cn-gold-2); border-color:rgba(220,195,145,.5); }
+.xp-feature__cap h3{ font-family:var(--cn-display); font-weight:500;
+  font-size:clamp(28px,3.6vw,44px); margin:0 0 8px; line-height:1.05; }
+.xp-feature__cap p{ margin:0; max-width:62ch; font-size:15px; font-weight:300;
+  color:rgba(255,255,255,.85); }
+.xp-cardgrid{ display:grid; grid-template-columns:repeat(2,1fr); gap:clamp(16px,2vw,26px);
+  margin-top:clamp(16px,2vw,26px); }
+.xp-card{ background:var(--cn-navy-2); border:1px solid rgba(220,195,145,.16);
+  display:flex; flex-direction:column; }
+.xp-card .xp-media{ aspect-ratio:16/9.6; }
+.xp-card__body{ padding:26px 26px 30px; }
+.xp-card__body .xp-chip{ color:var(--cn-gold-2); border-color:rgba(220,195,145,.4); }
+.xp-card h3{ font-family:var(--cn-display); font-weight:500; font-size:var(--xp-title-card); margin:0 0 10px;
+  line-height:1.1; color:var(--cn-cream); }
+.xp-card p{ margin:0; font-size:14.5px; font-weight:300; line-height:1.7; color:var(--cn-mist); }
+@media (max-width:760px){ .xp-cardgrid{ grid-template-columns:1fr; } }
+
+/* light variant of the same card (Chapter III) */
+.xp-chapter--light .xp-card{ background:var(--cn-white); border-color:rgba(14,29,48,.1); }
+.xp-chapter--light .xp-card h3{ color:var(--cn-navy); }
+.xp-chapter--light .xp-card p{ color:#4A5563; }
+.xp-chapter--light .xp-card__body .xp-chip{ color:var(--cn-gold); border-color:rgba(195,161,95,.55); }
+
+/* ─────────────────────────────────────────────
+   CHAPTER IV — FURTHER AFIELD (alternating rows)
+   ───────────────────────────────────────────── */
+.xp-row{ display:grid; grid-template-columns:1.06fr .94fr; gap:clamp(26px,4vw,64px);
+  align-items:center; }
+.xp-row + .xp-row{ margin-top:clamp(48px,7vh,84px); }
+.xp-row--flip .xp-row__media{ order:2; }
+.xp-row__media .xp-media{ aspect-ratio:4/3; }
+.xp-row__text h3{ font-family:var(--cn-display); font-weight:500;
+  font-size:clamp(28px,3vw,38px); line-height:1.08; margin:14px 0 12px; color:var(--cn-navy); }
+.xp-row__text p{ margin:0; font-size:15.5px; font-weight:300; line-height:1.75;
+  color:#4A5563; max-width:52ch; }
+@media (max-width:860px){
+  .xp-row{ grid-template-columns:1fr; }
+  .xp-row--flip .xp-row__media{ order:0; }
+}
+.xp-banner{ margin-top:clamp(56px,8vh,90px); position:relative; overflow:hidden;
+  background:var(--cn-navy); color:var(--cn-cream); }
+.xp-banner .xp-media{ position:absolute; inset:0; opacity:.5; }
+.xp-banner__inner{ position:relative; z-index:2; padding:clamp(40px,6vw,72px);
+  display:grid; grid-template-columns:1.2fr auto; gap:28px; align-items:center; }
+.xp-banner h3{ font-family:var(--cn-display); font-weight:500;
+  font-size:clamp(28px,3.4vw,42px); margin:12px 0 10px; line-height:1.08; }
+.xp-banner p{ margin:0; max-width:56ch; font-weight:300; font-size:15px; color:rgba(255,255,255,.85); }
+@media (max-width:860px){ .xp-banner__inner{ grid-template-columns:1fr; } }
+
+/* ─────────────────────────────────────────────
+   CHAPTER V — THE CALENDAR (gold rail timeline)
+   ───────────────────────────────────────────── */
+.xp-cal{ position:relative; padding-left:clamp(30px,4vw,54px); }
+.xp-cal::before{ content:""; position:absolute; left:6px; top:8px; bottom:8px; width:1px;
+  background:linear-gradient(180deg, rgba(195,161,95,.15), var(--cn-gold) 18%, var(--cn-gold) 82%, rgba(195,161,95,.15)); }
+.xp-cal__item{ position:relative; padding:0 0 clamp(34px,5vh,52px); }
+.xp-cal__item:last-child{ padding-bottom:0; }
+.xp-cal__item::before{ content:""; position:absolute; left:calc(6px - clamp(30px,4vw,54px)); top:9px;
+  width:9px; height:9px; margin-left:-4px; background:var(--cn-cream);
+  border:1.5px solid var(--cn-gold); border-radius:50%; }
+.xp-cal__when{ font-family:var(--cn-display); font-style:italic; font-weight:400;
+  font-size:clamp(22px,2.4vw,30px); color:var(--cn-gold); line-height:1.1; }
+.xp-cal__what{ font:600 12px/1 var(--cn-body); letter-spacing:.26em; text-transform:uppercase;
+  color:var(--cn-navy); margin:9px 0 10px; }
+.xp-cal__item p{ margin:0; font-size:15px; font-weight:300; line-height:1.7;
+  color:#4A5563; max-width:60ch; }
+
+/* ─────────────────────────────────────────────
+   GOOD TO KNOW + CTA
+   ───────────────────────────────────────────── */
+.xp-know{ background:var(--cn-sand); padding:clamp(72px,10vh,120px) 0; }
+/* Section title (was an inline style on the h2 until 2026-09-13) */
+.xp-know__title{ font-size:var(--xp-display-3); margin-top:16px; }
+.xp-know__grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:clamp(24px,3vw,44px);
+  margin-top:clamp(36px,5vh,56px); }
+.xp-know__item{ border-top:1px solid rgba(14,29,48,.18); padding-top:22px; }
+.xp-know__item h3{ font-family:var(--cn-display); font-weight:500; font-size:24px;
+  margin:0 0 10px; color:var(--cn-navy); }
+.xp-know__item p{ margin:0; font-size:14.5px; font-weight:300; line-height:1.7; color:#4A5563; }
+.xp-know__more{ margin-top:clamp(40px,6vh,64px); padding-top:26px; border-top:1px solid rgba(14,29,48,.18);
+  display:flex; align-items:center; justify-content:space-between; gap:24px 40px; flex-wrap:wrap; }
+.xp-know__more p{ margin:0; font-size:15px; font-weight:300; line-height:1.7; color:#4A5563; max-width:60ch; }
+.xp-know__link{ display:inline-block; font:600 12px/1 var(--cn-body); letter-spacing:.24em; text-transform:uppercase;
+  color:var(--cn-navy); border:1px solid var(--cn-navy); padding:17px 28px; white-space:nowrap;
+  transition:background .3s, color .3s; }
+.xp-know__link:hover{ background:var(--cn-navy); color:var(--cn-cream); }
+@media (max-width:760px){ .xp-know__grid{ grid-template-columns:1fr; } }
+
+.xp-cta{ position:relative; overflow:hidden; background:var(--cn-ink); color:var(--cn-cream);
+  text-align:center; padding:clamp(96px,14vh,170px) 0; }
+.xp-cta .xp-media{ position:absolute; inset:0; opacity:.42; }
+.xp-cta__inner{ position:relative; z-index:2; }
+.xp-cta .xp-eyebrow{ justify-content:center; }
+.xp-cta .xp-eyebrow::before{ display:none; }
+.xp-cta h2{ font-family:var(--cn-display); font-weight:500;
+  font-size:clamp(38px,6vw,72px); line-height:1.04; margin:22px auto 18px; max-width:26ch; }
+.xp-cta h2 em{ font-style:italic; color:var(--cn-gold-2); display:block; } /* gold line always second */
+.xp-cta p{ margin:0 auto; max-width:56ch; font-weight:300; font-size:16px;
+  color:rgba(255,255,255,.85); }
+.xp-cta__btns{ margin-top:40px; display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+/* Buttons: this page's .xp-page .xp-btn* variants became THE universal
+   .xp-btn in section C (2026-09-13) — nothing page-scoped left here. */
+/* .xp-cta p (margin:0 auto; max-width:56ch) outranks a bare class, which is why
+   the tagline used to sit flush under the buttons and wrap — hence the compound
+   selector, explicit top margin and no width cap. */
+.xp-cta .xp-cta__tag{ margin:clamp(52px,7vh,76px) auto 0; max-width:none; font:600 11px/1 var(--cn-body);
+  letter-spacing:.5em; text-transform:uppercase; color:var(--cn-gold-2); opacity:.85; }
+
+/* Footer rules dropped: this page now uses the global .footer. */
+
+/* ─────────────────────────────────────────────
+   THE MAP — framed, brand-toned Google embed
+   ───────────────────────────────────────────── */
+.xp-rail__marker--coords{ font-size:clamp(26px,3.4vw,46px); line-height:1.35; letter-spacing:.01em; }
+.xp-map-frame{ position:relative; border:1px solid rgba(220,195,145,.4);
+  background:rgba(220,195,145,.05); padding:clamp(8px,1.2vw,14px); }
+.xp-map-card{ position:absolute; top:clamp(22px,3vw,36px); left:clamp(22px,3vw,36px); z-index:4;
+  background:rgba(14,29,48,.92); border:1px solid rgba(220,195,145,.35);
+  padding:22px 26px; max-width:min(320px, 78%); backdrop-filter:blur(6px); }
+.xp-map-card strong{ display:block; font-family:var(--cn-display); font-weight:500;
+  font-size:23px; line-height:1.15; color:var(--cn-cream); margin-bottom:7px; }
+.xp-map-card span{ display:block; font:500 10.5px/1.7 var(--cn-body); letter-spacing:.2em;
+  text-transform:uppercase; color:var(--cn-mist); margin-bottom:16px; }
+.xp-map-card a{ font:700 10.5px/1 var(--cn-body); letter-spacing:.22em; text-transform:uppercase;
+  color:var(--cn-gold-2); border-bottom:1px solid rgba(220,195,145,.5); padding-bottom:4px;
+  transition:color .3s, border-color .3s; }
+.xp-map-card a:hover{ color:var(--cn-white); border-color:var(--cn-white); }
+.xp-map-embed{ position:relative; }
+.xp-map-embed iframe{ display:block; width:100%; aspect-ratio:16/10; border:0;
+  filter:grayscale(1) sepia(.16) contrast(1.04) brightness(1.04);
+  transition:filter .8s var(--xp-ease); pointer-events:none; }
+.xp-map-shield{ position:absolute; inset:0; z-index:3; display:flex; align-items:flex-end;
+  justify-content:center; padding:0 0 24px; background:transparent; border:0; width:100%;
+  cursor:pointer; -webkit-appearance:none; appearance:none; }
+.xp-map-shield span{ font:700 10.5px/1 var(--cn-body); letter-spacing:.24em; text-transform:uppercase;
+  color:var(--cn-gold-2); background:rgba(14,29,48,.88); border:1px solid rgba(220,195,145,.4);
+  padding:12px 18px; backdrop-filter:blur(4px); transition:background .3s, color .3s; }
+.xp-map-shield:hover span, .xp-map-shield:focus-visible span{ background:var(--cn-gold); color:var(--cn-ink); }
+.xp-map-shield:focus-visible{ outline:2px solid var(--cn-gold); outline-offset:4px; }
+.xp-map-frame.is-active .xp-map-embed iframe{ filter:none; pointer-events:auto; }
+.xp-map-frame.is-active .xp-map-shield{ display:none; }
+@media (max-width:700px){
+  .xp-map-card{ position:static; max-width:none; margin-bottom:clamp(8px,1.2vw,14px); }
+  .xp-map-embed iframe{ aspect-ratio:4/4.4; }
+}
+
+/* ── Mobile refinements ── */
+.xp-page section[id]{ scroll-margin-top:calc(var(--xp-header-h, 68px) + 28px); }
+@media (max-width:700px){
+  .xp-feature .xp-media{ aspect-ratio:16/11; }
+  .xp-feature__cap{ position:static; background:var(--cn-navy-2);
+    border:1px solid rgba(220,195,145,.16); border-top:0; }
+  .xp-feature__cap p{ font-size:14.5px; }
+}
+@media (max-width:480px){
+  .xp-stat{ margin-right:12px; padding-right:12px; }
+  .xp-stat__label{ letter-spacing:.16em; }
+  .xp-btn{ padding:17px 26px; } /* universal mobile tightening (was .xp-page-scoped) */
+}
+
+/* ─────────────────────────────────────────────
+   REVEAL MOTION
+   ───────────────────────────────────────────── */
+[data-reveal]{ opacity:0; transform:translateY(28px);
+  transition:opacity .95s var(--xp-ease), transform .95s var(--xp-ease);
+  transition-delay:var(--d, 0ms); }
+[data-reveal].is-in{ opacity:1; transform:none; }
+
+@media (prefers-reduced-motion: reduce){
+  [data-reveal]{ opacity:1; transform:none; transition:none; }
+  .xp-hero__img{ animation:none; transform:none; }
+  .xp-hero__cue i::after{ animation:none; }
+  .xp-page *{ scroll-behavior:auto !important; }
+}
+
+/* ============================================================================
+   F. HOMEPAGE LAYER (index.html) — universal-styling pass, 2026-09-14
+   index.html opts in via <body class="page-cn page-home">. Every rule here is
+   scoped to .page-home because the legacy homepage classes it retunes
+   (.body-text, .section-padding, .intro-*, .villa-*, .experience-*,
+   .half-casa-callout, .review-*) are still used by the-casa, location,
+   concierge, gallery and book. Unscope as those pages migrate.
+   Hero (later the same day): the morning's fixed-up legacy .hero was replaced
+   by the universal .xp-hero — explore's structure verbatim (img layer, veil,
+   kicker, .xp-display h1, italic gold .xp-hero__sub, .xp-hero__dek, vertical
+   cue) plus the homepage's buttons and rate note; the hero rules below only
+   size the two-line headline and trim the block padding so the longer stack
+   still fits a 1366×650 laptop viewport. Legacy .hero* rules deleted.
+   Markup swaps made in index.html (no CSS needed): .heading-sm → .xp-eyebrow
+   (+ --center on centred heads); .heading-lg → .xp-display.xp-display--3;
+   .btn → .xp-btn--navy on light surfaces, --solid/--ghost on dark; the three
+   inline-styled button wrappers → .xp-sec-cta.xp-sec-cta--center; .intro-stats
+   → .xp-ledger.xp-ledger--3 with .xp-stat children; .cta-section rebuilt as
+   the universal .xp-cta band (id="booking", the target of explore's and the
+   FAQ's Check availability links, both previously dead); all four .divider
+   uses retired (left-aligned eyebrows carry the rule, centred heads are
+   rule-less per .xp-cta); nine inline styles folded into the rules below.
+   Calls taken in this pass: muted copy = --cn-ink-muted (see token note);
+   section padding fluid like explore's chapters; .container stays 1200 so
+   the footer stays aligned across pages; .fade-in kept (unifying with
+   [data-reveal] queued). Surfaces follow explore's system instead of the
+   legacy warm-white/cream alternation: light sections are --cn-cream or
+   --cn-sand (arrival / chapter--light / chapter--sand), the dark band is
+   --cn-navy (chapter--dark), cards are white with the .xp-card light border,
+   ink is reserved for the CTA band; white (the FAQ's .xp-alt) is the third
+   light surface. Sequence below the hero: cream callout band → white intro →
+   navy ribbon → sand gallery → cream casa → sand experience → cream reviews
+   → ink CTA → navy-deep footer. DEPLOY-COUPLED with index.html and faq.html.
+   ============================================================================ */
+/* Hero: universal .xp-hero, homepage sizing. Explore's inner block gets its
+   1240px wrap + fluid gutters from .xp-page .xp-wrap; the homepage body is not
+   .xp-page, so the same geometry is set here. The headline's long line is
+   11.64em at 500/.005em, so 7.4vw keeps it on one line down to 541px; the vh
+   term shrinks it on short windows so kicker → h1 → sub → dek → buttons →
+   rate note fit; the cap keeps it inside the 1240 wrap on wide screens. */
+.page-home .xp-hero__inner{ width:auto; max-width:var(--xp-max); margin:0 auto;
+  padding-left:var(--xp-gutter); padding-right:var(--xp-gutter); }
+@media (min-width:761px){
+  .page-home .xp-hero__inner{ padding-top:calc(var(--xp-header-h) + clamp(24px,4vh,64px));
+    padding-bottom:calc(var(--xp-header-h) + clamp(24px,4vh,64px)); }
+}
+.page-home .xp-hero h1{ font-size:clamp(2.6rem, min(7.4vw, 11.5vh), 5.9rem);
+  color:var(--cn-white); } /* outranks the section-title navy below (.page-home .xp-display) */
+.page-home .xp-hero__line{ display:block; }
+.page-home .xp-hero__line > span{ white-space:nowrap; }   /* phrases never break mid-phrase */
+.page-home .xp-hero__accent{ color:var(--cn-gold-2); }    /* same gold as .xp-hero__sub */
+@media (max-width:540px){ .page-home .xp-hero__line > span{ display:block; } } /* first line no longer fits: even four-line stack */
+.page-home .xp-hero__dek{ text-wrap:balance; } /* no one-word widow on phones; same enhancement the FAQ hero uses */
+.page-home .xp-hero__btns{ margin-top:34px; display:flex; gap:16px; flex-wrap:wrap; }
+.page-home .xp-hero .rate-note{ margin-top:18px; }
+@media (max-width:480px){
+  .page-home .xp-hero__btns{ flex-direction:column; }
+  .page-home .xp-hero__btns .xp-btn{ text-align:center; }
+}
+
+.page-home .section-padding{ padding:clamp(84px,11vh,140px) 0; }
+.page-home .body-text{ font-weight:300; color:var(--cn-ink-muted); }
+
+/* Surfaces (explore's palette; see banner). Scoped: .intro/.gallery/.villa/
+   .experience/.villa-card/.half-casa-callout are still used by legacy pages. */
+.page-home .half-casa-band,
+.page-home .villa,
+.page-home .reviews{ background:var(--cn-cream); }
+.page-home .intro{ background:var(--cn-white); } /* the FAQ's .xp-alt white, so all three brand light surfaces appear */
+.page-home .gallery,
+.page-home .experience{ background:var(--cn-sand); }
+.page-home .features-ribbon{ background:var(--cn-navy); color:var(--cn-cream); }
+.page-home .half-casa-callout,
+.page-home .villa-card,
+.page-home .review-card{ background:var(--cn-white); border:1px solid rgba(14,29,48,.1); }
+.page-home .half-casa-callout{ border-left:3px solid var(--cn-gold); }
+
+/* Section heads: eyebrow → title → lede rhythm (explore: 16–18px, then 22px) */
+.page-home .xp-display{ color:var(--cn-navy); }
+.page-home .xp-eyebrow + .xp-display{ margin-top:16px; }
+.page-home .xp-display + .body-text{ margin-top:22px; }
+.page-home .body-text + .body-text{ margin-top:1rem; }   /* was inline on the intro's second paragraph */
+.page-home .xp-sec-cta--center{ margin-top:48px; }        /* under grids; the FAQ's 22px is for text */
+
+/* Half Casa band + callout (homepage-only component, type on the universal scale) */
+.half-casa-band{ background:var(--cream); padding:3rem 0 1rem; } /* was inline */
+.page-home .half-casa-callout h4{ font:500 var(--xp-title-card)/1.1 var(--cn-display); color:var(--cn-navy); margin-bottom:8px; }
+.page-home .half-casa-callout p{ font-size:15px; font-weight:300; line-height:1.7; color:var(--cn-ink-muted); opacity:1; }
+
+/* Intro */
+.page-home .intro-image img{ width:100%; height:100%; object-fit:cover; } /* was inline */
+.page-home .intro-content .body-text{ margin-bottom:0; }
+.page-home .intro-content .xp-ledger{ margin-top:40px; }
+
+/* Features ribbon (homepage-only band, type on the on-dark scale) */
+.page-home .ribbon-item h4{ font:500 24px/1.1 var(--cn-display); color:var(--cn-white); margin-bottom:10px; }
+.page-home .ribbon-item p{ font:600 11px/1.5 var(--cn-body); letter-spacing:.24em; text-transform:uppercase; color:var(--cn-mist); }
+
+/* Casa cards: titles and copy match .xp-bcard */
+.page-home .villa-card-content h3{ font:500 var(--xp-title-card)/1.08 var(--cn-display); color:var(--cn-navy); margin-bottom:10px; }
+.page-home .villa-card-content p{ font-size:14.5px; font-weight:300; line-height:1.7; color:var(--cn-ink-muted); }
+
+/* Experience */
+.page-home .experience-list li{ font-size:15px; font-weight:300; color:var(--cn-ink-muted); }
+
+/* Reviews (homepage-only component, type on the universal scale) */
+.page-home .review-text{ font-size:18px; font-weight:400; line-height:1.7; color:var(--cn-navy); }
+.page-home .review-name{ font-size:13px; font-weight:600; color:var(--cn-navy); }
+.page-home .review-date{ font-size:12px; font-weight:300; color:var(--cn-ink-muted); }
+
+/* Booking CTA: universal .xp-cta; the rate note is the one homepage-specific line.
+   .xp-cta p (0,1,1) would otherwise size and colour it as body copy. */
+.page-home .xp-cta .rate-note{ margin:18px auto 0; max-width:none; font-size:.78rem; color:var(--cn-gold-soft); }
