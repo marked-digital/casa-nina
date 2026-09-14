@@ -44,29 +44,32 @@
     </nav>
   </div>
 
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <div class="hero-bg" style="background: url('images/photo-14.jpeg') center/cover;"></div>
-    <div class="hero-content fade-in">
-      <p class="hero-tagline">Playa Flamingo, Costa Rica</p>
-      <!-- Two intended lines. Each phrase is kept whole (nowrap span) so on a
-           phone, where a line is wider than the screen, it breaks between the
-           phrases and never mid-phrase. -->
-      <h1 class="heading-xl">
-        <span class="hero-line"><span>Seven Bedrooms.</span> <span>One Ocean.</span></span>
-        <span class="hero-line"><span>Your People.</span> <span class="hero-accent">Pura Vida!</span></span>
+  <!-- HERO: the universal .xp-hero (same structure as explore.html), sized for the homepage's longer stack in styles.css section F -->
+  <section class="xp-hero" id="home">
+    <div class="xp-hero__img">
+      <img class="xp-media__photo" src="images/photo-14.jpeg"
+        alt="Infinity pool and Pacific view at Casa Nina Flamingo, a private villa above Playa Flamingo, Costa Rica"
+        width="720" height="480" loading="eager" fetchpriority="high" decoding="async"
+        onerror="this.remove()">
+    </div>
+    <div class="xp-hero__veil" aria-hidden="true"></div>
+    <div class="xp-wrap xp-hero__inner fade-in">
+      <p class="xp-eyebrow xp-hero__kicker">Playa Flamingo &middot; Costa Rica</p>
+      <!-- Two intended lines. Each phrase stays whole (nowrap span), so on a phone,
+           where a line is wider than the screen, it breaks between phrases only. -->
+      <h1 class="xp-display">
+        <span class="xp-hero__line"><span>Seven Bedrooms.</span> <span>One Ocean.</span></span>
+        <span class="xp-hero__line"><span>Your People.</span> <span class="xp-hero__accent">Pura Vida!</span></span>
       </h1>
-      <p class="hero-subtitle">A private oceanview villa in Playa Flamingo &mdash; <br>sleeps up to 14, or stay in the Half Casa for smaller groups</p>
-      <div class="hero-cta">
+      <p class="xp-hero__sub">A private oceanview villa</p>
+      <p class="xp-hero__dek">Sleeps up to 14, or stay in the Half Casa for smaller groups.</p>
+      <div class="xp-hero__btns">
         <a href="book.html" class="xp-btn xp-btn--solid">Check Availability</a>
         <a href="gallery.html" class="xp-btn xp-btn--ghost">View Gallery</a>
       </div>
       <p class="rate-note">Contact us for nightly rates</p>
     </div>
-    <div class="hero-scroll">
-      <span>Scroll</span>
-      <div class="scroll-line"></div>
-    </div>
+    <div class="xp-hero__cue" aria-hidden="true"><span>Scroll</span><i></i></div>
   </section>
 
   <!-- HALF CASA / FULL CASA CALLOUT -->

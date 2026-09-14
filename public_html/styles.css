@@ -172,126 +172,11 @@ html.lenis, html.lenis body{ height:auto; }
 }
 
 /* ===== FULL HERO (homepage) ===== */
-/* 2026-09-14 hero pass (index.html only; no other page uses .hero*):
-   · Fits the viewport on load. Was height:100vh + min-height:700px with the
-     stack centered and nothing reserved for the fixed header or the scroll
-     cue, so on 1440-wide laptops (viewport ~650-780px tall) the tagline sat
-     under the nav and the cue landed on the buttons; shorter windows clipped
-     via overflow:hidden. Now min-height:100svh (same unit as .xp-hero) with
-     symmetric block padding = header height + 32px, so the centred stack
-     stays clear of both, and a too-short window grows the section instead of
-     clipping it.
-   · Headline set on two lines (.hero-line blocks, phrases nowrap). Size is
-     clamp(2.6rem, min(5.5vw, 11vh), 5rem): the vh term shrinks it on short
-     windows so the stack still fits; the vw term keeps the long line
-     ("Seven Bedrooms. One Ocean." = 10.9em) inside .hero-content, widened
-     from 800px to 1120px for it. Under ~560px wide each line breaks once,
-     at the period, giving the natural four-line phone stack.
-   · White headline, "Pura Vida!" in --cn-gold-soft (the page's existing
-     gold-on-photo: tagline, rate note, ghost button).
-   · Buttons switched to the universal .xp-btn--solid / --ghost pair used by
-     explore's closing CTA; .btn-white left untouched for the other pages.
-   · Inline subtitle font-size and rate-note colour folded in here (same
-     values, no visual change). DEPLOY-COUPLED with index.html. */
-.hero {
-  position: relative;
-  min-height: 100vh;
-  min-height: 100svh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: var(--cn-white);
-  overflow: hidden;
-  padding: calc(var(--xp-header-h, 68px) + 32px) 0;
-}
-
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  z-index: 0;
-}
-
-.hero-bg::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-}
-
-.hero-content {
-  position: relative;
-  z-index: 1;
-  max-width: 1120px;
-  padding: 0 2rem;
-}
-
-.hero-tagline {
-  font-family: var(--font-sans);
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
-  margin-bottom: 1.25rem;
-  color: var(--gold-light);
-}
-
-.hero h1 {
-  font-size: clamp(2.6rem, min(5.5vw, 11vh), 5rem);
-  color: var(--cn-white);
-  margin-bottom: 1.25rem;
-}
-.hero-line { display: block; }
-.hero-line > span { white-space: nowrap; }
-.hero-accent { color: var(--cn-gold-soft); }
-/* Below ~520px the first line no longer fits whole; stack all four phrases so
-   phones get one even column rather than a short/short/long break. */
-@media (max-width: 520px) { .hero-line > span { display: block; } }
-
-.hero-subtitle {
-  font-family: var(--font-serif);
-  font-size: clamp(1.2rem, 2.2vw, 1.6rem);
-  font-weight: 300;
-  font-style: italic;
-  opacity: 0.85;
-  margin-bottom: 2rem;
-  line-height: 1.6;
-}
-
-.hero-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1rem; }
-
-.hero .rate-note { color: var(--gold-light); }
-
-.hero-scroll {
-  position: absolute;
-  bottom: 1.75rem; left: 50%;
-  transform: translateX(-50%);
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.hero-scroll span {
-  font-size: 0.6rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.5);
-}
-
-.scroll-line {
-  width: 1px; height: 36px;
-  background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
-  animation: scrollPulse 2s ease-in-out infinite;
-}
-
-@keyframes scrollPulse {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 1; }
-}
+/* Removed 2026-09-14: index.html's hero is now the universal .xp-hero from
+   the explore layer (section F holds the homepage-specific sizing). The
+   legacy .hero / .hero-bg / .hero-content / .hero-tagline / .hero-subtitle /
+   .hero-cta / .hero-scroll / .scroll-line rules and the scrollPulse keyframes
+   had no other page using them. .page-hero (inner pages) is unaffected. */
 
 /* ===== INTRO SECTION ===== */
 .intro { background: var(--warm-white); }
@@ -855,8 +740,6 @@ html.lenis, html.lenis body{ height:auto; }
 }
 
 @media (max-width: 768px) {
-  /* .hero { min-height: 600px; } removed 2026-09-14: it overrode the 100svh
-     min-height on phones; the hero now fills the screen there too. */
   .page-hero { height: 40vh; min-height: 300px; }
   .section-padding { padding: 4rem 0; }
   .intro-grid, .experience-grid, .location-grid { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -886,9 +769,6 @@ html.lenis, html.lenis body{ height:auto; }
   .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
   .intro-stats { flex-direction: column; gap: 1.5rem; }
   .cta-buttons { flex-direction: column; align-items: center; }
-  .hero-cta { flex-direction: column; align-items: center; }
-  .hero-content { padding: 0 1.25rem; } /* matches .container above; keeps "Seven Bedrooms." whole on 320px screens */
-  .hero-subtitle br { display: none; }  /* the desktop two-line break left a one-word widow on phones */
 }
 
 /* ===== PHOTO NUMBER BADGE ===== */
@@ -1981,6 +1861,12 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
    (.body-text, .section-padding, .intro-*, .villa-*, .experience-*,
    .half-casa-callout, .review-*) are still used by the-casa, location,
    concierge, gallery and book. Unscope as those pages migrate.
+   Hero (later the same day): the morning's fixed-up legacy .hero was replaced
+   by the universal .xp-hero — explore's structure verbatim (img layer, veil,
+   kicker, .xp-display h1, italic gold .xp-hero__sub, .xp-hero__dek, vertical
+   cue) plus the homepage's buttons and rate note; the hero rules below only
+   size the two-line headline and trim the block padding so the longer stack
+   still fits a 1366×650 laptop viewport. Legacy .hero* rules deleted.
    Markup swaps made in index.html (no CSS needed): .heading-sm → .xp-eyebrow
    (+ --center on centred heads); .heading-lg → .xp-display.xp-display--3;
    .btn → .xp-btn--navy on light surfaces, --solid/--ghost on dark; the three
@@ -1997,6 +1883,32 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
    warm-white alternate again below the ribbon. DEPLOY-COUPLED with
    index.html and faq.html.
    ============================================================================ */
+/* Hero: universal .xp-hero, homepage sizing. Explore's inner block gets its
+   1240px wrap + fluid gutters from .xp-page .xp-wrap; the homepage body is not
+   .xp-page, so the same geometry is set here. The headline's long line is
+   11.64em at 500/.005em, so 7.4vw keeps it on one line down to 541px; the vh
+   term shrinks it on short windows so kicker → h1 → sub → dek → buttons →
+   rate note fit; the cap keeps it inside the 1240 wrap on wide screens. */
+.page-home .xp-hero__inner{ width:auto; max-width:var(--xp-max); margin:0 auto;
+  padding-left:var(--xp-gutter); padding-right:var(--xp-gutter); }
+@media (min-width:761px){
+  .page-home .xp-hero__inner{ padding-top:calc(var(--xp-header-h) + clamp(24px,4vh,64px));
+    padding-bottom:calc(var(--xp-header-h) + clamp(24px,4vh,64px)); }
+}
+.page-home .xp-hero h1{ font-size:clamp(2.6rem, min(7.4vw, 11.5vh), 5.9rem);
+  color:var(--cn-white); } /* outranks the section-title navy below (.page-home .xp-display) */
+.page-home .xp-hero__line{ display:block; }
+.page-home .xp-hero__line > span{ white-space:nowrap; }   /* phrases never break mid-phrase */
+.page-home .xp-hero__accent{ color:var(--cn-gold-2); }    /* same gold as .xp-hero__sub */
+@media (max-width:540px){ .page-home .xp-hero__line > span{ display:block; } } /* first line no longer fits: even four-line stack */
+.page-home .xp-hero__dek{ text-wrap:balance; } /* no one-word widow on phones; same enhancement the FAQ hero uses */
+.page-home .xp-hero__btns{ margin-top:34px; display:flex; gap:16px; flex-wrap:wrap; }
+.page-home .xp-hero .rate-note{ margin-top:18px; }
+@media (max-width:480px){
+  .page-home .xp-hero__btns{ flex-direction:column; }
+  .page-home .xp-hero__btns .xp-btn{ text-align:center; }
+}
+
 .page-home .section-padding{ padding:clamp(84px,11vh,140px) 0; }
 .page-home .body-text{ font-weight:300; color:var(--cn-ink-muted); }
 
