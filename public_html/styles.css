@@ -1186,13 +1186,14 @@ body.page-cn{
 .xp-cats-track.no-scroll .xp-cats-scrub{ display:none; }
 .xp-cats-nav{ display:flex; gap:6px; flex:none; }
 .xp-cats-arrow{
-  width:34px; height:34px; border-radius:999px; display:grid; place-items:center;
-  border:1px solid rgba(20,23,31,.22); background:none; color:var(--cn-navy);
-  font-size:15px; line-height:1; cursor:pointer;
+  width:34px; height:34px; border-radius:999px; display:grid; place-items:center; padding:0;
+  border:1px solid rgba(20,23,31,.28); background:none; color:var(--cn-navy); cursor:pointer;
   transition:background .25s var(--xp-ease), color .25s var(--xp-ease), border-color .25s var(--xp-ease), opacity .25s var(--xp-ease);
 }
-.xp-cats-arrow:hover:not(:disabled){ background:var(--cn-navy); border-color:var(--cn-navy); color:var(--cn-cream); }
-.xp-cats-arrow:disabled{ opacity:.3; cursor:default; }
+.xp-cats-arrow svg{ width:14px; height:14px; display:block; fill:none; stroke:currentColor;
+  stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; } /* chevrons drawn inline; the text arrows fell back to a mismatched glyph */
+.xp-cats-arrow:hover:not(:disabled){ background:var(--cn-navy); border-color:var(--cn-navy); color:var(--cn-gold-soft); }
+.xp-cats-arrow:disabled{ opacity:.28; cursor:default; }
 @media (max-width:760px){
   .xp-cats-nav{ display:none; }
   .xp-cats-track::before, .xp-cats-track::after{ width:36px; } /* the scroller is ~240px wide here; keep the fades off the centred pill */
