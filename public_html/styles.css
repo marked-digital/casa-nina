@@ -4,9 +4,10 @@
 /* Legacy homepage tokens, aliased to the brand tokens (:root block in the
    new-brand section below) on 2026-09-13 so legacy pages pick up the brand
    palette and type without markup changes. Two exceptions, on purpose:
-   --warm-white stays its own value (the homepage alternates warm-white and
-   cream sections; merging them kills that rhythm) and --text-muted has no
-   brand counterpart. */
+   --warm-white stays its own value (the legacy inner pages still alternate
+   warm-white and cream; the homepage moved to explore's cream / sand / navy
+   surfaces on 2026-09-14, see section F) and --text-muted has no brand
+   counterpart. */
 :root {
   --cream: var(--cn-cream);
   --warm-white: #FAF8F5;
@@ -1879,9 +1880,14 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
    Calls taken in this pass: muted copy = --cn-ink-muted (see token note);
    section padding fluid like explore's chapters; .container stays 1200 so
    the footer stays aligned across pages; .fade-in kept (unifying with
-   [data-reveal] queued); .experience flipped to warm-white so cream and
-   warm-white alternate again below the ribbon. DEPLOY-COUPLED with
-   index.html and faq.html.
+   [data-reveal] queued). Surfaces follow explore's system instead of the
+   legacy warm-white/cream alternation: light sections are --cn-cream or
+   --cn-sand (arrival / chapter--light / chapter--sand), the dark band is
+   --cn-navy (chapter--dark), cards are white with the .xp-card light border,
+   ink is reserved for the CTA band. Sequence below the hero: cream (callout
+   band + intro, read as one block like .xp-arrival) → navy ribbon → sand
+   gallery → cream casa → sand experience → cream reviews → ink CTA →
+   navy-deep footer. DEPLOY-COUPLED with index.html and faq.html.
    ============================================================================ */
 /* Hero: universal .xp-hero, homepage sizing. Explore's inner block gets its
    1240px wrap + fluid gutters from .xp-page .xp-wrap; the homepage body is not
@@ -1912,6 +1918,20 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 .page-home .section-padding{ padding:clamp(84px,11vh,140px) 0; }
 .page-home .body-text{ font-weight:300; color:var(--cn-ink-muted); }
 
+/* Surfaces (explore's palette; see banner). Scoped: .intro/.gallery/.villa/
+   .experience/.villa-card/.half-casa-callout are still used by legacy pages. */
+.page-home .half-casa-band,
+.page-home .intro,
+.page-home .villa,
+.page-home .reviews{ background:var(--cn-cream); }
+.page-home .gallery,
+.page-home .experience{ background:var(--cn-sand); }
+.page-home .features-ribbon{ background:var(--cn-navy); color:var(--cn-cream); }
+.page-home .half-casa-callout,
+.page-home .villa-card,
+.page-home .review-card{ background:var(--cn-white); border:1px solid rgba(14,29,48,.1); }
+.page-home .half-casa-callout{ border-left:3px solid var(--cn-gold); }
+
 /* Section heads: eyebrow → title → lede rhythm (explore: 16–18px, then 22px) */
 .page-home .xp-display{ color:var(--cn-navy); }
 .page-home .xp-eyebrow + .xp-display{ margin-top:16px; }
@@ -1938,7 +1958,6 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 .page-home .villa-card-content p{ font-size:14.5px; font-weight:300; line-height:1.7; color:var(--cn-ink-muted); }
 
 /* Experience */
-.page-home .experience{ background:var(--warm-white); }
 .page-home .experience-list li{ font-size:15px; font-weight:300; color:var(--cn-ink-muted); }
 
 /* Reviews (homepage-only component, type on the universal scale) */
