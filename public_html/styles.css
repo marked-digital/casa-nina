@@ -678,7 +678,10 @@ html.lenis, html.lenis body{ height:auto; }
   grid-template-columns: 1fr 1fr;
   gap: 20px;
 }
+.form-note { margin: -8px 0 22px; font-size: 13px; font-weight: 300; line-height: 1.6; color: var(--cn-ink-muted); }
+.form-optional { font-weight: 400; letter-spacing: .08em; text-transform: none; color: var(--cn-ink-muted); }
 .contact-form__submit { text-align: center; margin-top: 8px; }
+.form-note--submit { margin: 14px 0 0; }
 
 /* ===== FOOTER ===== */
 .footer {
@@ -2022,23 +2025,114 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
    transparent over navy here like every other page (xp-header--solid
    dropped). Surfaces: hero navy-deep → cream option cards → sand .xp-know
    (booking facts, wording mirrors faq.html) → white contact + form → ink
-   .xp-cta Airbnb band → footer. Head carries the full SEO set (title, meta,
+   .xp-cta Airbnb band → footer. Availability calendar (.avail, js/availability.js,
+   api/availability.js on Vercel) sits above the form; the talk-to-us strip
+   (.book-talk) follows the form. Head carries the full SEO set (title, meta,
    canonical, robots, geo, OG, Twitter) and a JSON-LD @graph that reuses the
    #website / #villa ids from explore.html and adds the two Accommodation
    units with Offers. Card and form component rules live
    with their legacy blocks above (book-only classes, rewritten in place).
    DEPLOY-COUPLED with book.html. */
 .page-book .xp-hero-sub{ margin-bottom:0; }              /* the FAQ's 34px sat above its search box */
+.page-book .xp-hero-ctas{ display:flex; flex-wrap:wrap; justify-content:center; gap:14px; margin-top:34px; }
+.page-book .xp-hero-note{ margin-top:22px; }
+.page-book #availability{ scroll-margin-top:calc(var(--xp-header-h) + 24px); }
 .page-book .book-options{ background:var(--cn-cream); }
+/* Why book direct: three short claims already made elsewhere on the site, gold dash markers as on the homepage list */
+.page-book .book-why{ list-style:none; margin:clamp(36px,5vh,56px) auto 0; padding:0; display:flex; flex-wrap:wrap; justify-content:center; gap:14px clamp(24px,4vw,56px); }
+.page-book .book-why li{ display:flex; align-items:center; gap:12px; font-size:14.5px; font-weight:400; color:var(--cn-navy); }
+.page-book .book-why li::before{ content:""; width:20px; height:1px; background:var(--cn-gold); flex:none; }
 .page-book .book-options__head{ text-align:center; max-width:640px; margin:0 auto 48px; }
 .page-book .book-options__head .body-text{ max-width:none; }
 .page-book .book-options__head .body-text a{ color:var(--cn-navy); text-decoration:underline; text-decoration-color:rgba(194,154,91,.6); text-underline-offset:3px; }
 .page-book .book-options__head .body-text a:hover{ text-decoration-color:var(--cn-gold); }
-.page-book .book-contact{ background:var(--cn-white); } /* the .xp-know block above it is sand */
-.page-book .book-contact__meta{ margin:18px 0 0; font-size:13.5px; font-weight:300; color:var(--cn-ink-muted); }
-.page-book .book-contact__meta a{ color:var(--cn-navy); text-decoration:none; border-bottom:1px solid rgba(194,154,91,.6); }
-.page-book .book-contact__meta a:hover{ border-bottom-color:var(--cn-gold); }
-.page-book .book-contact__head{ text-align:center; max-width:640px; margin:0 auto 48px; }
+.page-book .book-contact{ background:var(--cn-white); } /* between the cream cards and the sand .xp-know */
+/* Contact ledger: label-over-value columns with hairline dividers, the same
+   grammar as the .xp-stat ledger; stacks on phones. */
+.page-book .book-contact__ledger{ display:flex; justify-content:center; margin:36px auto 0; max-width:820px; text-align:center; }
+.page-book .book-contact__ledger > div{ flex:0 1 auto; padding:2px 26px; border-left:1px solid rgba(14,29,48,.14); } /* natural widths so the address stays on one line */
+.page-book .book-contact__ledger > div:first-child{ border-left:0; }
+.page-book .book-contact__ledger dt{ font:600 10.5px/1.5 var(--cn-body); letter-spacing:.24em; text-transform:uppercase; color:var(--cn-stone); margin-bottom:6px; }
+.page-book .book-contact__ledger dd{ margin:0; font-size:15px; font-weight:400; line-height:1.5; color:var(--cn-navy); }
+.page-book .book-contact__ledger a{ color:inherit; text-decoration:none; border-bottom:1px solid rgba(194,154,91,.5); transition:border-color .25s var(--xp-ease); }
+.page-book .book-contact__ledger a:hover{ border-bottom-color:var(--cn-gold); }
+.page-book .book-contact__head .rate-note{ margin-top:28px; }
+@media (max-width:640px){
+  .page-book .book-contact__br{ display:none; }   /* the lede's desktop line break */
+  .page-book .book-contact__ledger{ flex-direction:column; gap:14px; }
+  .page-book .book-contact__ledger > div{ border-left:0; border-top:1px solid rgba(14,29,48,.14); padding:14px 0 0; }
+  .page-book .book-contact__ledger > div:first-child{ border-top:0; padding-top:0; }
+}
+.page-book .book-contact__head{ text-align:center; max-width:780px; margin:0 auto 48px; }
 .page-book .book-contact__head .body-text{ max-width:none; }
-.page-book .book-contact-row{ margin-top:32px; }
-.page-book .book-contact__head .rate-note{ margin-top:18px; }
+.page-book .book-contact-row{ margin-top:24px; }
+/* Talk-to-us strip below the form */
+.page-book .book-talk{ text-align:center; max-width:820px; margin:clamp(48px,7vh,72px) auto 0; padding-top:clamp(32px,5vh,44px); border-top:1px solid rgba(14,29,48,.12); }
+.page-book .book-talk__lede{ margin:0; font-size:16px; font-weight:300; color:var(--cn-ink-muted); }
+
+/* ── Availability calendar (book.html) ──
+   Months are rendered by js/availability.js; this is the look. Two months from
+   760px, one below. Blocked nights are dimmed with a strike, the picked range
+   is navy ends with a sand run between, today wears a gold ring. data-state
+   on .avail is live | connecting | demo (see the script's header). */
+.page-book .avail{ max-width:820px; margin:0 auto clamp(40px,6vh,56px); }
+.page-book .avail__bar{ display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:8px; }
+.page-book .avail__badge{ margin:0; }
+.page-book .avail__badge[hidden]{ display:none; } /* .xp-chip's display:inline-block would otherwise defeat the hidden attribute */
+.page-book .avail__nav{
+  width:34px; height:34px; border-radius:999px; display:grid; place-items:center; padding:0; cursor:pointer;
+  border:1px solid rgba(20,23,31,.28); background:none; color:var(--cn-navy);
+  transition:background .25s var(--xp-ease), color .25s var(--xp-ease), border-color .25s var(--xp-ease), opacity .25s var(--xp-ease);
+}
+.page-book .avail__nav svg{ width:14px; height:14px; display:block; fill:none; stroke:currentColor; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
+.page-book .avail__nav:hover:not(:disabled){ background:var(--cn-navy); border-color:var(--cn-navy); color:var(--cn-gold-soft); }
+.page-book .avail__nav:disabled{ opacity:.28; cursor:default; }
+.page-book .avail__months{ display:grid; grid-template-columns:1fr; gap:clamp(24px,4vw,48px); }
+@media (min-width:760px){ .page-book .avail__months{ grid-template-columns:1fr 1fr; } }
+.page-book .avail__title{ font:500 22px/1.1 var(--cn-display); color:var(--cn-navy); text-align:center; margin:0 0 14px; }
+.page-book .avail__grid{ display:grid; grid-template-columns:repeat(7,minmax(0,1fr)); gap:4px 2px; }
+.page-book .avail__wd{ font:600 10.5px/1 var(--cn-body); letter-spacing:.2em; text-transform:uppercase; color:var(--cn-stone); text-align:center; padding:6px 0 10px; }
+.page-book .avail__day{
+  position:relative; aspect-ratio:1; width:100%; border:0; border-radius:999px; background:none; cursor:pointer;
+  font:400 13.5px/1 var(--cn-body); color:var(--cn-ink); display:grid; place-items:center;
+  transition:background .2s var(--xp-ease), color .2s var(--xp-ease);
+}
+.page-book .avail__day:hover:not(:disabled):not(.is-blocked):not(.is-start):not(.is-end){ background:var(--cn-sand); }
+.page-book .avail__day.is-today::after{ content:""; position:absolute; inset:3px; border:1px solid var(--cn-gold); border-radius:999px; pointer-events:none; }
+.page-book .avail__day.is-past{ color:rgba(20,23,31,.28); cursor:default; }
+.page-book .avail__day.is-blocked{ color:rgba(20,23,31,.32); cursor:not-allowed; background:none; }
+.page-book .avail__day.is-blocked::before{ content:""; position:absolute; left:28%; right:28%; top:50%; height:1px; background:currentColor; transform:rotate(-30deg); }
+.page-book .avail__day.is-range{ background:var(--cn-sand); border-radius:0; }
+.page-book .avail__day.is-start,
+.page-book .avail__day.is-end,
+.page-book .avail__day[aria-pressed="true"]{ background:var(--cn-navy); color:var(--cn-cream); font-weight:600; }
+.page-book .avail__day.is-start.is-today::after,
+.page-book .avail__day.is-end.is-today::after{ border-color:var(--cn-gold-soft); }
+.page-book .avail__foot{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px 24px; margin-top:18px; padding-top:16px; border-top:1px solid rgba(14,29,48,.12); }
+.page-book .avail__legend{ list-style:none; margin:0; padding:0; display:flex; gap:18px; }
+.page-book .avail__legend li{ display:flex; align-items:center; gap:8px; font:600 10.5px/1 var(--cn-body); letter-spacing:.2em; text-transform:uppercase; color:var(--cn-stone); }
+.page-book .avail__legend li::before{ content:""; width:14px; height:14px; border-radius:999px; border:1px solid rgba(20,23,31,.28); }
+.page-book .avail__legend .is-blocked::before{ border-color:rgba(20,23,31,.3); background:linear-gradient(-30deg, transparent 46%, rgba(20,23,31,.4) 47%, rgba(20,23,31,.4) 53%, transparent 54%); }
+.page-book .avail__legend .is-picked::before{ background:var(--cn-navy); border-color:var(--cn-navy); }
+.page-book .avail__pick{ margin:0; font-size:14px; font-weight:500; color:var(--cn-navy); }
+.page-book .avail__note{ margin:14px 0 0; font-size:13px; font-weight:300; line-height:1.6; color:var(--cn-ink-muted); text-align:center; }
+.page-book .avail[data-state="demo"] .avail__note{ color:var(--cn-gold); }
+@media (max-width:480px){
+  .page-book .avail__legend{ gap:12px; }
+  .page-book .avail__legend li{ letter-spacing:.14em; }
+}
+
+/* Mobile action bar (book.html): fixed to the bottom on touch widths; the page
+   script hides it while the form or footer is on screen. */
+.book-stickybar{ display:none; }
+@media (max-width:760px){
+  .book-stickybar{ position:fixed; left:0; right:0; bottom:0; z-index:60; display:flex; gap:10px;
+    padding:10px 16px calc(10px + env(safe-area-inset-bottom)); background:rgba(10,22,38,.96);
+    border-top:1px solid rgba(220,192,140,.18); backdrop-filter:blur(8px);
+    transform:translateY(0); transition:transform .3s var(--xp-ease), opacity .3s var(--xp-ease); }
+  .book-stickybar .xp-btn{ text-align:center; padding:15px 12px; white-space:nowrap; font-size:11.5px; letter-spacing:.14em; }
+  .book-stickybar .xp-btn--solid{ flex:1 1 auto; }   /* the primary takes the width; WhatsApp sits at its natural size */
+  .book-stickybar .xp-btn--ghost{ flex:0 0 auto; padding:15px 14px; }
+  .book-stickybar.is-hidden{ transform:translateY(110%); opacity:0; pointer-events:none; }
+  .page-book .xp-cta{ padding-bottom:calc(clamp(96px,14vh,170px) + 72px); } /* room so the bar never covers the band's tagline */
+}

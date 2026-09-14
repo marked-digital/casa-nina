@@ -53,7 +53,7 @@
         <a href="faq.html">FAQs</a>
       </nav>
       <div class="xp-header-actions">
-        <a class="xp-cta-btn" href="book.html">Book Now</a>
+        <a class="xp-cta-btn" href="#availability">Check availability</a>
         <button class="xp-burger" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -66,7 +66,7 @@
       <a href="concierge.html">Concierge</a>
       <a href="explore.html">Explore</a>
       <a href="faq.html">FAQs</a>
-      <a href="book.html" class="mobile-menu-cta">Book Now</a>
+      <a href="#availability" class="mobile-menu-cta">Check availability</a>
     </nav>
   </div>
 
@@ -90,6 +90,11 @@
         </ol></nav>
         <h1 class="xp-hero-title">Book your stay.</h1>
         <p class="xp-hero-sub">Choose the perfect option for your group. Book the Full Casa for up to 14 guests, or the Half Casa for a more intimate escape.</p>
+        <div class="xp-hero-ctas">
+          <a class="xp-btn xp-btn--solid" href="#availability">Check availability</a>
+          <a class="xp-btn xp-btn--ghost" href="https://wa.me/16473284929" target="_blank" rel="noopener">WhatsApp us</a>
+        </div>
+        <p class="xp-hero-note">Concierge and private airport transfers are included with every stay.</p>
       </div>
     </div>
   </section>
@@ -116,8 +121,8 @@
             <li>Elevator access &middot; 24/7 security</li>
           </ul>
           <div class="booking-card__btns">
-            <a href="https://www.airbnb.ca/rooms/553696885568872196" target="_blank" rel="noopener" class="xp-btn xp-btn--solid">Book on Airbnb</a>
-            <a href="mailto:info@casaninaflamingo.com?subject=Full Casa Booking Inquiry" class="xp-btn xp-btn--navy">Inquire Direct</a>
+            <a href="#availability" data-option="full" class="xp-btn xp-btn--solid">Check availability</a>
+            <a href="https://www.airbnb.ca/rooms/553696885568872196" target="_blank" rel="noopener" class="xp-btn xp-btn--navy">Book on Airbnb</a>
           </div>
         </article>
 
@@ -127,17 +132,117 @@
           <h3>Half Casa</h3>
           <ul class="booking-details">
             <li><strong>3 Bedrooms &middot; 2.5 Bathrooms</strong></li>
-            <li class="booking-details__break">1st Floor Only</li>
-            <li>Private entrance &middot; Full kitchen</li>
-            <li>Living &amp; dining area</li>
+            <li class="booking-details__break">Sleeps 4 to 6 guests</li>
+            <li>Private first-floor residence &middot; Own entrance</li>
+            <li>Full kitchen &middot; Living &amp; dining area</li>
             <li>Pool access &middot; 24/7 security</li>
           </ul>
           <div class="booking-card__btns">
-            <a href="mailto:info@casaninaflamingo.com?subject=Half Casa Booking Inquiry" class="xp-btn xp-btn--solid">Inquire Direct</a>
+            <a href="#availability" data-option="half" class="xp-btn xp-btn--solid">Check availability</a>
             <a href="https://www.airbnb.ca/rooms/553696885568872196" target="_blank" rel="noopener" class="xp-btn xp-btn--navy">View on Airbnb</a>
           </div>
         </article>
 
+      </div>
+      <ul class="book-why fade-in" aria-label="Why book direct">
+        <li>Our best rates are always direct</li>
+        <li>Concierge and airport transfers included</li>
+        <li>A direct line to the people who run the villa</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CHECK AVAILABILITY: the page's primary action. Trip details first, contact details after. -->
+  <section class="book-contact section-padding" id="availability" aria-labelledby="availability-title">
+    <div class="container">
+      <div class="book-contact__head fade-in">
+        <p class="xp-eyebrow xp-eyebrow--center">Direct Booking</p>
+        <h2 class="xp-display xp-display--3" id="availability-title">Check availability</h2>
+        <p class="body-text mx-auto">Choose your dates on the calendar, tell us about your group, <br class="book-contact__br">and a member of our team will reply personally, usually the same day.</p>
+      </div>
+
+      <!-- Availability calendar: js/availability.js fills the months from /api/availability
+           (api/availability.js). Until the Airbnb feed is connected it shows every date as
+           open with a "being connected" note; book.html?demo=1 renders sample bookings. -->
+      <div class="avail fade-in" id="availability-calendar" data-endpoint="/api/availability" data-state="connecting">
+        <div class="avail__bar">
+          <button type="button" class="avail__nav" data-cal-prev aria-label="Previous month"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M10 3.5 5.5 8l4.5 4.5"/></svg></button>
+          <span class="xp-chip avail__badge" data-cal-badge hidden>Sample data</span>
+          <button type="button" class="avail__nav" data-cal-next aria-label="Next month"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="m6 3.5 4.5 4.5L6 12.5"/></svg></button>
+        </div>
+        <div class="avail__months" data-cal-months></div>
+        <div class="avail__foot">
+          <ul class="avail__legend" aria-hidden="true">
+            <li class="is-open">Available</li>
+            <li class="is-blocked">Booked</li>
+            <li class="is-picked">Your dates</li>
+          </ul>
+          <p class="avail__pick" data-cal-pick aria-live="polite" hidden></p>
+        </div>
+        <p class="avail__note" data-cal-note>Live availability is being connected. Choose your dates and our team will confirm them personally, usually the same day.</p>
+      </div>
+
+      <form class="contact-form fade-in" id="availabilityForm" action="mailto:info@casaninaflamingo.com" method="POST" enctype="text/plain">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="checkin">Check-in Date</label>
+            <input type="date" id="checkin" name="checkin" aria-describedby="stay-note">
+          </div>
+          <div class="form-group">
+            <label for="checkout">Check-out Date</label>
+            <input type="date" id="checkout" name="checkout" aria-describedby="stay-note">
+          </div>
+        </div>
+        <p class="form-note" id="stay-note">Four-night minimum; seven nights over Christmas, New Year&rsquo;s, March Break and Easter.</p>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="guests">Number of Guests</label>
+            <input type="number" id="guests" name="guests" min="1" max="14" inputmode="numeric">
+          </div>
+          <div class="form-group">
+            <label for="option">Booking Option</label>
+            <select id="option" name="option">
+              <option value="full">Full Casa (7 Bed / 6 Bath, up to 14)</option>
+              <option value="half">Half Casa (3 Bed / 2.5 Bath, 4 to 6)</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" autocomplete="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="whatsapp">WhatsApp or Phone <span class="form-optional">(optional)</span></label>
+          <input type="tel" id="whatsapp" name="whatsapp" autocomplete="tel" placeholder="Include your country code">
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell us about your trip &mdash; special occasions, concierge requests, or any questions..."></textarea>
+        </div>
+        <div class="contact-form__submit">
+          <button type="submit" class="xp-btn xp-btn--solid">Check availability</button>
+          <p class="form-note form-note--submit">We reply personally, usually the same day. No obligation.</p>
+        </div>
+      </form>
+
+      <div class="book-talk fade-in">
+        <p class="book-talk__lede">Prefer to talk it through? Message us directly.</p>
+        <div class="book-contact-row">
+          <a href="https://wa.me/16473284929" target="_blank" rel="noopener" class="xp-btn xp-btn--solid">WhatsApp Us</a>
+          <a href="mailto:info@casaninaflamingo.com" class="xp-btn xp-btn--navy">Email Us</a>
+        </div>
+        <dl class="book-contact__ledger">
+          <div><dt>WhatsApp</dt><dd><a href="https://wa.me/16473284929" target="_blank" rel="noopener">+1 647 328 4929</a></dd></div>
+          <div><dt>Email</dt><dd><a href="mailto:info@casaninaflamingo.com">info@casaninaflamingo.com</a></dd></div>
+          <div><dt>Location</dt><dd>Playa Flamingo, Guanacaste, Costa Rica</dd></div>
+        </dl>
+        <p class="rate-note">Contact us for nightly rates</p>
       </div>
     </div>
   </section>
@@ -153,7 +258,7 @@
       <div class="xp-know__grid">
         <div class="xp-know__item fade-in">
           <h3>Two ways to reserve</h3>
-          <p>Send an inquiry below and a member of our team replies personally, or book instantly on Airbnb. Booking direct is always where you will find our best rates.</p>
+          <p>Use the availability form above and a member of our team replies personally, or book instantly on Airbnb. Booking direct is always where you will find our best rates.</p>
         </div>
         <div class="xp-know__item fade-in">
           <h3>Minimum stay</h3>
@@ -183,73 +288,13 @@
     </div>
   </section>
 
-  <!-- DIRECT BOOKING: contact row + inquiry form -->
-  <section class="book-contact section-padding" id="contact">
-    <div class="container">
-      <div class="book-contact__head fade-in">
-        <p class="xp-eyebrow xp-eyebrow--center">Direct Booking</p>
-        <h2 class="xp-display xp-display--3">Contact Us</h2>
-        <p class="body-text mx-auto">Have questions or want to book directly? Message us on WhatsApp, send an email, or fill out the form below.</p>
-        <div class="book-contact-row">
-          <a href="https://wa.me/16473284929" target="_blank" rel="noopener" class="xp-btn xp-btn--solid">WhatsApp Us</a>
-          <a href="mailto:info@casaninaflamingo.com" class="xp-btn xp-btn--navy">Email Us</a>
-        </div>
-        <p class="book-contact__meta">WhatsApp <a href="https://wa.me/16473284929" target="_blank" rel="noopener">+1 647 328 4929</a> &middot; <a href="mailto:info@casaninaflamingo.com">info@casaninaflamingo.com</a> &middot; Playa Flamingo, Guanacaste, Costa Rica</p>
-        <p class="rate-note">Contact us for nightly rates</p>
-      </div>
-
-      <form class="contact-form fade-in" action="mailto:info@casaninaflamingo.com" method="POST" enctype="text/plain">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="name">Full Name</label>
-            <input type="text" id="name" name="name" autocomplete="name" required>
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" autocomplete="email" required>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="checkin">Check-in Date</label>
-            <input type="date" id="checkin" name="checkin">
-          </div>
-          <div class="form-group">
-            <label for="checkout">Check-out Date</label>
-            <input type="date" id="checkout" name="checkout">
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="guests">Number of Guests</label>
-            <input type="number" id="guests" name="guests" min="1" max="14">
-          </div>
-          <div class="form-group">
-            <label for="option">Booking Option</label>
-            <select id="option" name="option">
-              <option value="full">Full Casa (7 Bed / 6 Bath)</option>
-              <option value="half">Half Casa (3 Bed / 2.5 Bath)</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" placeholder="Tell us about your trip &mdash; special occasions, concierge requests, or any questions..."></textarea>
-        </div>
-        <div class="contact-form__submit">
-          <button type="submit" class="xp-btn xp-btn--solid">Send Inquiry</button>
-        </div>
-      </form>
-    </div>
-  </section>
-
   <!-- ALSO ON AIRBNB: the universal .xp-cta band, as on index.html and explore.html -->
   <section class="xp-cta">
     <div class="xp-media" aria-hidden="true"><div class="xp-media__img xp-ph--dusk"><img class="xp-media__photo" src="images/explore/cta-villa-dusk.jpg" alt="" width="1920" height="1080" loading="lazy" decoding="async" onerror="this.remove()"></div></div>
     <div class="xp-wrap xp-cta__inner fade-in">
       <p class="xp-eyebrow">Also on Airbnb</p>
-      <h2>Prefer a trusted platform? <em>Find us on Airbnb.</em></h2>
-      <p>Casa Nina Flamingo is also available on Airbnb with instant booking.</p>
+      <h2>Rather book through Airbnb? <em>Instant booking is there too.</em></h2>
+      <p>Casa Nina Flamingo is also listed on Airbnb with instant booking.</p>
       <div class="xp-cta__btns">
         <a href="https://www.airbnb.ca/rooms/553696885568872196" target="_blank" rel="noopener" class="xp-btn xp-btn--solid">Book on Airbnb</a>
       </div>
@@ -257,6 +302,13 @@
     </div>
   </section>
   </main>
+
+  <!-- Mobile action bar: the two actions this page exists for, always one tap away on phones.
+       Hidden once the availability form is on screen so it never covers the submit button. -->
+  <div class="book-stickybar" id="bookStickybar" aria-label="Quick actions">
+    <a class="xp-btn xp-btn--solid" href="#availability">Check availability</a>
+    <a class="xp-btn xp-btn--ghost" href="https://wa.me/16473284929" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
 
   <!-- FOOTER -->
   <footer class="footer">
@@ -315,7 +367,7 @@
         "@type": "ReserveAction",
         "target": {
           "@type": "EntryPoint",
-          "urlTemplate": "https://casaninaflamingo.com/book.html#contact",
+          "urlTemplate": "https://casaninaflamingo.com/book.html#availability",
           "actionPlatform": [
             "https://schema.org/DesktopWebPlatform",
             "https://schema.org/MobileWebPlatform"
@@ -375,7 +427,7 @@
         "contactType": "reservations",
         "telephone": "+1-647-328-4929",
         "email": "info@casaninaflamingo.com",
-        "url": "https://casaninaflamingo.com/book.html#contact"
+        "url": "https://casaninaflamingo.com/book.html#availability"
       },
       "numberOfBedrooms": 7,
       "numberOfBathroomsTotal": 6,
@@ -461,7 +513,7 @@
         {
           "@type": "Offer",
           "name": "Full Casa direct booking",
-          "url": "https://casaninaflamingo.com/book.html#contact",
+          "url": "https://casaninaflamingo.com/book.html#availability",
           "availability": "https://schema.org/InStock",
           "priceCurrency": "USD",
           "description": "Rates on request; 50% deposit, balance due 14 days before arrival."
@@ -479,11 +531,12 @@
       "@type": "Accommodation",
       "@id": "https://casaninaflamingo.com/book.html#half-casa",
       "name": "Half Casa, Casa Nina Flamingo",
-      "description": "A private three-bedroom home on the first floor with its own entrance, full kitchen, living and dining area, pool access and 24/7 security. Never shared with another group.",
+      "description": "A private three-bedroom residence on the first floor with its own entrance, full kitchen, living and dining area, pool access and 24/7 security. Sleeps 4 to 6 and is never shared with another group.",
       "numberOfBedrooms": 3,
       "numberOfBathroomsTotal": 2.5,
       "occupancy": {
         "@type": "QuantitativeValue",
+        "minValue": 4,
         "maxValue": 6,
         "unitText": "guests"
       },
@@ -494,7 +547,7 @@
         {
           "@type": "Offer",
           "name": "Half Casa direct booking",
-          "url": "https://casaninaflamingo.com/book.html#contact",
+          "url": "https://casaninaflamingo.com/book.html#availability",
           "availability": "https://schema.org/InStock",
           "priceCurrency": "USD",
           "description": "Rates on request; 50% deposit, balance due 14 days before arrival."
@@ -515,5 +568,32 @@
   <script src="js/lenis.min.js"></script>
   <script src="js/smooth-scroll.js"></script>
   <script src="main.js"></script>
+  <script src="js/availability.js"></script>
+  <script>
+  (function(){
+    var sel = document.getElementById("option");
+    var form = document.getElementById("availabilityForm");
+    function choose(v){ if(sel && (v === "full" || v === "half")) sel.value = v; }
+    /* Card buttons: set the option, then let smooth-scroll.js handle the #availability jump */
+    document.querySelectorAll("[data-option]").forEach(function(a){
+      a.addEventListener("click", function(){ choose(a.getAttribute("data-option")); });
+    });
+    /* Deep links from other pages: book.html?option=half#availability */
+    var m = /[?&]option=(full|half)/.exec(location.search); if(m) choose(m[1]);
+
+    /* Sticky bar hides while the form is on screen and once the footer arrives */
+    var bar = document.getElementById("bookStickybar");
+    if(bar && "IntersectionObserver" in window){
+      var footer = document.querySelector(".footer");
+      var visible = {};
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){ visible[e.target === form ? "form" : "footer"] = e.isIntersecting; });
+        bar.classList.toggle("is-hidden", !!(visible.form || visible.footer));
+      }, { threshold: 0.05 });
+      if(form) io.observe(form);
+      if(footer) io.observe(footer);
+    }
+  })();
+  </script>
 </body>
 </html>
