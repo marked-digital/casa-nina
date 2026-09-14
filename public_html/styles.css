@@ -1157,11 +1157,46 @@ body.page-cn{
 }
 .xp-cats.is-stuck{ box-shadow:0 10px 24px rgba(20,23,31,.08); }
 .xp-cats-row{ display:flex; align-items:center; gap:16px; height:var(--xp-cats-h); }
+/* 2026-09-14: the pill run used to hard-clip against "Expand all" with nothing
+   saying it scrolls. Now the explore strip pattern: a track with cream edge
+   fades on whichever side has more pills, a scrub line showing position, and
+   prev/next arrows (hidden on touch widths, where the fade + peeking pill +
+   the active pill re-centring as you read carry the affordance). No scroll
+   snapping: it fights the programmatic centring. States are set by faq.html. */
+.xp-cats-track{ position:relative; flex:1 1 auto; min-width:0; /* min-width:0 — same trap as the beach strip: a flex child's min-content width is the whole pill run */
+  align-self:stretch; display:flex; align-items:center; }
 .xp-cats-scroll{
-  display:flex; gap:8px; overflow-x:auto; scrollbar-width:none;
-  -webkit-overflow-scrolling:touch; flex:1; padding-block:4px;
+  position:relative; display:flex; gap:8px; overflow-x:auto; scrollbar-width:none;
+  -webkit-overflow-scrolling:touch; flex:1; min-width:0; padding-block:4px;
 }
 .xp-cats-scroll::-webkit-scrollbar{ display:none; }
+.xp-cats-track::before,
+.xp-cats-track::after{ content:""; position:absolute; top:0; bottom:2px; width:56px; z-index:1;
+  pointer-events:none; opacity:0; transition:opacity .25s var(--xp-ease); }
+.xp-cats-track::before{ left:0;  background:linear-gradient(90deg,  var(--cn-cream) 20%, rgba(245,240,231,0)); }
+.xp-cats-track::after { right:0; background:linear-gradient(270deg, var(--cn-cream) 20%, rgba(245,240,231,0)); }
+.xp-cats-track.can-prev::before,
+.xp-cats-track.can-next::after{ opacity:1; }
+.xp-cats-scrub{ position:absolute; left:0; right:0; bottom:0; height:2px;
+  background:rgba(14,29,48,.12); overflow:hidden; }
+.xp-cats-scrub i{ position:absolute; top:0; bottom:0; left:0; width:40%; background:var(--cn-gold);
+  transition:left .25s var(--xp-ease), width .25s var(--xp-ease); }
+.xp-cats-track.no-scroll::before,
+.xp-cats-track.no-scroll::after,
+.xp-cats-track.no-scroll .xp-cats-scrub{ display:none; }
+.xp-cats-nav{ display:flex; gap:6px; flex:none; }
+.xp-cats-arrow{
+  width:34px; height:34px; border-radius:999px; display:grid; place-items:center;
+  border:1px solid rgba(20,23,31,.22); background:none; color:var(--cn-navy);
+  font-size:15px; line-height:1; cursor:pointer;
+  transition:background .25s var(--xp-ease), color .25s var(--xp-ease), border-color .25s var(--xp-ease), opacity .25s var(--xp-ease);
+}
+.xp-cats-arrow:hover:not(:disabled){ background:var(--cn-navy); border-color:var(--cn-navy); color:var(--cn-cream); }
+.xp-cats-arrow:disabled{ opacity:.3; cursor:default; }
+@media (max-width:760px){
+  .xp-cats-nav{ display:none; }
+  .xp-cats-track::before, .xp-cats-track::after{ width:36px; } /* the scroller is ~240px wide here; keep the fades off the centred pill */
+}
 .xp-pill{
   flex:none; background:none; cursor:pointer;
   border:1px solid rgba(20,23,31,.22);

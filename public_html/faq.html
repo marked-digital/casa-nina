@@ -132,8 +132,8 @@
 
 <!-- ===== Hero ===== -->
 <section class="xp-faq-hero">
-  <img class="xp-hero-bg" src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='1920' height='1080'><defs><linearGradient id='g' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='%230F1E33'/><stop offset='1' stop-color='%230A1626'/></linearGradient></defs><rect width='1920' height='1080' fill='url(%23g)'/><g stroke='%23C29A5B' stroke-width='2' fill='none' opacity='.16'><path d='M0 780q160-120 320 0t320 0 320 0 320 0 320 0 320 0'/><path d='M0 880q160-120 320 0t320 0 320 0 320 0 320 0 320 0'/><path d='M0 980q160-120 320 0t320 0 320 0 320 0 320 0 320 0'/></g><text x='960' y='540' fill='%23DCC08C' opacity='.3' font-family='Georgia,serif' font-size='40' text-anchor='middle' letter-spacing='12'>FAQ HERO PLACEHOLDER</text></svg>" alt="" width="1920" height="1080">
-  <!-- PLACEHOLDER IMAGE: swap for the real hero photo. Production tag:
+  <img class="xp-hero-bg" src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='1920' height='1080'><defs><linearGradient id='g' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='%230F1E33'/><stop offset='1' stop-color='%230A1626'/></linearGradient></defs><rect width='1920' height='1080' fill='url(%23g)'/><g stroke='%23C29A5B' stroke-width='2' fill='none' opacity='.16'><path d='M0 780q160-120 320 0t320 0 320 0 320 0 320 0 320 0'/><path d='M0 880q160-120 320 0t320 0 320 0 320 0 320 0 320 0'/><path d='M0 980q160-120 320 0t320 0 320 0 320 0 320 0 320 0'/></g></svg>" alt="" width="1920" height="1080">
+  <!-- PLACEHOLDER IMAGE (gradient + wave lines only; the ghosted label was removed 2026-09-14): swap for the real hero photo. Production tag:
        <img class="xp-hero-bg" src="images/faq-hero.jpg"
             alt="Aerial view of Playa Flamingo beach and the Guanacaste coastline near Casa Nina"
             width="1920" height="1080" fetchpriority="high">
@@ -168,7 +168,10 @@
 <!-- ===== Sticky category rail ===== -->
 <nav class="xp-cats" id="xpCats" aria-label="Question categories">
   <div class="xp-wrap xp-cats-row">
-    <div class="xp-cats-scroll" data-lenis-prevent-horizontal>
+    <!-- Track = scroller + edge fades + scrub line (explore's strip pattern, 2026-09-14).
+         The fades and arrow states are toggled by the rail script below. -->
+    <div class="xp-cats-track" id="xpCatsTrack">
+    <div class="xp-cats-scroll" id="xpCatsScroll" data-lenis-prevent-horizontal>
       <button class="xp-pill" data-target="booking">Booking &amp; Payments</button>
       <button class="xp-pill" data-target="arrival">Arrival &amp; Check-In</button>
       <button class="xp-pill" data-target="villa">The Villa</button>
@@ -178,6 +181,12 @@
       <button class="xp-pill" data-target="wifi">Wi-Fi &amp; Working</button>
       <button class="xp-pill" data-target="activities">Activities</button>
       <button class="xp-pill" data-target="good-to-know">Good to Know</button>
+    </div>
+    <div class="xp-cats-scrub" aria-hidden="true"><i></i></div>
+    </div>
+    <div class="xp-cats-nav">
+      <button type="button" class="xp-cats-arrow" data-cats-prev aria-label="Scroll categories left">&larr;</button>
+      <button type="button" class="xp-cats-arrow" data-cats-next aria-label="Scroll categories right">&rarr;</button>
     </div>
     <button class="xp-toggle-all" id="xpToggleAll" aria-pressed="false">Expand all</button>
   </div>
@@ -1444,7 +1453,7 @@
           if(p){
             pills.forEach(function(x){ x.classList.remove("is-active"); });
             p.classList.add("is-active");
-            p.scrollIntoView({ behavior: "auto", block: "nearest", inline: "nearest" });
+            revealPill(p);
           }
         }
       });
@@ -1452,10 +1461,57 @@
     sections.forEach(function(s){ io.observe(s); });
   }
 
+  /* ---------- Rail scroll affordances: edge fades, arrows, scrub line ---------- */
+  var track    = d.getElementById("xpCatsTrack");
+  var scroller = d.getElementById("xpCatsScroll");
+  var prevBtn  = d.querySelector("[data-cats-prev]");
+  var nextBtn  = d.querySelector("[data-cats-next]");
+  var scrub    = track ? track.querySelector(".xp-cats-scrub i") : null;
+  var railBehavior = reduceMotion ? "auto" : "smooth";
+
+  function railStep(){ return Math.max(160, Math.round(scroller.clientWidth * 0.7)); }
+
+  function updateRail(){
+    if(!scroller || !track) return;
+    var max = scroller.scrollWidth - scroller.clientWidth;
+    var x   = scroller.scrollLeft;
+    var canScroll = max > 4;
+    var canPrev = canScroll && x > 4;
+    var canNext = canScroll && x < max - 4;
+    track.classList.toggle("no-scroll", !canScroll);
+    track.classList.toggle("can-prev", canPrev);
+    track.classList.toggle("can-next", canNext);
+    if(prevBtn) prevBtn.disabled = !canPrev;
+    if(nextBtn) nextBtn.disabled = !canNext;
+    if(scrub && canScroll){
+      var frac = scroller.clientWidth / scroller.scrollWidth;      /* visible share of the rail */
+      scrub.style.width = (frac * 100) + "%";
+      scrub.style.left  = ((x / max) * (1 - frac) * 100) + "%";   /* position = scroll progress */
+    }
+  }
+
+  /* Centre the active pill horizontally without touching the page's vertical scroll */
+  function revealPill(p){
+    if(!scroller) return;
+    var left = p.offsetLeft - (scroller.clientWidth - p.offsetWidth) / 2;
+    scroller.scrollTo({ left: Math.max(0, left), behavior: railBehavior });
+  }
+
+  if(scroller){
+    scroller.addEventListener("scroll", updateRail, { passive: true });
+    window.addEventListener("resize", updateRail);
+    if(prevBtn) prevBtn.addEventListener("click", function(){ scroller.scrollBy({ left: -railStep(), behavior: railBehavior }); });
+    if(nextBtn) nextBtn.addEventListener("click", function(){ scroller.scrollBy({ left:  railStep(), behavior: railBehavior }); });
+    updateRail();
+  }
+
   /* ---------- Rail shadow ---------- */
   var cats = d.getElementById("xpCats");
+  /* The rail sticks below the fixed header (top:var(--xp-header-h)), so compare
+     against that height, not 0 — with 0 the shadow never appeared (fixed 2026-09-14). */
+  var headerH = parseFloat(getComputedStyle(d.documentElement).getPropertyValue("--xp-header-h")) || 0;
   function onScroll(){
-    cats.classList.toggle("is-stuck", cats.getBoundingClientRect().top <= 1 && window.scrollY > 120);
+    cats.classList.toggle("is-stuck", cats.getBoundingClientRect().top <= headerH + 1 && window.scrollY > 120);
   }
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
