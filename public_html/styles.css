@@ -1884,10 +1884,10 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
    legacy warm-white/cream alternation: light sections are --cn-cream or
    --cn-sand (arrival / chapter--light / chapter--sand), the dark band is
    --cn-navy (chapter--dark), cards are white with the .xp-card light border,
-   ink is reserved for the CTA band. Sequence below the hero: cream (callout
-   band + intro, read as one block like .xp-arrival) → navy ribbon → sand
-   gallery → cream casa → sand experience → cream reviews → ink CTA →
-   navy-deep footer. DEPLOY-COUPLED with index.html and faq.html.
+   ink is reserved for the CTA band; white (the FAQ's .xp-alt) is the third
+   light surface. Sequence below the hero: cream callout band → white intro →
+   navy ribbon → sand gallery → cream casa → sand experience → cream reviews
+   → ink CTA → navy-deep footer. DEPLOY-COUPLED with index.html and faq.html.
    ============================================================================ */
 /* Hero: universal .xp-hero, homepage sizing. Explore's inner block gets its
    1240px wrap + fluid gutters from .xp-page .xp-wrap; the homepage body is not
@@ -1921,9 +1921,9 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 /* Surfaces (explore's palette; see banner). Scoped: .intro/.gallery/.villa/
    .experience/.villa-card/.half-casa-callout are still used by legacy pages. */
 .page-home .half-casa-band,
-.page-home .intro,
 .page-home .villa,
 .page-home .reviews{ background:var(--cn-cream); }
+.page-home .intro{ background:var(--cn-white); } /* the FAQ's .xp-alt white, so all three brand light surfaces appear */
 .page-home .gallery,
 .page-home .experience{ background:var(--cn-sand); }
 .page-home .features-ribbon{ background:var(--cn-navy); color:var(--cn-cream); }
