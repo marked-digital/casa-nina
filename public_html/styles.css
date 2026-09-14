@@ -1087,6 +1087,9 @@ html.lenis, html.lenis body{ height:auto; }
   --cn-navy-2:    #14263C;                /* raised dark surface (explore) */
   --cn-gold-2:    var(--cn-gold-soft);    /* alias: explore's soft gold */
   --cn-stone:     #837E70;                /* muted text on light (explore) */
+  --cn-ink-muted: rgba(20,23,31,.72);     /* muted BODY copy on cream/warm-white (2026-09-14):
+                                             derived from --cn-ink, 6.6:1 on cream. --cn-stone
+                                             is 3.4:1 there, fine for 10px caps labels, not copy. */
 
   --cn-font-display: "Cormorant Garamond", Georgia, serif;
   --cn-font-body:    "Manrope", -apple-system, "Segoe UI", sans-serif;
@@ -1188,6 +1191,15 @@ body.page-cn{
 .xp-btn.xp-btn--navy{ background:transparent; border-color:var(--cn-navy); color:var(--cn-navy); }
 .xp-btn.xp-btn--navy:hover{ background:var(--cn-navy); color:var(--cn-gold-soft); }
 .xp-sec-cta{ margin-top:22px; }
+/* 2026-09-14 (homepage universal pass): small generic modifiers so a migrated
+   page can read the type scale and centre the shared pieces without
+   page-scoped rules. Explore's own titles keep their element rules. */
+.xp-display--1{ font-size:var(--xp-display-1); }
+.xp-display--2{ font-size:var(--xp-display-2); }
+.xp-display--3{ font-size:var(--xp-display-3); }
+.xp-eyebrow--center{ justify-content:center; }
+.xp-eyebrow--center::before{ display:none; } /* centred eyebrows are rule-less, as in .xp-cta */
+.xp-sec-cta--center{ text-align:center; }
 .xp-chip{
   flex:none; align-self:center;
   display:inline-block; font-family:var(--cn-font-body);
@@ -1671,6 +1683,7 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
   display:grid; grid-template-columns:repeat(5,1fr); }
 .xp-stat{ padding:30px 18px 6px 0; border-right:1px solid rgba(14,29,48,.1); margin-right:18px; }
 .xp-stat:last-child{ border-right:0; margin-right:0; }
+.xp-ledger--3{ grid-template-columns:repeat(3,1fr); } /* 2026-09-14: homepage's 7 / 6 / 14 */
 .xp-stat__num{ font-family:var(--cn-display); font-weight:500; font-size:clamp(38px,4.6vw,60px);
   line-height:1; color:var(--cn-navy); }
 .xp-stat__num em{ font-style:italic; font-size:.5em; color:var(--cn-gold); letter-spacing:.02em; }
@@ -1682,6 +1695,8 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
   .xp-arrival__grid{ grid-template-columns:1fr; }
   .xp-ledger{ grid-template-columns:repeat(2,1fr); row-gap:26px; }
   .xp-stat:nth-child(2n){ border-right:0; }
+  .xp-ledger--3{ grid-template-columns:repeat(3,1fr); } /* three stats never orphan */
+  .xp-ledger--3 .xp-stat:nth-child(2n){ border-right:1px solid rgba(14,29,48,.1); }
 }
 
 /* ─────────────────────────────────────────────
@@ -1958,3 +1973,67 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
   .xp-hero__cue i::after{ animation:none; }
   .xp-page *{ scroll-behavior:auto !important; }
 }
+
+/* ============================================================================
+   F. HOMEPAGE LAYER (index.html) — universal-styling pass, 2026-09-14
+   index.html opts in via <body class="page-cn page-home">. Every rule here is
+   scoped to .page-home because the legacy homepage classes it retunes
+   (.body-text, .section-padding, .intro-*, .villa-*, .experience-*,
+   .half-casa-callout, .review-*) are still used by the-casa, location,
+   concierge, gallery and book. Unscope as those pages migrate.
+   Markup swaps made in index.html (no CSS needed): .heading-sm → .xp-eyebrow
+   (+ --center on centred heads); .heading-lg → .xp-display.xp-display--3;
+   .btn → .xp-btn--navy on light surfaces, --solid/--ghost on dark; the three
+   inline-styled button wrappers → .xp-sec-cta.xp-sec-cta--center; .intro-stats
+   → .xp-ledger.xp-ledger--3 with .xp-stat children; .cta-section rebuilt as
+   the universal .xp-cta band (id="booking", the target of explore's and the
+   FAQ's Check availability links, both previously dead); all four .divider
+   uses retired (left-aligned eyebrows carry the rule, centred heads are
+   rule-less per .xp-cta); nine inline styles folded into the rules below.
+   Calls taken in this pass: muted copy = --cn-ink-muted (see token note);
+   section padding fluid like explore's chapters; .container stays 1200 so
+   the footer stays aligned across pages; .fade-in kept (unifying with
+   [data-reveal] queued); .experience flipped to warm-white so cream and
+   warm-white alternate again below the ribbon. DEPLOY-COUPLED with
+   index.html and faq.html.
+   ============================================================================ */
+.page-home .section-padding{ padding:clamp(84px,11vh,140px) 0; }
+.page-home .body-text{ font-weight:300; color:var(--cn-ink-muted); }
+
+/* Section heads: eyebrow → title → lede rhythm (explore: 16–18px, then 22px) */
+.page-home .xp-display{ color:var(--cn-navy); }
+.page-home .xp-eyebrow + .xp-display{ margin-top:16px; }
+.page-home .xp-display + .body-text{ margin-top:22px; }
+.page-home .body-text + .body-text{ margin-top:1rem; }   /* was inline on the intro's second paragraph */
+.page-home .xp-sec-cta--center{ margin-top:48px; }        /* under grids; the FAQ's 22px is for text */
+
+/* Half Casa band + callout (homepage-only component, type on the universal scale) */
+.half-casa-band{ background:var(--cream); padding:3rem 0 1rem; } /* was inline */
+.page-home .half-casa-callout h4{ font:500 var(--xp-title-card)/1.1 var(--cn-display); color:var(--cn-navy); margin-bottom:8px; }
+.page-home .half-casa-callout p{ font-size:15px; font-weight:300; line-height:1.7; color:var(--cn-ink-muted); opacity:1; }
+
+/* Intro */
+.page-home .intro-image img{ width:100%; height:100%; object-fit:cover; } /* was inline */
+.page-home .intro-content .body-text{ margin-bottom:0; }
+.page-home .intro-content .xp-ledger{ margin-top:40px; }
+
+/* Features ribbon (homepage-only band, type on the on-dark scale) */
+.page-home .ribbon-item h4{ font:500 24px/1.1 var(--cn-display); color:var(--cn-white); margin-bottom:10px; }
+.page-home .ribbon-item p{ font:600 11px/1.5 var(--cn-body); letter-spacing:.24em; text-transform:uppercase; color:var(--cn-mist); }
+
+/* Casa cards: titles and copy match .xp-bcard */
+.page-home .villa-card-content h3{ font:500 var(--xp-title-card)/1.08 var(--cn-display); color:var(--cn-navy); margin-bottom:10px; }
+.page-home .villa-card-content p{ font-size:14.5px; font-weight:300; line-height:1.7; color:var(--cn-ink-muted); }
+
+/* Experience */
+.page-home .experience{ background:var(--warm-white); }
+.page-home .experience-list li{ font-size:15px; font-weight:300; color:var(--cn-ink-muted); }
+
+/* Reviews (homepage-only component, type on the universal scale) */
+.page-home .review-text{ font-size:18px; font-weight:400; line-height:1.7; color:var(--cn-navy); }
+.page-home .review-name{ font-size:13px; font-weight:600; color:var(--cn-navy); }
+.page-home .review-date{ font-size:12px; font-weight:300; color:var(--cn-ink-muted); }
+
+/* Booking CTA: universal .xp-cta; the rate note is the one homepage-specific line.
+   .xp-cta p (0,1,1) would otherwise size and colour it as body copy. */
+.page-home .xp-cta .rate-note{ margin:18px auto 0; max-width:none; font-size:.78rem; color:var(--cn-gold-soft); }
