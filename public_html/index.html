@@ -49,13 +49,19 @@
     <div class="hero-bg" style="background: url('images/photo-14.jpeg') center/cover;"></div>
     <div class="hero-content fade-in">
       <p class="hero-tagline">Playa Flamingo, Costa Rica</p>
-      <h1 class="heading-xl">Seven Bedrooms<br>One Ocean<br>Your People<br>Pura Vida!</h1>
-      <p class="hero-subtitle" style="font-size: clamp(1.2rem, 2.2vw, 1.6rem);">A private oceanview villa in Playa Flamingo &mdash;<br>sleeps up to 14, or stay in the Half Casa for smaller groups</p>
+      <!-- Two intended lines. Each phrase is kept whole (nowrap span) so on a
+           phone, where a line is wider than the screen, it breaks between the
+           phrases and never mid-phrase. -->
+      <h1 class="heading-xl">
+        <span class="hero-line"><span>Seven Bedrooms.</span> <span>One Ocean.</span></span>
+        <span class="hero-line"><span>Your People.</span> <span class="hero-accent">Pura Vida!</span></span>
+      </h1>
+      <p class="hero-subtitle">A private oceanview villa in Playa Flamingo &mdash; <br>sleeps up to 14, or stay in the Half Casa for smaller groups</p>
       <div class="hero-cta">
-        <a href="book.html" class="btn btn-white">Check Availability</a>
-        <a href="gallery.html" class="btn btn-white" style="border-color: var(--gold); color: var(--gold-light);">View Gallery</a>
+        <a href="book.html" class="xp-btn xp-btn--solid">Check Availability</a>
+        <a href="gallery.html" class="xp-btn xp-btn--ghost">View Gallery</a>
       </div>
-      <p class="rate-note" style="color: var(--gold-light);">Contact us for nightly rates</p>
+      <p class="rate-note">Contact us for nightly rates</p>
     </div>
     <div class="hero-scroll">
       <span>Scroll</span>

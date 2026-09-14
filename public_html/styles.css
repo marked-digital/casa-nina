@@ -172,16 +172,38 @@ html.lenis, html.lenis body{ height:auto; }
 }
 
 /* ===== FULL HERO (homepage) ===== */
+/* 2026-09-14 hero pass (index.html only; no other page uses .hero*):
+   · Fits the viewport on load. Was height:100vh + min-height:700px with the
+     stack centered and nothing reserved for the fixed header or the scroll
+     cue, so on 1440-wide laptops (viewport ~650-780px tall) the tagline sat
+     under the nav and the cue landed on the buttons; shorter windows clipped
+     via overflow:hidden. Now min-height:100svh (same unit as .xp-hero) with
+     symmetric block padding = header height + 32px, so the centred stack
+     stays clear of both, and a too-short window grows the section instead of
+     clipping it.
+   · Headline set on two lines (.hero-line blocks, phrases nowrap). Size is
+     clamp(2.6rem, min(5.5vw, 11vh), 5rem): the vh term shrinks it on short
+     windows so the stack still fits; the vw term keeps the long line
+     ("Seven Bedrooms. One Ocean." = 10.9em) inside .hero-content, widened
+     from 800px to 1120px for it. Under ~560px wide each line breaks once,
+     at the period, giving the natural four-line phone stack.
+   · White headline, "Pura Vida!" in --cn-gold-soft (the page's existing
+     gold-on-photo: tagline, rate note, ghost button).
+   · Buttons switched to the universal .xp-btn--solid / --ghost pair used by
+     explore's closing CTA; .btn-white left untouched for the other pages.
+   · Inline subtitle font-size and rate-note colour folded in here (same
+     values, no visual change). DEPLOY-COUPLED with index.html. */
 .hero {
   position: relative;
-  height: 100vh;
-  min-height: 700px;
+  min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: var(--warm-white);
+  color: var(--cn-white);
   overflow: hidden;
+  padding: calc(var(--xp-header-h, 68px) + 32px) 0;
 }
 
 .hero-bg {
@@ -202,7 +224,7 @@ html.lenis, html.lenis body{ height:auto; }
 .hero-content {
   position: relative;
   z-index: 1;
-  max-width: 800px;
+  max-width: 1120px;
   padding: 0 2rem;
 }
 
@@ -212,27 +234,39 @@ html.lenis, html.lenis body{ height:auto; }
   font-weight: 500;
   letter-spacing: 0.35em;
   text-transform: uppercase;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
   color: var(--gold-light);
 }
 
-.hero h1 { margin-bottom: 1.5rem; }
+.hero h1 {
+  font-size: clamp(2.6rem, min(5.5vw, 11vh), 5rem);
+  color: var(--cn-white);
+  margin-bottom: 1.25rem;
+}
+.hero-line { display: block; }
+.hero-line > span { white-space: nowrap; }
+.hero-accent { color: var(--cn-gold-soft); }
+/* Below ~520px the first line no longer fits whole; stack all four phrases so
+   phones get one even column rather than a short/short/long break. */
+@media (max-width: 520px) { .hero-line > span { display: block; } }
 
 .hero-subtitle {
   font-family: var(--font-serif);
-  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-size: clamp(1.2rem, 2.2vw, 1.6rem);
   font-weight: 300;
   font-style: italic;
   opacity: 0.85;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
   line-height: 1.6;
 }
 
 .hero-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1rem; }
 
+.hero .rate-note { color: var(--gold-light); }
+
 .hero-scroll {
   position: absolute;
-  bottom: 2.5rem; left: 50%;
+  bottom: 1.75rem; left: 50%;
   transform: translateX(-50%);
   z-index: 1;
   display: flex;
@@ -249,7 +283,7 @@ html.lenis, html.lenis body{ height:auto; }
 }
 
 .scroll-line {
-  width: 1px; height: 40px;
+  width: 1px; height: 36px;
   background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
   animation: scrollPulse 2s ease-in-out infinite;
 }
@@ -821,7 +855,8 @@ html.lenis, html.lenis body{ height:auto; }
 }
 
 @media (max-width: 768px) {
-  .hero { min-height: 600px; }
+  /* .hero { min-height: 600px; } removed 2026-09-14: it overrode the 100svh
+     min-height on phones; the hero now fills the screen there too. */
   .page-hero { height: 40vh; min-height: 300px; }
   .section-padding { padding: 4rem 0; }
   .intro-grid, .experience-grid, .location-grid { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -852,6 +887,8 @@ html.lenis, html.lenis body{ height:auto; }
   .intro-stats { flex-direction: column; gap: 1.5rem; }
   .cta-buttons { flex-direction: column; align-items: center; }
   .hero-cta { flex-direction: column; align-items: center; }
+  .hero-content { padding: 0 1.25rem; } /* matches .container above; keeps "Seven Bedrooms." whole on 320px screens */
+  .hero-subtitle br { display: none; }  /* the desktop two-line break left a one-word widow on phones */
 }
 
 /* ===== PHOTO NUMBER BADGE ===== */
