@@ -2020,13 +2020,24 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
    Utility-page hero shared with faq.html (.xp-faq-hero, breadcrumb, title,
    sub) replaces the light "Book Your Stay" header, so the site header is
    transparent over navy here like every other page (xp-header--solid
-   dropped). Surfaces: hero navy-deep → cream option cards → sand contact +
-   form → ink .xp-cta Airbnb band → footer. Card and form component rules live
+   dropped). Surfaces: hero navy-deep → cream option cards → sand .xp-know
+   (booking facts, wording mirrors faq.html) → white contact + form → ink
+   .xp-cta Airbnb band → footer. Head carries the full SEO set (title, meta,
+   canonical, robots, geo, OG, Twitter) and a JSON-LD @graph that reuses the
+   #website / #villa ids from explore.html and adds the two Accommodation
+   units with Offers. Card and form component rules live
    with their legacy blocks above (book-only classes, rewritten in place).
    DEPLOY-COUPLED with book.html. */
 .page-book .xp-hero-sub{ margin-bottom:0; }              /* the FAQ's 34px sat above its search box */
 .page-book .book-options{ background:var(--cn-cream); }
-.page-book .book-contact{ background:var(--cn-sand); }
+.page-book .book-options__head{ text-align:center; max-width:640px; margin:0 auto 48px; }
+.page-book .book-options__head .body-text{ max-width:none; }
+.page-book .book-options__head .body-text a{ color:var(--cn-navy); text-decoration:underline; text-decoration-color:rgba(194,154,91,.6); text-underline-offset:3px; }
+.page-book .book-options__head .body-text a:hover{ text-decoration-color:var(--cn-gold); }
+.page-book .book-contact{ background:var(--cn-white); } /* the .xp-know block above it is sand */
+.page-book .book-contact__meta{ margin:18px 0 0; font-size:13.5px; font-weight:300; color:var(--cn-ink-muted); }
+.page-book .book-contact__meta a{ color:var(--cn-navy); text-decoration:none; border-bottom:1px solid rgba(194,154,91,.6); }
+.page-book .book-contact__meta a:hover{ border-bottom-color:var(--cn-gold); }
 .page-book .book-contact__head{ text-align:center; max-width:640px; margin:0 auto 48px; }
 .page-book .book-contact__head .body-text{ max-width:none; }
 .page-book .book-contact-row{ margin-top:32px; }
