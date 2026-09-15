@@ -1618,6 +1618,7 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 .xp-stat{ padding:30px 18px 6px 0; border-right:1px solid rgba(14,29,48,.1); margin-right:18px; }
 .xp-stat:last-child{ border-right:0; margin-right:0; }
 .xp-ledger--3{ grid-template-columns:repeat(3,1fr); } /* 2026-09-14: homepage's 7 / 6 / 14 */
+.xp-ledger--4{ grid-template-columns:repeat(4,1fr); } /* 2026-09-15: the-casa's 7 / 6 / 3 / 14; falls to the 2×2 phone rule */
 .xp-stat__num{ font-family:var(--cn-display); font-weight:500; font-size:clamp(38px,4.6vw,60px);
   line-height:1; color:var(--cn-navy); }
 .xp-stat__num em{ font-style:italic; font-size:.5em; color:var(--cn-gold); letter-spacing:.02em; }
@@ -1909,7 +1910,7 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 }
 
 /* ============================================================================
-   F. MIGRATED LEGACY PAGES (index.html, book.html) — universal-styling pass, 2026-09-14
+   F. MIGRATED LEGACY PAGES (index.html, book.html, the-casa.html) — universal-styling pass, 2026-09-14/15
    A legacy page opts in via <body class="page-cn page-<name>"> and is added
    to the :is() list on the shared rules below; the rest of this section is
    per page. index.html rules are scoped to .page-home because the legacy
@@ -1950,10 +1951,10 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
    11.64em at 500/.005em, so 7.4vw keeps it on one line down to 541px; the vh
    term shrinks it on short windows so kicker → h1 → sub → dek → buttons →
    rate note fit; the cap keeps it inside the 1240 wrap on wide screens. */
-.page-home .xp-hero__inner{ width:auto; max-width:var(--xp-max); margin:0 auto;
-  padding-left:var(--xp-gutter); padding-right:var(--xp-gutter); }
+:is(.page-home,.page-casa) .xp-hero__inner{ width:auto; max-width:var(--xp-max); margin:0 auto;
+  padding-left:var(--xp-gutter); padding-right:var(--xp-gutter); }   /* explore gets this from .xp-page .xp-wrap */
 @media (min-width:761px){
-  .page-home .xp-hero__inner{ padding-top:calc(var(--xp-header-h) + clamp(24px,4vh,64px));
+  :is(.page-home,.page-casa) .xp-hero__inner{ padding-top:calc(var(--xp-header-h) + clamp(24px,4vh,64px));
     padding-bottom:calc(var(--xp-header-h) + clamp(24px,4vh,64px)); }
 }
 .page-home .xp-hero h1{ font-size:clamp(2.6rem, min(7.4vw, 11.5vh), 5.9rem);
@@ -1970,9 +1971,9 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
   .page-home .xp-hero__btns .xp-btn{ text-align:center; }
 }
 
-:is(.page-home,.page-book) .section-padding{ padding:clamp(84px,11vh,140px) 0; }
-:is(.page-home,.page-book) .section-padding-sm{ padding:clamp(56px,8vh,90px) 0; }
-:is(.page-home,.page-book) .body-text{ font-weight:300; color:var(--cn-ink-muted); }
+:is(.page-home,.page-book,.page-casa) .section-padding{ padding:clamp(84px,11vh,140px) 0; }
+:is(.page-home,.page-book,.page-casa) .section-padding-sm{ padding:clamp(56px,8vh,90px) 0; }
+:is(.page-home,.page-book,.page-casa) .body-text{ font-weight:300; color:var(--cn-ink-muted); }
 
 /* Surfaces (explore's palette; see banner). Scoped: .intro/.gallery/.villa/
    .experience/.villa-card/.half-casa-callout are still used by legacy pages. */
@@ -1989,11 +1990,11 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 .page-home .half-casa-callout{ border-left:3px solid var(--cn-gold); }
 
 /* Section heads: eyebrow → title → lede rhythm (explore: 16–18px, then 22px) */
-:is(.page-home,.page-book) .xp-display{ color:var(--cn-navy); }
-:is(.page-home,.page-book) .xp-eyebrow + .xp-display{ margin-top:16px; }
-:is(.page-home,.page-book) .xp-display + .body-text{ margin-top:22px; }
-:is(.page-home,.page-book) .body-text + .body-text{ margin-top:1rem; }   /* was inline on the intro's second paragraph */
-:is(.page-home,.page-book) .xp-sec-cta--center{ margin-top:48px; }        /* under grids; the FAQ's 22px is for text */
+:is(.page-home,.page-book,.page-casa) .xp-display{ color:var(--cn-navy); }
+:is(.page-home,.page-book,.page-casa) .xp-eyebrow + .xp-display{ margin-top:16px; }
+:is(.page-home,.page-book,.page-casa) .xp-display + .body-text{ margin-top:22px; }
+:is(.page-home,.page-book,.page-casa) .body-text + .body-text{ margin-top:1rem; }   /* was inline on the intro's second paragraph */
+:is(.page-home,.page-book,.page-casa) .xp-sec-cta--center{ margin-top:48px; }        /* under grids; the FAQ's 22px is for text */
 
 /* Half Casa band + callout (homepage-only component, type on the universal scale) */
 .half-casa-band{ background:var(--cream); padding:3rem 0 1rem; } /* was inline */
@@ -2023,7 +2024,7 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 
 /* Booking CTA: universal .xp-cta; the rate note is the one homepage-specific line.
    .xp-cta p (0,1,1) would otherwise size and colour it as body copy. */
-:is(.page-home,.page-book) .xp-cta .rate-note{ margin:18px auto 0; max-width:none; font-size:.78rem; color:var(--cn-gold-soft); }
+:is(.page-home,.page-book,.page-casa) .xp-cta .rate-note{ margin:18px auto 0; max-width:none; font-size:.78rem; color:var(--cn-gold-soft); }
 
 /* ── book.html (2026-09-14) ──
    Utility-page hero shared with faq.html (.xp-faq-hero, breadcrumb, title,
@@ -2142,3 +2143,136 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
   .book-stickybar.is-hidden{ transform:translateY(110%); opacity:0; pointer-events:none; }
   .page-book .xp-cta{ padding-bottom:calc(clamp(96px,14vh,170px) + 72px); } /* room so the bar never covers the band's tagline */
 }
+
+/* ── the-casa.html: floor-plan explorer (.fp, js/floorplans.js) 2026-09-15 ──
+   Side column: Full/Half mode switch, the three floors stacked like the building
+   (rooftop on top), a summary that follows the mode, and a booking CTA that
+   pre-selects that option. Main column: the plan with a gold hotspot per room,
+   a caption, and room pills. Coordinates live in the script as % of the plan. */
+.fp{ display:grid; grid-template-columns:minmax(260px,320px) minmax(0,1fr); grid-template-rows:auto auto auto; column-gap:clamp(28px,4vw,56px); row-gap:22px; align-items:start; }
+.fp__side{ grid-column:1; grid-row:1; }
+.fp__summary{ grid-column:1; grid-row:2; }
+.fp__cta{ grid-column:1; grid-row:3; }
+.fp__main{ grid-column:2; grid-row:1 / span 3; }
+.fp__floor-short{ display:none; }
+.fp__mode{ display:inline-flex; padding:3px; border:1px solid rgba(20,23,31,.22); border-radius:999px; background:var(--cn-white); }
+.fp__modebtn{ padding:9px 16px; border:0; border-radius:999px; background:none; cursor:pointer;
+  font:600 11px/1 var(--cn-body); letter-spacing:.2em; text-transform:uppercase; color:var(--cn-navy);
+  transition:background .25s var(--xp-ease), color .25s var(--xp-ease); }
+.fp__modebtn.is-on{ background:var(--cn-navy); color:var(--cn-cream); }
+.fp__stack{ margin-top:18px; display:flex; flex-direction:column; }
+.fp__floor{ position:relative; text-align:left; width:100%; padding:16px 18px; margin-top:-1px; cursor:pointer;
+  background:var(--cn-white); border:1px solid rgba(14,29,48,.12); color:var(--cn-navy);
+  display:flex; flex-direction:column; gap:4px; transition:background .25s var(--xp-ease), color .25s var(--xp-ease), border-color .25s var(--xp-ease), opacity .25s var(--xp-ease); }
+.fp__floor:hover:not(.is-on):not(.is-excluded){ background:var(--cn-cream); }
+.fp__floor.is-on{ background:var(--cn-navy); border-color:var(--cn-navy); color:var(--cn-cream); z-index:1; }
+.fp__floor-label{ font:600 10.5px/1.4 var(--cn-body); letter-spacing:.22em; text-transform:uppercase; color:var(--cn-stone); display:flex; align-items:center; gap:10px; }
+.fp__floor.is-on .fp__floor-label{ color:rgba(245,240,231,.7); }
+.fp__chip{ margin:0; letter-spacing:.14em; }
+.fp__floor.is-on .fp__chip{ border-color:var(--cn-gold-soft); color:var(--cn-gold-soft); }
+.fp__floor-title{ font:500 22px/1.1 var(--cn-display); }
+.fp__floor-stats{ font-size:12.5px; font-weight:300; line-height:1.5; color:var(--cn-ink-muted); }
+.fp__floor.is-on .fp__floor-stats{ color:rgba(245,240,231,.72); }
+.fp__floor-excl{ display:none; font:600 10px/1 var(--cn-body); letter-spacing:.2em; text-transform:uppercase; color:var(--cn-gold); margin-top:4px; }
+.fp__floor.is-excluded{ opacity:.55; cursor:not-allowed; background:transparent; }
+.fp__floor.is-excluded .fp__floor-excl{ display:block; }
+.fp__summary{ padding-top:18px; border-top:1px solid rgba(14,29,48,.12); }
+.fp__sum-s{ text-wrap:balance; }
+.fp__sum-h{ display:block; font:500 22px/1.1 var(--cn-display); color:var(--cn-navy); }
+.fp__sum-s{ display:block; margin-top:8px; font:600 10.5px/1.5 var(--cn-body); letter-spacing:.22em; text-transform:uppercase; color:var(--cn-gold); }
+.fp__sum-t{ display:block; margin-top:10px; font-size:14.5px; font-weight:300; line-height:1.65; color:var(--cn-ink-muted); }
+.fp__cta{ display:block; text-align:center; }
+.fp__planhead{ display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:6px 20px; margin-bottom:14px; }
+.fp__title{ margin:0; font:500 clamp(22px,2.2vw,28px)/1.1 var(--cn-display); color:var(--cn-navy); }
+.fp__stats{ margin:0; font:600 10.5px/1.5 var(--cn-body); letter-spacing:.2em; text-transform:uppercase; color:var(--cn-stone); }
+.fp__plan{ background:var(--cn-white); border:1px solid rgba(14,29,48,.12); padding:clamp(12px,2.4vw,32px); }
+.fp__canvas{ position:relative; }
+.fp__img{ display:block; width:100%; height:auto; }
+.fp__spots{ position:absolute; inset:0; }
+.fp__spot{ position:absolute; width:18px; height:18px; padding:0; transform:translate(-50%,-50%); border-radius:999px; cursor:pointer;
+  background:var(--cn-gold); border:2px solid var(--cn-white); box-shadow:0 0 0 1px rgba(194,154,91,.55);
+  transition:background .2s var(--xp-ease), box-shadow .2s var(--xp-ease); }
+.fp__spot::before{ content:""; position:absolute; inset:-6px; border-radius:999px; border:1px solid rgba(194,154,91,.55); animation:fpPulse 2.4s var(--xp-ease) infinite; }
+@keyframes fpPulse{ 0%{ transform:scale(.6); opacity:.9; } 70%,100%{ transform:scale(1.5); opacity:0; } }
+.fp__spot:hover, .fp__spot:focus-visible, .fp__spot.is-on{ background:var(--cn-navy); box-shadow:0 0 0 4px rgba(15,30,51,.16); }
+.fp__spot.is-on::before, .fp__spot:hover::before{ animation:none; opacity:0; }
+.fp__tip{ position:absolute; bottom:calc(100% + 9px); left:50%; transform:translate(-50%,4px); white-space:nowrap; pointer-events:none;
+  background:var(--cn-navy); color:var(--cn-cream); font:600 10.5px/1 var(--cn-body); letter-spacing:.16em; text-transform:uppercase; padding:7px 10px;
+  opacity:0; transition:opacity .2s var(--xp-ease), transform .2s var(--xp-ease); }
+.fp__tip::after{ content:""; position:absolute; left:50%; top:100%; transform:translateX(-50%); border:5px solid transparent; border-top-color:var(--cn-navy); }
+.fp__spot:hover .fp__tip, .fp__spot:focus-visible .fp__tip, .fp__spot.is-on .fp__tip{ opacity:1; transform:translate(-50%,0); }
+.fp__caption{ min-height:52px; margin:16px 0 0; font-size:15px; font-weight:300; line-height:1.6; color:var(--cn-ink-muted); }
+.fp__caption strong{ font-weight:600; color:var(--cn-navy); margin-right:6px; }
+.fp__caption.is-idle{ font-style:italic; }
+.fp__rooms{ display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+.fp__room{ font:600 10.5px/1 var(--cn-body); letter-spacing:.14em; text-transform:uppercase; padding:9px 12px; cursor:pointer;
+  border:1px solid rgba(20,23,31,.22); border-radius:999px; background:none; color:var(--cn-navy);
+  transition:background .2s var(--xp-ease), color .2s var(--xp-ease), border-color .2s var(--xp-ease); }
+.fp__room:hover{ border-color:var(--cn-navy); }
+.fp__room.is-on{ background:var(--cn-navy); border-color:var(--cn-navy); color:var(--cn-cream); }
+@media (max-width:900px){
+  .fp{ grid-template-columns:1fr; row-gap:24px; }
+  .fp__side, .fp__summary, .fp__cta, .fp__main{ grid-column:1; grid-row:auto; }
+  .fp__side{ order:1; } .fp__main{ order:2; } .fp__summary{ order:3; } .fp__cta{ order:4; }
+  .fp__stack{ display:grid; grid-template-columns:repeat(3,1fr); }
+  .fp__floor{ margin-top:0; margin-left:-1px; padding:14px 12px; gap:6px; }
+  .fp__floor-long, .fp__floor-title, .fp__floor-stats{ display:none; }   /* compact tabs: short name + chip */
+  .fp__floor-short{ display:inline; font:500 17px/1.1 var(--cn-display); letter-spacing:0; text-transform:none; color:inherit; }
+  .fp__floor-label{ flex-wrap:wrap; gap:6px 8px; }
+  .fp__floor-excl{ margin-top:0; }
+  .fp__spot{ width:16px; height:16px; }
+}
+@media (prefers-reduced-motion:reduce){ .fp__spot::before{ animation:none; opacity:0; } }
+
+/* ── the-casa.html (2026-09-15) ──
+   Universal .xp-hero (bay sunset photo), then: intro (white) → Story of Nina
+   (navy chapter, Cormorant italic) → THE LAYOUT floor-plan explorer (cream,
+   replaces the old Half Casa callout) → bedroom cards (sand, white cards) →
+   indoor living (white) → outdoor (cream) → amenities (navy chapter) → ink
+   .xp-cta → footer. Legacy .story-nina / .amenities / .experience rules are
+   shared with other pages, so everything here is scoped to .page-casa.
+   DEPLOY-COUPLED with the-casa.html, js/floorplans.js, images/floorplans/. */
+.page-casa .xp-hero h1{ color:var(--cn-white); }         /* outranks the section-title navy (.page-casa .xp-display), as on the homepage */
+.page-casa .intro{ background:var(--cn-white); }
+.page-casa .intro-image img{ width:100%; height:100%; object-fit:cover; }
+.page-casa .intro-content .body-text{ margin-bottom:0; }
+.page-casa .intro-content .xp-ledger{ margin-top:40px; }
+
+/* Story of Nina: a quiet navy chapter */
+.page-casa .story-nina{ background:var(--cn-navy); color:var(--cn-cream); padding:clamp(72px,10vh,120px) 0; border:0; }
+.page-casa .story-nina .story-inner{ max-width:680px; }
+.page-casa .story-nina .xp-eyebrow{ color:var(--cn-gold-2); }
+.page-casa .story-nina .xp-display{ color:var(--cn-cream); margin-bottom:0; }
+.page-casa .story-nina p{ font:italic 400 clamp(19px,1.6vw,22px)/1.65 var(--cn-display); color:rgba(245,240,231,.86); margin:0; opacity:1; }
+.page-casa .story-nina .xp-display + p{ margin-top:26px; }
+.page-casa .story-nina p + p{ margin-top:14px; }
+
+/* The layout */
+.page-casa .casa-layout{ background:var(--cn-cream); scroll-margin-top:calc(var(--xp-header-h) + 24px); }
+.page-casa .casa-layout__head{ text-align:center; max-width:640px; margin:0 auto 48px; }
+.page-casa .casa-layout__head .body-text{ max-width:none; }
+
+/* Bedrooms & bathrooms */
+.page-casa .villa{ background:var(--cn-sand); }
+.page-casa .villa-card{ background:var(--cn-white); border:1px solid rgba(14,29,48,.1); }
+.page-casa .villa-card-content h3{ font:500 var(--xp-title-card)/1.08 var(--cn-display); color:var(--cn-navy); margin-bottom:10px; }
+.page-casa .villa-card-content p{ font-size:14.5px; font-weight:300; line-height:1.7; color:var(--cn-ink-muted); }
+
+/* Indoor / outdoor */
+.page-casa .casa-indoor{ background:var(--cn-white); }
+.page-casa .casa-outdoor{ background:var(--cn-cream); }
+.page-casa .experience-list li{ font-size:15px; font-weight:300; color:var(--cn-ink-muted); }
+.page-casa .experience-image img{ display:block; width:100%; height:100%; object-fit:cover; }
+@media (max-width:900px){ .page-casa .experience-image--first{ order:-1; } }
+
+/* Amenities: navy chapter */
+.page-casa .amenities{ background:var(--cn-navy); color:var(--cn-cream); }
+.page-casa .amenities-header{ max-width:640px; margin:0 auto 56px; }
+.page-casa .amenities .xp-eyebrow{ color:var(--cn-gold-2); }
+.page-casa .amenities .xp-display{ color:var(--cn-cream); }
+.page-casa .amenities .body-text{ color:rgba(245,240,231,.7); max-width:none; }
+.page-casa .amenities-grid{ gap:clamp(28px,4vw,56px); }
+.page-casa .amenity-group h3{ font:500 22px/1.1 var(--cn-display); color:var(--cn-cream); margin:0 0 18px; padding-bottom:14px; border-bottom:1px solid rgba(220,192,140,.22); }
+.page-casa .amenity-group ul{ gap:10px; }
+.page-casa .amenity-group li{ font-size:15px; font-weight:300; line-height:1.55; color:var(--cn-mist); display:flex; align-items:baseline; gap:12px; }
+.page-casa .amenity-group li::before{ content:""; flex:none; width:16px; height:1px; background:var(--cn-gold); transform:translateY(-4px); }
