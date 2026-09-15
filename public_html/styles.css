@@ -618,6 +618,12 @@ html.lenis, html.lenis body{ height:auto; }
   margin: 0 0 20px;
 }
 
+.booking-card__sub {
+  margin: -12px 0 20px;
+  font: italic 400 17px/1.4 var(--cn-display);
+  color: var(--cn-ink-muted);
+}
+
 .booking-details {
   list-style: none;
   margin: 0 0 28px;
