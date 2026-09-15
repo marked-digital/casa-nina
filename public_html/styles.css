@@ -2351,7 +2351,8 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 /* ── Brand marks (2026-09-15): outlined SVGs from the logo system, so no web font
    is needed to render them. Header: horizontal reversed (white + gold). Footer:
    one-colour mark in white. Favicon: the navy tile with the gold CN. ── */
-.xp-logo-img{ display:block; height:50px; width:auto; }
-@media (max-width:760px){ .xp-logo-img{ height:40px; } }
-.footer-logo{ display:block; width:150px; height:auto; margin-bottom:18px; }
-.footer-brand .nav-logo{ display:block; }
+.xp-logo-img{ display:block; height:56px; width:auto; }   /* 2026-09-15: up from 50px; FLAMINGO in the lockup was 3px tall */
+@media (max-width:760px){ .xp-logo-img{ height:44px; } }
+.footer-logo{ display:block; width:200px; height:auto; margin-bottom:20px; }  /* 2026-09-15: up from 150px */
+/* .footer-brand .nav-logo removed 2026-09-15: the mark carries the name now */
+.footer-bottom{ justify-content:center; text-align:center; } /* only the copyright line remains; social links live in the Reach Us row */
