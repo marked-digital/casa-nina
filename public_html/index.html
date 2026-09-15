@@ -211,48 +211,61 @@
     </div>
   </section>
 
-  <!-- REVIEWS -->
-  <section class="reviews section-padding">
+  <!-- REVIEWS: seven real Airbnb reviews as a scroll-snap strip (explore's beach-strip interaction).
+       Excerpts are verbatim, ellipses mark cuts, hosts and staff are not named. Add new reviews as cards. -->
+  <section class="reviews section-padding" id="reviews" aria-labelledby="reviews-title">
     <div class="container">
-      <div class="reviews-header fade-in">
-        <p class="xp-eyebrow xp-eyebrow--center">Guest Reviews</p>
-        <h2 class="xp-display xp-display--3">What Our Guests Say</h2>
-      </div>
-      <!-- TODO: Rob, replace with real Airbnb reviews when scraped -->
-      <div class="reviews-grid">
-        <div class="review-card fade-in">
-          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="review-text">"The villa exceeded every expectation. Waking up to howler monkeys and coffee on the rooftop, sunsets from the infinity pool &mdash; it felt like a private resort. The staff were attentive without ever being intrusive."</p>
-          <div class="review-author"><p class="review-name">Sarah M.</p><p class="review-date">Airbnb &mdash; March 2026</p></div>
+      <div class="reviews-head fade-in">
+        <div>
+          <p class="xp-eyebrow">Guest reviews</p>
+          <h2 class="xp-display xp-display--3" id="reviews-title">What our guests say</h2>
+          <p class="reviews-rating"><span class="reviews-rating__stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span> <strong>5.0</strong> on Airbnb from 7 reviews, every one of them five stars &middot; <a href="https://www.airbnb.ca/rooms/553696885568872196" target="_blank" rel="noopener">Read them on Airbnb</a></p>
         </div>
-        <div class="review-card fade-in">
-          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="review-text">"We booked Casa Nina for our 25th anniversary with the whole family. Seven bedrooms meant everyone had their own space. The private chef cooked one of the best meals of our lives. We're already planning to return."</p>
-          <div class="review-author"><p class="review-name">Michael &amp; Jennifer</p><p class="review-date">Airbnb &mdash; February 2026</p></div>
-        </div>
-        <div class="review-card fade-in">
-          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="review-text">"Photos don't do it justice. The ocean views from every floor, the rooftop at golden hour, the walk down to Flamingo Beach &mdash; it's exactly what you hope a Costa Rican villa will be. Pura vida, truly."</p>
-          <div class="review-author"><p class="review-name">David K.</p><p class="review-date">Airbnb &mdash; April 2026</p></div>
-        </div>
-        <div class="review-card fade-in">
-          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="review-text">"Three generations under one roof and nobody was on top of each other. The two kitchens were a game-changer. Kids loved the pool, grandparents loved the elevator. The concierge handled transfers, groceries, and a fishing charter without a hitch."</p>
-          <div class="review-author"><p class="review-name">The Thompson Family</p><p class="review-date">Airbnb &mdash; January 2026</p></div>
-        </div>
-        <div class="review-card fade-in">
-          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="review-text">"Immaculate property, flawless communication from the owners, and a location that's hard to beat. We spent mornings on the rooftop and afternoons snorkeling at Conchal. The villa itself is the highlight of the trip."</p>
-          <div class="review-author"><p class="review-name">Carlos R.</p><p class="review-date">Airbnb &mdash; March 2026</p></div>
-        </div>
-        <div class="review-card fade-in">
-          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="review-text">"Our group of twelve came for a wellness retreat and the villa was perfect &mdash; yoga on the rooftop at sunrise, the pool for afternoons, quiet spaces for everyone. The attention to detail is what sets Casa Nina apart."</p>
-          <div class="review-author"><p class="review-name">Emily W.</p><p class="review-date">Airbnb &mdash; February 2026</p></div>
+        <div class="reviews-nav">
+          <span class="reviews-nav__hint">Seven reviews &middot; drag or swipe</span>
+          <button type="button" class="reviews-arrow" data-rev-prev aria-label="Previous reviews"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M10 3.5 5.5 8l4.5 4.5"/></svg></button>
+          <button type="button" class="reviews-arrow" data-rev-next aria-label="Next reviews"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="m6 3.5 4.5 4.5L6 12.5"/></svg></button>
         </div>
       </div>
-      <div class="xp-sec-cta xp-sec-cta--center">
-        <a href="https://www.airbnb.ca/rooms/553696885568872196" target="_blank" rel="noopener" class="xp-btn xp-btn--navy">Read All Reviews on Airbnb</a>
+      <div class="reviews-track fade-in" id="reviewsTrack">
+        <div class="reviews-strip" id="reviewsStrip" data-lenis-prevent-horizontal>
+        <article class="review-card">
+          <div class="review-stars" aria-label="Five stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">&ldquo;The villa itself is just stunning. It is absolutely perfect for large groups because there are both common areas for everyone to gather (the pool area for cooling off and the 3rd floor patio for sunsets) and yet one (or a whole family) can get some separate private space as needed. There is just so much room.&rdquo;</p>
+          <div class="review-author"><p class="review-name">David</p><p class="review-date">Chester, New Hampshire &middot; March 2022 &middot; via Airbnb</p></div>
+        </article>
+        <article class="review-card">
+          <div class="review-stars" aria-label="Five stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">&ldquo;We had a great stay at this oceanview 7-bedroom villa&hellip; The location is excellent if you want to be close to the beach while still enjoying privacy and beautiful views. The home was spacious, clean and perfect for a large group and the pool and ocean views were definite highlights.&rdquo;</p>
+          <div class="review-author"><p class="review-name">Vance</p><p class="review-date">Stayed with kids &middot; December 2025 &middot; via Airbnb</p></div>
+        </article>
+        <article class="review-card">
+          <div class="review-stars" aria-label="Five stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">&ldquo;Great team, from host through concierge, who were very responsive and helpful at every step of the way&hellip; View is stunning, and the place is beautiful.&rdquo;</p>
+          <div class="review-author"><p class="review-name">Broosk</p><p class="review-date">Group trip &middot; April 2025 &middot; via Airbnb</p></div>
+        </article>
+        <article class="review-card">
+          <div class="review-stars" aria-label="Five stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">&ldquo;Beautiful house, split into 3 levels, 3/3/1 bedrooms and 2 kitchens&hellip; We were 11 people and it was very comfortable&hellip; Very well finished&hellip; very creative problem solvers to sort everything out for us.&rdquo;</p>
+          <div class="review-author"><p class="review-name">Geoff</p><p class="review-date">London, United Kingdom &middot; January 2025 &middot; via Airbnb</p></div>
+        </article>
+        <article class="review-card">
+          <div class="review-stars" aria-label="Five stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">&ldquo;What a phenomenal property with a remarkable host! Our time in Costa Rica was so peaceful&hellip; I look forward to booking future stays at this pristine property.&rdquo;</p>
+          <div class="review-author"><p class="review-name">Shonda Nicole</p><p class="review-date">Waldorf, Maryland &middot; June 2024 &middot; via Airbnb</p></div>
+        </article>
+        <article class="review-card">
+          <div class="review-stars" aria-label="Five stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">&ldquo;Amazing location! The house is beautiful and plenty of space for groups. The house manager was very helpful and the services amazing!&hellip; Overall, beautiful home and highly recommend.&rdquo;</p>
+          <div class="review-author"><p class="review-name">Mikaya</p><p class="review-date">Chicago, Illinois &middot; November 2023 &middot; via Airbnb</p></div>
+        </article>
+        <article class="review-card">
+          <div class="review-stars" aria-label="Five stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">&ldquo;Beautiful home, majestic views from all 3 floors and decks&hellip; Kids loved having their own space to hang out, away from adults. Extra amenities like outdoor shower for sand, outside restroom by fantastic pool with great views of the bay.&rdquo;</p>
+          <div class="review-author"><p class="review-name">Robin</p><p class="review-date">Medford, Oregon &middot; July 2023 &middot; via Airbnb</p></div>
+        </article>
+        </div>
+        <div class="reviews-scrub" aria-hidden="true"><i></i></div>
       </div>
     </div>
   </section>
@@ -326,5 +339,32 @@
   <script src="js/smooth-scroll.js"></script>
 
   <script src="main.js"></script>
+  <script>
+  (function(){
+    var track = document.getElementById("reviewsTrack"), strip = document.getElementById("reviewsStrip");
+    if(!track || !strip) return;
+    var prev = track.parentNode.querySelector("[data-rev-prev]"), next = track.parentNode.querySelector("[data-rev-next]");
+    var scrub = track.querySelector(".reviews-scrub i");
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    function step(){ var card = strip.querySelector(".review-card"); return card ? card.getBoundingClientRect().width + 20 : strip.clientWidth * .8; }
+    function update(){
+      var max = strip.scrollWidth - strip.clientWidth, x = strip.scrollLeft, can = max > 4;
+      track.classList.toggle("can-prev", can && x > 4); track.classList.toggle("can-next", can && x < max - 4); track.classList.toggle("no-scroll", !can);
+      if(prev) prev.disabled = !(can && x > 4); if(next) next.disabled = !(can && x < max - 4);
+      if(scrub && can){ var f = strip.clientWidth / strip.scrollWidth; scrub.style.width = (f*100) + "%"; scrub.style.left = ((x/max)*(1-f)*100) + "%"; }
+    }
+    strip.addEventListener("scroll", update, { passive:true }); window.addEventListener("resize", update);
+    if(prev) prev.addEventListener("click", function(){ strip.scrollBy({ left:-step(), behavior: reduce ? "auto" : "smooth" }); });
+    if(next) next.addEventListener("click", function(){ strip.scrollBy({ left: step(), behavior: reduce ? "auto" : "smooth" }); });
+    /* mouse drag on desktop; touch already scrolls natively */
+    var down = false, startX = 0, startLeft = 0, moved = false;
+    strip.addEventListener("pointerdown", function(e){ if(e.pointerType !== "mouse") return; down = true; moved = false; startX = e.clientX; startLeft = strip.scrollLeft; strip.classList.add("is-dragging"); });
+    window.addEventListener("pointermove", function(e){ if(!down) return; var dx = e.clientX - startX; if(Math.abs(dx) > 4) moved = true; strip.scrollLeft = startLeft - dx; });
+    window.addEventListener("pointerup", function(){ down = false; strip.classList.remove("is-dragging"); });
+    strip.addEventListener("click", function(e){ if(moved){ e.preventDefault(); e.stopPropagation(); moved = false; } }, true);
+    update();
+  })();
+  </script>
+
 </body>
 </html>

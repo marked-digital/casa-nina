@@ -2023,6 +2023,43 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 
 /* Reviews (homepage-only component, type on the universal scale) */
 .page-home .review-text{ font-size:18px; font-weight:400; line-height:1.7; color:var(--cn-navy); }
+/* Reviews strip (2026-09-15): head row with the rating and arrows, then a
+   scroll-snap strip three cards wide with edge fades and a scrub line — the
+   explore beach-strip interaction, sized for text cards. */
+.page-home .reviews-head{ display:flex; align-items:flex-end; justify-content:space-between; gap:24px; margin-bottom:34px; }
+.page-home .reviews-head .xp-display{ margin-top:16px; }
+.page-home .reviews-rating{ margin:14px 0 0; font-size:15px; font-weight:300; color:var(--cn-ink-muted); }
+.page-home .reviews-rating strong{ font-weight:600; color:var(--cn-navy); }
+.page-home .reviews-rating__stars{ color:var(--cn-gold); letter-spacing:.12em; margin-right:6px; }
+.page-home .reviews-rating a{ color:var(--cn-navy); text-decoration:underline; text-decoration-color:rgba(194,154,91,.6); text-underline-offset:3px; }
+.page-home .reviews-nav{ display:flex; align-items:center; gap:8px; flex:none; padding-bottom:6px; }
+.page-home .reviews-nav__hint{ font:600 10.5px/1 var(--cn-body); letter-spacing:.24em; text-transform:uppercase; color:var(--cn-stone); margin-right:10px; }
+.page-home .reviews-arrow{ width:38px; height:38px; border-radius:999px; display:grid; place-items:center; padding:0; cursor:pointer;
+  border:1px solid rgba(20,23,31,.28); background:none; color:var(--cn-navy);
+  transition:background .25s var(--xp-ease), color .25s var(--xp-ease), border-color .25s var(--xp-ease), opacity .25s var(--xp-ease); }
+.page-home .reviews-arrow svg{ width:14px; height:14px; display:block; fill:none; stroke:currentColor; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
+.page-home .reviews-arrow:hover:not(:disabled){ background:var(--cn-navy); border-color:var(--cn-navy); color:var(--cn-gold-soft); }
+.page-home .reviews-arrow:disabled{ opacity:.28; cursor:default; }
+.page-home .reviews-track{ position:relative; }
+.page-home .reviews-track::before, .page-home .reviews-track::after{ content:""; position:absolute; top:0; bottom:14px; width:64px; z-index:1; pointer-events:none; opacity:0; transition:opacity .25s var(--xp-ease); }
+.page-home .reviews-track::before{ left:0; background:linear-gradient(90deg, var(--cn-cream) 20%, rgba(245,240,231,0)); }
+.page-home .reviews-track::after{ right:0; background:linear-gradient(270deg, var(--cn-cream) 20%, rgba(245,240,231,0)); }
+.page-home .reviews-track.can-prev::before, .page-home .reviews-track.can-next::after{ opacity:1; }
+.page-home .reviews-strip{ display:grid; grid-auto-flow:column; grid-auto-columns:calc((100% - 60px) / 3.35); gap:20px;   /* three cards plus a peek of the fourth: the peek is the "there is more" cue */
+  overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none; -webkit-overflow-scrolling:touch; padding-bottom:14px; cursor:grab; }
+.page-home .reviews-strip::-webkit-scrollbar{ display:none; }
+.page-home .reviews-strip.is-dragging{ cursor:grabbing; scroll-snap-type:none; user-select:none; }
+.page-home .reviews-strip .review-card{ scroll-snap-align:start; display:flex; flex-direction:column; margin:0; }
+.page-home .reviews-strip .review-text{ flex:1 1 auto; }
+.page-home .reviews-scrub{ position:absolute; left:0; right:0; bottom:0; height:2px; background:rgba(14,29,48,.12); overflow:hidden; }
+.page-home .reviews-scrub i{ position:absolute; top:0; bottom:0; left:0; width:40%; background:var(--cn-gold); transition:left .25s var(--xp-ease), width .25s var(--xp-ease); }
+.page-home .reviews-track.no-scroll::before, .page-home .reviews-track.no-scroll::after, .page-home .reviews-track.no-scroll .reviews-scrub{ display:none; }
+@media (max-width:1024px){ .page-home .reviews-strip{ grid-auto-columns:calc((100% - 40px) / 2.3); } }
+@media (max-width:760px){
+  .page-home .reviews-head{ flex-direction:column; align-items:flex-start; gap:16px; }
+  .page-home .reviews-nav{ display:none; }                 /* touch scrolls; the fade, the peeking card and the scrub line carry it */
+  .page-home .reviews-strip{ grid-auto-columns:84%; gap:14px; }
+}
 .page-home .review-name{ font-size:13px; font-weight:600; color:var(--cn-navy); }
 .page-home .review-date{ font-size:12px; font-weight:300; color:var(--cn-ink-muted); }
 
@@ -2053,6 +2090,13 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 .page-book .book-why{ list-style:none; margin:clamp(36px,5vh,56px) auto 0; padding:0; display:flex; flex-wrap:wrap; justify-content:center; gap:14px clamp(24px,4vw,56px); }
 .page-book .book-why li{ display:flex; align-items:center; gap:12px; font-size:14.5px; font-weight:400; color:var(--cn-navy); }
 .page-book .book-why li::before{ content:""; width:20px; height:1px; background:var(--cn-gold); flex:none; }
+/* Social proof under the option cards: one real review excerpt + the Airbnb rating line */
+.page-book .book-proof{ max-width:720px; margin:clamp(32px,4vh,48px) auto 0; text-align:center; }
+.page-book .book-proof blockquote{ margin:0; font:italic 400 clamp(19px,1.6vw,23px)/1.5 var(--cn-display); color:var(--cn-navy); }
+.page-book .book-proof figcaption{ margin-top:14px; font-size:13.5px; font-weight:300; color:var(--cn-ink-muted); }
+.page-book .book-proof figcaption strong{ font-weight:600; color:var(--cn-navy); }
+.page-book .book-proof a{ color:var(--cn-navy); text-decoration:underline; text-decoration-color:rgba(194,154,91,.6); text-underline-offset:3px; }
+.page-home .reviews{ scroll-margin-top:calc(var(--xp-header-h) + 24px); }
 .page-book .book-options__head{ text-align:center; max-width:640px; margin:0 auto 48px; }
 .page-book .book-options__head .body-text{ max-width:none; }
 .page-book .book-options__head .body-text a{ color:var(--cn-navy); text-decoration:underline; text-decoration-color:rgba(194,154,91,.6); text-underline-offset:3px; }
