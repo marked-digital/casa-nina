@@ -28,7 +28,7 @@
          e.g. "frequently asked questions about staying at Casa Nina"
        · Align the VacationRental @id in the JSON-LD below with the node
          already published on explore.html so Google merges the entity
-       · Export the 1200x630 OG card (images/og-faq.jpg) and add the site
+       · Hero photo and social image set to images/22-casanina76-2000.jpg (2026-09-15); a 1200x630 crop can replace the social image later.
          favicon links flagged in <head>
        · Swap the hero placeholder (.xp-hero-bg) for a real Playa Flamingo
          photo; the production <img> and preload snippet are commented in place
@@ -62,21 +62,22 @@
   <meta property="og:title" content="Casa Nina Flamingo FAQ | Playa Flamingo Villa Questions, Answered">
   <meta property="og:description" content="Deposits, cancellation, airport transfers, included concierge services, private chef, pool safety and Wi-Fi. Every question about our 7-bedroom Playa Flamingo villa, answered.">
   <meta property="og:url" content="https://casaninaflamingo.com/faq.html">
-  <meta property="og:image" content="https://casaninaflamingo.com/images/og-faq.jpg"><!-- TODO: export a 1200x630 OG card for the FAQ -->
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Casa Nina Flamingo, a seven-bedroom luxury villa in Playa Flamingo, Costa Rica">
+  <meta property="og:image" content="https://casaninaflamingo.com/images/22-casanina76-2000.jpg">
+  <meta property="og:image:width" content="2000">
+  <meta property="og:image:height" content="1333">
+  <meta property="og:image:alt" content="Living room at Casa Nina Flamingo opening to the pool terrace and the bay at sunset">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Casa Nina Flamingo FAQ">
   <meta name="twitter:description" content="Every question about staying at Casa Nina Flamingo, answered. From booking to beach days.">
-  <meta name="twitter:image" content="https://casaninaflamingo.com/images/og-faq.jpg">
-  <meta name="twitter:image:alt" content="Casa Nina Flamingo, a seven-bedroom luxury villa in Playa Flamingo, Costa Rica">
+  <meta name="twitter:image" content="https://casaninaflamingo.com/images/22-casanina76-2000.jpg">
+  <meta name="twitter:image:alt" content="Living room at Casa Nina Flamingo opening to the pool terrace and the bay at sunset">
 
   <!-- Fonts: brand pairing -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+  <link rel="preload" as="image" href="images/22-casanina76-2000.jpg" fetchpriority="high">
   <link rel="stylesheet" href="styles.css">
   <style>
     /* ----------------------------------------------------------------
@@ -131,36 +132,23 @@
 </div>
 
 <!-- ===== Hero ===== -->
-<section class="xp-faq-hero">
-  <img class="xp-hero-bg" src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='1920' height='1080'><defs><linearGradient id='g' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='%230F1E33'/><stop offset='1' stop-color='%230A1626'/></linearGradient></defs><rect width='1920' height='1080' fill='url(%23g)'/><g stroke='%23C29A5B' stroke-width='2' fill='none' opacity='.16'><path d='M0 780q160-120 320 0t320 0 320 0 320 0 320 0 320 0'/><path d='M0 880q160-120 320 0t320 0 320 0 320 0 320 0 320 0'/><path d='M0 980q160-120 320 0t320 0 320 0 320 0 320 0 320 0'/></g></svg>" alt="" width="1920" height="1080">
-  <!-- PLACEHOLDER IMAGE (gradient + wave lines only; the ghosted label was removed 2026-09-14): swap for the real hero photo. Production tag:
-       <img class="xp-hero-bg" src="images/faq-hero.jpg"
-            alt="Aerial view of Playa Flamingo beach and the Guanacaste coastline near Casa Nina"
-            width="1920" height="1080" fetchpriority="high">
-       Then add to <head> for LCP:
-       <link rel="preload" as="image" href="images/faq-hero.jpg" fetchpriority="high"> -->
-  <div class="xp-hero-overlay" aria-hidden="true"></div>
-  <svg class="xp-hero-motif" viewBox="0 0 360 360" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
-    <circle cx="252" cy="96" r="42"/>
-    <path d="M252 30v14M252 148v14M186 96h14M304 96h14M206 50l10 10M298 142l10 10M298 50l-10 10M206 142l10 10"/>
-    <path d="M36 224q34-26 68 0t68 0 68 0 68 0"/>
-    <path d="M36 262q34-26 68 0t68 0 68 0 68 0"/>
-    <path d="M36 300q34-26 68 0t68 0 68 0 68 0"/>
-  </svg>
-  <div class="xp-wrap">
-    <div class="xp-hero-inner">
-      <nav aria-label="Breadcrumb"><ol class="xp-breadcrumb">
-        <li><a href="index.html">Home</a></li>
-        <li aria-current="page">FAQ</li>
-      </ol></nav>
-      <h1 class="xp-hero-title">Ask us anything.</h1>
-      <p class="xp-hero-sub">Everything you need to plan your stay at Casa Nina, from booking and arrivals to the villa, the beach, and the team who will look after you.</p>
-      <div class="xp-search" id="xpSearchWrap" role="search">
-        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.2-4.2"/></svg>
-        <label class="xp-skip" for="xpSearch">Search the FAQ</label>
-        <input type="search" id="xpSearch" placeholder="Try &ldquo;airport&rdquo;, &ldquo;chef&rdquo; or &ldquo;deposit&rdquo;" autocomplete="off">
-        <button class="xp-search-clear" id="xpSearchClear" aria-label="Clear search">&times;</button>
-      </div>
+<section class="xp-hero xp-hero--faq" id="top">
+  <div class="xp-hero__img">
+    <img class="xp-media__photo" src="images/22-casanina76-2000.jpg"
+      alt="Living room at Casa Nina Flamingo with the doors slid open to the pool terrace and the bay at sunset"
+      width="2000" height="1333" loading="eager" fetchpriority="high" decoding="async" onerror="this.remove()">
+  </div>
+  <div class="xp-hero-overlay" aria-hidden="true"></div><!-- the FAQ's navy overlay, kept in place of the explore veil -->
+  <div class="xp-wrap xp-hero__inner">
+    <p class="xp-eyebrow xp-hero__kicker">Frequently asked questions</p>
+    <h1 class="xp-display">Ask us anything.</h1>
+    <p class="xp-hero__sub">Everything you need to plan your stay</p>
+    <p class="xp-hero__dek">From booking and arrivals to the villa, the beach, and the team who will look after you. Search below, or browse by category.</p>
+    <div class="xp-search" id="xpSearchWrap" role="search">
+      <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.2-4.2"/></svg>
+      <label class="xp-skip" for="xpSearch">Search the FAQ</label>
+      <input type="search" id="xpSearch" placeholder="Try &ldquo;airport&rdquo;, &ldquo;chef&rdquo; or &ldquo;deposit&rdquo;" autocomplete="off">
+      <button class="xp-search-clear" id="xpSearchClear" aria-label="Clear search">&times;</button>
     </div>
   </div>
 </section>

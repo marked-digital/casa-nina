@@ -2290,3 +2290,21 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 .page-casa .amenity-group ul{ gap:10px; }
 .page-casa .amenity-group li{ font-size:15px; font-weight:300; line-height:1.55; color:var(--cn-ink-muted); display:flex; align-items:baseline; gap:12px; }
 .page-casa .amenity-group li::before{ content:""; flex:none; width:16px; height:1px; background:var(--cn-gold); transform:translateY(-4px); }
+
+/* ── faq.html hero on the universal .xp-hero (2026-09-15) ──
+   Same treatment as explore and the-casa (image layer with drift, kicker,
+   display title, italic gold sub, dek, left-aligned block) but keeping the
+   FAQ's navy overlay instead of the explore veil, the search box inside the
+   hero, and the height trimmed by the category rail so the pills sit at the
+   bottom of the first screen. The rail then sticks under the header as before. */
+.xp-hero--faq{ min-height:calc(100vh - var(--xp-cats-h)); min-height:calc(100svh - var(--xp-cats-h)); }
+.xp-hero--faq .xp-hero__inner{ position:relative; z-index:2; width:auto; max-width:var(--xp-max); margin:0 auto;
+  padding-left:var(--xp-gutter); padding-right:var(--xp-gutter); }       /* above the z-index:1 overlay; wrap geometry as on the other heroes */
+@media (min-width:761px){
+  .xp-hero--faq .xp-hero__inner{ padding-top:calc(var(--xp-header-h) + clamp(24px,4vh,64px));
+    padding-bottom:calc(var(--xp-header-h) + clamp(24px,4vh,64px)); }
+}
+.xp-hero--faq h1{ font-size:clamp(48px, 7.4vw, 104px); color:var(--cn-white); }
+.xp-hero--faq .xp-hero__dek{ max-width:52ch; }
+.xp-hero--faq .xp-search{ margin:34px 0 0; }                              /* left-aligned with the text, was centred */
+@media (max-width:760px){ .xp-hero--faq .xp-search{ margin-top:26px; } }
