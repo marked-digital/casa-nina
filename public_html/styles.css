@@ -2225,11 +2225,12 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 @media (prefers-reduced-motion:reduce){ .fp__spot::before{ animation:none; opacity:0; } }
 
 /* ── the-casa.html (2026-09-15) ──
-   Universal .xp-hero (bay sunset photo), then: intro (white) → Story of Nina
-   (navy chapter, Cormorant italic) → THE LAYOUT floor-plan explorer (cream,
-   replaces the old Half Casa callout) → bedroom cards (sand, white cards) →
-   indoor living (white) → outdoor (cream) → amenities (navy chapter) → ink
-   .xp-cta → footer. Legacy .story-nina / .amenities / .experience rules are
+   Universal .xp-hero (bay sunset photo), then, in the order a guest decides:
+   intro (white) → THE LAYOUT floor-plan explorer (cream, replaces the old
+   Half Casa callout) → bedroom cards (sand, white cards) → indoor living
+   (white) → outdoor (cream) → amenities (sand, light reference list) → Story
+   of Nina (the one navy chapter, Cormorant italic, the emotional close) →
+   ink .xp-cta → footer. Reordered 2026-09-15: facts first, feeling last. Legacy .story-nina / .amenities / .experience rules are
    shared with other pages, so everything here is scoped to .page-casa.
    DEPLOY-COUPLED with the-casa.html, js/floorplans.js, images/floorplans/. */
 .page-casa .xp-hero h1{ color:var(--cn-white); }         /* outranks the section-title navy (.page-casa .xp-display), as on the homepage */
@@ -2265,14 +2266,12 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 .page-casa .experience-image img{ display:block; width:100%; height:100%; object-fit:cover; }
 @media (max-width:900px){ .page-casa .experience-image--first{ order:-1; } }
 
-/* Amenities: navy chapter */
-.page-casa .amenities{ background:var(--cn-navy); color:var(--cn-cream); }
+/* Amenities: light reference section (sand) */
+.page-casa .amenities{ background:var(--cn-sand); color:var(--cn-ink); }
 .page-casa .amenities-header{ max-width:640px; margin:0 auto 56px; }
-.page-casa .amenities .xp-eyebrow{ color:var(--cn-gold-2); }
-.page-casa .amenities .xp-display{ color:var(--cn-cream); }
-.page-casa .amenities .body-text{ color:rgba(245,240,231,.7); max-width:none; }
+.page-casa .amenities .body-text{ max-width:none; }
 .page-casa .amenities-grid{ gap:clamp(28px,4vw,56px); }
-.page-casa .amenity-group h3{ font:500 22px/1.1 var(--cn-display); color:var(--cn-cream); margin:0 0 18px; padding-bottom:14px; border-bottom:1px solid rgba(220,192,140,.22); }
+.page-casa .amenity-group h3{ font:500 22px/1.1 var(--cn-display); color:var(--cn-navy); margin:0 0 18px; padding-bottom:14px; border-bottom:1px solid rgba(14,29,48,.14); }
 .page-casa .amenity-group ul{ gap:10px; }
-.page-casa .amenity-group li{ font-size:15px; font-weight:300; line-height:1.55; color:var(--cn-mist); display:flex; align-items:baseline; gap:12px; }
+.page-casa .amenity-group li{ font-size:15px; font-weight:300; line-height:1.55; color:var(--cn-ink-muted); display:flex; align-items:baseline; gap:12px; }
 .page-casa .amenity-group li::before{ content:""; flex:none; width:16px; height:1px; background:var(--cn-gold); transform:translateY(-4px); }
