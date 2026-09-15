@@ -1033,6 +1033,7 @@ body.page-cn{
   color:var(--cn-ink);
   background:var(--cn-cream);
   -webkit-font-smoothing:antialiased;
+  overflow-x:clip;                     /* 2026-09-15: no stray horizontal scroll from any bleed; clip keeps position:sticky working (explore does the same on .xp-page) */
 }
 
 .xp-wrap{ width:min(var(--xp-wrap), calc(100% - 48px)); margin-inline:auto; }
