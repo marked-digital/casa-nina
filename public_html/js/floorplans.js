@@ -30,9 +30,9 @@
         { n: 'Bathroom 5', x: 44,  y: 92,  t: 'Full bathroom adjoining Bedroom 7.' },
         { n: 'Rooftop terrace', x: 456, y: 152, t: 'Most of the roof is open terrace: sunset panoramas over the bay, with room for the whole group at once.' },
         { n: 'Elevator',   x: 300, y: 322, t: 'The private elevator arrives on every floor.' },
-        { n: 'WC 2',       x: 364, y: 326, t: 'Powder room beside the terrace.' }
+        { n: 'Powder room', x: 364, y: 326, t: 'The half in 1.5 bathrooms, right beside the terrace.' }
       ]},
-    { id: 'second', short: 'Second', label: 'Second floor', title: 'The second living unit',
+    { id: 'second', short: 'Second', label: 'Second floor', title: 'The main residence',
       img: 'images/floorplans/floor-2.jpg', w: 640, h: 284, half: false, dy: -13,
       stats: '3 bedrooms \u00b7 2 bathrooms \u00b7 kitchen & living room \u00b7 balcony',
       rooms: [
@@ -40,7 +40,7 @@
         { n: 'Bedroom 4',     x: 108, y: 94,  t: 'Suite with a walk-in closet and Bathroom 3 alongside.' },
         { n: 'Bathroom 3',    x: 28,  y: 94,  t: 'Full bathroom for Bedroom 4.' },
         { n: 'Walk-in closet', x: 120, y: 160, t: 'Bedroom 4\u2019s walk-in closet.' },
-        { n: 'Living Room 2', x: 264, y: 116, t: 'The second living unit\u2019s own living room, opening onto the balcony.' },
+        { n: 'Living Room 2', x: 264, y: 116, t: 'The main residence\u2019s living room, opening onto the balcony.' },
         { n: 'Kitchen 2',     x: 384, y: 116, t: 'A second full kitchen with island. Two kitchens mean two groups can cook at once.' },
         { n: 'Dining area',   x: 294, y: 202, t: 'Dining for this floor, beside the kitchen.' },
         { n: 'Bedroom 5',     x: 458, y: 98,  t: 'Guest bedroom.' },
@@ -49,7 +49,7 @@
         { n: 'Elevator',      x: 196, y: 246, t: 'The private elevator arrives on every floor.' },
         { n: 'Laundry 2',     x: 236, y: 258, t: 'This floor\u2019s laundry room.' }
       ]},
-    { id: 'first', short: 'First', label: 'First floor', title: 'The Half Casa', tag: 'Half Casa',
+    { id: 'first', short: 'First', label: 'First floor', title: 'The Half Casa',
       img: 'images/floorplans/floor-1.jpg', w: 640, h: 402, half: true, dy: -13,
       stats: '3 bedrooms \u00b7 2.5 bathrooms \u00b7 kitchen & living room \u00b7 pool & patio \u00b7 own entrance',
       rooms: [
@@ -59,7 +59,7 @@
         { n: 'Bedroom 1',     x: 152, y: 214, t: 'First-floor suite with a walk-in closet and Bathroom 1 alongside.' },
         { n: 'Bathroom 1',    x: 88,  y: 214, t: 'Full bathroom for Bedroom 1.' },
         { n: 'Walk-in closet', x: 160, y: 264, t: 'Bedroom 1\u2019s walk-in closet.' },
-        { n: 'WC 1',          x: 88,  y: 155, t: 'Powder room by the pool, so nobody drips through the house.' },
+        { n: 'Powder room',   x: 88,  y: 155, t: 'The half in 2.5 bathrooms: a powder room right by the pool, so nobody drips through the house.' },
         { n: 'Living Room 1', x: 280, y: 230, t: 'Open living room with sliding doors to the patio and pool.' },
         { n: 'Kitchen 1',     x: 376, y: 230, t: 'Full kitchen with island.' },
         { n: 'Dining area',   x: 304, y: 302, t: 'Dining for the whole floor.' },
@@ -72,7 +72,7 @@
   ];
 
   var SUMMARY = {
-    full: { h: 'The Full Casa', s: '7 bedrooms \u00b7 6 bathrooms \u00b7 sleeps 14', t: 'All three floors: two independent living units with their own kitchens, the rooftop suite and terrace, the pool, and the elevator between them.' },
+    full: { h: 'The Full Casa', s: '7 bedrooms \u00b7 6 bathrooms \u00b7 sleeps 14', t: 'All three floors: the Half Casa on the first, the main residence over the second and third with its own kitchen and the rooftop terrace, the pool, and the elevator between them.' },
     half: { h: 'The Half Casa', s: '3 bedrooms \u00b7 2.5 bathrooms \u00b7 sleeps 4 to 6', t: 'The whole first floor: your own entrance, kitchen, living and dining room, three bedrooms, and the pool and patio. The upper floors stay empty; the rest of the villa is never rented at the same time.' }
   };
 
