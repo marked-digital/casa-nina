@@ -3,8 +3,25 @@
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Robots-Tag", "value": "noindex" }
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
       ]
     }
-  ]
+  ],
+  "images": {
+    "sizes": [
+      640,
+      960,
+      1280,
+      1600,
+      2000
+    ],
+    "formats": [
+      "image/avif",
+      "image/webp"
+    ],
+    "minimumCacheTTL": 2592000
+  }
 }
