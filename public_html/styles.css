@@ -2299,6 +2299,9 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
    hero, and the height trimmed by the category rail so the pills sit at the
    bottom of the first screen. The rail then sticks under the header as before. */
 .xp-hero--faq{ min-height:calc(100vh - var(--xp-cats-h)); min-height:calc(100svh - var(--xp-cats-h)); }
+/* Any hero using the navy .xp-hero-overlay (z-index:1) needs its text block and cue above it */
+.xp-hero > .xp-hero-overlay ~ .xp-hero__inner{ position:relative; z-index:2; }
+.xp-hero > .xp-hero-overlay ~ .xp-hero__cue{ z-index:2; }
 .xp-hero--faq .xp-hero__inner{ position:relative; z-index:2; width:auto; max-width:var(--xp-max); margin:0 auto;
   padding-left:var(--xp-gutter); padding-right:var(--xp-gutter); }       /* above the z-index:1 overlay; wrap geometry as on the other heroes */
 @media (min-width:761px){
