@@ -730,7 +730,6 @@ html.lenis, html.lenis body{ height:auto; }
 }
 
 .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-.footer-col li { font-size: 0.8rem; } /* 2026-09-15: the bare "Playa Flamingo, Costa Rica" item rendered at 16px beside 12.8px links */
 .footer-col a { font-size: 0.8rem; transition: color 0.3s ease; }
 .footer-col a:hover { color: var(--gold); }
 
@@ -1401,7 +1400,7 @@ body.page-cn{
 
 .xp-header .xp-nav{ display:flex; align-items:center; gap:28px; }
 .xp-header .xp-nav a{
-  text-decoration:none; font-size:12px; font-weight:500; letter-spacing:.18em;   /* 2026-09-15: 300 → 500 */
+  text-decoration:none; font-size:12px; font-weight:300; letter-spacing:.18em;
   text-transform:uppercase; color:rgba(255,255,255,.82);
   padding:6px 0; border-bottom:1px solid transparent;
   transition:color .2s var(--xp-ease), text-shadow .25s var(--xp-ease);
@@ -1414,7 +1413,7 @@ body.page-cn{
 
 .xp-header-actions{ display:flex; align-items:center; gap:16px; }
 .xp-cta-btn{
-  text-decoration:none; font-size:12px; font-weight:500; letter-spacing:.16em; text-transform:uppercase;   /* 2026-09-15: 700 → 500 */
+  text-decoration:none; font-size:12px; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
   color:var(--cn-navy-deep); background:var(--cn-gold);
   padding:11px 20px; border:1px solid var(--cn-gold); white-space:nowrap;
   transition:background .25s var(--xp-ease), color .25s var(--xp-ease);
@@ -1471,7 +1470,7 @@ body.page-cn{
 .mobile-menu nav a[aria-current="page"]{ color:var(--cn-gold); }
 .mobile-menu .mobile-menu-cta{
   display:inline-block; margin-top:1.4rem;
-  font-family:var(--cn-font-body); font-size:12px; font-weight:500;   /* 2026-09-15: matches the header CTA */
+  font-family:var(--cn-font-body); font-size:12px; font-weight:700;
   letter-spacing:.16em; text-transform:uppercase;
   background:var(--cn-gold); color:var(--cn-navy-deep);
   border:1px solid var(--cn-gold); padding:14px 34px;
@@ -2347,12 +2346,3 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 @media (max-width:1100px){ .page-concierge .services-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
 @media (max-width:900px){ .page-concierge .conc-inc{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
 @media (max-width:640px){ .page-concierge .services-grid, .page-concierge .conc-inc{ grid-template-columns:1fr; } }
-
-/* ── Brand marks (2026-09-15): outlined SVGs from the logo system, so no web font
-   is needed to render them. Header: horizontal reversed (white + gold). Footer:
-   one-colour mark in white. Favicon: the navy tile with the gold CN. ── */
-.xp-logo-img{ display:block; height:39px; width:auto; }   /* 2026-09-15: the SVG canvas is cropped to the artwork (760x200 → 698x137.8) so it centres in the bar; 39px keeps the visual size of the old 56px */
-@media (max-width:760px){ .xp-logo-img{ height:30px; } }
-.footer-logo{ display:block; width:200px; height:auto; margin-bottom:20px; }  /* 2026-09-15: up from 150px */
-/* .footer-brand .nav-logo removed 2026-09-15: the mark carries the name now */
-.footer-bottom{ justify-content:center; text-align:center; } /* only the copyright line remains; social links live in the Reach Us row */
