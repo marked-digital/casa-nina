@@ -101,8 +101,8 @@
     <div class="xp-hero__cue" aria-hidden="true"><span>Scroll</span><i></i></div>
   </section>
 
-  <!-- THE FILM: click-to-play panel. Give the figure a data-vimeo-id (preferred) or a data-video-src
-       and the play button appears; until then the poster stands as a finished still. -->
+  <!-- THE FILM: click-to-play panel. The player is created only when the button is pressed
+       (data-youtube-id, or data-vimeo-id / data-video-src); with no source the poster stands as a still. -->
   <section class="intro film-section section-padding" id="film" aria-labelledby="film-title">
     <div class="container">
       <div class="film-head fade-in">
@@ -110,7 +110,7 @@
         <h2 class="xp-display xp-display--3" id="film-title">Bring everyone.<br>There is room.</h2>
       </div>
     </div>
-    <figure class="film fade-in" id="filmPlayer" data-vimeo-id="" data-video-src="">
+    <figure class="film fade-in" id="filmPlayer" data-youtube-id="JIu0Hd_SShk" data-vimeo-id="" data-video-src="">
         <img class="film__poster" src="images/explore-hero-aerial.jpg" alt="Aerial view of Casa Nina Flamingo on the hillside above Playa Flamingo bay, Guanacaste, Costa Rica" width="2000" height="1500" loading="lazy" decoding="async">
         <button type="button" class="film__play" aria-label="Play the film" hidden>
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5.5v13l11-6.5z"/></svg>
@@ -476,7 +476,10 @@
         "@id": "https://casaninaflamingo.com/#villa"
       },
       "primaryImageOfPage": "https://casaninaflamingo.com/images/home-hero-villa-pool.jpg",
-      "inLanguage": "en"
+      "inLanguage": "en",
+      "video": {
+        "@id": "https://casaninaflamingo.com/#film"
+      }
     },
     {
       "@type": "VacationRental",
@@ -589,6 +592,24 @@
           "@id": "https://casaninaflamingo.com/book.html#half-casa"
         }
       ]
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://casaninaflamingo.com/#film",
+      "name": "Casa Nina Flamingo from the air: a seven-bedroom villa above Playa Flamingo, Costa Rica",
+      "description": "Casa Nina Flamingo from above: three floors of terraces on the hillside over Playa Flamingo, the infinity pool facing the Pacific, and the whole bay laid out below. The villa sleeps fourteen across two independent homes, with seven bedrooms, six bathrooms, two kitchens, a rooftop terrace and a private elevator. Concierge, private airport transfers, daily housekeeping and two chef-cooked breakfasts included.",
+      "thumbnailUrl": [
+        "https://casaninaflamingo.com/images/explore-hero-aerial.jpg"
+      ],
+      "uploadDate": "2026-09-15",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/JIu0Hd_SShk",
+      "contentUrl": "https://youtu.be/JIu0Hd_SShk",
+      "about": {
+        "@id": "https://casaninaflamingo.com/#villa"
+      },
+      "publisher": {
+        "@id": "https://casaninaflamingo.com/#villa"
+      }
     }
   ]
 }
@@ -600,13 +621,17 @@
   <script>
   (function(){
     var fig = document.getElementById("filmPlayer"); if(!fig) return;
-    var vimeo = fig.getAttribute("data-vimeo-id"), src = fig.getAttribute("data-video-src"), btn = fig.querySelector(".film__play");
-    if(!(vimeo || src)) return;                                   /* no film yet: the poster stands as a still */
+    var yt = fig.getAttribute("data-youtube-id"), vimeo = fig.getAttribute("data-vimeo-id"), src = fig.getAttribute("data-video-src"), btn = fig.querySelector(".film__play");
+    if(!(yt || vimeo || src)) return;                             /* no film: the poster stands as a still */
     btn.hidden = false;
     btn.addEventListener("click", function(){
       var poster = fig.querySelector(".film__poster");
       var el;
-      if(vimeo){
+      if(yt){
+        el = document.createElement("iframe");
+        el.src = "https://www.youtube-nocookie.com/embed/" + yt + "?autoplay=1&rel=0&modestbranding=1&playsinline=1&color=white";
+        el.allow = "autoplay; fullscreen; picture-in-picture; encrypted-media"; el.setAttribute("allowfullscreen", ""); el.title = "Casa Nina Flamingo, from the air";
+      } else if(vimeo){
         el = document.createElement("iframe");
         el.src = "https://player.vimeo.com/video/" + vimeo + "?autoplay=1&dnt=1&color=C29A5B&title=0&byline=0&portrait=0";
         el.allow = "autoplay; fullscreen; picture-in-picture"; el.setAttribute("allowfullscreen", ""); el.title = "Casa Nina Flamingo film";
