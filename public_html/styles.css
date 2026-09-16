@@ -1993,8 +1993,8 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 .page-home .villa,
 .page-home .reviews{ background:var(--cn-cream); }
 .page-home .intro{ background:var(--cn-white); } /* the FAQ's .xp-alt white, so all three brand light surfaces appear */
-.page-home .gallery,
-.page-home .experience{ background:var(--cn-sand); }
+.page-home .gallery{ background:var(--cn-sand); }
+.page-home .experience{ background:var(--cn-white); }   /* 2026-09-15: white, between the sand gallery and the navy concierge chapter */
 .page-home .features-ribbon{ background:var(--cn-navy); color:var(--cn-cream); }
 .page-home .half-casa-callout,
 .page-home .villa-card,
@@ -2408,3 +2408,43 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 .footer-logo{ display:block; width:200px; height:auto; margin-bottom:20px; }  /* 2026-09-15: up from 150px */
 /* .footer-brand .nav-logo removed 2026-09-15: the mark carries the name now */
 .footer-bottom{ justify-content:center; text-align:center; } /* only the copyright line remains; social links live in the Reach Us row */
+
+/* ── Homepage film section + concierge chapter (2026-09-15) ──
+   Film: click-to-play panel under the hero (poster + gold play button; the player
+   is only created on click). Concierge: navy chapter with the gold line icons
+   from concierge.html, text left, eight experiences right. */
+.page-home .film-head{ text-align:center; max-width:640px; margin:0 auto clamp(32px,4vh,44px); }
+/* Full bleed: the figure sits between two .container blocks, so it spans the viewport.
+   Height is 16:9 of the viewport width, capped at 82vh so it never overruns a screen;
+   when capped, the poster crops (object-fit) and the player is scaled to cover. */
+.page-home .film{ position:relative; margin:0; width:100%; height:min(56.25vw, 82vh); background:var(--cn-navy-deep); overflow:hidden; }
+.page-home .film__poster{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
+.page-home .film__media{ position:absolute; top:0; left:50%; transform:translateX(-50%); height:100%; width:max(100%, calc(min(56.25vw, 82vh) * 1.7778)); border:0; display:block; object-fit:cover; }
+.page-home .film__play{ position:absolute; left:50%; top:50%; width:84px; height:84px; transform:translate(-50%,-50%); border-radius:999px; cursor:pointer;
+  border:1px solid var(--cn-gold); background:rgba(10,22,38,.55); color:var(--cn-gold-soft); display:grid; place-items:center; backdrop-filter:blur(6px);
+  transition:background .3s var(--xp-ease), color .3s var(--xp-ease), transform .3s var(--xp-ease); }
+.page-home .film__play[hidden]{ display:none; }                     /* display:grid above would otherwise defeat the hidden attribute */
+.page-home .film__play svg{ width:30px; height:30px; fill:currentColor; margin-left:4px; }
+.page-home .film__play:hover{ background:var(--cn-gold); color:var(--cn-navy-deep); transform:translate(-50%,-50%) scale(1.05); }
+.page-home .film__caption{ position:absolute; left:0; bottom:0; margin:0; padding:14px 18px; font:600 10.5px/1 var(--cn-body); letter-spacing:.24em; text-transform:uppercase; color:var(--cn-gold-soft);
+  background:linear-gradient(90deg, rgba(10,22,38,.7), rgba(10,22,38,0)); width:100%; }
+.page-home .film.is-playing .film__caption{ display:none; }
+.page-home .film-copy{ max-width:66ch; margin:clamp(44px,6vh,64px) auto 0; }
+.page-home .film-copy .body-text{ max-width:none; }
+.page-home .film-ledger{ max-width:760px; margin:clamp(36px,5vh,48px) auto 0; }
+.page-home .film-ledger .xp-stat{ text-align:center; padding-right:0; margin-right:0; }
+.page-home .film-section .xp-sec-cta--center{ margin-top:clamp(32px,4vh,44px); }
+.page-home .home-conc{ background:var(--cn-navy); color:var(--cn-cream); }
+.page-home .home-conc__grid{ display:grid; grid-template-columns:minmax(0,6fr) minmax(0,6fr); gap:clamp(40px,6vw,96px); align-items:center; }
+.page-home .home-conc .xp-eyebrow{ color:var(--cn-gold-2); }
+.page-home .home-conc .xp-display{ color:var(--cn-cream); }
+.page-home .home-conc .body-text{ color:rgba(245,240,231,.82); max-width:none; }
+.page-home .home-conc__btns{ display:flex; flex-wrap:wrap; gap:14px; margin-top:30px; }
+.page-home .home-conc__list{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1px; background:rgba(220,192,140,.18); border:1px solid rgba(220,192,140,.18); }
+.page-home .home-conc__list li{ display:flex; align-items:center; gap:14px; padding:clamp(16px,2vw,22px) clamp(16px,2vw,24px); background:var(--cn-navy); font:500 15px/1.3 var(--cn-body); color:var(--cn-cream); }
+.page-home .home-conc__list .service-icon{ width:26px; height:26px; flex:none; color:var(--cn-gold); fill:none; stroke:currentColor; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
+@media (max-width:900px){
+  .page-home .home-conc__grid{ grid-template-columns:1fr; gap:36px; }
+  .page-home .film__play{ width:64px; height:64px; } .page-home .film__play svg{ width:24px; height:24px; }
+}
+@media (max-width:480px){ .page-home .home-conc__list{ grid-template-columns:1fr; } }

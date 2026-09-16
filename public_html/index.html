@@ -101,6 +101,38 @@
     <div class="xp-hero__cue" aria-hidden="true"><span>Scroll</span><i></i></div>
   </section>
 
+  <!-- THE FILM: click-to-play panel. Give the figure a data-vimeo-id (preferred) or a data-video-src
+       and the play button appears; until then the poster stands as a finished still. -->
+  <section class="intro film-section section-padding" id="film" aria-labelledby="film-title">
+    <div class="container">
+      <div class="film-head fade-in">
+        <p class="xp-eyebrow xp-eyebrow--center">Welcome to Casa Nina</p>
+        <h2 class="xp-display xp-display--3" id="film-title">Bring everyone.<br>There is room.</h2>
+      </div>
+    </div>
+    <figure class="film fade-in" id="filmPlayer" data-vimeo-id="" data-video-src="">
+        <img class="film__poster" src="images/explore-hero-aerial.jpg" alt="Aerial view of Casa Nina Flamingo on the hillside above Playa Flamingo bay, Guanacaste, Costa Rica" width="2000" height="1500" loading="lazy" decoding="async">
+        <button type="button" class="film__play" aria-label="Play the film" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5.5v13l11-6.5z"/></svg>
+        </button>
+        <figcaption class="film__caption">Casa Nina and Playa Flamingo from the air</figcaption>
+    </figure>
+    <div class="container">
+      <div class="film-copy fade-in">
+        <p class="body-text">Casa Nina Flamingo is a newly built three-storey villa above Playa Flamingo on Costa Rica&rsquo;s Guanacaste coast, with seven bedrooms, six bathrooms and space for fourteen. The first floor is a complete home of its own; the second and third floors hold the main residence and the rooftop terrace, and a private elevator connects all three. Grandparents, parents and kids get to be together without being on top of each other.</p>
+        <p class="body-text">The beach is a short walk downhill, the marina a few minutes further, and Liberia airport about an hour by road. Private airport transfers, daily housekeeping, two chef-cooked breakfasts and our concierge are included with every stay, so the holiday starts the moment you land.</p>
+      </div>
+      <div class="xp-ledger xp-ledger--3 film-ledger fade-in">
+        <div class="xp-stat"><div class="xp-stat__num">7</div><div class="xp-stat__label">Bedrooms</div></div>
+        <div class="xp-stat"><div class="xp-stat__num">6</div><div class="xp-stat__label">Bathrooms</div></div>
+        <div class="xp-stat"><div class="xp-stat__num">14</div><div class="xp-stat__label">Guests</div></div>
+      </div>
+      <div class="xp-sec-cta xp-sec-cta--center fade-in">
+        <a href="gallery.html" class="xp-btn xp-btn--navy">See the full gallery</a>
+      </div>
+    </div>
+  </section>
+
   <!-- HALF CASA / FULL CASA CALLOUT -->
   <section class="half-casa-band">
     <div class="container">
@@ -116,27 +148,6 @@
     </div>
   </section>
 
-  <!-- VALUE STATEMENT -->
-  <section class="intro section-padding">
-    <div class="container">
-      <div class="intro-grid">
-        <div class="intro-image fade-in">
-          <img src="images/photo-84.jpeg" alt="Casa Nina Flamingo, a three-storey oceanview villa in Playa Flamingo, Costa Rica, seen from its gated entrance">
-        </div>
-        <div class="intro-content fade-in">
-          <p class="xp-eyebrow">Welcome to Casa Nina</p>
-          <h2 class="xp-display xp-display--3">Bring everyone.<br>There is room.</h2>
-          <p class="body-text">Casa Nina Flamingo is a newly built three-storey villa above Playa Flamingo on Costa Rica&rsquo;s Guanacaste coast, with seven bedrooms, six bathrooms and space for fourteen. The first floor is a complete home of its own; the second and third floors hold the main residence and the rooftop terrace, and a private elevator connects all three. Grandparents, parents and kids get to be together without being on top of each other.</p>
-          <p class="body-text">The beach is a short walk downhill, the marina a few minutes further, and Liberia airport about an hour by road. Private airport transfers, daily housekeeping, two chef-cooked breakfasts and our concierge are included with every stay, so the holiday starts the moment you land.</p>
-          <div class="xp-ledger xp-ledger--3">
-            <div class="xp-stat"><div class="xp-stat__num">7</div><div class="xp-stat__label">Bedrooms</div></div>
-            <div class="xp-stat"><div class="xp-stat__num">6</div><div class="xp-stat__label">Bathrooms</div></div>
-            <div class="xp-stat"><div class="xp-stat__num">14</div><div class="xp-stat__label">Guests</div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- FEATURES -->
   <div class="features-ribbon">
@@ -149,26 +160,6 @@
       </div>
     </div>
   </div>
-
-  <!-- GALLERY PREVIEW -->
-  <section class="gallery section-padding">
-    <div class="container">
-      <div class="gallery-header fade-in">
-        <p class="xp-eyebrow xp-eyebrow--center">Gallery</p>
-        <h2 class="xp-display xp-display--3">A first look inside</h2>
-      </div>
-      <div class="gallery-grid">
-        <div class="gallery-item fade-in"><img src="images/photo-81.jpeg" alt="The three terraced floors of Casa Nina Flamingo seen from the pool"></div>
-        <div class="gallery-item fade-in"><img src="images/photo-66.jpeg" alt="Living room with the doors folded open to the terrace and the view over Playa Flamingo bay"></div>
-        <div class="gallery-item fade-in"><img src="images/photo-79.jpeg" alt="Covered patio beside the pool, with the living room opening onto it"></div>
-        <div class="gallery-item fade-in"><img src="images/photo-23.jpeg" alt="Kitchen with a large island and bar seating at Casa Nina Flamingo"></div>
-        <div class="gallery-item fade-in"><img src="images/photo-82.jpeg" alt="Guest bedroom with sliding doors to the balcony and a view of the bay"></div>
-      </div>
-      <div class="xp-sec-cta xp-sec-cta--center">
-        <a href="gallery.html" class="xp-btn xp-btn--navy">See the full gallery</a>
-      </div>
-    </div>
-  </section>
 
   <!-- CASA FEATURES -->
   <section class="villa section-padding">
@@ -210,6 +201,26 @@
     </div>
   </section>
 
+  <!-- GALLERY PREVIEW -->
+  <section class="gallery section-padding">
+    <div class="container">
+      <div class="gallery-header fade-in">
+        <p class="xp-eyebrow xp-eyebrow--center">Gallery</p>
+        <h2 class="xp-display xp-display--3">A first look inside</h2>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item fade-in"><img src="images/photo-81.jpeg" alt="The three terraced floors of Casa Nina Flamingo seen from the pool"></div>
+        <div class="gallery-item fade-in"><img src="images/photo-66.jpeg" alt="Living room with the doors folded open to the terrace and the view over Playa Flamingo bay"></div>
+        <div class="gallery-item fade-in"><img src="images/photo-79.jpeg" alt="Covered patio beside the pool, with the living room opening onto it"></div>
+        <div class="gallery-item fade-in"><img src="images/photo-23.jpeg" alt="Kitchen with a large island and bar seating at Casa Nina Flamingo"></div>
+        <div class="gallery-item fade-in"><img src="images/photo-82.jpeg" alt="Guest bedroom with sliding doors to the balcony and a view of the bay"></div>
+      </div>
+      <div class="xp-sec-cta xp-sec-cta--center">
+        <a href="gallery.html" class="xp-btn xp-btn--navy">See all photos</a>
+      </div>
+    </div>
+  </section>
+
   <!-- GUEST EXPERIENCE -->
   <section class="experience section-padding">
     <div class="container">
@@ -225,11 +236,48 @@
             <li>Wellness and yoga retreats</li>
             <li>Surf trips and adventure groups</li>
           </ul>
-          <a href="concierge.html" class="xp-btn xp-btn--navy">Meet the concierge</a>
+          <a href="book.html#availability" class="xp-btn xp-btn--navy">Check availability</a>
         </div>
         <div class="experience-image fade-in">
           <img src="images/photo-75.jpeg" alt="Sunset over Playa Flamingo bay from a terrace at Casa Nina Flamingo">
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONCIERGE: the page's second navy chapter; the full list lives on concierge.html -->
+  <section class="home-conc section-padding" aria-labelledby="home-conc-title">
+  <svg class="conc-sprite" aria-hidden="true" focusable="false" style="display:none" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-chef" viewBox="0 0 24 24"><path d="M7 21h10M7 21v-6.5C5 14.5 3.5 13 3.5 11S5 7.5 7 7.5c.6-2 2.6-3.5 5-3.5s4.4 1.5 5 3.5c2 0 3.5 1.5 3.5 3.5S19 14.5 17 14.5V21M7 17.5h10"/></symbol>
+    <symbol id="i-spa" viewBox="0 0 24 24"><path d="M12 20c-4-2-6-5-6-9 0-3 2-6 6-8 4 2 6 5 6 8 0 4-2 7-6 9zM12 20V9M8 13c2 .5 3 1.5 4 3M16 13c-2 .5-3 1.5-4 3"/></symbol>
+    <symbol id="i-basket" viewBox="0 0 24 24"><path d="M4 10h16l-1.5 9H5.5zM8 10l3-6M16 10l-3-6M9 14v2M12 14v2M15 14v2"/></symbol>
+    <symbol id="i-fish" viewBox="0 0 24 24"><path d="M3 12c3-5 9-6 14-2l4-3v10l-4-3c-5 4-11 3-14-2zM7 12h.01"/></symbol>
+    <symbol id="i-sail" viewBox="0 0 24 24"><path d="M4 17h16l-2 3H6zM12 3v14M12 4c4 2 6 6 7 10H12M12 6c-3 2-4 5-5 8h5"/></symbol>
+    <symbol id="i-wave" viewBox="0 0 24 24"><path d="M3 15c2-2 4-2 6 0s4 2 6 0 4-2 6 0M3 19c2-2 4-2 6 0s4 2 6 0 4-2 6 0M9 11c1-4 4-6 8-6-2 1-3 3-3 6"/></symbol>
+    <symbol id="i-zipline" viewBox="0 0 24 24"><path d="M2 6l20 8M11 10.5v3M11 13.5a2 2 0 1 0 0 .01M11 15.5v3M9 21l2-2.5 2 2.5"/></symbol>
+    <symbol id="i-car" viewBox="0 0 24 24"><path d="M4 16v-4l2-5h12l2 5v4zM4 12h16M7 19a1.5 1.5 0 1 0 0-.01M17 19a1.5 1.5 0 1 0 0-.01M7 16h2M15 16h2"/></symbol>
+  </svg>
+    <div class="container">
+      <div class="home-conc__grid">
+        <div class="home-conc__text fade-in">
+          <p class="xp-eyebrow">Concierge &amp; experiences</p>
+          <h2 class="xp-display xp-display--3" id="home-conc-title">Everything arranged,<br>before you land</h2>
+          <p class="body-text">A dedicated concierge is included with every stay, along with private airport transfers, daily housekeeping and two chef-cooked breakfasts. Everything else, from a private chef in your kitchen to a fishing charter out of Marina Flamingo, is one message away.</p>
+          <div class="home-conc__btns">
+            <a href="concierge.html" class="xp-btn xp-btn--solid">Explore concierge services</a>
+            <a href="https://wa.me/16473284929" target="_blank" rel="noopener" class="xp-btn xp-btn--ghost">WhatsApp our concierge</a>
+          </div>
+        </div>
+        <ul class="home-conc__list fade-in" aria-label="A few of the experiences we arrange">
+          <li><svg class="service-icon" aria-hidden="true"><use href="#i-chef"/></svg><span>Private chef</span></li>
+          <li><svg class="service-icon" aria-hidden="true"><use href="#i-spa"/></svg><span>Spa &amp; massage</span></li>
+          <li><svg class="service-icon" aria-hidden="true"><use href="#i-basket"/></svg><span>Grocery stocking</span></li>
+          <li><svg class="service-icon" aria-hidden="true"><use href="#i-fish"/></svg><span>Fishing charters</span></li>
+          <li><svg class="service-icon" aria-hidden="true"><use href="#i-sail"/></svg><span>Catamaran days</span></li>
+          <li><svg class="service-icon" aria-hidden="true"><use href="#i-wave"/></svg><span>Surf lessons</span></li>
+          <li><svg class="service-icon" aria-hidden="true"><use href="#i-zipline"/></svg><span>Ziplining</span></li>
+          <li><svg class="service-icon" aria-hidden="true"><use href="#i-car"/></svg><span>Golf carts &amp; cars</span></li>
+        </ul>
       </div>
     </div>
   </section>
@@ -549,6 +597,28 @@
   <script src="js/smooth-scroll.js"></script>
 
   <script src="main.js"></script>
+  <script>
+  (function(){
+    var fig = document.getElementById("filmPlayer"); if(!fig) return;
+    var vimeo = fig.getAttribute("data-vimeo-id"), src = fig.getAttribute("data-video-src"), btn = fig.querySelector(".film__play");
+    if(!(vimeo || src)) return;                                   /* no film yet: the poster stands as a still */
+    btn.hidden = false;
+    btn.addEventListener("click", function(){
+      var poster = fig.querySelector(".film__poster");
+      var el;
+      if(vimeo){
+        el = document.createElement("iframe");
+        el.src = "https://player.vimeo.com/video/" + vimeo + "?autoplay=1&dnt=1&color=C29A5B&title=0&byline=0&portrait=0";
+        el.allow = "autoplay; fullscreen; picture-in-picture"; el.setAttribute("allowfullscreen", ""); el.title = "Casa Nina Flamingo film";
+      } else {
+        el = document.createElement("video"); el.src = src; el.controls = true; el.autoplay = true; el.playsInline = true; el.setAttribute("playsinline", "");
+        if(poster) el.poster = poster.currentSrc || poster.src;
+      }
+      el.className = "film__media";
+      fig.insertBefore(el, poster); fig.classList.add("is-playing"); btn.remove(); if(poster) poster.remove();
+    });
+  })();
+  </script>
   <script>
   (function(){
     var track = document.getElementById("reviewsTrack"), strip = document.getElementById("reviewsStrip");
