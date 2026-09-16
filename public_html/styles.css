@@ -2524,5 +2524,16 @@ body.lb-open{ overflow:hidden; }
 .xp-hero .xp-hero-sub, .xp-hero .xp-hero-note, .xp-hero .rate-note, .xp-hero .xp-hero__cue,
 .xp-faq-hero .xp-hero-title, .xp-faq-hero .xp-hero-sub, .xp-faq-hero .xp-breadcrumb,
 .xp-cta__inner .xp-eyebrow, .xp-cta__inner h2, .xp-cta__inner p, .xp-cta__inner .rate-note, .xp-cta__inner .xp-cta__tag{
-  text-shadow: 0 1px 3px rgba(10,22,38,.75), 0 4px 14px rgba(10,22,38,.7), 0 10px 44px rgba(10,22,38,.75);
+  text-shadow: 0 1px 3px rgba(10,22,38,.85), 0 4px 16px rgba(10,22,38,.8), 0 12px 48px rgba(10,22,38,.8);
 }
+/* Local scrim: a soft pool of shade painted behind the text block only, so the
+   words sit on darker ground while the photo elsewhere keeps its brightness.
+   Heroes are left-aligned, so their pool is weighted left; the closing bands
+   are centred. Sits above the overlay and below the text. */
+.xp-hero__inner, .xp-cta__inner{ position:relative; }
+.xp-hero__inner::before{ content:""; position:absolute; z-index:-1; pointer-events:none; inset:-12% -30% -12% -18%;
+  background:radial-gradient(ellipse 60% 70% at 32% 52%, rgba(10,22,38,.55), rgba(10,22,38,0) 72%); }
+.xp-cta__inner::before{ content:""; position:absolute; z-index:-1; pointer-events:none; inset:-16% -25%;
+  background:radial-gradient(ellipse 60% 75% at 50% 50%, rgba(10,22,38,.55), rgba(10,22,38,0) 72%); }
+.xp-hero__inner, .xp-cta__inner{ isolation:isolate; }   /* keeps the ::before's z-index:-1 inside the block, above the page overlay */
+@media (max-width:760px){ .xp-hero__inner::before{ inset:-8% -12%; background:radial-gradient(ellipse 80% 70% at 40% 55%, rgba(10,22,38,.55), rgba(10,22,38,0) 75%); } }
