@@ -1636,7 +1636,7 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 /* ─────────────────────────────────────────────
    CHAPTER SCAFFOLD — sticky rail + flowing content
    ───────────────────────────────────────────── */
-.xp-chapter{ padding:clamp(84px,11vh,140px) 0; }
+.xp-chapter{ padding:clamp(84px,11vh,140px) 0;  scroll-margin-top:var(--xp-header-h); }
 /* minmax(0,1fr), not 1fr: a bare 1fr track's minimum is its content's
    min-content width, and the beach strip's content is ~2400px wide — the
    column blew out to that width (hidden by body overflow-x:clip), so the
