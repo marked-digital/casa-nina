@@ -1822,8 +1822,11 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 @media (max-width:760px){ .xp-know__grid{ grid-template-columns:1fr; } }
 
 .xp-cta{ position:relative; overflow:hidden; background:var(--cn-ink); color:var(--cn-cream);
-  text-align:center; padding:clamp(96px,14vh,170px) 0; }
+  text-align:center; padding:clamp(72px,9vh,120px) 0; display:flex; align-items:center; justify-content:center; }
 .xp-cta .xp-media{ position:absolute; inset:0; opacity:.42; }
+.xp-cta .xp-media__img{ inset:0; }            /* no parallax over-scan here: the photo fills the band edge to edge */
+@media (min-width:900px){ .xp-cta{ aspect-ratio:2000/1406; } }   /* the band takes the photo's own proportions (home-film-poster-dusk.jpg), so the whole picture shows; the content can still grow it */
+.xp-cta__inner{ width:100%; }
 .xp-cta__inner{ position:relative; z-index:2; }
 .xp-cta .xp-eyebrow{ justify-content:center; }
 .xp-cta .xp-eyebrow::before{ display:none; }
