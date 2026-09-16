@@ -1569,9 +1569,8 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 /* ─────────────────────────────────────────────
    HERO
    ───────────────────────────────────────────── */
-.xp-hero{ position:relative; min-height:100vh; min-height:100svh; display:flex; align-items:flex-end;
-  padding-top:calc(var(--xp-header-h) + 48px); /* clear the fixed header on short viewports */
-  color:var(--cn-white); overflow:hidden; }
+.xp-hero{ position:relative; min-height:100vh; min-height:100svh; display:flex; align-items:center;
+  color:var(--cn-white); overflow:hidden; }   /* 2026-09-16: centred on every width; the inner's symmetric padding clears the fixed header */
 .xp-hero__img{ position:absolute; inset:0; background-position:center; background-size:cover;
   background-image:
     radial-gradient(120% 90% at 78% 8%, rgba(220,195,145,.32), transparent 55%),
@@ -1580,16 +1579,12 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 @keyframes xpHeroDrift{ to{ transform:scale(1); } }
 .xp-hero__veil{ position:absolute; inset:0;
   background:linear-gradient(180deg, rgba(10,20,32,.42) 0%, rgba(10,20,32,.06) 42%, rgba(10,20,32,.78) 100%); }
-.xp-hero__inner{ position:relative; width:100%; padding:0 0 clamp(40px,6vh,64px); }
-/* Desktop: text block truly centered in the full-viewport hero. The section's
-   own padding-top is zeroed so the flex center matches the exact viewport
-   center; the inner's symmetric padding guarantees clearance under the fixed
-   header on short windows. Mobile keeps the bottom-anchored composition. */
-@media (min-width:761px){
-  .xp-hero{ align-items:center; padding-top:0; }
-  .xp-hero__inner{ padding:calc(var(--xp-header-h, 68px) + clamp(32px,5vh,64px)) 0; }
-}
+.xp-hero__inner{ position:relative; width:100%; padding:calc(var(--xp-header-h, 68px) + clamp(24px,5vh,64px)) 0; }
+/* The text block is centred in the full-viewport hero on every width; the
+   inner's symmetric padding guarantees clearance under the fixed header. */
 .xp-hero__kicker{ margin-bottom:26px; }
+.xp-hero nav.xp-hero__kicker .xp-breadcrumb{ justify-content:flex-start; margin:0; }   /* subpages: breadcrumb in the kicker slot, aligned with the title */
+.xp-hero nav.xp-hero__kicker .xp-breadcrumb li{ color:rgba(255,255,255,.72); }
 .xp-hero h1{ font-size:var(--xp-display-1); letter-spacing:.005em; color:var(--cn-white); }
 .xp-hero__sub{ font-family:var(--cn-display); font-style:italic; font-weight:400;
   font-size:clamp(24px, 3.4vw, 42px); color:var(--cn-gold-2); margin:10px 0 26px; line-height:1.15; }
