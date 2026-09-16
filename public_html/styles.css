@@ -1955,10 +1955,10 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
    11.64em at 500/.005em, so 7.4vw keeps it on one line down to 541px; the vh
    term shrinks it on short windows so kicker → h1 → sub → dek → buttons →
    rate note fit; the cap keeps it inside the 1240 wrap on wide screens. */
-:is(.page-home,.page-casa,.page-concierge) .xp-hero__inner{ width:auto; max-width:var(--xp-max); margin:0 auto;
+:is(.page-home,.page-casa,.page-concierge,.page-gallery) .xp-hero__inner{ width:auto; max-width:var(--xp-max); margin:0 auto;
   padding-left:var(--xp-gutter); padding-right:var(--xp-gutter); }   /* explore gets this from .xp-page .xp-wrap */
 @media (min-width:761px){
-  :is(.page-home,.page-casa,.page-concierge) .xp-hero__inner{ padding-top:calc(var(--xp-header-h) + clamp(24px,4vh,64px));
+  :is(.page-home,.page-casa,.page-concierge,.page-gallery) .xp-hero__inner{ padding-top:calc(var(--xp-header-h) + clamp(24px,4vh,64px));
     padding-bottom:calc(var(--xp-header-h) + clamp(24px,4vh,64px)); }
 }
 .page-home .xp-hero h1{ font-size:clamp(2.8rem, min(8.6vw, 11.5vh), 7rem);
@@ -1983,9 +1983,9 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
   .page-home .xp-hero__btns .xp-btn{ text-align:center; }
 }
 
-:is(.page-home,.page-book,.page-casa,.page-concierge) .section-padding{ padding:clamp(84px,11vh,140px) 0; }
-:is(.page-home,.page-book,.page-casa,.page-concierge) .section-padding-sm{ padding:clamp(56px,8vh,90px) 0; }
-:is(.page-home,.page-book,.page-casa,.page-concierge) .body-text{ font-weight:300; color:var(--cn-ink-muted); }
+:is(.page-home,.page-book,.page-casa,.page-concierge,.page-gallery) .section-padding{ padding:clamp(84px,11vh,140px) 0; }
+:is(.page-home,.page-book,.page-casa,.page-concierge,.page-gallery) .section-padding-sm{ padding:clamp(56px,8vh,90px) 0; }
+:is(.page-home,.page-book,.page-casa,.page-concierge,.page-gallery) .body-text{ font-weight:300; color:var(--cn-ink-muted); }
 
 /* Surfaces (explore's palette; see banner). Scoped: .intro/.gallery/.villa/
    .experience/.villa-card/.half-casa-callout are still used by legacy pages. */
@@ -2002,11 +2002,11 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 .page-home .half-casa-callout{ border-left:3px solid var(--cn-gold); }
 
 /* Section heads: eyebrow → title → lede rhythm (explore: 16–18px, then 22px) */
-:is(.page-home,.page-book,.page-casa,.page-concierge) .xp-display{ color:var(--cn-navy); }
-:is(.page-home,.page-book,.page-casa,.page-concierge) .xp-eyebrow + .xp-display{ margin-top:16px; }
-:is(.page-home,.page-book,.page-casa,.page-concierge) .xp-display + .body-text{ margin-top:22px; }
-:is(.page-home,.page-book,.page-casa,.page-concierge) .body-text + .body-text{ margin-top:1rem; }   /* was inline on the intro's second paragraph */
-:is(.page-home,.page-book,.page-casa,.page-concierge) .xp-sec-cta--center{ margin-top:48px; }        /* under grids; the FAQ's 22px is for text */
+:is(.page-home,.page-book,.page-casa,.page-concierge,.page-gallery) .xp-display{ color:var(--cn-navy); }
+:is(.page-home,.page-book,.page-casa,.page-concierge,.page-gallery) .xp-eyebrow + .xp-display{ margin-top:16px; }
+:is(.page-home,.page-book,.page-casa,.page-concierge,.page-gallery) .xp-display + .body-text{ margin-top:22px; }
+:is(.page-home,.page-book,.page-casa,.page-concierge,.page-gallery) .body-text + .body-text{ margin-top:1rem; }   /* was inline on the intro's second paragraph */
+:is(.page-home,.page-book,.page-casa,.page-concierge,.page-gallery) .xp-sec-cta--center{ margin-top:48px; }        /* under grids; the FAQ's 22px is for text */
 
 /* Half Casa band + callout (homepage-only component, type on the universal scale) */
 .half-casa-band{ background:var(--cream); padding:3rem 0 1rem; } /* was inline */
@@ -2073,7 +2073,7 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 
 /* Booking CTA: universal .xp-cta; the rate note is the one homepage-specific line.
    .xp-cta p (0,1,1) would otherwise size and colour it as body copy. */
-:is(.page-home,.page-book,.page-casa,.page-concierge) .xp-cta .rate-note{ margin:18px auto 0; max-width:none; font-size:.78rem; color:var(--cn-gold-soft); }
+:is(.page-home,.page-book,.page-casa,.page-concierge,.page-gallery) .xp-cta .rate-note{ margin:18px auto 0; max-width:none; font-size:.78rem; color:var(--cn-gold-soft); }
 
 /* ── book.html (2026-09-14) ──
    Utility-page hero shared with faq.html (.xp-faq-hero, breadcrumb, title,
@@ -2289,7 +2289,7 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
    ink .xp-cta → footer. Reordered 2026-09-15: facts first, feeling last. Legacy .story-nina / .amenities / .experience rules are
    shared with other pages, so everything here is scoped to .page-casa.
    DEPLOY-COUPLED with the-casa.html, js/floorplans.js, images/floorplans/. */
-:is(.page-casa,.page-concierge) .xp-hero h1{ color:var(--cn-white); }   /* outranks the section-title navy from the shared .xp-display rule */
+:is(.page-casa,.page-concierge,.page-gallery) .xp-hero h1{ color:var(--cn-white); }   /* outranks the section-title navy from the shared .xp-display rule */
 .page-casa .intro{ background:var(--cn-white); }
 .page-casa .intro-image img{ width:100%; height:100%; object-fit:cover; }
 .page-casa .intro-content .body-text{ margin-bottom:0; }
@@ -2419,18 +2419,18 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 .page-home .film-head{ text-align:center; max-width:900px; margin:0 auto clamp(36px,5vh,52px); }   /* wide enough for the title on one line */
 .page-home .film-section .xp-eyebrow{ color:var(--cn-gold-2); }
 .page-home .film-section .xp-display{ color:var(--cn-cream); }
-.page-home .film{ position:relative; margin:0 18px 0 0; }
-.page-home .film::before{ content:""; position:absolute; inset:18px -18px -18px 18px; border:1px solid rgba(220,192,140,.38); pointer-events:none; }
-.page-home .film__frame{ position:relative; aspect-ratio:16/9; background:var(--cn-navy-deep); overflow:hidden; box-shadow:0 40px 90px rgba(5,12,24,.45); }
-.page-home .film__poster, .page-home .film__media{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; border:0; display:block; }
-.page-home .film__play{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); padding:0; border:0; background:none; cursor:pointer; color:var(--cn-gold-soft);
+:is(.page-home,.page-gallery) .film{ position:relative; margin:0 18px 0 0; }
+:is(.page-home,.page-gallery) .film::before{ content:""; position:absolute; inset:18px -18px -18px 18px; border:1px solid rgba(220,192,140,.38); pointer-events:none; }
+:is(.page-home,.page-gallery) .film__frame{ position:relative; aspect-ratio:16/9; background:var(--cn-navy-deep); overflow:hidden; box-shadow:0 40px 90px rgba(5,12,24,.45); }
+:is(.page-home,.page-gallery) .film__poster, :is(.page-home,.page-gallery) .film__media{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; border:0; display:block; }
+:is(.page-home,.page-gallery) .film__play{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); padding:0; border:0; background:none; cursor:pointer; color:var(--cn-gold-soft);
   display:flex; flex-direction:column; align-items:center; gap:16px; }
-.page-home .film__play[hidden]{ display:none; }
-.page-home .film__ring{ width:96px; height:96px; border-radius:999px; border:1px solid var(--cn-gold-soft); display:grid; place-items:center; background:rgba(10,22,38,.28); backdrop-filter:blur(4px);
+:is(.page-home,.page-gallery) .film__play[hidden]{ display:none; }
+:is(.page-home,.page-gallery) .film__ring{ width:96px; height:96px; border-radius:999px; border:1px solid var(--cn-gold-soft); display:grid; place-items:center; background:rgba(10,22,38,.28); backdrop-filter:blur(4px);
   transition:background .3s var(--xp-ease), border-color .3s var(--xp-ease), transform .3s var(--xp-ease); }
-.page-home .film__ring svg{ width:28px; height:28px; fill:currentColor; margin-left:5px; }
-.page-home .film__label{ font:600 10.5px/1 var(--cn-body); letter-spacing:.3em; text-transform:uppercase; }
-.page-home .film__play:hover .film__ring{ background:var(--cn-gold); border-color:var(--cn-gold); color:var(--cn-navy-deep); transform:scale(1.06); }
+:is(.page-home,.page-gallery) .film__ring svg{ width:28px; height:28px; fill:currentColor; margin-left:5px; }
+:is(.page-home,.page-gallery) .film__label{ font:600 10.5px/1 var(--cn-body); letter-spacing:.3em; text-transform:uppercase; }
+:is(.page-home,.page-gallery) .film__play:hover .film__ring{ background:var(--cn-gold); border-color:var(--cn-gold); color:var(--cn-navy-deep); transform:scale(1.06); }
 .page-home .film__meta{ display:flex; align-items:baseline; gap:18px; margin:30px 0 0; padding-top:16px; border-top:1px solid rgba(220,192,140,.22); }
 .page-home .film__kicker{ font:600 10.5px/1 var(--cn-body); letter-spacing:.28em; text-transform:uppercase; color:var(--cn-gold-2); flex:none; }
 .page-home .film__title{ font:italic 400 clamp(20px,1.7vw,24px)/1.3 var(--cn-display); color:var(--cn-cream); }
@@ -2442,8 +2442,8 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 .page-home .film-ledger .xp-stat__label{ color:var(--cn-gold-2); }
 .page-home .film-section .xp-sec-cta--center{ margin-top:clamp(32px,4vh,44px); }
 @media (max-width:760px){
-  .page-home .film{ margin-right:12px; } .page-home .film::before{ inset:12px -12px -12px 12px; }
-  .page-home .film__ring{ width:72px; height:72px; } .page-home .film__ring svg{ width:22px; height:22px; }
+  :is(.page-home,.page-gallery) .film{ margin-right:12px; } :is(.page-home,.page-gallery) .film::before{ inset:12px -12px -12px 12px; }
+  :is(.page-home,.page-gallery) .film__ring{ width:72px; height:72px; } :is(.page-home,.page-gallery) .film__ring svg{ width:22px; height:22px; }
   .page-home .film__meta{ flex-direction:column; gap:8px; }
 }
 .page-home .home-conc{ background:var(--cn-navy); color:var(--cn-cream); }
@@ -2457,6 +2457,59 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 .page-home .home-conc__list .service-icon{ width:26px; height:26px; flex:none; color:var(--cn-gold); fill:none; stroke:currentColor; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
 @media (max-width:900px){
   .page-home .home-conc__grid{ grid-template-columns:1fr; gap:36px; }
-  .page-home .film__play{ width:64px; height:64px; } .page-home .film__play svg{ width:24px; height:24px; }
+  :is(.page-home,.page-gallery) .film__play{ width:64px; height:64px; } .page-home .film__play svg{ width:24px; height:24px; }
 }
 @media (max-width:480px){ .page-home .home-conc__list{ grid-template-columns:1fr; } }
+
+/* ── gallery.html (2026-09-15): the photo tour ──
+   Airbnb's photo-tour shape on the site's grammar: a room rail under the hero
+   (the FAQ's category rail), then one section per room with a sticky text rail
+   on the left (number, title, a line, count) and a two-column photo grid on the
+   right whose first photo runs full width. Every photo opens the lightbox. */
+.page-gallery .tour{ padding:clamp(56px,8vh,96px) 0; border-top:1px solid rgba(14,29,48,.1); }
+.page-gallery .tour--film{ border-top:0; background:var(--cn-navy); color:var(--cn-cream); padding:clamp(72px,10vh,120px) 0; }
+.page-gallery .tour--film .xp-eyebrow{ color:var(--cn-gold-2); }
+.page-gallery .tour--film .xp-display{ color:var(--cn-cream); }
+.page-gallery .tour--film .tour__desc{ color:rgba(245,240,231,.82); }
+.page-gallery .tour__grid-wrap{ display:grid; grid-template-columns:minmax(0,4fr) minmax(0,8fr); gap:clamp(32px,4vw,72px); align-items:start; }
+.page-gallery .tour__rail{ position:sticky; top:calc(var(--xp-header-h) + var(--xp-cats-h) + 32px); }
+.page-gallery .tour__rail .xp-display{ margin-top:14px; }
+.page-gallery .tour__desc{ margin:18px 0 0; max-width:34ch; font-size:15.5px; font-weight:300; line-height:1.7; color:var(--cn-ink-muted); }
+.page-gallery .tour__count{ margin:18px 0 0; font:600 10.5px/1 var(--cn-body); letter-spacing:.24em; text-transform:uppercase; color:var(--cn-stone); }
+.page-gallery .tour__grid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(10px,1.2vw,16px); }
+.page-gallery .tour__item{ display:block; position:relative; overflow:hidden; aspect-ratio:4/3; background:var(--cn-sand); }
+.page-gallery .tour__item--wide{ grid-column:1 / -1; aspect-ratio:3/2; }
+.page-gallery .tour__item img{ display:block; width:100%; height:100%; object-fit:cover; transition:transform .6s var(--xp-ease); }
+.page-gallery .tour__item:hover img{ transform:scale(1.03); }
+.page-gallery .tour__item:focus-visible{ outline:2px solid var(--cn-gold); outline-offset:3px; }
+.page-gallery .tour--film .film{ margin-right:18px; }
+/* surfaces: the rooms alternate cream / white down the page */
+.page-gallery .tour:nth-of-type(odd){ background:var(--cn-cream); }
+.page-gallery .tour:nth-of-type(even){ background:var(--cn-white); }
+.page-gallery .tour.tour--film{ background:var(--cn-navy); }  /* outranks the nth-of-type alternation above */
+@media (max-width:900px){
+  .page-gallery .tour__grid-wrap{ grid-template-columns:1fr; gap:24px; }
+  .page-gallery .tour__rail{ position:static; }
+  .page-gallery .tour__desc{ max-width:none; }
+}
+@media (max-width:480px){ .page-gallery .tour__grid{ gap:8px; } }
+
+/* Lightbox */
+.lb{ position:fixed; inset:0; z-index:5000;   /* above the fixed header (1000) and the booking bar */ background:rgba(10,22,38,.96); display:grid; grid-template-columns:auto minmax(0,1fr) auto; align-items:center; padding:0 clamp(8px,2vw,24px); }
+.lb[hidden]{ display:none; }
+.lb__figure{ margin:0; display:flex; flex-direction:column; align-items:center; justify-content:center; height:100vh; height:100dvh; padding:64px 0 48px; }
+.lb__img{ max-width:100%; max-height:calc(100vh - 160px); max-height:calc(100dvh - 160px); object-fit:contain; box-shadow:0 30px 80px rgba(0,0,0,.5); }
+.lb__caption{ display:flex; gap:18px; align-items:baseline; margin-top:18px; color:var(--cn-cream); }
+.lb__text{ font:italic 400 clamp(16px,1.4vw,20px)/1.4 var(--cn-display); text-align:center; }
+.lb__count{ font:600 10.5px/1 var(--cn-body); letter-spacing:.24em; color:var(--cn-gold-2); white-space:nowrap; }
+.lb__nav, .lb__close{ width:48px; height:48px; border-radius:999px; border:1px solid rgba(220,192,140,.5); background:rgba(10,22,38,.5); color:var(--cn-gold-soft); cursor:pointer; display:grid; place-items:center; transition:background .25s var(--xp-ease), color .25s var(--xp-ease); }
+.lb__nav svg{ width:16px; height:16px; fill:none; stroke:currentColor; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
+.lb__nav:hover, .lb__close:hover{ background:var(--cn-gold); color:var(--cn-navy-deep); }
+.lb__close{ position:absolute; top:18px; right:18px; font:300 28px/1 var(--cn-body); }
+body.lb-open{ overflow:hidden; }
+@media (max-width:760px){
+  .lb{ grid-template-columns:1fr; }
+  .lb__nav{ position:absolute; bottom:12px; } .lb__nav--prev{ left:16px; } .lb__nav--next{ right:16px; }
+  .lb__img{ max-height:calc(100dvh - 200px); }
+  .lb__caption{ flex-direction:column; gap:8px; padding:0 16px; }
+}

@@ -6,14 +6,41 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <title>Gallery — Casa Nina Flamingo</title>
-  <meta name="description" content="Browse the photo gallery of Casa Nina Flamingo: stunning ocean views, luxury interiors, private pool, and tropical surroundings in Playa Flamingo, Costa Rica.">
+  <title>Photo Gallery | Casa Nina Flamingo, Playa Flamingo Villa</title>
+  <meta name="description" content="Photos of Casa Nina Flamingo, a seven-bedroom oceanview villa in Playa Flamingo, Costa Rica: the infinity pool and terraces, two living rooms and kitchens, the bedrooms, the rooftop and the bay.">
+  <link rel="canonical" href="https://casaninaflamingo.com/gallery.html">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta name="theme-color" content="#0A1626">
+
+  <!-- Geo (same values as explore.html) -->
+  <meta name="geo.region" content="CR-G">
+  <meta name="geo.placename" content="Playa Flamingo, Guanacaste, Costa Rica">
+  <meta name="geo.position" content="10.432222;-85.791667">
+  <meta name="ICBM" content="10.432222, -85.791667">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Casa Nina Flamingo">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://casaninaflamingo.com/gallery.html">
+  <meta property="og:title" content="Photo Gallery | Casa Nina Flamingo, Playa Flamingo Villa">
+  <meta property="og:description" content="Photos of Casa Nina Flamingo, a seven-bedroom oceanview villa in Playa Flamingo, Costa Rica: the infinity pool and terraces, two living rooms and kitchens, the bedrooms, the rooftop and the bay.">
+  <meta property="og:image" content="https://casaninaflamingo.com/images/77-casanina16-2000.jpg">
+  <meta property="og:image:alt" content="Casa Nina Flamingo at dusk, the pool terrace and outdoor dining lit up in front of the villa">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Photo Gallery | Casa Nina Flamingo, Playa Flamingo Villa">
+  <meta name="twitter:description" content="Photos of Casa Nina Flamingo, a seven-bedroom oceanview villa in Playa Flamingo, Costa Rica: the infinity pool and terraces, two living rooms and kitchens, the bedrooms, the rooftop and the bay.">
+  <meta name="twitter:image" content="https://casaninaflamingo.com/images/77-casanina16-2000.jpg">
+
+  <link rel="preload" as="image" href="images/images/77-casanina16-2000.jpg" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="page-cn page-gallery">
 
   <!-- SITE HEADER -->
   <header class="xp-header" id="nav">
@@ -47,131 +74,250 @@
   </div>
 
   <!-- PAGE HERO -->
-  <section class="page-hero">
-    <div class="page-hero-bg" style="background: url('images/photo-70.jpeg') center/cover;"></div>
-    <div class="page-hero-content fade-in">
-      <p class="heading-sm" style="color: var(--gold-light); margin-bottom: 1rem;">Photo Gallery</p>
-      <h1 class="heading-xl">Gallery</h1>
+  <main id="main">
+  <!-- HERO: universal .xp-hero with the navy overlay -->
+  <section class="xp-hero" id="top">
+    <div class="xp-hero__img">
+      <img class="xp-media__photo" src="images/images/77-casanina16-2000.jpg" alt="Casa Nina Flamingo at dusk, the pool terrace and outdoor dining table lit up in front of the villa" width="2000" height="1333" loading="eager" fetchpriority="high" decoding="async" onerror="this.remove()">
+    </div>
+    <div class="xp-hero-overlay" aria-hidden="true"></div>
+    <div class="xp-wrap xp-hero__inner fade-in">
+      <p class="xp-eyebrow xp-hero__kicker">Playa Flamingo &middot; Costa Rica</p>
+      <h1 class="xp-display">Gallery</h1>
+      <p class="xp-hero__sub">Every room, every floor, the whole bay</p>
+      <p class="xp-hero__dek">A walk through Casa Nina Flamingo, from the gate to the rooftop. Tap any photo to see it full screen, or jump to a room below.</p>
     </div>
   </section>
 
-  <!-- GALLERY CATEGORIES -->
-  <section class="section-padding" style="background: var(--warm-white);">
-    <div class="container">
-
-      <!-- Exterior -->
-      <div class="gallery-category fade-in">
-        <h3>Exterior</h3>
-        <div class="gallery-cat-grid">
-          <div class="gallery-item"><img src="images/photo-84.jpeg" alt="Exterior"></div>
-          <div class="gallery-item"><img src="images/photo-81.jpeg" alt="Exterior"></div>
-          <div class="gallery-item"><img src="images/photo-79.jpeg" alt="Exterior"></div>
-          <div class="gallery-item"><img src="images/photo-75.jpeg" alt="Exterior"></div>
-          <div class="gallery-item"><img src="images/photo-15.jpeg" alt="Exterior"></div>
-        </div>
+  <!-- ROOM JUMP RAIL (the FAQ's category rail, same behaviour) -->
+  <nav class="xp-cats" id="xpCats" aria-label="Rooms">
+    <div class="xp-wrap xp-cats-row">
+      <div class="xp-cats-track" id="xpCatsTrack">
+      <div class="xp-cats-scroll" id="xpCatsScroll" data-lenis-prevent-horizontal>
+      <button class="xp-pill" data-target="film">The film</button>
+      <button class="xp-pill" data-target="exterior">Exterior &amp; arrival</button>
+      <button class="xp-pill" data-target="pool">Pool &amp; terraces</button>
+      <button class="xp-pill" data-target="living">Living rooms</button>
+      <button class="xp-pill" data-target="kitchens">Kitchens &amp; dining</button>
+      <button class="xp-pill" data-target="bedrooms">Bedrooms</button>
+      <button class="xp-pill" data-target="bathrooms">Bathrooms</button>
+      <button class="xp-pill" data-target="rooftop">Rooftop &amp; views</button>
+      <button class="xp-pill" data-target="beach">The beach &amp; beyond</button>
       </div>
-
-      <!-- Pool -->
-      <div class="gallery-category fade-in">
-        <h3>Pool</h3>
-        <div class="gallery-cat-grid">
-          <div class="gallery-item"><img src="images/photo-69.jpeg" alt="Pool"></div>
-          <div class="gallery-item"><img src="images/photo-45.jpeg" alt="Pool"></div>
-          <div class="gallery-item"><img src="images/photo-14.jpeg" alt="Pool"></div>
-          <div class="gallery-item"><img src="images/photo-02.jpeg" alt="Pool"></div>
-          <div class="gallery-item"><img src="images/photo-83.jpeg" alt="Pool"></div>
-        </div>
+      <div class="xp-cats-scrub" aria-hidden="true"><i></i></div>
       </div>
-
-      <!-- Bedrooms -->
-      <div class="gallery-category fade-in">
-        <h3>Bedrooms</h3>
-        <div class="gallery-cat-grid">
-          <div class="gallery-item"><img src="images/photo-03.jpeg" alt="Bedroom"></div>
-          <div class="gallery-item"><img src="images/photo-10.jpeg" alt="Bedroom"></div>
-          <div class="gallery-item"><img src="images/photo-16.jpeg" alt="Bedroom"></div>
-          <div class="gallery-item"><img src="images/photo-17.jpg" alt="Bedroom"></div>
-          <div class="gallery-item"><img src="images/photo-19.jpeg" alt="Bedroom"></div>
-          <div class="gallery-item"><img src="images/photo-21.jpeg" alt="Bedroom"></div>
-          <div class="gallery-item"><img src="images/photo-34.jpeg" alt="Bedroom"></div>
-          <div class="gallery-item"><img src="images/photo-35.jpeg" alt="Bedroom"></div>
-          <div class="gallery-item"><img src="images/photo-38.jpg" alt="Bedroom"></div>
-          <div class="gallery-item"><img src="images/photo-40.jpeg" alt="Bedroom"></div>
-          <div class="gallery-item"><img src="images/photo-43.jpeg" alt="Bedroom"></div>
-          <div class="gallery-item"><img src="images/photo-47.jpeg" alt="Bedroom"></div>
-          <div class="gallery-item"><img src="images/photo-48.jpeg" alt="Bedroom"></div>
-          <div class="gallery-item"><img src="images/photo-50.jpeg" alt="Bedroom"></div>
-          <div class="gallery-item"><img src="images/photo-51.jpeg" alt="Bedroom"></div>
-          <div class="gallery-item"><img src="images/photo-55.jpeg" alt="Bedroom"></div>
-          <div class="gallery-item"><img src="images/photo-57.jpeg" alt="Bedroom"></div>
-          <div class="gallery-item"><img src="images/photo-59.jpeg" alt="Bedroom"></div>
-          <div class="gallery-item"><img src="images/photo-64.jpeg" alt="Bedroom"></div>
-          <div class="gallery-item"><img src="images/photo-65.jpeg" alt="Bedroom"></div>
-          <div class="gallery-item"><img src="images/photo-73.jpeg" alt="Bedroom"></div>
-          <div class="gallery-item"><img src="images/photo-74.jpeg" alt="Bedroom"></div>
-          <div class="gallery-item"><img src="images/photo-80.jpeg" alt="Bedroom"></div>
-          <div class="gallery-item"><img src="images/photo-82.jpeg" alt="Bedroom"></div>
-        </div>
+      <div class="xp-cats-nav">
+        <button type="button" class="xp-cats-arrow" data-cats-prev aria-label="Scroll rooms left"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M10 3.5 5.5 8l4.5 4.5"/></svg></button>
+        <button type="button" class="xp-cats-arrow" data-cats-next aria-label="Scroll rooms right"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="m6 3.5 4.5 4.5L6 12.5"/></svg></button>
       </div>
+    </div>
+  </nav>
 
-      <!-- Living Spaces -->
-      <div class="gallery-category fade-in">
-        <h3>Living Spaces</h3>
-        <div class="gallery-cat-grid">
-          <div class="gallery-item"><img src="images/photo-01.jpeg" alt="Living space"></div>
-          <div class="gallery-item"><img src="images/photo-05.jpeg" alt="Living space"></div>
-          <div class="gallery-item"><img src="images/photo-09.jpeg" alt="Living space"></div>
-          <div class="gallery-item"><img src="images/photo-22.jpeg" alt="Living space"></div>
-          <div class="gallery-item"><img src="images/photo-23.jpeg" alt="Living space"></div>
-          <div class="gallery-item"><img src="images/photo-31.jpeg" alt="Living space"></div>
-          <div class="gallery-item"><img src="images/photo-37.jpeg" alt="Living space"></div>
-          <div class="gallery-item"><img src="images/photo-41.jpeg" alt="Living space"></div>
-          <div class="gallery-item"><img src="images/photo-46.jpeg" alt="Living space"></div>
-          <div class="gallery-item"><img src="images/photo-53.jpeg" alt="Living space"></div>
-          <div class="gallery-item"><img src="images/photo-66.jpeg" alt="Living space"></div>
-          <div class="gallery-item"><img src="images/photo-71.jpeg" alt="Living space"></div>
-          <div class="gallery-item"><img src="images/photo-72.jpeg" alt="Living space"></div>
-          <div class="gallery-item"><img src="images/photo-kitchen.jpeg" alt="Kitchen"></div>
-        </div>
+  <!-- THE FILM (same click-to-play panel as the homepage) -->
+  <section class="tour tour--film" id="film" aria-labelledby="film-title">
+    <div class="container tour__grid-wrap">
+      <div class="tour__rail">
+        <p class="xp-eyebrow">00</p>
+        <h2 class="xp-display xp-display--3" id="film-title">The film</h2>
+        <p class="tour__desc">Casa Nina and Playa Flamingo from the air: the villa on its hillside, the pool, and the whole bay laid out below.</p>
       </div>
-
-      <!-- Views & Rooftop -->
-      <div class="gallery-category fade-in">
-        <h3>Views &amp; Rooftop</h3>
-        <div class="gallery-cat-grid">
-          <div class="gallery-item"><img src="images/photo-78.jpeg" alt="View"></div>
-          <div class="gallery-item"><img src="images/photo-28.jpeg" alt="Rooftop"></div>
-          <div class="gallery-item"><img src="images/photo-33.jpeg" alt="View"></div>
-          <div class="gallery-item"><img src="images/photo-75.jpeg" alt="Rooftop"></div>
+      <figure class="film" id="filmPlayer" data-youtube-id="JIu0Hd_SShk">
+        <div class="film__frame">
+          <img class="film__poster" src="images/home-film-poster-dusk.jpg" alt="Casa Nina Flamingo at dusk, every room lit, above the infinity pool" width="2000" height="1406" loading="lazy" decoding="async">
+          <button type="button" class="film__play" aria-label="Play the film" hidden>
+            <span class="film__ring"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+            <span class="film__label">Play the film</span>
+          </button>
         </div>
-      </div>
-
-      <!-- Nearby Beaches -->
-      <div class="gallery-category fade-in">
-        <h3>Nearby Beaches</h3>
-        <div class="gallery-cat-grid">
-          <div class="gallery-item"><img src="images/photo-70.jpeg" alt="Beach"></div>
-          <div class="gallery-item"><img src="images/photo-36.jpeg" alt="Beach"></div>
-          <div class="gallery-item"><img src="images/photo-27.jpeg" alt="Beach"></div>
-        </div>
-      </div>
-
+      </figure>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="cta-section">
-    <div class="container fade-in">
-      <p class="heading-sm">Like What You See?</p>
-      <h2 class="heading-xl">Plan Your<br>Getaway</h2>
-      <div class="divider divider-center" style="background: var(--gold-light); margin-bottom: 1.5rem;"></div>
-      <div class="cta-buttons">
-        <a href="book.html" class="btn btn-white">Plan Your Getaway</a>
-        <a href="the-casa.html" class="btn btn-white" style="border-color: var(--gold); color: var(--gold);">Explore The Casa</a>
+  <section class="tour" id="exterior" aria-labelledby="exterior-title">
+    <div class="container tour__grid-wrap">
+      <div class="tour__rail">
+        <p class="xp-eyebrow">01</p>
+        <h2 class="xp-display xp-display--3" id="exterior-title">Exterior &amp; arrival</h2>
+        <p class="tour__desc">Three white floors on the hillside, a gated drive, and the pool terrace stepping out toward the bay.</p>
+        <p class="tour__count">6 photos</p>
+      </div>
+      <div class="tour__grid">
+          <a class="tour__item tour__item--wide" href="images/home-hero-villa-pool.jpg" data-lightbox="exterior"><img src="images/home-hero-villa-pool.jpg" alt="The villa from the pool terrace: three floors of terraces above the infinity pool at Casa Nina Flamingo" width="2000" height="1412" loading="lazy" decoding="async" data-slot="exterior-01"></a>
+          <a class="tour__item" href="images/77-casanina16-2000.jpg" data-lightbox="exterior"><img src="images/77-casanina16-2000.jpg" alt="The pool terrace at dusk with the villa lit up behind at Casa Nina Flamingo" width="2000" height="1333" loading="lazy" decoding="async" data-slot="exterior-02"></a>
+          <a class="tour__item" href="images/photo-84.jpeg" data-lightbox="exterior"><img src="images/photo-84.jpeg" alt="The gated entrance and the villa above it at Casa Nina Flamingo" width="720" height="480" loading="lazy" decoding="async" data-slot="exterior-03"></a>
+          <a class="tour__item" href="images/photo-81.jpeg" data-lightbox="exterior"><img src="images/photo-81.jpeg" alt="The terraces from the pool side at Casa Nina Flamingo" width="720" height="480" loading="lazy" decoding="async" data-slot="exterior-04"></a>
+          <a class="tour__item" href="images/photo-15.jpeg" data-lightbox="exterior"><img src="images/photo-15.jpeg" alt="The villa from the drive at Casa Nina Flamingo" width="1200" height="1600" loading="lazy" decoding="async" data-slot="exterior-05"></a>
+          <a class="tour__item" href="images/photo-07.jpeg" data-lightbox="exterior"><img src="images/photo-07.jpeg" alt="Parking inside the gate at Casa Nina Flamingo" width="1200" height="800" loading="lazy" decoding="async" data-slot="exterior-06"></a>
+      </div>
+    </div>
+  </section>
+  <section class="tour" id="pool" aria-labelledby="pool-title">
+    <div class="container tour__grid-wrap">
+      <div class="tour__rail">
+        <p class="xp-eyebrow">02</p>
+        <h2 class="xp-display xp-display--3" id="pool-title">Pool &amp; terraces</h2>
+        <p class="tour__desc">The private infinity pool faces the Pacific, with a covered patio, sun loungers, an outdoor shower and a grill beside it.</p>
+        <p class="tour__count">6 photos</p>
+      </div>
+      <div class="tour__grid">
+          <a class="tour__item tour__item--wide" href="images/photo-69.jpeg" data-lightbox="pool"><img src="images/photo-69.jpeg" alt="The private infinity pool with the villa behind it at Casa Nina Flamingo" width="720" height="480" loading="lazy" decoding="async" data-slot="pool-01"></a>
+          <a class="tour__item" href="images/14-casanina4-1600.jpg" data-lightbox="pool"><img src="images/14-casanina4-1600.jpg" alt="The covered patio at sunset with the live-edge dining table at Casa Nina Flamingo" width="1600" height="1067" loading="lazy" decoding="async" data-slot="pool-02"></a>
+          <a class="tour__item" href="images/photo-79.jpeg" data-lightbox="pool"><img src="images/photo-79.jpeg" alt="The patio beside the pool, living room opening onto it at Casa Nina Flamingo" width="1200" height="800" loading="lazy" decoding="async" data-slot="pool-03"></a>
+          <a class="tour__item" href="images/photo-02.jpeg" data-lightbox="pool"><img src="images/photo-02.jpeg" alt="Pool terrace seating at dusk at Casa Nina Flamingo" width="1200" height="800" loading="lazy" decoding="async" data-slot="pool-04"></a>
+          <a class="tour__item" href="images/photo-45.jpeg" data-lightbox="pool"><img src="images/photo-45.jpeg" alt="Sun loungers on the pool deck at Casa Nina Flamingo" width="720" height="480" loading="lazy" decoding="async" data-slot="pool-05"></a>
+          <a class="tour__item" href="images/photo-83.jpeg" data-lightbox="pool"><img src="images/photo-83.jpeg" alt="The pool deck looking toward the hills at Casa Nina Flamingo" width="1200" height="800" loading="lazy" decoding="async" data-slot="pool-06"></a>
+      </div>
+    </div>
+  </section>
+  <section class="tour" id="living" aria-labelledby="living-title">
+    <div class="container tour__grid-wrap">
+      <div class="tour__rail">
+        <p class="xp-eyebrow">03</p>
+        <h2 class="xp-display xp-display--3" id="living-title">Living rooms</h2>
+        <p class="tour__desc">Two living rooms, one on each main floor, with sliding doors that fold away to the terraces and the view.</p>
+        <p class="tour__count">7 photos</p>
+      </div>
+      <div class="tour__grid">
+          <a class="tour__item tour__item--wide" href="images/38-casanina9-1600.jpg" data-lightbox="living"><img src="images/38-casanina9-1600.jpg" alt="Living room with the doors folded open to the terrace, kitchen beyond at Casa Nina Flamingo" width="1600" height="1067" loading="lazy" decoding="async" data-slot="living-01"></a>
+          <a class="tour__item" href="images/photo-66.jpeg" data-lightbox="living"><img src="images/photo-66.jpeg" alt="Living room doors open to the terrace and the bay at Casa Nina Flamingo" width="1200" height="800" loading="lazy" decoding="async" data-slot="living-02"></a>
+          <a class="tour__item" href="images/photo-46.jpeg" data-lightbox="living"><img src="images/photo-46.jpeg" alt="Open-plan living room and kitchen at Casa Nina Flamingo" width="1200" height="800" loading="lazy" decoding="async" data-slot="living-03"></a>
+          <a class="tour__item" href="images/photo-22.jpeg" data-lightbox="living"><img src="images/photo-22.jpeg" alt="Living room seating with the TV at Casa Nina Flamingo" width="1200" height="800" loading="lazy" decoding="async" data-slot="living-04"></a>
+          <a class="tour__item" href="images/photo-31.jpeg" data-lightbox="living"><img src="images/photo-31.jpeg" alt="Second living room with sofa and TV at Casa Nina Flamingo" width="1920" height="1280" loading="lazy" decoding="async" data-slot="living-05"></a>
+          <a class="tour__item" href="images/photo-41.jpeg" data-lightbox="living"><img src="images/photo-41.jpeg" alt="Living room looking out to the terrace at Casa Nina Flamingo" width="1200" height="800" loading="lazy" decoding="async" data-slot="living-06"></a>
+          <a class="tour__item" href="images/photo-09.jpeg" data-lightbox="living"><img src="images/photo-09.jpeg" alt="Living room with the ocean beyond the doors at Casa Nina Flamingo" width="1200" height="800" loading="lazy" decoding="async" data-slot="living-07"></a>
+      </div>
+    </div>
+  </section>
+  <section class="tour" id="kitchens" aria-labelledby="kitchens-title">
+    <div class="container tour__grid-wrap">
+      <div class="tour__rail">
+        <p class="xp-eyebrow">04</p>
+        <h2 class="xp-display xp-display--3" id="kitchens-title">Kitchens &amp; dining</h2>
+        <p class="tour__desc">Two fully equipped kitchens, each with an island and bar seating, and dining for the whole group on both floors.</p>
+        <p class="tour__count">9 photos</p>
+      </div>
+      <div class="tour__grid">
+          <a class="tour__item tour__item--wide" href="images/35-casanina23-1600.jpg" data-lightbox="kitchens"><img src="images/35-casanina23-1600.jpg" alt="Kitchen and living room with folding doors to the terrace at Casa Nina Flamingo" width="1600" height="1067" loading="lazy" decoding="async" data-slot="kitchens-01"></a>
+          <a class="tour__item" href="images/photo-kitchen.jpeg" data-lightbox="kitchens"><img src="images/photo-kitchen.jpeg" alt="Kitchen island with bar seating at Casa Nina Flamingo" width="1200" height="800" loading="lazy" decoding="async" data-slot="kitchens-02"></a>
+          <a class="tour__item" href="images/photo-23.jpeg" data-lightbox="kitchens"><img src="images/photo-23.jpeg" alt="Kitchen with a large island at Casa Nina Flamingo" width="1200" height="800" loading="lazy" decoding="async" data-slot="kitchens-03"></a>
+          <a class="tour__item" href="images/photo-05.jpeg" data-lightbox="kitchens"><img src="images/photo-05.jpeg" alt="Dining table beside the kitchen at Casa Nina Flamingo" width="1200" height="800" loading="lazy" decoding="async" data-slot="kitchens-04"></a>
+          <a class="tour__item" href="images/photo-01.jpeg" data-lightbox="kitchens"><img src="images/photo-01.jpeg" alt="Kitchen island and stools at Casa Nina Flamingo" width="1200" height="800" loading="lazy" decoding="async" data-slot="kitchens-05"></a>
+          <a class="tour__item" href="images/photo-37.jpeg" data-lightbox="kitchens"><img src="images/photo-37.jpeg" alt="Kitchen with a view through to the terrace at Casa Nina Flamingo" width="1200" height="800" loading="lazy" decoding="async" data-slot="kitchens-06"></a>
+          <a class="tour__item" href="images/photo-53.jpeg" data-lightbox="kitchens"><img src="images/photo-53.jpeg" alt="Kitchen counter with a view of the bay at Casa Nina Flamingo" width="1200" height="800" loading="lazy" decoding="async" data-slot="kitchens-07"></a>
+          <a class="tour__item" href="images/photo-71.jpeg" data-lightbox="kitchens"><img src="images/photo-71.jpeg" alt="Kitchen with dark island and white cabinetry at Casa Nina Flamingo" width="1200" height="800" loading="lazy" decoding="async" data-slot="kitchens-08"></a>
+          <a class="tour__item" href="images/photo-72.jpeg" data-lightbox="kitchens"><img src="images/photo-72.jpeg" alt="Second kitchen with stainless appliances at Casa Nina Flamingo" width="1200" height="800" loading="lazy" decoding="async" data-slot="kitchens-09"></a>
+      </div>
+    </div>
+  </section>
+  <section class="tour" id="bedrooms" aria-labelledby="bedrooms-title">
+    <div class="container tour__grid-wrap">
+      <div class="tour__rail">
+        <p class="xp-eyebrow">05</p>
+        <h2 class="xp-display xp-display--3" id="bedrooms-title">Bedrooms</h2>
+        <p class="tour__desc">Seven bedrooms, five with king beds and two with queens, all with air conditioning, blackout curtains and a view.</p>
+        <p class="tour__count">14 photos</p>
+      </div>
+      <div class="tour__grid">
+          <a class="tour__item tour__item--wide" href="images/43-casanina68-1200.jpg" data-lightbox="bedrooms"><img src="images/43-casanina68-1200.jpg" alt="Suite with a live-edge wood bed and sliding doors to the terrace at Casa Nina Flamingo" width="1200" height="800" loading="lazy" decoding="async" data-slot="bedrooms-01"></a>
+          <a class="tour__item" href="images/48-casanina5-1200.jpg" data-lightbox="bedrooms"><img src="images/48-casanina5-1200.jpg" alt="Bedroom with a crib and balcony doors overlooking the pool at Casa Nina Flamingo" width="1200" height="800" loading="lazy" decoding="async" data-slot="bedrooms-02"></a>
+          <a class="tour__item" href="images/photo-21.jpeg" data-lightbox="bedrooms"><img src="images/photo-21.jpeg" alt="Bedroom with a king bed and garden view at Casa Nina Flamingo" width="1200" height="800" loading="lazy" decoding="async" data-slot="bedrooms-03"></a>
+          <a class="tour__item" href="images/photo-82.jpeg" data-lightbox="bedrooms"><img src="images/photo-82.jpeg" alt="Bedroom with sliding doors to the balcony and the bay at Casa Nina Flamingo" width="1200" height="800" loading="lazy" decoding="async" data-slot="bedrooms-04"></a>
+          <a class="tour__item" href="images/photo-03.jpeg" data-lightbox="bedrooms"><img src="images/photo-03.jpeg" alt="Bedroom with wood headboard and wardrobe at Casa Nina Flamingo" width="1200" height="800" loading="lazy" decoding="async" data-slot="bedrooms-05"></a>
+          <a class="tour__item" href="images/photo-10.jpeg" data-lightbox="bedrooms"><img src="images/photo-10.jpeg" alt="Bedroom with a view of the trees at Casa Nina Flamingo" width="1200" height="800" loading="lazy" decoding="async" data-slot="bedrooms-06"></a>
+          <a class="tour__item" href="images/photo-16.jpeg" data-lightbox="bedrooms"><img src="images/photo-16.jpeg" alt="Bedroom with wood bed frame at Casa Nina Flamingo" width="1200" height="800" loading="lazy" decoding="async" data-slot="bedrooms-07"></a>
+          <a class="tour__item" href="images/photo-34.jpeg" data-lightbox="bedrooms"><img src="images/photo-34.jpeg" alt="Bedroom with balcony doors at Casa Nina Flamingo" width="1200" height="800" loading="lazy" decoding="async" data-slot="bedrooms-08"></a>
+          <a class="tour__item" href="images/photo-40.jpeg" data-lightbox="bedrooms"><img src="images/photo-40.jpeg" alt="Bedroom with patterned bedspread at Casa Nina Flamingo" width="1200" height="800" loading="lazy" decoding="async" data-slot="bedrooms-09"></a>
+          <a class="tour__item" href="images/photo-47.jpeg" data-lightbox="bedrooms"><img src="images/photo-47.jpeg" alt="Bedroom with white linens at Casa Nina Flamingo" width="1200" height="800" loading="lazy" decoding="async" data-slot="bedrooms-10"></a>
+          <a class="tour__item" href="images/photo-50.jpeg" data-lightbox="bedrooms"><img src="images/photo-50.jpeg" alt="Bedroom with a view over the hills at Casa Nina Flamingo" width="1200" height="800" loading="lazy" decoding="async" data-slot="bedrooms-11"></a>
+          <a class="tour__item" href="images/photo-59.jpeg" data-lightbox="bedrooms"><img src="images/photo-59.jpeg" alt="Bedroom with wood bed and side tables at Casa Nina Flamingo" width="1200" height="800" loading="lazy" decoding="async" data-slot="bedrooms-12"></a>
+          <a class="tour__item" href="images/photo-64.jpeg" data-lightbox="bedrooms"><img src="images/photo-64.jpeg" alt="Bedroom with balcony doors open at Casa Nina Flamingo" width="1200" height="800" loading="lazy" decoding="async" data-slot="bedrooms-13"></a>
+          <a class="tour__item" href="images/photo-65.jpeg" data-lightbox="bedrooms"><img src="images/photo-65.jpeg" alt="Bedroom with the doors open to the view at Casa Nina Flamingo" width="1200" height="800" loading="lazy" decoding="async" data-slot="bedrooms-14"></a>
+      </div>
+    </div>
+  </section>
+  <section class="tour" id="bathrooms" aria-labelledby="bathrooms-title">
+    <div class="container tour__grid-wrap">
+      <div class="tour__rail">
+        <p class="xp-eyebrow">06</p>
+        <h2 class="xp-display xp-display--3" id="bathrooms-title">Bathrooms</h2>
+        <p class="tour__desc">Six bathrooms with walk-in showers, double vanities and marble finishes, plus two powder rooms.</p>
+        <p class="tour__count">10 photos</p>
+      </div>
+      <div class="tour__grid">
+          <a class="tour__item tour__item--wide" href="images/50-casanina75-1200.jpg" data-lightbox="bathrooms"><img src="images/50-casanina75-1200.jpg" alt="Marble bathroom with double vanity and walk-in glass shower at Casa Nina Flamingo" width="1200" height="800" loading="lazy" decoding="async" data-slot="bathrooms-01"></a>
+          <a class="tour__item" href="images/photo-17.jpeg" data-lightbox="bathrooms"><img src="images/photo-17.jpeg" alt="Bathroom with walk-in shower at Casa Nina Flamingo" width="1200" height="800" loading="lazy" decoding="async" data-slot="bathrooms-02"></a>
+          <a class="tour__item" href="images/photo-51.jpeg" data-lightbox="bathrooms"><img src="images/photo-51.jpeg" alt="Bathroom with dark vanity and glass shower at Casa Nina Flamingo" width="1200" height="800" loading="lazy" decoding="async" data-slot="bathrooms-03"></a>
+          <a class="tour__item" href="images/photo-55.jpeg" data-lightbox="bathrooms"><img src="images/photo-55.jpeg" alt="Bathroom with vanity and mirror at Casa Nina Flamingo" width="1200" height="800" loading="lazy" decoding="async" data-slot="bathrooms-04"></a>
+          <a class="tour__item" href="images/photo-57.jpeg" data-lightbox="bathrooms"><img src="images/photo-57.jpeg" alt="Bathroom with double vanity at Casa Nina Flamingo" width="1200" height="800" loading="lazy" decoding="async" data-slot="bathrooms-05"></a>
+          <a class="tour__item" href="images/photo-73.jpeg" data-lightbox="bathrooms"><img src="images/photo-73.jpeg" alt="Bathroom with walk-in shower and vanity at Casa Nina Flamingo" width="1200" height="800" loading="lazy" decoding="async" data-slot="bathrooms-06"></a>
+          <a class="tour__item" href="images/photo-74.jpeg" data-lightbox="bathrooms"><img src="images/photo-74.jpeg" alt="Bathroom with vanity and shower at Casa Nina Flamingo" width="1200" height="800" loading="lazy" decoding="async" data-slot="bathrooms-07"></a>
+          <a class="tour__item" href="images/photo-44.jpeg" data-lightbox="bathrooms"><img src="images/photo-44.jpeg" alt="Bathroom with pedestal sink at Casa Nina Flamingo" width="1200" height="800" loading="lazy" decoding="async" data-slot="bathrooms-08"></a>
+          <a class="tour__item" href="images/photo-35.jpeg" data-lightbox="bathrooms"><img src="images/photo-35.jpeg" alt="Bathroom with dark vanity at Casa Nina Flamingo" width="1200" height="800" loading="lazy" decoding="async" data-slot="bathrooms-09"></a>
+          <a class="tour__item" href="images/photo-48.jpeg" data-lightbox="bathrooms"><img src="images/photo-48.jpeg" alt="Bathroom with white vanity at Casa Nina Flamingo" width="1200" height="800" loading="lazy" decoding="async" data-slot="bathrooms-10"></a>
+      </div>
+    </div>
+  </section>
+  <section class="tour" id="rooftop" aria-labelledby="rooftop-title">
+    <div class="container tour__grid-wrap">
+      <div class="tour__rail">
+        <p class="xp-eyebrow">07</p>
+        <h2 class="xp-display xp-display--3" id="rooftop-title">Rooftop &amp; views</h2>
+        <p class="tour__desc">The rooftop terrace at golden hour, and the view over Playa Flamingo bay from every floor.</p>
+        <p class="tour__count">6 photos</p>
+      </div>
+      <div class="tour__grid">
+          <a class="tour__item tour__item--wide" href="images/photo-28.jpeg" data-lightbox="rooftop"><img src="images/photo-28.jpeg" alt="Rooftop terrace with outdoor dining and sofas at Casa Nina Flamingo" width="1200" height="800" loading="lazy" decoding="async" data-slot="rooftop-01"></a>
+          <a class="tour__item" href="images/37-casanina41-1600.jpg" data-lightbox="rooftop"><img src="images/37-casanina41-1600.jpg" alt="Living room doors open onto the balcony and the bay at Casa Nina Flamingo" width="1600" height="1067" loading="lazy" decoding="async" data-slot="rooftop-02"></a>
+          <a class="tour__item" href="images/photo-33.jpeg" data-lightbox="rooftop"><img src="images/photo-33.jpeg" alt="The view over the bay with boats in the marina at Casa Nina Flamingo" width="1200" height="800" loading="lazy" decoding="async" data-slot="rooftop-03"></a>
+          <a class="tour__item" href="images/photo-75.jpeg" data-lightbox="rooftop"><img src="images/photo-75.jpeg" alt="Sunset over the bay from a terrace at Casa Nina Flamingo" width="1122" height="748" loading="lazy" decoding="async" data-slot="rooftop-04"></a>
+          <a class="tour__item" href="images/photo-70.jpeg" data-lightbox="rooftop"><img src="images/photo-70.jpeg" alt="Sunset over the Pacific at Casa Nina Flamingo" width="1920" height="1440" loading="lazy" decoding="async" data-slot="rooftop-05"></a>
+          <a class="tour__item" href="images/photo-78.jpeg" data-lightbox="rooftop"><img src="images/photo-78.jpeg" alt="The view from the terrace at Casa Nina Flamingo" width="1200" height="800" loading="lazy" decoding="async" data-slot="rooftop-06"></a>
+      </div>
+    </div>
+  </section>
+  <section class="tour" id="beach" aria-labelledby="beach-title">
+    <div class="container tour__grid-wrap">
+      <div class="tour__rail">
+        <p class="xp-eyebrow">08</p>
+        <h2 class="xp-display xp-display--3" id="beach-title">The beach &amp; beyond</h2>
+        <p class="tour__desc">Playa Flamingo is a short walk downhill. This is what the walk is for.</p>
+        <p class="tour__count">3 photos</p>
+      </div>
+      <div class="tour__grid">
+          <a class="tour__item tour__item--wide" href="images/explore-hero-aerial.jpg" data-lightbox="beach"><img src="images/explore-hero-aerial.jpg" alt="Aerial view of Casa Nina Flamingo above Playa Flamingo bay at Casa Nina Flamingo" width="2000" height="1500" loading="lazy" decoding="async" data-slot="beach-01"></a>
+          <a class="tour__item" href="images/photo-36.jpeg" data-lightbox="beach"><img src="images/photo-36.jpeg" alt="Playa Flamingo beach at Casa Nina Flamingo" width="1200" height="900" loading="lazy" decoding="async" data-slot="beach-02"></a>
+          <a class="tour__item" href="images/photo-27.jpeg" data-lightbox="beach"><img src="images/photo-27.jpeg" alt="Playa Flamingo at golden hour at Casa Nina Flamingo" width="1680" height="1261" loading="lazy" decoding="async" data-slot="beach-03"></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA: the universal .xp-cta band -->
+  <section class="xp-cta">
+    <div class="xp-media" aria-hidden="true"><div class="xp-media__img xp-ph--dusk"><img class="xp-media__photo" src="images/explore/cta-villa-dusk.jpg" alt="" width="1920" height="1080" loading="lazy" decoding="async" onerror="this.remove()"></div></div>
+    <div class="xp-wrap xp-cta__inner fade-in">
+      <p class="xp-eyebrow">Seen enough?</p>
+      <h2>Picture your people here. <em>Then reserve the dates.</em></h2>
+      <p>The Full Casa for up to fourteen, or the Half Casa for four to six. Our team confirms every request personally, usually the same day.</p>
+      <div class="xp-cta__btns">
+        <a href="book.html#availability" class="xp-btn xp-btn--solid">Check availability</a>
+        <a href="the-casa.html#floorplans" class="xp-btn xp-btn--ghost">See the floor plans</a>
       </div>
       <p class="rate-note">Contact us for nightly rates</p>
+      <p class="xp-cta__tag">Everyone &middot; Together &middot; Comfortably</p>
     </div>
   </section>
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div class="lb" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <button type="button" class="lb__close" data-lb-close aria-label="Close">&times;</button>
+    <button type="button" class="lb__nav lb__nav--prev" data-lb-prev aria-label="Previous photo"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M10 3.5 5.5 8l4.5 4.5"/></svg></button>
+    <figure class="lb__figure">
+      <img class="lb__img" alt="">
+      <figcaption class="lb__caption"><span class="lb__text"></span><span class="lb__count"></span></figcaption>
+    </figure>
+    <button type="button" class="lb__nav lb__nav--next" data-lb-next aria-label="Next photo"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="m6 3.5 4.5 4.5L6 12.5"/></svg></button>
+  </div>
 
   <!-- FOOTER -->
   <footer class="footer">
@@ -222,8 +368,180 @@
     </div>
   </footer>
 
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://casaninaflamingo.com/#website",
+      "url": "https://casaninaflamingo.com/",
+      "name": "Casa Nina Flamingo",
+      "publisher": {
+        "@id": "https://casaninaflamingo.com/#villa"
+      }
+    },
+    {
+      "@type": [
+        "WebPage",
+        "ImageGallery"
+      ],
+      "@id": "https://casaninaflamingo.com/gallery.html#webpage",
+      "url": "https://casaninaflamingo.com/gallery.html",
+      "name": "Photo Gallery | Casa Nina Flamingo, Playa Flamingo Villa",
+      "description": "Photos of Casa Nina Flamingo, a seven-bedroom oceanview villa in Playa Flamingo, Costa Rica: the infinity pool and terraces, two living rooms and kitchens, the bedrooms, the rooftop and the bay.",
+      "isPartOf": {
+        "@id": "https://casaninaflamingo.com/#website"
+      },
+      "about": {
+        "@id": "https://casaninaflamingo.com/#villa"
+      },
+      "primaryImageOfPage": "https://casaninaflamingo.com/images/77-casanina16-2000.jpg",
+      "breadcrumb": {
+        "@id": "https://casaninaflamingo.com/gallery.html#breadcrumb"
+      },
+      "inLanguage": "en",
+      "video": {
+        "@id": "https://casaninaflamingo.com/#film"
+      },
+      "image": [
+        "https://casaninaflamingo.com/images/home-hero-villa-pool.jpg",
+        "https://casaninaflamingo.com/images/77-casanina16-2000.jpg",
+        "https://casaninaflamingo.com/images/photo-84.jpeg",
+        "https://casaninaflamingo.com/images/photo-81.jpeg",
+        "https://casaninaflamingo.com/images/photo-15.jpeg",
+        "https://casaninaflamingo.com/images/photo-07.jpeg",
+        "https://casaninaflamingo.com/images/photo-69.jpeg",
+        "https://casaninaflamingo.com/images/14-casanina4-1600.jpg",
+        "https://casaninaflamingo.com/images/photo-79.jpeg",
+        "https://casaninaflamingo.com/images/photo-02.jpeg",
+        "https://casaninaflamingo.com/images/photo-45.jpeg",
+        "https://casaninaflamingo.com/images/photo-83.jpeg",
+        "https://casaninaflamingo.com/images/38-casanina9-1600.jpg",
+        "https://casaninaflamingo.com/images/photo-66.jpeg",
+        "https://casaninaflamingo.com/images/photo-46.jpeg",
+        "https://casaninaflamingo.com/images/photo-22.jpeg",
+        "https://casaninaflamingo.com/images/photo-31.jpeg",
+        "https://casaninaflamingo.com/images/photo-41.jpeg",
+        "https://casaninaflamingo.com/images/photo-09.jpeg",
+        "https://casaninaflamingo.com/images/35-casanina23-1600.jpg",
+        "https://casaninaflamingo.com/images/photo-kitchen.jpeg",
+        "https://casaninaflamingo.com/images/photo-23.jpeg",
+        "https://casaninaflamingo.com/images/photo-05.jpeg",
+        "https://casaninaflamingo.com/images/photo-01.jpeg",
+        "https://casaninaflamingo.com/images/photo-37.jpeg",
+        "https://casaninaflamingo.com/images/photo-53.jpeg",
+        "https://casaninaflamingo.com/images/photo-71.jpeg",
+        "https://casaninaflamingo.com/images/photo-72.jpeg",
+        "https://casaninaflamingo.com/images/43-casanina68-1200.jpg",
+        "https://casaninaflamingo.com/images/48-casanina5-1200.jpg",
+        "https://casaninaflamingo.com/images/photo-21.jpeg",
+        "https://casaninaflamingo.com/images/photo-82.jpeg",
+        "https://casaninaflamingo.com/images/photo-03.jpeg",
+        "https://casaninaflamingo.com/images/photo-10.jpeg",
+        "https://casaninaflamingo.com/images/photo-16.jpeg",
+        "https://casaninaflamingo.com/images/photo-34.jpeg",
+        "https://casaninaflamingo.com/images/photo-40.jpeg",
+        "https://casaninaflamingo.com/images/photo-47.jpeg",
+        "https://casaninaflamingo.com/images/photo-50.jpeg",
+        "https://casaninaflamingo.com/images/photo-59.jpeg"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://casaninaflamingo.com/gallery.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Casa Nina Flamingo",
+          "item": "https://casaninaflamingo.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Gallery",
+          "item": "https://casaninaflamingo.com/gallery.html"
+        }
+      ]
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://casaninaflamingo.com/#film",
+      "name": "Casa Nina Flamingo from the air: a seven-bedroom villa above Playa Flamingo, Costa Rica",
+      "thumbnailUrl": [
+        "https://casaninaflamingo.com/images/home-film-poster-dusk.jpg"
+      ],
+      "uploadDate": "2026-09-15",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/JIu0Hd_SShk",
+      "contentUrl": "https://youtu.be/JIu0Hd_SShk",
+      "about": {
+        "@id": "https://casaninaflamingo.com/#villa"
+      }
+    }
+  ]
+}
+  </script>
   <script src="js/lenis.min.js"></script>
   <script src="js/smooth-scroll.js"></script>
   <script src="main.js"></script>
+  <script>
+  (function(){
+    var d = document, reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches, behavior = reduce ? "auto" : "smooth";
+    /* ---------- room rail: active pill follows the page, arrows/fades/scrub as on the FAQ ---------- */
+    var pills = [].slice.call(d.querySelectorAll(".xp-pill")), sections = pills.map(function(p){ return d.getElementById(p.getAttribute("data-target")); });
+    var track = d.getElementById("xpCatsTrack"), scroller = d.getElementById("xpCatsScroll"), cats = d.getElementById("xpCats");
+    var prevBtn = d.querySelector("[data-cats-prev]"), nextBtn = d.querySelector("[data-cats-next]"), scrub = track ? track.querySelector(".xp-cats-scrub i") : null;
+    var headerH = parseFloat(getComputedStyle(d.documentElement).getPropertyValue("--xp-header-h")) || 68, catsH = 56;
+    function revealPill(p){ if(!scroller) return; var left = p.offsetLeft - (scroller.clientWidth - p.offsetWidth) / 2; scroller.scrollTo({ left: Math.max(0, left), behavior: behavior }); }
+    function updateRail(){
+      if(!scroller || !track) return;
+      var max = scroller.scrollWidth - scroller.clientWidth, x = scroller.scrollLeft, can = max > 4, cp = can && x > 4, cn = can && x < max - 4;
+      track.classList.toggle("no-scroll", !can); track.classList.toggle("can-prev", cp); track.classList.toggle("can-next", cn);
+      if(prevBtn) prevBtn.disabled = !cp; if(nextBtn) nextBtn.disabled = !cn;
+      if(scrub && can){ var f = scroller.clientWidth / scroller.scrollWidth; scrub.style.width = (f*100)+"%"; scrub.style.left = ((x/max)*(1-f)*100)+"%"; }
+    }
+    pills.forEach(function(p){ p.addEventListener("click", function(){ var t = d.getElementById(p.getAttribute("data-target")); if(!t) return;
+      var y = t.getBoundingClientRect().top + window.scrollY - headerH - catsH - 8;
+      if(window.smoothScrollTo) window.smoothScrollTo(y); else window.scrollTo({ top: y, behavior: behavior }); }); });
+    function onScroll(){
+      if(cats) cats.classList.toggle("is-stuck", cats.getBoundingClientRect().top <= headerH + 1 && window.scrollY > 120);
+      var line = headerH + catsH + 40, current = null;
+      sections.forEach(function(sec){ if(sec && sec.getBoundingClientRect().top <= line) current = sec; });
+      pills.forEach(function(p){ var on = current && p.getAttribute("data-target") === current.id; if(on && !p.classList.contains("is-active")) revealPill(p); p.classList.toggle("is-active", !!on); });
+    }
+    if(scroller){ scroller.addEventListener("scroll", updateRail, { passive:true }); window.addEventListener("resize", updateRail);
+      if(prevBtn) prevBtn.addEventListener("click", function(){ scroller.scrollBy({ left:-Math.max(160, scroller.clientWidth*.7), behavior: behavior }); });
+      if(nextBtn) nextBtn.addEventListener("click", function(){ scroller.scrollBy({ left: Math.max(160, scroller.clientWidth*.7), behavior: behavior }); }); updateRail(); }
+    window.addEventListener("scroll", onScroll, { passive:true }); onScroll();
+
+    /* ---------- film ---------- */
+    var fig = d.getElementById("filmPlayer");
+    if(fig){ var yt = fig.getAttribute("data-youtube-id"), btn = fig.querySelector(".film__play");
+      if(yt && btn){ btn.hidden = false; btn.addEventListener("click", function(){ var frame = fig.querySelector(".film__frame"), poster = fig.querySelector(".film__poster");
+        var el = d.createElement("iframe"); el.className = "film__media"; el.src = "https://www.youtube-nocookie.com/embed/" + yt + "?autoplay=1&rel=0&modestbranding=1&playsinline=1&color=white";
+        el.allow = "autoplay; fullscreen; picture-in-picture; encrypted-media"; el.setAttribute("allowfullscreen", ""); el.title = "Casa Nina Flamingo, from the air";
+        frame.insertBefore(el, poster); fig.classList.add("is-playing"); btn.remove(); if(poster) poster.remove(); }); } }
+
+    /* ---------- lightbox ---------- */
+    var lb = d.getElementById("lightbox"), lbImg = lb.querySelector(".lb__img"), lbText = lb.querySelector(".lb__text"), lbCount = lb.querySelector(".lb__count");
+    var items = [].slice.call(d.querySelectorAll("[data-lightbox]")), index = -1, lastFocus = null;
+    function show(i){ index = (i + items.length) % items.length; var a = items[index], img = a.querySelector("img");
+      lbImg.src = a.getAttribute("href"); lbImg.alt = img ? img.alt : ""; lbText.textContent = img ? img.alt : ""; lbCount.textContent = (index + 1) + " / " + items.length;
+      var n = items[(index + 1) % items.length]; if(n){ var pre = new Image(); pre.src = n.getAttribute("href"); } }
+    function open(i){ lastFocus = d.activeElement; show(i); lb.hidden = false; d.documentElement.classList.add("lenis-stopped"); d.body.classList.add("lb-open"); lb.querySelector("[data-lb-close]").focus(); }
+    function close(){ lb.hidden = true; lbImg.src = ""; d.documentElement.classList.remove("lenis-stopped"); d.body.classList.remove("lb-open"); if(lastFocus) lastFocus.focus(); }
+    items.forEach(function(a, i){ a.addEventListener("click", function(e){ e.preventDefault(); open(i); }); });
+    lb.querySelector("[data-lb-close]").addEventListener("click", close);
+    lb.querySelector("[data-lb-prev]").addEventListener("click", function(){ show(index - 1); });
+    lb.querySelector("[data-lb-next]").addEventListener("click", function(){ show(index + 1); });
+    lb.addEventListener("click", function(e){ if(e.target === lb) close(); });
+    d.addEventListener("keydown", function(e){ if(lb.hidden) return; if(e.key === "Escape") close(); else if(e.key === "ArrowLeft") show(index - 1); else if(e.key === "ArrowRight") show(index + 1); });
+    var sx = 0; lb.addEventListener("touchstart", function(e){ sx = e.changedTouches[0].clientX; }, { passive:true });
+    lb.addEventListener("touchend", function(e){ var dx = e.changedTouches[0].clientX - sx; if(Math.abs(dx) > 50) show(index + (dx < 0 ? 1 : -1)); }, { passive:true });
+  })();
+  </script>
+
 </body>
 </html>
