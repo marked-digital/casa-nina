@@ -94,7 +94,7 @@
     <div class="container">
       <div class="intro-grid">
         <div class="intro-image fade-in">
-<img src="images/home-hero-villa-pool.jpg" alt="Casa Nina Flamingo from the pool terrace: three floors of terraces above the infinity pool, Playa Flamingo" width="2000" height="1412" loading="lazy" decoding="async">
+<a class="xp-zoom" href="images/home-hero-villa-pool.jpg" data-lightbox="casa" aria-label="View larger"><img src="images/home-hero-villa-pool.jpg" alt="Casa Nina Flamingo from the pool terrace: three floors of terraces above the infinity pool, Playa Flamingo" width="2000" height="1412" loading="lazy" decoding="async"></a>
         </div>
         <div class="intro-content fade-in">
           <p class="xp-eyebrow">The villa</p>
@@ -168,7 +168,7 @@
           </ul>
         </div>
         <div class="experience-image fade-in">
-          <img src="images/gallery-living-04.jpg" alt="Living room at Casa Nina Flamingo with the folding doors open to the balcony and the bay" width="1600" height="1067" loading="lazy" decoding="async">
+          <a class="xp-zoom" href="images/gallery-living-04.jpg" data-lightbox="casa" aria-label="View larger"><img src="images/gallery-living-04.jpg" alt="Living room at Casa Nina Flamingo with the folding doors open to the balcony and the bay" width="1600" height="1067" loading="lazy" decoding="async"></a>
         </div>
       </div>
     </div>
@@ -179,7 +179,7 @@
     <div class="container">
       <div class="experience-grid">
         <div class="experience-image experience-image--first fade-in">
-          <img src="images/14-casanina4-1600.jpg" alt="Covered patio at Casa Nina Flamingo with a live-edge dining table beside the pool at sunset" width="1600" height="1067" loading="lazy" decoding="async">
+          <a class="xp-zoom" href="images/14-casanina4-1600.jpg" data-lightbox="casa" aria-label="View larger"><img src="images/14-casanina4-1600.jpg" alt="Covered patio at Casa Nina Flamingo with a live-edge dining table beside the pool at sunset" width="1600" height="1067" loading="lazy" decoding="async"></a>
         </div>
         <div class="experience-content fade-in">
           <p class="xp-eyebrow">Outdoor spaces &amp; pool</p>
@@ -285,6 +285,18 @@
     </div>
   </section>
   </main>
+
+  <!-- LIGHTBOX (shared component; script in js/lightbox.js) -->
+  <div class="lb" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <button type="button" class="lb__close" data-lb-close aria-label="Close">&times;</button>
+    <button type="button" class="lb__nav lb__nav--prev" data-lb-prev aria-label="Previous photo"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M10 3.5 5.5 8l4.5 4.5"/></svg></button>
+    <figure class="lb__figure">
+      <img class="lb__img" alt="">
+      <figcaption class="lb__caption"><span class="lb__text"></span><span class="lb__count"></span></figcaption>
+    </figure>
+    <button type="button" class="lb__nav lb__nav--next" data-lb-next aria-label="Next photo"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="m6 3.5 4.5 4.5L6 12.5"/></svg></button>
+  </div>
+
 
   <!-- FOOTER -->
   <footer class="footer">
@@ -533,6 +545,7 @@
   <script src="js/smooth-scroll.js"></script>
 
   <script src="main.js"></script>
+  <script src="js/lightbox.js" defer></script>
   <script src="js/floorplans.js"></script>
 </body>
 </html>

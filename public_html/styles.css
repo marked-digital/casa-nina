@@ -2536,3 +2536,9 @@ body.lb-open{ overflow:hidden; }
   background:radial-gradient(ellipse 60% 75% at 50% 50%, rgba(10,22,38,.55), rgba(10,22,38,0) 72%); }
 .xp-hero__inner, .xp-cta__inner{ isolation:isolate; }   /* keeps the ::before's z-index:-1 inside the block, above the page overlay */
 @media (max-width:760px){ .xp-hero__inner::before{ inset:-8% -12%; background:radial-gradient(ellipse 80% 70% at 40% 55%, rgba(10,22,38,.55), rgba(10,22,38,0) 75%); } }
+
+/* Zoomable section photos (the-casa): the anchor takes the image's box, keeps its
+   hover, and shows the magnifier cursor; the shared lightbox does the rest. */
+.xp-zoom{ display:block; width:100%; height:100%; cursor:zoom-in; }
+.xp-zoom img{ display:block; width:100%; height:100%; object-fit:cover; }
+.xp-zoom:focus-visible{ outline:2px solid var(--cn-gold); outline-offset:3px; }
