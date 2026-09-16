@@ -2451,6 +2451,10 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 .page-home .home-conc .xp-display{ color:var(--cn-cream); }
 .page-home .home-conc .body-text{ color:rgba(245,240,231,.82); max-width:none; }
 .page-home .home-conc__btns{ display:flex; flex-wrap:wrap; gap:14px; margin-top:30px; }
+.page-home .home-conc__media{ display:grid; gap:28px; }
+.page-home .home-conc__photo{ position:relative; margin:0 18px 0 0; aspect-ratio:3/2; overflow:visible; }
+.page-home .home-conc__photo::before{ content:""; position:absolute; inset:16px -16px -16px 16px; border:1px solid rgba(220,192,140,.38); pointer-events:none; }   /* the offset gold hairline, as on the film and the story photo */
+.page-home .home-conc__photo img{ position:relative; display:block; width:100%; height:100%; object-fit:cover; box-shadow:0 30px 70px rgba(5,12,24,.45); }
 .page-home .home-conc__list{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1px; background:rgba(220,192,140,.18); border:1px solid rgba(220,192,140,.18); }
 .page-home .home-conc__list li{ display:flex; align-items:center; gap:14px; padding:clamp(16px,2vw,22px) clamp(16px,2vw,24px); background:var(--cn-navy); font:500 15px/1.3 var(--cn-body); color:var(--cn-cream); }
 .page-home .home-conc__list .service-icon{ width:26px; height:26px; flex:none; color:var(--cn-gold); fill:none; stroke:currentColor; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
@@ -2458,7 +2462,7 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
   .page-home .home-conc__grid{ grid-template-columns:1fr; gap:36px; }
   :is(.page-home,.page-gallery) .film__play{ width:64px; height:64px; } .page-home .film__play svg{ width:24px; height:24px; }
 }
-@media (max-width:480px){ .page-home .home-conc__list{ grid-template-columns:1fr; } }
+@media (max-width:480px){ .page-home .home-conc__list{ grid-template-columns:1fr; } .page-home .home-conc__photo{ margin-right:12px; } .page-home .home-conc__photo::before{ inset:12px -12px -12px 12px; } }
 
 /* ── gallery.html (2026-09-15): the photo tour ──
    Airbnb's photo-tour shape on the site's grammar: a room rail under the hero
