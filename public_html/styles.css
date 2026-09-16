@@ -1955,10 +1955,10 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
    11.64em at 500/.005em, so 7.4vw keeps it on one line down to 541px; the vh
    term shrinks it on short windows so kicker → h1 → sub → dek → buttons →
    rate note fit; the cap keeps it inside the 1240 wrap on wide screens. */
-:is(.page-home,.page-casa,.page-concierge,.page-gallery) .xp-hero__inner{ width:auto; max-width:var(--xp-max); margin:0 auto;
+:is(.page-home,.page-book,.page-casa,.page-concierge,.page-gallery) .xp-hero__inner{ width:auto; max-width:var(--xp-max); margin:0 auto;
   padding-left:var(--xp-gutter); padding-right:var(--xp-gutter); }   /* explore gets this from .xp-page .xp-wrap */
 @media (min-width:761px){
-  :is(.page-home,.page-casa,.page-concierge,.page-gallery) .xp-hero__inner{ padding-top:calc(var(--xp-header-h) + clamp(24px,4vh,64px));
+  :is(.page-home,.page-book,.page-casa,.page-concierge,.page-gallery) .xp-hero__inner{ padding-top:calc(var(--xp-header-h) + clamp(24px,4vh,64px));
     padding-bottom:calc(var(--xp-header-h) + clamp(24px,4vh,64px)); }
 }
 .page-home .xp-hero h1{ font-size:clamp(2.8rem, min(8.6vw, 11.5vh), 7rem);
@@ -2090,8 +2090,8 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
    with their legacy blocks above (book-only classes, rewritten in place).
    DEPLOY-COUPLED with book.html. */
 .page-book .xp-hero-sub{ margin-bottom:0; }              /* the FAQ's 34px sat above its search box */
-.page-book .xp-hero-ctas{ display:flex; flex-wrap:wrap; justify-content:center; gap:14px; margin-top:34px; }
-.page-book .xp-hero-note{ margin-top:22px; }
+.page-book .xp-hero-ctas{ display:flex; flex-wrap:wrap; gap:14px; margin-top:34px; }   /* left-aligned with the universal hero text */
+.page-book .xp-hero-note{ margin:22px 0 0; text-align:left; }   /* margin:auto in the base rule centred the block; the universal hero is left-aligned */
 .page-book #availability{ scroll-margin-top:calc(var(--xp-header-h) + 24px); }
 .page-book .book-options{ background:var(--cn-cream); }
 /* Why book direct: three short claims already made elsewhere on the site, gold dash markers as on the homepage list */
@@ -2289,7 +2289,8 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
    ink .xp-cta → footer. Reordered 2026-09-15: facts first, feeling last. Legacy .story-nina / .amenities / .experience rules are
    shared with other pages, so everything here is scoped to .page-casa.
    DEPLOY-COUPLED with the-casa.html, js/floorplans.js, images/floorplans/. */
-:is(.page-casa,.page-concierge,.page-gallery) .xp-hero h1{ color:var(--cn-white); }   /* outranks the section-title navy from the shared .xp-display rule */
+:is(.page-book,.page-casa,.page-concierge,.page-gallery) .xp-hero h1{ color:var(--cn-white); }
+.page-book .xp-hero h1{ font-size:clamp(3rem, min(9.6vw, 14vh), 8.625rem); }   /* vh guard: the booking hero carries two buttons and a note, so short laptop windows get a smaller title */   /* outranks the section-title navy from the shared .xp-display rule */
 .page-casa .intro{ background:var(--cn-white); }
 .page-casa .intro-image img{ width:100%; height:100%; object-fit:cover; }
 .page-casa .intro-content .body-text{ margin-bottom:0; }

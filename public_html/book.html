@@ -25,18 +25,19 @@
   <meta property="og:url" content="https://casaninaflamingo.com/book.html">
   <meta property="og:title" content="Book Your Stay: Full Casa or Half Casa | Casa Nina Flamingo">
   <meta property="og:description" content="A seven-bedroom oceanview villa in Playa Flamingo, Costa Rica. Book the Full Casa for up to 14 or the Half Casa for smaller groups, direct with our team or on Airbnb.">
-  <meta property="og:image" content="https://casaninaflamingo.com/images/explore/cta-villa-dusk.jpg">
-  <meta property="og:image:alt" content="Casa Nina Flamingo lit at dusk above its infinity pool">
+  <meta property="og:image" content="https://casaninaflamingo.com/images/gallery-pool-12.jpg">
+  <meta property="og:image:alt" content="Balcony chairs and red ginger flowers at Casa Nina Flamingo, with Playa Flamingo bay beyond">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Book Your Stay: Full Casa or Half Casa | Casa Nina Flamingo">
   <meta name="twitter:description" content="Book Casa Nina Flamingo direct or on Airbnb: the Full Casa (7 bedrooms, sleeps 14) or private Half Casa (3 bedrooms), steps from Playa Flamingo, Costa Rica.">
-  <meta name="twitter:image" content="https://casaninaflamingo.com/images/explore/cta-villa-dusk.jpg">
+  <meta name="twitter:image" content="https://casaninaflamingo.com/images/gallery-pool-12.jpg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="images/gallery-pool-12.jpg" fetchpriority="high">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body class="page-cn page-book">
@@ -74,30 +75,23 @@
 
   <main id="main">
   <!-- HERO: the utility-page hero shared with faq.html (same placeholder gradient until the photo lands) -->
-  <section class="xp-faq-hero">
-    <img class="xp-hero-bg" src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='1920' height='1080'><defs><linearGradient id='g' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='%230F1E33'/><stop offset='1' stop-color='%230A1626'/></linearGradient></defs><rect width='1920' height='1080' fill='url(%23g)'/><g stroke='%23C29A5B' stroke-width='2' fill='none' opacity='.16'><path d='M0 780q160-120 320 0t320 0 320 0 320 0 320 0 320 0'/><path d='M0 880q160-120 320 0t320 0 320 0 320 0 320 0 320 0'/><path d='M0 980q160-120 320 0t320 0 320 0 320 0 320 0 320 0'/></g></svg>" alt="" width="1920" height="1080">
+  <section class="xp-hero" id="top">
+    <div class="xp-hero__img">
+      <img class="xp-media__photo" src="images/gallery-pool-12.jpg"
+        alt="Balcony chairs and red ginger flowers at Casa Nina Flamingo, with Playa Flamingo bay and the hills beyond"
+        width="2000" height="1334" loading="eager" fetchpriority="high" decoding="async" onerror="this.remove()">
+    </div>
     <div class="xp-hero-overlay" aria-hidden="true"></div>
-    <svg class="xp-hero-motif" viewBox="0 0 360 360" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
-      <circle cx="252" cy="96" r="42"/>
-      <path d="M252 30v14M252 148v14M186 96h14M304 96h14M206 50l10 10M298 142l10 10M298 50l-10 10M206 142l10 10"/>
-      <path d="M36 224q34-26 68 0t68 0 68 0 68 0"/>
-      <path d="M36 262q34-26 68 0t68 0 68 0 68 0"/>
-      <path d="M36 300q34-26 68 0t68 0 68 0 68 0"/>
-    </svg>
-    <div class="xp-wrap">
-      <div class="xp-hero-inner">
-        <nav aria-label="Breadcrumb"><ol class="xp-breadcrumb">
-          <li><a href="index.html">Home</a></li>
-          <li aria-current="page">Book</li>
-        </ol></nav>
-        <h1 class="xp-hero-title">Book your stay.</h1>
-        <p class="xp-hero-sub">Choose the perfect option for your group. Book the Full Casa for up to 14 guests, or the Half Casa for a more intimate escape.</p>
-        <div class="xp-hero-ctas">
-          <a class="xp-btn xp-btn--solid" href="#availability">Check availability</a>
-          <a class="xp-btn xp-btn--ghost" href="https://wa.me/16473284929" target="_blank" rel="noopener">WhatsApp us</a>
-        </div>
-        <p class="xp-hero-note">Concierge and private airport transfers are included with every stay.</p>
+    <div class="xp-wrap xp-hero__inner fade-in">
+      <p class="xp-eyebrow xp-hero__kicker">Playa Flamingo &middot; Costa Rica</p>
+      <h1 class="xp-display">Book your stay.</h1>
+      <p class="xp-hero__sub">The Full Casa, or the Half Casa</p>
+      <p class="xp-hero__dek">Choose the option that fits your group. Book the Full Casa for up to 14 guests, or the Half Casa for a more intimate stay.</p>
+      <div class="xp-hero-ctas">
+        <a class="xp-btn xp-btn--solid" href="#availability">Check availability</a>
+        <a class="xp-btn xp-btn--ghost" href="https://wa.me/16473284929" target="_blank" rel="noopener">WhatsApp us</a>
       </div>
+      <p class="xp-hero-note">Concierge and private airport transfers are included with every stay.</p>
     </div>
   </section>
 
@@ -392,7 +386,7 @@
       "about": {
         "@id": "https://casaninaflamingo.com/#villa"
       },
-      "primaryImageOfPage": "https://casaninaflamingo.com/images/explore/cta-villa-dusk.jpg",
+      "primaryImageOfPage": "https://casaninaflamingo.com/images/gallery-pool-12.jpg",
       "breadcrumb": {
         "@id": "https://casaninaflamingo.com/book.html#breadcrumb"
       },
