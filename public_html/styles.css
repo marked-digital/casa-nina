@@ -2514,3 +2514,15 @@ body.lb-open{ overflow:hidden; }
   .lb__img{ max-height:calc(100dvh - 200px); }
   .lb__caption{ flex-direction:column; gap:8px; padding:0 16px; }
 }
+
+/* ── Type over photography (2026-09-16) ──
+   A soft dark halo behind the text in every hero and closing band, so the words
+   lift off busy areas of the photo without touching the overlays: a tight 1px
+   shadow for edge definition and a wide, faint one for the glow. Buttons keep
+   their own fills and borders and are left alone. */
+.xp-hero .xp-hero__kicker, .xp-hero h1, .xp-hero .xp-hero__sub, .xp-hero .xp-hero__dek,
+.xp-hero .xp-hero-sub, .xp-hero .xp-hero-note, .xp-hero .rate-note, .xp-hero .xp-hero__cue,
+.xp-faq-hero .xp-hero-title, .xp-faq-hero .xp-hero-sub, .xp-faq-hero .xp-breadcrumb,
+.xp-cta__inner .xp-eyebrow, .xp-cta__inner h2, .xp-cta__inner p, .xp-cta__inner .rate-note, .xp-cta__inner .xp-cta__tag{
+  text-shadow: 0 1px 2px rgba(10,22,38,.5), 0 6px 32px rgba(10,22,38,.55);
+}
