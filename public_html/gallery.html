@@ -503,8 +503,8 @@
       if(scrub && can){ var f = scroller.clientWidth / scroller.scrollWidth; scrub.style.width = (f*100)+"%"; scrub.style.left = ((x/max)*(1-f)*100)+"%"; }
     }
     pills.forEach(function(p){ p.addEventListener("click", function(){ var t = d.getElementById(p.getAttribute("data-target")); if(!t) return;
-      var y = t.getBoundingClientRect().top + window.scrollY - headerH - catsH - 8;
-      if(window.smoothScrollTo) window.smoothScrollTo(y); else window.scrollTo({ top: y, behavior: behavior }); }); });
+      if(window.smoothScrollTo) window.smoothScrollTo(t);                       /* takes the element; offset comes from the section's scroll-margin-top */
+      else window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - headerH - catsH - 8, behavior: behavior }); }); });
     function onScroll(){
       if(cats) cats.classList.toggle("is-stuck", cats.getBoundingClientRect().top <= headerH + 1 && window.scrollY > 120);
       var line = headerH + catsH + 40, current = null;

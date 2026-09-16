@@ -2466,7 +2466,8 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
    (the FAQ's category rail), then one section per room with a sticky text rail
    on the left (number, title, a line, count) and a two-column photo grid on the
    right whose first photo runs full width. Every photo opens the lightbox. */
-.page-gallery .tour{ padding:clamp(56px,8vh,96px) 0; border-top:1px solid rgba(14,29,48,.1); }
+.page-gallery .xp-hero{ min-height:calc(100vh - var(--xp-cats-h)); min-height:calc(100svh - var(--xp-cats-h)); } /* the room rail sits at the bottom of the first screen, as on the FAQ */
+.page-gallery .tour{ padding:clamp(56px,8vh,96px) 0; border-top:1px solid rgba(14,29,48,.1); scroll-margin-top:calc(var(--xp-header-h) + var(--xp-cats-h)); }
 .page-gallery .tour--film{ border-top:0; background:var(--cn-navy); color:var(--cn-cream); padding:clamp(72px,10vh,120px) 0; }
 .page-gallery .tour--film .xp-eyebrow{ color:var(--cn-gold-2); }
 .page-gallery .tour--film .xp-display{ color:var(--cn-cream); }
