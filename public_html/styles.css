@@ -2410,30 +2410,42 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 .footer-bottom{ justify-content:center; text-align:center; } /* only the copyright line remains; social links live in the Reach Us row */
 
 /* ── Homepage film section + concierge chapter (2026-09-15) ──
-   Film: click-to-play panel under the hero (poster + gold play button; the player
-   is only created on click). Concierge: navy chapter with the gold line icons
-   from concierge.html, text left, eight experiences right. */
-.page-home .film-head{ text-align:center; max-width:640px; margin:0 auto clamp(32px,4vh,44px); }
-/* Full bleed: the figure sits between two .container blocks, so it spans the viewport.
-   Height is 16:9 of the viewport width, capped at 82vh so it never overruns a screen;
-   when capped, the poster crops (object-fit) and the player is scaled to cover. */
-.page-home .film{ position:relative; margin:0; width:100%; height:min(56.25vw, 82vh); background:var(--cn-navy-deep); overflow:hidden; }
-.page-home .film__poster{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
-.page-home .film__media{ position:absolute; top:0; left:50%; transform:translateX(-50%); height:100%; width:max(100%, calc(min(56.25vw, 82vh) * 1.7778)); border:0; display:block; object-fit:cover; }
-.page-home .film__play{ position:absolute; left:50%; top:50%; width:84px; height:84px; transform:translate(-50%,-50%); border-radius:999px; cursor:pointer;
-  border:1px solid var(--cn-gold); background:rgba(10,22,38,.55); color:var(--cn-gold-soft); display:grid; place-items:center; backdrop-filter:blur(6px);
-  transition:background .3s var(--xp-ease), color .3s var(--xp-ease), transform .3s var(--xp-ease); }
-.page-home .film__play[hidden]{ display:none; }                     /* display:grid above would otherwise defeat the hidden attribute */
-.page-home .film__play svg{ width:30px; height:30px; fill:currentColor; margin-left:4px; }
-.page-home .film__play:hover{ background:var(--cn-gold); color:var(--cn-navy-deep); transform:translate(-50%,-50%) scale(1.05); }
-.page-home .film__caption{ position:absolute; left:0; bottom:0; margin:0; padding:14px 18px; font:600 10.5px/1 var(--cn-body); letter-spacing:.24em; text-transform:uppercase; color:var(--cn-gold-soft);
-  background:linear-gradient(90deg, rgba(10,22,38,.7), rgba(10,22,38,0)); width:100%; }
-.page-home .film.is-playing .film__caption{ display:none; }
-.page-home .film-copy{ max-width:66ch; margin:clamp(44px,6vh,64px) auto 0; }
-.page-home .film-copy .body-text{ max-width:none; }
-.page-home .film-ledger{ max-width:760px; margin:clamp(36px,5vh,48px) auto 0; }
-.page-home .film-ledger .xp-stat{ text-align:center; padding-right:0; margin-right:0; }
+   Film: a navy chapter under the hero. The poster sits inset at content width
+   inside the offset gold hairline frame (the story-photo device), with a thin
+   gold play ring and a gallery-style caption beneath. The player is created
+   only on click. Concierge: navy chapter with the gold line icons from
+   concierge.html, text left, eight experiences right. */
+.page-home .film-section{ background:var(--cn-navy); color:var(--cn-cream); }
+.page-home .film-head{ text-align:center; max-width:900px; margin:0 auto clamp(36px,5vh,52px); }   /* wide enough for the title on one line */
+.page-home .film-section .xp-eyebrow{ color:var(--cn-gold-2); }
+.page-home .film-section .xp-display{ color:var(--cn-cream); }
+.page-home .film{ position:relative; margin:0 18px 0 0; }
+.page-home .film::before{ content:""; position:absolute; inset:18px -18px -18px 18px; border:1px solid rgba(220,192,140,.38); pointer-events:none; }
+.page-home .film__frame{ position:relative; aspect-ratio:16/9; background:var(--cn-navy-deep); overflow:hidden; box-shadow:0 40px 90px rgba(5,12,24,.45); }
+.page-home .film__poster, .page-home .film__media{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; border:0; display:block; }
+.page-home .film__play{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); padding:0; border:0; background:none; cursor:pointer; color:var(--cn-gold-soft);
+  display:flex; flex-direction:column; align-items:center; gap:16px; }
+.page-home .film__play[hidden]{ display:none; }
+.page-home .film__ring{ width:96px; height:96px; border-radius:999px; border:1px solid var(--cn-gold-soft); display:grid; place-items:center; background:rgba(10,22,38,.28); backdrop-filter:blur(4px);
+  transition:background .3s var(--xp-ease), border-color .3s var(--xp-ease), transform .3s var(--xp-ease); }
+.page-home .film__ring svg{ width:28px; height:28px; fill:currentColor; margin-left:5px; }
+.page-home .film__label{ font:600 10.5px/1 var(--cn-body); letter-spacing:.3em; text-transform:uppercase; }
+.page-home .film__play:hover .film__ring{ background:var(--cn-gold); border-color:var(--cn-gold); color:var(--cn-navy-deep); transform:scale(1.06); }
+.page-home .film__meta{ display:flex; align-items:baseline; gap:18px; margin:30px 0 0; padding-top:16px; border-top:1px solid rgba(220,192,140,.22); }
+.page-home .film__kicker{ font:600 10.5px/1 var(--cn-body); letter-spacing:.28em; text-transform:uppercase; color:var(--cn-gold-2); flex:none; }
+.page-home .film__title{ font:italic 400 clamp(20px,1.7vw,24px)/1.3 var(--cn-display); color:var(--cn-cream); }
+.page-home .film-copy{ max-width:860px; margin:clamp(44px,6vh,64px) auto 0; }                  /* aligns with the ledger below */
+.page-home .film-copy .body-text{ max-width:none; color:rgba(245,240,231,.82); }
+.page-home .film-ledger{ max-width:860px; margin:clamp(36px,5vh,48px) auto 0; border-top-color:rgba(220,192,140,.22); }
+.page-home .film-ledger .xp-stat{ text-align:center; padding-right:0; margin-right:0; border-right-color:rgba(220,192,140,.22); }
+.page-home .film-ledger .xp-stat__num{ color:var(--cn-cream); }
+.page-home .film-ledger .xp-stat__label{ color:var(--cn-gold-2); }
 .page-home .film-section .xp-sec-cta--center{ margin-top:clamp(32px,4vh,44px); }
+@media (max-width:760px){
+  .page-home .film{ margin-right:12px; } .page-home .film::before{ inset:12px -12px -12px 12px; }
+  .page-home .film__ring{ width:72px; height:72px; } .page-home .film__ring svg{ width:22px; height:22px; }
+  .page-home .film__meta{ flex-direction:column; gap:8px; }
+}
 .page-home .home-conc{ background:var(--cn-navy); color:var(--cn-cream); }
 .page-home .home-conc__grid{ display:grid; grid-template-columns:minmax(0,6fr) minmax(0,6fr); gap:clamp(40px,6vw,96px); align-items:center; }
 .page-home .home-conc .xp-eyebrow{ color:var(--cn-gold-2); }

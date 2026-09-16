@@ -107,28 +107,37 @@
     <div class="container">
       <div class="film-head fade-in">
         <p class="xp-eyebrow xp-eyebrow--center">Welcome to Casa Nina</p>
-        <h2 class="xp-display xp-display--3" id="film-title">Bring everyone.<br>There is room.</h2>
+        <h2 class="xp-display xp-display--3" id="film-title">Bring everyone. There is room.</h2>
       </div>
     </div>
-    <figure class="film fade-in" id="filmPlayer" data-youtube-id="JIu0Hd_SShk" data-vimeo-id="" data-video-src="">
-        <img class="film__poster" src="images/home-film-poster-dusk.jpg" alt="Casa Nina Flamingo at dusk, every room lit, above the infinity pool in Playa Flamingo, Costa Rica" width="2000" height="1412" loading="lazy" decoding="async">
-        <button type="button" class="film__play" aria-label="Play the film" hidden>
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5.5v13l11-6.5z"/></svg>
-        </button>
-        <figcaption class="film__caption">Casa Nina and Playa Flamingo from the air</figcaption>
-    </figure>
+    <div class="container">
+      <figure class="film fade-in" id="filmPlayer" data-youtube-id="JIu0Hd_SShk" data-vimeo-id="" data-video-src="">
+        <div class="film__frame">
+          <img class="film__poster" src="images/home-film-poster-dusk.jpg" alt="Casa Nina Flamingo at dusk, every room lit, above the infinity pool in Playa Flamingo, Costa Rica" width="2000" height="1406" loading="lazy" decoding="async">
+          <button type="button" class="film__play" aria-label="Play the film" hidden>
+            <span class="film__ring"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+            <span class="film__label">Play the film</span>
+          </button>
+        </div>
+        <figcaption class="film__meta">
+          <span class="film__kicker">The film</span>
+          <span class="film__title">Casa Nina and Playa Flamingo from the air</span>
+        </figcaption>
+      </figure>
+    </div>
     <div class="container">
       <div class="film-copy fade-in">
         <p class="body-text">Casa Nina Flamingo is a newly built three-storey villa above Playa Flamingo on Costa Rica&rsquo;s Guanacaste coast, with seven bedrooms, six bathrooms and space for fourteen. The first floor is a complete home of its own; the second and third floors hold the main residence and the rooftop terrace, and a private elevator connects all three. Grandparents, parents and kids get to be together without being on top of each other.</p>
         <p class="body-text">The beach is a short walk downhill, the marina a few minutes further, and Liberia airport about an hour by road. Private airport transfers, daily housekeeping, two chef-cooked breakfasts and our concierge are included with every stay, so the holiday starts the moment you land.</p>
       </div>
-      <div class="xp-ledger xp-ledger--3 film-ledger fade-in">
+      <div class="xp-ledger xp-ledger--4 film-ledger fade-in">
         <div class="xp-stat"><div class="xp-stat__num">7</div><div class="xp-stat__label">Bedrooms</div></div>
         <div class="xp-stat"><div class="xp-stat__num">6</div><div class="xp-stat__label">Bathrooms</div></div>
         <div class="xp-stat"><div class="xp-stat__num">14</div><div class="xp-stat__label">Guests</div></div>
+        <div class="xp-stat"><div class="xp-stat__num">5.0</div><div class="xp-stat__label">Airbnb rating</div></div>
       </div>
       <div class="xp-sec-cta xp-sec-cta--center fade-in">
-        <a href="gallery.html" class="xp-btn xp-btn--navy">See the full gallery</a>
+        <a href="gallery.html" class="xp-btn xp-btn--solid">See the full gallery</a>
       </div>
     </div>
   </section>
@@ -625,7 +634,7 @@
     if(!(yt || vimeo || src)) return;                             /* no film: the poster stands as a still */
     btn.hidden = false;
     btn.addEventListener("click", function(){
-      var poster = fig.querySelector(".film__poster");
+      var frame = fig.querySelector(".film__frame") || fig, poster = fig.querySelector(".film__poster");
       var el;
       if(yt){
         el = document.createElement("iframe");
@@ -640,7 +649,7 @@
         if(poster) el.poster = poster.currentSrc || poster.src;
       }
       el.className = "film__media";
-      fig.insertBefore(el, poster); fig.classList.add("is-playing"); btn.remove(); if(poster) poster.remove();
+      frame.insertBefore(el, poster); fig.classList.add("is-playing"); btn.remove(); if(poster) poster.remove();
     });
   })();
   </script>
