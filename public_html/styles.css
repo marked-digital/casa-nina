@@ -2524,5 +2524,5 @@ body.lb-open{ overflow:hidden; }
 .xp-hero .xp-hero-sub, .xp-hero .xp-hero-note, .xp-hero .rate-note, .xp-hero .xp-hero__cue,
 .xp-faq-hero .xp-hero-title, .xp-faq-hero .xp-hero-sub, .xp-faq-hero .xp-breadcrumb,
 .xp-cta__inner .xp-eyebrow, .xp-cta__inner h2, .xp-cta__inner p, .xp-cta__inner .rate-note, .xp-cta__inner .xp-cta__tag{
-  text-shadow: 0 1px 2px rgba(10,22,38,.5), 0 6px 32px rgba(10,22,38,.55);
+  text-shadow: 0 1px 3px rgba(10,22,38,.75), 0 4px 14px rgba(10,22,38,.7), 0 10px 44px rgba(10,22,38,.75);
 }
