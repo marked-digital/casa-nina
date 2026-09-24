@@ -2570,6 +2570,11 @@ body.lb-open{ overflow:hidden; }
 .mobile-menu .mobile-menu-share{ display:block; margin:14px auto 0; padding:10px; background:none; border:0; cursor:pointer;
   font:500 12px/1 var(--cn-body); letter-spacing:.16em; text-transform:uppercase; color:var(--cn-gold-2); }
 .mobile-menu .mobile-menu-share:hover{ color:var(--cn-white); }
+/* Footer "Reach Us" strip: styled as one more link; the fallback menu opens upward so it is not cut off at the page end. */
+.footer-contact-block .fcb-share{ background:none; border:0; padding:0; cursor:pointer;
+  font-family:var(--font-sans); font-size:0.88rem; color:rgba(255,255,255,0.75); letter-spacing:0.03em; }
+.footer-contact-block .fcb-share:hover{ color:var(--gold-light); }
+.footer-contact-block .share__menu{ top:auto; bottom:calc(100% + 8px); }
 .mobile-menu .share{ display:block; text-align:center; }               /* under the CTA, not beside it */
 .mobile-menu .share__menu{ position:static; transform:none; width:min(260px,100%); margin:8px auto 0; }
 .mobile-menu .share__menu a, .mobile-menu .share__menu button{           /* outranks .mobile-menu nav a (display font, 2rem, white) */
