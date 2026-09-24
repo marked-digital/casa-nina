@@ -70,6 +70,13 @@ Format: page → section → what changed, with the exact before/after wording.
 - After: The label breaks evenly across two lines with more breathing room. No wording change.
 - Note: Site-wide rule for section buttons on phones. Single-line buttons on other pages are unaffected; the FAQ page’s “Playa Flamingo destination guide” button gets the same improvement.
 
+### Explore (explore.html) and Location (location.html)
+
+**12. Google map pin**
+- Before: Both maps dropped the pin at 10°25'56.0"N 85°47'30.0"W (10.432222, -85.791667), about 400 m north of the villa.
+- After: Both maps now use the embed from the Google listing “Casa nina”, so the pin sits on the villa (10.428825, -85.790987). The “Open in Google Maps” link on the Explore page now opens that listing.
+- Note: The same wrong coordinates were in the hidden location data that search engines read on every page. All of it now matches the listing.
+
 ---
 
 ## For the client to confirm
