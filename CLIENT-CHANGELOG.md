@@ -77,6 +77,15 @@ Format: page → section → what changed, with the exact before/after wording.
 - After: Both maps now use the embed from the Google listing “Casa nina”, so the pin sits on the villa (10.428825, -85.790987). The “Open in Google Maps” link on the Explore page now opens that listing.
 - Note: The same wrong coordinates were in the hidden location data that search engines read on every page. All of it now matches the listing.
 
+### FAQ (faq.html)
+
+**13. Half Casa question and answer**
+- Before (question): `If we book the Half Casa, will another group be in the villa?`
+- After (question): `If we book the Half Casa, do we have to share the pool and patio space?`
+- Before (answer): `No, never. The Half Casa is a private three-bedroom home with its own kitchen and living space, and when you reserve it, the rest of the villa is never rented to anyone else.` / `Casa Nina is yours and yours alone, shared with no one but your own group.`
+- After (answer): `No, never. The Half Casa is a private three-bedroom home with its own kitchen, living space and laundry. When you reserve it, you will have exclusive, private access to the pool and patio and it is never shared with anyone else.`
+- Note: The two-paragraph answer is replaced by the single new one. The hidden search-engine FAQ data and the page’s search keywords were updated to match.
+
 ---
 
 ## For the client to confirm
