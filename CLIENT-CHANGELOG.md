@@ -129,6 +129,13 @@ Format: page → section → what changed, with the exact before/after wording.
 - After: `Book the first floor on its own, the Half Casa, for four to six, and the pool and patio are exclusively yours and never shared with anyone else.`
 - Note: Second of six (see change 18). Also removes “the upper floors stay empty”, which was not accurate when the owners’ family is upstairs.
 
+### Book (book.html)
+
+**21. Intro under the two booking options — exclusivity wording**
+- Before: `Both include our concierge and private airport transfers from Liberia (LIR), and the villa is only ever yours: when you reserve the Half Casa, the rest of the house is never rented to another group.`
+- After: `Both include our concierge and private airport transfers from Liberia (LIR), and when you reserve the Half Casa, the pool and patio are exclusively yours and never shared with anyone else.`
+- Note: Third of six (see change 18). Also removes “the villa is only ever yours”.
+
 ---
 
 ## For the client to confirm
