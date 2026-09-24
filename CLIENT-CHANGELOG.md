@@ -122,6 +122,13 @@ Format: page → section → what changed, with the exact before/after wording.
 - After: `Take the whole villa for up to 14, or book the Half Casa, the private first floor with three bedrooms and its own entrance, for four to six. Either way, the pool and patio are exclusively yours and never shared.`
 - Note: First of six passages being reworded so the promise is about the pool and patio rather than who is in the building (see change 18).
 
+### The Casa (the-casa.html)
+
+**20. Intro paragraph — exclusivity wording**
+- Before: `Book the first floor on its own, the Half Casa, for four to six, and the upper floors stay empty; the rest of the house is never rented to anyone else.`
+- After: `Book the first floor on its own, the Half Casa, for four to six, and the pool and patio are exclusively yours and never shared with anyone else.`
+- Note: Second of six (see change 18). Also removes “the upper floors stay empty”, which was not accurate when the owners’ family is upstairs.
+
 ---
 
 ## For the client to confirm
