@@ -1960,7 +1960,7 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
     padding-bottom:calc(var(--xp-header-h) + clamp(24px,4vh,64px)); }
 }
 .page-home .xp-hero h1{ font-size:clamp(2.8rem, min(8.6vw, 11.5vh), 7rem);
-  color:var(--cn-white); } /* "One casa above the bay." is 9.36em at 500/.005em: 8.6vw keeps it to one line down to ~700px, the cap keeps it inside the 1240 wrap; outranks the section-title navy */
+  color:var(--cn-white); } /* sized for the longer line "Everyone You Love." (the old "One casa above the bay." was 9.36em at 500/.005em): 8.6vw keeps it to one line down to ~700px, the cap keeps it inside the 1240 wrap; outranks the section-title navy */
 .page-home .xp-hero__line{ display:block; }
 .page-home .xp-hero__line > span{ white-space:nowrap; }   /* phrases never break mid-phrase */
 .page-home .xp-hero__accent{ color:var(--cn-gold-2); }    /* same gold as .xp-hero__sub */
