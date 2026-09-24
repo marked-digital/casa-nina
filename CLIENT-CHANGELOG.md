@@ -86,6 +86,11 @@ Format: page → section → what changed, with the exact before/after wording.
 - After (answer): `No, never. The Half Casa is a private three-bedroom home with its own kitchen, living space and laundry. When you reserve it, you will have exclusive, private access to the pool and patio and it is never shared with anyone else.`
 - Note: The two-paragraph answer is replaced by the single new one. The hidden search-engine FAQ data and the page’s search keywords were updated to match.
 
+**14. “Do we need a rental car?” — answer**
+- Before: `Many of our guests find they do not need a car at all. The beach is a short walk away, airport transfers are included, and our concierge can arrange drivers for dinners and day trips.` / `If you would like your own transport, we can arrange a rental car from a Toyota fleet seating 5 to 16 passengers, or an electric golf cart, which is welcome on all local roads and a favorite way to get around Flamingo.`
+- After: `Many of our guests find a car is not needed, however, a golf cart is usually recommended at the least. The beach is a short walk away, airport transfers are included, and our concierge can arrange drivers for dinners and day trips.` / `If you would like your own transport, we can arrange a rental car, in all different sizes, or an electric golf cart (4 or 6 passenger), which is welcome on all local roads and a favorite way to get around Flamingo or surrounding towns to restaurants and beaches.`
+- Note: Question unchanged. The hidden search-engine FAQ data was updated to match.
+
 ---
 
 ## For the client to confirm
