@@ -103,6 +103,13 @@ Format: page → section → what changed, with the exact before/after wording.
 - Explore, “Do we need a car?” answer — Before: `Not necessarily. Golf carts are street-legal on all local roads, and the concierge arranges cart or car rentals, from 5-seaters to 16-passenger vans.` — After: `Not necessarily. Golf carts (4 or 6 passenger) are street-legal on all local roads, and the concierge arranges cart or car rentals in all different sizes.`
 - Note: Follows change 14. The “Toyota fleet, 5 to 16 passengers” detail no longer appears anywhere on the site; the hidden search-engine copy of the Explore answer was updated to match.
 
+### FAQ (faq.html)
+
+**17. “How close is the beach?” — answer**
+- Before: `Just steps. Playa Flamingo's white sand is a short, easy walk from the villa, close enough to wander back whenever you please.` / `We can also arrange beach packages with tents, chairs, food and drinks, so your spot is set up before you stroll down.`
+- After: `Playa Flamingo's white sand is a short, less than a 10-min walk from the villa, close enough to wander back whenever you please.` / `We can also arrange beach packages with tents, chairs, food and drinks, so your spot is set up before you stroll down.`
+- Note: “Just steps” dropped and the walk time added; the second paragraph is unchanged. The hidden search-engine FAQ data was updated to match.
+
 ---
 
 ## For the client to confirm
