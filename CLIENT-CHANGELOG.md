@@ -47,9 +47,15 @@ Format: page → section → what changed, with the exact before/after wording.
 - After: `The villa is refreshed every day by our housekeeping team, so the kitchen is clear and the living spaces are reset when you come in from the pool.`
 - Note: Same towel correction. Daily housekeeping itself is unchanged and still mentioned on the homepage, FAQ and concierge pages.
 
+### Concierge (concierge.html)
+
+**8. “Brought to your door” section — cards**
+- Before: Private chef · Spa & massage · Grocery stocking · Extra housekeeping
+- After: Private chef · Spa & massage · Grocery stocking · Golf carts & cars
+- Note: The “Extra housekeeping” card is removed entirely. “Golf carts & cars” moved up from the “Into the hills” section, which now has three cards (Ziplining, Horseback riding, ATV tours). The hidden search-engine services list was updated to match.
+
 ---
 
 ## For the client to confirm
 
 - Hero headline capitalisation: “One Casa. Everyone You Love.” (title case) vs “One casa. Everyone you love.” (sentence case, as the rest of the site uses).
-- “Mid-stay linen changes” is still listed on the Concierge page as an optional extra. Confirm this is offered.
