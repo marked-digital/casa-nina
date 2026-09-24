@@ -54,6 +54,12 @@ Format: page → section → what changed, with the exact before/after wording.
 - After: Private chef · Spa & massage · Grocery stocking · Golf carts & cars
 - Note: The “Extra housekeeping” card is removed entirely. “Golf carts & cars” moved up from the “Into the hills” section, which now has three cards (Ziplining, Horseback riding, ATV tours). The hidden search-engine services list was updated to match.
 
+**9. “Into the hills” section — new card**
+- Before: Ziplining · Horseback riding · ATV tours
+- After: Ziplining · Horseback riding · ATV tours · Day trips
+- New copy: `Day trips` — `The volcano and hot springs at Rincón de la Vieja, a river safari through Palo Verde, or the waterfall at Llanos de Cortés. Leave after breakfast and be back for sunset, with the guide and the transport arranged.`
+- Note: Fills the slot left by moving “Golf carts & cars”. Wording is drawn from the Explore page’s “Further afield” chapter so it stays in the site’s voice. New compass icon added to match the others.
+
 ---
 
 ## For the client to confirm
