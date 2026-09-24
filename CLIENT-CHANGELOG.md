@@ -136,6 +136,11 @@ Format: page → section → what changed, with the exact before/after wording.
 - After: `Both include our concierge and private airport transfers from Liberia (LIR), and when you reserve the Half Casa, the pool and patio are exclusively yours and never shared with anyone else.`
 - Note: Third of six (see change 18). Also removes “the villa is only ever yours”.
 
+**22. Half Casa booking card — subtitle**
+- Before: `Remaining casa never rented at the same time`
+- After: `Pool and patio exclusively yours`
+- Note: Fourth of six (see change 18).
+
 ---
 
 ## For the client to confirm
