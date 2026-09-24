@@ -72,3 +72,55 @@ document.querySelectorAll('.gallery-item img, .gallery-cat-grid .gallery-item im
     document.body.appendChild(lb);
   });
 });
+
+// Share with your group: the device's native share sheet where the browser has
+// one (every modern phone), otherwise a small menu with copy / email / WhatsApp.
+// Any element with [data-share] is a trigger; the fallback menu is built on
+// first use and placed right after the trigger inside its .share wrapper.
+(function () {
+  const triggers = document.querySelectorAll('[data-share]');
+  if (!triggers.length) return;
+  const desc = document.querySelector('meta[property="og:description"]');
+  const share = { title: document.title, text: desc ? desc.content : '', url: location.href.split('#')[0] };
+
+  function menuFor(btn) {
+    const next = btn.nextElementSibling;
+    if (next && next.classList.contains('share__menu')) return next;
+    const m = document.createElement('div');
+    m.className = 'share__menu';
+    m.setAttribute('role', 'group');
+    m.setAttribute('aria-label', 'Share options');
+    const subject = encodeURIComponent(share.title);
+    const body = encodeURIComponent(share.text + '\n\n' + share.url);
+    const wa = encodeURIComponent(share.title + ' ' + share.url);
+    m.innerHTML =
+      '<button type="button" data-share-copy>Copy link</button>' +
+      '<a href="mailto:?subject=' + subject + '&body=' + body + '">Email</a>' +
+      '<a href="https://wa.me/?text=' + wa + '" target="_blank" rel="noopener">WhatsApp</a>';
+    m.querySelector('[data-share-copy]').addEventListener('click', function () {
+      const b = this;
+      const done = () => { b.textContent = 'Link copied'; setTimeout(() => { b.textContent = 'Copy link'; }, 2000); };
+      const manual = () => { window.prompt('Copy this link', share.url); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(share.url).then(done, manual);
+      else manual();
+    });
+    btn.insertAdjacentElement('afterend', m);
+    return m;
+  }
+
+  triggers.forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (navigator.share) { navigator.share(share).catch(() => {}); return; }
+      const open = menuFor(btn).classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', String(open));
+    });
+  });
+
+  document.addEventListener('click', e => {
+    if (e.target.closest('[data-share], .share__menu')) return;
+    document.querySelectorAll('.share__menu.is-open').forEach(m => {
+      m.classList.remove('is-open');
+      m.previousElementSibling.setAttribute('aria-expanded', 'false');
+    });
+  });
+})();

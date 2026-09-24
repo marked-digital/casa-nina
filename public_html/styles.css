@@ -2552,3 +2552,25 @@ body.lb-open{ overflow:hidden; }
 .xp-zoom{ display:block; width:100%; height:100%; cursor:zoom-in; }
 .xp-zoom img{ display:block; width:100%; height:100%; object-fit:cover; }
 .xp-zoom:focus-visible{ outline:2px solid var(--cn-gold); outline-offset:3px; }
+
+/* 2026-09-24: "Share with your group". main.js opens the device's native share sheet;
+   the .share__menu fallback (copy link / email / WhatsApp) is only built where the
+   browser has no share sheet, mostly older desktop setups. */
+.share{ position:relative; display:inline-block; }
+.share__menu{ display:none; position:absolute; left:50%; top:calc(100% + 8px); transform:translateX(-50%); z-index:20;
+  min-width:190px; padding:6px; background:var(--cn-white); border:1px solid var(--cn-gold); box-shadow:0 12px 32px rgba(10,22,38,.14); }
+.share__menu.is-open{ display:grid; }
+.share__menu a, .share__menu button{ display:block; width:100%; padding:11px 14px; text-align:left; background:none; border:0; cursor:pointer;
+  font:500 12px/1.2 var(--cn-body); letter-spacing:.16em; text-transform:uppercase; color:var(--cn-navy); text-decoration:none; }
+.share__menu a:hover, .share__menu button:hover{ background:rgba(195,161,95,.14); }
+.share-row{ text-align:center; margin:0 auto clamp(40px,6vh,56px); }
+.share-row__hint{ display:block; margin-top:12px; font-size:14px; color:var(--cn-ink-muted); }
+.share-row--rail{ text-align:left; margin:22px 0 0; }
+/* In the mobile menu the trigger sits under the gold CTA as a quiet text link and the fallback menu flows inline. */
+.mobile-menu .mobile-menu-share{ display:block; margin:14px auto 0; padding:10px; background:none; border:0; cursor:pointer;
+  font:500 12px/1 var(--cn-body); letter-spacing:.16em; text-transform:uppercase; color:var(--cn-gold-2); }
+.mobile-menu .mobile-menu-share:hover{ color:var(--cn-white); }
+.mobile-menu .share{ display:block; text-align:center; }               /* under the CTA, not beside it */
+.mobile-menu .share__menu{ position:static; transform:none; width:min(260px,100%); margin:8px auto 0; }
+.mobile-menu .share__menu a, .mobile-menu .share__menu button{           /* outranks .mobile-menu nav a (display font, 2rem, white) */
+  display:block; font:500 12px/1.2 var(--cn-body); letter-spacing:.16em; text-transform:uppercase; color:var(--cn-navy); padding:11px 14px; }

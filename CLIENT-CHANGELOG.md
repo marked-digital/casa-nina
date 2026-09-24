@@ -179,6 +179,11 @@ Format: page → section → what changed, with the exact before/after wording.
 - After: Live links to Instagram (instagram.com/casaninaflamingo), YouTube (youtube.com/@CasaNinaFlamingo) and TikTok (tiktok.com/@casaninaflamingo), opening in a new tab, on all eight pages.
 - Note: The three profiles were also added to the hidden search-engine data on the Homepage, The Casa and Book pages, so Google can connect the website to the social accounts. No other social touchpoints existed on the site.
 
+**29. “Share with your group” button**
+- Before: No way to share the site other than copying the address bar.
+- After: A “Share with your group” button in three places: under the Book Now button in the mobile menu on every page, under the availability calendar on the Book page (with the line “Send the villa to the family before you settle on dates.”), and beside the film on the Gallery page.
+- Note: On phones it opens the device’s own share sheet, so guests can send the villa by WhatsApp, iMessage, email, Instagram or whatever they use. On older desktop browsers without a share sheet it shows a small menu with Copy link, Email and WhatsApp. No third-party widget, no tracking, and shared links already show the villa photo and title as a preview. Until the domain moves, shared links will carry the temporary vercel.app address.
+
 ---
 
 ## For the client to confirm
