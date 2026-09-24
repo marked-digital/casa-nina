@@ -141,6 +141,16 @@ Format: page → section → what changed, with the exact before/after wording.
 - After: `Pool and patio exclusively yours`
 - Note: Fourth of six (see change 18).
 
+**23. Half Casa description (lower on the page)**
+- Before: `A three-bedroom home on the first floor with its own kitchen, living space and entrance. When you reserve it, the rest of the villa is never rented to anyone else.`
+- After: `A three-bedroom home on the first floor with its own kitchen, living space and entrance. When you reserve it, the pool and patio are exclusively yours and never shared with anyone else.`
+- Note: Fifth of six (see change 18).
+
+**24. Half Casa hidden search-engine description**
+- Before: `… Sleeps 4 to 6 and is never shared with another group.`
+- After: `… Sleeps 4 to 6, with the pool and patio exclusively yours and never shared.`
+- Note: Sixth of six. No “never rented to another group” language remains anywhere on the site.
+
 ---
 
 ## For the client to confirm
