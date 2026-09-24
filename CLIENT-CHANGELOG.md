@@ -1,7 +1,8 @@
 # Casa Nina Flamingo — Website Change Log
 
-Record of copy and image changes requested by the client. All changes are made
-on the `client-edits` branch and are not live until deployed.
+Record of copy, image and feature changes requested by the client. Changes are
+made on the `client-edits` branch and merged to `main` once approved, at which
+point they deploy to the preview site.
 
 Format: page → section → what changed, with the exact before/after wording.
 
