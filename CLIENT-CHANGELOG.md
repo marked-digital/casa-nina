@@ -115,6 +115,13 @@ Format: page → section → what changed, with the exact before/after wording.
 - After: `No, never. The Half Casa is a private three-bedroom home with its own kitchen, living space and laundry. When you reserve it, you will have exclusive, private access to the pool and patio and it is never shared with anyone else.` / `The main residence upstairs is never rented alongside the Half Casa. On occasion the owners’ family may be staying there, and the pool and patio remain exclusively yours and never shared.`
 - Note: Follows change 13. A second paragraph is added so guests know the owners’ family may occasionally be upstairs while the pool and patio stay exclusively theirs. The hidden search-engine FAQ data was updated to match.
 
+### Homepage (index.html)
+
+**19. Half Casa band — exclusivity wording**
+- Before: `Take the whole villa for up to 14, or book the Half Casa, the private first floor with three bedrooms and its own entrance, for four to six. Either way, the rest of the house is never rented to anyone else.`
+- After: `Take the whole villa for up to 14, or book the Half Casa, the private first floor with three bedrooms and its own entrance, for four to six. Either way, the pool and patio are exclusively yours and never shared.`
+- Note: First of six passages being reworded so the promise is about the pool and patio rather than who is in the building (see change 18).
+
 ---
 
 ## For the client to confirm
