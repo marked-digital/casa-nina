@@ -158,6 +158,13 @@ Format: page → section → what changed, with the exact before/after wording.
 - After: The Google tag for property `G-7MXV425WVL` is installed near the top of every page (Homepage, The Casa, Gallery, Book, FAQ, Explore, Location, Concierge).
 - Note: Standard snippet as supplied. Page views will start appearing in Google Analytics once the site is deployed; it can take up to 24 hours for reports to populate, though the Realtime view shows visits immediately.
 
+### Homepage (index.html) and Gallery (gallery.html)
+
+**26. Villa film — new YouTube video**
+- Before: `https://youtu.be/JIu0Hd_SShk` (hosted on Marked Digital’s YouTube account)
+- After: `https://youtu.be/lwvIslSuoEo` (hosted on Casa Nina Flamingo’s own YouTube account)
+- Note: The film player on the Homepage and the Gallery page now loads the new video, and the hidden search-engine video data on both pages points to it. Same video, new home.
+
 ---
 
 ## For the client to confirm
