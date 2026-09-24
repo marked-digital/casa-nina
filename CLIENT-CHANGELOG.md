@@ -172,6 +172,13 @@ Format: page → section → what changed, with the exact before/after wording.
 - After: `Everyone you love, under one roof` added under “Full Casa”, in the same style as the Half Casa subtitle. Both cards now match and the buttons line up.
 - Note: Wording repeats the homepage headline “One Casa. Everyone You Love.” so the booking page carries the same promise.
 
+### All pages
+
+**28. Social links in the footer**
+- Before: The “Reach Us” strip at the bottom of every page showed greyed-out “Instagram (soon)” and “TikTok (soon)” placeholders that went nowhere.
+- After: Live links to Instagram (instagram.com/casaninaflamingo), YouTube (youtube.com/@CasaNinaFlamingo) and TikTok (tiktok.com/@casaninaflamingo), opening in a new tab, on all eight pages.
+- Note: The three profiles were also added to the hidden search-engine data on the Homepage, The Casa and Book pages, so Google can connect the website to the social accounts. No other social touchpoints existed on the site.
+
 ---
 
 ## For the client to confirm
