@@ -44,8 +44,8 @@ Format: page → section → what changed, with the exact before/after wording.
 
 **7. “Daily housekeeping” blurb — towels**
 - Before: `The villa is refreshed every day by our housekeeping team, so the towels are fresh and the kitchen is clear when you come in from the pool.`
-- After: `The villa is refreshed every day by our housekeeping team, so the kitchen is clear and the living spaces are reset when you come in from the pool.`
-- Note: Same towel correction. Daily housekeeping itself is unchanged and still mentioned on the homepage, FAQ and concierge pages.
+- After: `The villa is refreshed every morning by our housekeeping team, so the beds are made, the bathrooms refreshed and the kitchen is clean.`
+- Note: Removes the daily towel claim and spells out what the morning visit covers. Daily housekeeping itself is unchanged and still mentioned on the homepage, FAQ and concierge pages.
 
 ### Concierge (concierge.html)
 
