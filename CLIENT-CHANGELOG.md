@@ -96,6 +96,13 @@ Format: page → section → what changed, with the exact before/after wording.
 - After: `Book the full villa and use the separation however suits your group: grandparents and early bedtimes on one side, the night owls on the other.`
 - Note: Final sentence deleted. Nothing else in the answer changed. The hidden search-engine FAQ data was updated to match.
 
+### Concierge (concierge.html) and Explore (explore.html)
+
+**16. Rental car and golf cart wording aligned with the FAQ**
+- Concierge, “Golf carts & cars” card — Before: `Golf carts are how Flamingo gets around, and they are welcome on all the local roads. For longer days out, rental cars from a Toyota fleet seating 5 to 16 are a message away.` — After: `Golf carts (4 or 6 passenger) are how Flamingo gets around, and they are welcome on all the local roads. For longer days out, rental cars in all different sizes are a message away.`
+- Explore, “Do we need a car?” answer — Before: `Not necessarily. Golf carts are street-legal on all local roads, and the concierge arranges cart or car rentals, from 5-seaters to 16-passenger vans.` — After: `Not necessarily. Golf carts (4 or 6 passenger) are street-legal on all local roads, and the concierge arranges cart or car rentals in all different sizes.`
+- Note: Follows change 14. The “Toyota fleet, 5 to 16 passengers” detail no longer appears anywhere on the site; the hidden search-engine copy of the Explore answer was updated to match.
+
 ---
 
 ## For the client to confirm
