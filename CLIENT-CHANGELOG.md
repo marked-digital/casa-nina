@@ -151,6 +151,13 @@ Format: page → section → what changed, with the exact before/after wording.
 - After: `… Sleeps 4 to 6, with the pool and patio exclusively yours and never shared.`
 - Note: Sixth of six. No “never rented to another group” language remains anywhere on the site.
 
+### All pages
+
+**25. Google Analytics tag**
+- Before: No analytics on the site.
+- After: The Google tag for property `G-7MXV425WVL` is installed near the top of every page (Homepage, The Casa, Gallery, Book, FAQ, Explore, Location, Concierge).
+- Note: Standard snippet as supplied. Page views will start appearing in Google Analytics once the site is deployed; it can take up to 24 hours for reports to populate, though the Realtime view shows visits immediately.
+
 ---
 
 ## For the client to confirm
