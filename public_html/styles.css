@@ -1138,6 +1138,8 @@ body.page-cn{
 .xp-breadcrumb{ list-style:none; display:flex; justify-content:center; gap:10px; margin:0 0 26px; padding:0; font-size:11px; font-weight:600; letter-spacing:.28em; text-transform:uppercase; color:var(--cn-mist); }
 .xp-breadcrumb a{ color:var(--cn-gold-soft); text-decoration:none; }
 .xp-breadcrumb a:hover{ color:var(--cn-gold); }
+.xp-page .xp-breadcrumb a{ color:var(--cn-gold-soft); }               /* 2026-09-24: explore's `.xp-page a{color:inherit}` (0,1,1, later in the file) was winning; Home now gold there too */
+.xp-page .xp-breadcrumb a:hover{ color:var(--cn-gold); }
 .xp-breadcrumb li+li::before{ content:"/"; margin-right:10px; color:rgba(255,255,255,.3); }
 .xp-hero-title{
   font-family:var(--cn-font-display); font-weight:500;
