@@ -60,6 +60,11 @@ Format: page → section → what changed, with the exact before/after wording.
 - New copy: `Day trips` — `The volcano and hot springs at Rincón de la Vieja, a river safari through Palo Verde, or the waterfall at Llanos de Cortés. Leave after breakfast and be back for sunset, with the guide and the transport arranged.`
 - Note: Fills the slot left by moving “Golf carts & cars”. Wording is drawn from the Explore page’s “Further afield” chapter so it stays in the site’s voice. New compass icon added to match the others.
 
+**10. Mobile layout — the two “Explore the water / land around Playa Flamingo” buttons**
+- Before: On phones the label wrapped with a lone word on the second line and cramped line spacing.
+- After: The label breaks evenly across two lines with more breathing room. No wording change.
+- Note: Site-wide rule for section buttons on phones. Single-line buttons on other pages are unaffected; the FAQ page’s “Playa Flamingo destination guide” button gets the same improvement.
+
 ---
 
 ## For the client to confirm

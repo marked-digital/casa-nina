@@ -2005,6 +2005,12 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 :is(.page-home,.page-book,.page-casa,.page-concierge,.page-gallery) .xp-display + .body-text{ margin-top:22px; }
 :is(.page-home,.page-book,.page-casa,.page-concierge,.page-gallery) .body-text + .body-text{ margin-top:1rem; }   /* was inline on the intro's second paragraph */
 :is(.page-home,.page-book,.page-casa,.page-concierge,.page-gallery) .xp-sec-cta--center{ margin-top:48px; }        /* under grids; the FAQ's 22px is for text */
+/* 2026-09-24: long section-CTA labels ("Explore the water around Playa Flamingo") wrap to two
+   lines on phones. Balance the break so neither line is a lone word, and open the 1.0 leading
+   that single-line buttons use. Padding trimmed so a one-line button keeps its ~50px height. */
+@media (max-width:760px){
+  .xp-sec-cta .xp-btn{ line-height:1.6; padding:15px 22px; text-wrap:balance; }
+}
 
 /* Half Casa band + callout (homepage-only component, type on the universal scale) */
 .half-casa-band{ background:var(--cream); padding:3rem 0 1rem; } /* was inline */
