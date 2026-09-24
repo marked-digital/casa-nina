@@ -165,6 +165,13 @@ Format: page → section → what changed, with the exact before/after wording.
 - After: `https://youtu.be/lwvIslSuoEo` (hosted on Casa Nina Flamingo’s own YouTube account)
 - Note: The film player on the Homepage and the Gallery page now loads the new video, and the hidden search-engine video data on both pages points to it. Same video, new home.
 
+### Book (book.html)
+
+**27. Full Casa booking card — subtitle added**
+- Before: No subtitle under “Full Casa”, so the two cards sat at different heights.
+- After: `Everyone under one roof` added under “Full Casa”, in the same style as the Half Casa subtitle. Both cards now match and the buttons line up.
+- Note: Wording echoes the homepage headline “One Casa. Everyone You Love.”
+
 ---
 
 ## For the client to confirm
