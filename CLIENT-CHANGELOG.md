@@ -40,6 +40,11 @@ Format: page → section → what changed, with the exact before/after wording.
 - After: `Six of them, with rainfall showers, premium toiletries and plenty of fresh towels on arrival. Nobody waits for the shower.`
 - Note: Client confirmed towels are not changed daily.
 
+**11. Bedrooms card (photo)**
+- Before: `43-casanina68-1200.jpg` (suite with a live-edge wood bed and sliding doors to the terrace)
+- After: `gallery-bedrooms-02.jpg` (Bedroom 2 with the sliding doors open to the balcony and the view over the bay)
+- Note: Image swap only. Also updated in the hidden search-engine photo list for the page.
+
 ### Concierge (concierge.html)
 
 **7. “Daily housekeeping” blurb — towels**
