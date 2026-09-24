@@ -110,6 +110,11 @@ Format: page → section → what changed, with the exact before/after wording.
 - After: `Playa Flamingo's white sand is a short, less than a 10-min walk from the villa, close enough to wander back whenever you please.` / `We can also arrange beach packages with tents, chairs, food and drinks, so your spot is set up before you stroll down.`
 - Note: “Just steps” dropped and the walk time added; the second paragraph is unchanged. The hidden search-engine FAQ data was updated to match.
 
+**18. Half Casa question — disclosure added**
+- Before: `No, never. The Half Casa is a private three-bedroom home with its own kitchen, living space and laundry. When you reserve it, you will have exclusive, private access to the pool and patio and it is never shared with anyone else.`
+- After: `No, never. The Half Casa is a private three-bedroom home with its own kitchen, living space and laundry. When you reserve it, you will have exclusive, private access to the pool and patio and it is never shared with anyone else.` / `The main residence upstairs is never rented alongside the Half Casa. On occasion the owners’ family may be staying there, and the pool and patio remain exclusively yours and never shared.`
+- Note: Follows change 13. A second paragraph is added so guests know the owners’ family may occasionally be upstairs while the pool and patio stay exclusively theirs. The hidden search-engine FAQ data was updated to match.
+
 ---
 
 ## For the client to confirm
