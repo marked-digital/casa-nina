@@ -169,8 +169,8 @@ Format: page → section → what changed, with the exact before/after wording.
 
 **27. Full Casa booking card — subtitle added**
 - Before: No subtitle under “Full Casa”, so the two cards sat at different heights.
-- After: `Everyone under one roof` added under “Full Casa”, in the same style as the Half Casa subtitle. Both cards now match and the buttons line up.
-- Note: Wording echoes the homepage headline “One Casa. Everyone You Love.”
+- After: `Everyone you love, under one roof` added under “Full Casa”, in the same style as the Half Casa subtitle. Both cards now match and the buttons line up.
+- Note: Wording repeats the homepage headline “One Casa. Everyone You Love.” so the booking page carries the same promise.
 
 ---
 
