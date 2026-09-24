@@ -91,6 +91,11 @@ Format: page → section → what changed, with the exact before/after wording.
 - After: `Many of our guests find a car is not needed, however, a golf cart is usually recommended at the least. The beach is a short walk away, airport transfers are included, and our concierge can arrange drivers for dinners and day trips.` / `If you would like your own transport, we can arrange a rental car, in all different sizes, or an electric golf cart (4 or 6 passenger), which is welcome on all local roads and a favorite way to get around Flamingo or surrounding towns to restaurants and beaches.`
 - Note: Question unchanged. The hidden search-engine FAQ data was updated to match.
 
+**15. “What does ‘two independent living units’ mean?” — answer**
+- Before (last sentence): `Book the full villa and use the separation however suits your group: grandparents and early bedtimes on one side, the night owls on the other. Book just the Half Casa, and the rest of the villa simply stays empty.`
+- After: `Book the full villa and use the separation however suits your group: grandparents and early bedtimes on one side, the night owls on the other.`
+- Note: Final sentence deleted. Nothing else in the answer changed. The hidden search-engine FAQ data was updated to match.
+
 ---
 
 ## For the client to confirm
