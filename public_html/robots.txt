@@ -1,4 +1,11 @@
+# robots.txt for casaninaflamingo.com
+# One group for every crawler, including AI search and assistant crawlers. No user agent is blocked.
+
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /php/
+Disallow: /cgi-bin/
+Disallow: /*?demo=
 
 Sitemap: https://casaninaflamingo.com/sitemap.xml
