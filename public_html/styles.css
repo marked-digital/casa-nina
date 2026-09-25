@@ -2568,6 +2568,10 @@ body.lb-open{ overflow:hidden; }
 .share-row{ text-align:center; margin:0 auto clamp(40px,6vh,56px); }
 .share-row__hint{ display:block; margin-top:12px; font-size:14px; color:var(--cn-ink-muted); }
 .share-row--rail{ text-align:left; margin:22px 0 0; }
+/* Book page: share sits as a quiet third option under the WhatsApp / Email buttons in the talk-to-us strip. */
+.page-book .book-talk__share{ margin:14px 0 0; font-size:15px; font-weight:300; color:var(--cn-ink-muted); }
+.page-book .book-talk__share-btn{ background:none; border:0; padding:0; cursor:pointer; font:inherit; color:var(--cn-gold); text-decoration:underline; text-underline-offset:3px; }
+.page-book .book-talk__share-btn:hover{ color:var(--cn-navy); }
 /* In the mobile menu the trigger sits under the gold CTA as a quiet text link and the fallback menu flows inline. */
 .mobile-menu .mobile-menu-share{ display:block; margin:28px auto 0; padding:10px; background:none; border:0; cursor:pointer;
   font:500 12px/1 var(--cn-body); letter-spacing:.16em; text-transform:uppercase; color:var(--cn-gold-2); }
