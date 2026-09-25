@@ -191,7 +191,10 @@
         <p class="avail__note" data-cal-note>Live availability is being connected. Choose your dates and our team will confirm them personally, usually the same day.</p>
       </div>
 
-      <form class="contact-form fade-in" id="availabilityForm" action="mailto:info@casaninaflamingo.com" method="POST" enctype="text/plain">
+      <form class="contact-form fade-in" id="availabilityForm" action="mailto:info@casaninaflamingo.com" method="POST" enctype="text/plain"
+            data-endpoint="https://api.web3forms.com/submit" data-access-key="">
+        <!-- Honeypot for bots: hidden from people, never filled by them. -->
+        <input type="checkbox" name="botcheck" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div class="form-row">
           <div class="form-group">
             <label for="checkin">Check-in Date</label>
@@ -610,6 +613,7 @@
   <script src="js/lenis.min.js"></script>
   <script src="js/smooth-scroll.js"></script>
   <script src="main.js"></script>
+  <script src="js/inquiry.js" defer></script>
   <script src="js/availability.js"></script>
   <script>
   (function(){
