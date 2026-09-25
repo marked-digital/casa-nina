@@ -317,7 +317,7 @@
   </main>
 
   <!-- Mobile action bar: the two actions this page exists for, always one tap away on phones.
-       Hidden once the availability form is on screen so it never covers the submit button. -->
+       Hidden while the Check availability section is on screen so it never covers the calendar or the form. -->
   <div class="book-stickybar" id="bookStickybar" aria-label="Quick actions">
     <a class="xp-btn xp-btn--solid" href="#availability">Check availability</a>
     <a class="xp-btn xp-btn--ghost" href="https://wa.me/16473284929" target="_blank" rel="noopener">WhatsApp</a>
@@ -627,16 +627,18 @@
     /* Deep links from other pages: book.html?option=half#availability */
     var m = /[?&]option=(full|half)/.exec(location.search); if(m) choose(m[1]);
 
-    /* Sticky bar hides while the form is on screen and once the footer arrives */
+    /* Sticky bar hides while the Check availability section (calendar, form, talk-to-us strip)
+       is on screen, and once the footer arrives. 2026-09-25: was the form alone, which left the
+       bar covering the calendar. */
     var bar = document.getElementById("bookStickybar");
     if(bar && "IntersectionObserver" in window){
-      var footer = document.querySelector(".footer");
+      var flow = document.getElementById("availability"), footer = document.querySelector(".footer");
       var visible = {};
       var io = new IntersectionObserver(function(entries){
-        entries.forEach(function(e){ visible[e.target === form ? "form" : "footer"] = e.isIntersecting; });
-        bar.classList.toggle("is-hidden", !!(visible.form || visible.footer));
+        entries.forEach(function(e){ visible[e.target === flow ? "flow" : "footer"] = e.isIntersecting; });
+        bar.classList.toggle("is-hidden", !!(visible.flow || visible.footer));
       }, { threshold: 0.05 });
-      if(form) io.observe(form);
+      if(flow) io.observe(flow);
       if(footer) io.observe(footer);
     }
   })();
