@@ -73,6 +73,12 @@
     "containsPlace": [
       { "@id": "https://casaninaflamingo.com/book.html#full-casa" },
       { "@id": "https://casaninaflamingo.com/book.html#half-casa" }
+    ],
+    "makesOffer": [
+      { "@type": "Offer", "name": "Full Casa, book direct", "url": "https://casaninaflamingo.com/book.html", "availability": "https://schema.org/InStock", "itemOffered": { "@id": "https://casaninaflamingo.com/book.html#full-casa" } },
+      { "@type": "Offer", "name": "Full Casa on Airbnb", "url": "https://www.airbnb.ca/rooms/553696885568872196", "availability": "https://schema.org/InStock", "itemOffered": { "@id": "https://casaninaflamingo.com/book.html#full-casa" } },
+      { "@type": "Offer", "name": "Half Casa, book direct", "url": "https://casaninaflamingo.com/book.html", "availability": "https://schema.org/InStock", "itemOffered": { "@id": "https://casaninaflamingo.com/book.html#half-casa" } },
+      { "@type": "Offer", "name": "Half Casa on Airbnb", "url": "https://www.airbnb.ca/rooms/553696885568872196", "availability": "https://schema.org/InStock", "itemOffered": { "@id": "https://casaninaflamingo.com/book.html#half-casa" } }
     ]
   },
 
@@ -85,11 +91,7 @@
     "numberOfBedrooms": 7,
     "numberOfBathroomsTotal": 6,
     "occupancy": { "@type": "QuantitativeValue", "maxValue": 14, "unitText": "guests" },
-    "containedInPlace": { "@id": "https://casaninaflamingo.com/#vacationrental" },
-    "offers": [
-      { "@type": "Offer", "name": "Full Casa, book direct", "url": "https://casaninaflamingo.com/book.html", "availability": "https://schema.org/InStock" },
-      { "@type": "Offer", "name": "Full Casa on Airbnb", "url": "https://www.airbnb.ca/rooms/553696885568872196", "availability": "https://schema.org/InStock" }
-    ]
+    "containedInPlace": { "@id": "https://casaninaflamingo.com/#vacationrental" }
   },
 
   "halfCasa": {
@@ -101,11 +103,7 @@
     "numberOfBedrooms": 3,
     "numberOfBathroomsTotal": 2.5,
     "occupancy": { "@type": "QuantitativeValue", "minValue": 4, "maxValue": 6, "unitText": "guests" },
-    "containedInPlace": { "@id": "https://casaninaflamingo.com/#vacationrental" },
-    "offers": [
-      { "@type": "Offer", "name": "Half Casa, book direct", "url": "https://casaninaflamingo.com/book.html", "availability": "https://schema.org/InStock" },
-      { "@type": "Offer", "name": "Half Casa on Airbnb", "url": "https://www.airbnb.ca/rooms/553696885568872196", "availability": "https://schema.org/InStock" }
-    ]
+    "containedInPlace": { "@id": "https://casaninaflamingo.com/#vacationrental" }
   },
 
   "availability": {

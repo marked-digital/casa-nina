@@ -113,7 +113,7 @@ const builders = {
   book(P) {
     /* the Airbnb offers in entity.json must match the links on this page */
     const links = new Set([...P.html.matchAll(/https:\/\/www\.airbnb\.[a-z]+\/rooms\/\d+/g)].map(m => m[0]));
-    for (const acc of [ENTITY.fullCasa, ENTITY.halfCasa]) for (const o of acc.offers) if (/airbnb\./.test(o.url) && !links.has(o.url)) fail(`book.html: offer url ${o.url} is not linked on the page`);
+    for (const o of ENTITY.vacationRental.makesOffer) if (/airbnb\./.test(o.url) && !links.has(o.url)) fail(`book.html: offer url ${o.url} is not linked on the page`);
     return [webPage(P), breadcrumb(P), ENTITY.availability];
   },
   faq(P) {
@@ -245,30 +245,37 @@ for (const p of PAGES) {
 /* property keys must not include price fields anywhere */
 for (const p of PAGES) for (const { kp } of stringsOf(results[p].doc)) if (/price|aggregateRating|datePublished|dateModified/.test(kp)) fail(`${p}: property ${kp} is not allowed`);
 
-/* schema.org vocabulary check, only if the network allows it */
+/* schema.org vocabulary check. Reads the vocabulary from the file named by SCHEMAORG_VOCAB when set (for
+   machines that cannot reach schema.org), otherwise fetches it; skipped only when neither is available. */
 let vocabNote = 'schema.org vocabulary check skipped (offline or blocked)';
+let vocab = null;
 try {
-  const ctrl = new AbortController(); const t = setTimeout(() => ctrl.abort(), 8000);
-  const res = await fetch('https://schema.org/version/latest/schemaorg-current-https.jsonld', { signal: ctrl.signal }); clearTimeout(t);
-  if (res.ok) {
-    const vocab = await res.json(); const g = vocab['@graph'];
-    const byId = Object.fromEntries(g.map(n => [n['@id'].replace('schema:', ''), n]));
-    const parents = id => { const n = byId[id]; if (!n) return []; const s = n['rdfs:subClassOf'] || []; return (Array.isArray(s) ? s : [s]).map(x => x['@id'].replace('schema:', '')); };
-    const isA = (type, target) => { const seen = new Set(); const q = [type]; while (q.length) { const t = q.shift(); if (t === target) return true; if (seen.has(t)) continue; seen.add(t); q.push(...parents(t)); } return false; };
-    let checked = 0;
-    for (const p of PAGES) for (const n of nodesOf(results[p].doc)) {
-      const types = [].concat(n['@type']);
-      for (const t of types) if (!byId[t] || !(byId[t]['@type'] === 'rdfs:Class' || [].concat(byId[t]['@type']).includes('rdfs:Class'))) fail(`${p}: unknown @type ${t}`);
-      for (const prop of Object.keys(n)) {
-        if (prop.startsWith('@')) continue; checked++;
-        const pn = byId[prop]; if (!pn) fail(`${p}: unknown property ${prop} on ${types.join('/')}`);
-        const domains = [].concat(pn['schema:domainIncludes'] || []).map(d => d['@id'].replace('schema:', ''));
-        if (!domains.some(d => types.some(t => isA(t, d)))) fail(`${p}: property ${prop} is not defined for ${types.join('/')} (domains: ${domains.join(', ')})`);
-      }
-    }
-    vocabNote = `schema.org vocabulary check passed (${checked} property uses)`;
+  if (process.env.SCHEMAORG_VOCAB) vocab = JSON.parse(readFileSync(process.env.SCHEMAORG_VOCAB, 'utf8'));
+  else {
+    const ctrl = new AbortController(); const t = setTimeout(() => ctrl.abort(), 8000);
+    const res = await fetch('https://schema.org/version/latest/schemaorg-current-https.jsonld', { signal: ctrl.signal }); clearTimeout(t);
+    if (res.ok) vocab = await res.json();
   }
 } catch { /* offline */ }
+if (vocab) {
+  const g = vocab['@graph'];
+  const byId = Object.fromEntries(g.map(n => [n['@id'].replace('schema:', ''), n]));
+  const parents = id => { const n = byId[id]; if (!n) return []; const s = n['rdfs:subClassOf'] || []; return (Array.isArray(s) ? s : [s]).map(x => x['@id'].replace('schema:', '')); };
+  const isA = (type, target) => { const seen = new Set(); const q = [type]; while (q.length) { const t = q.shift(); if (t === target) return true; if (seen.has(t)) continue; seen.add(t); q.push(...parents(t)); } return false; };
+  let checked = 0; const problems = new Set();
+  for (const p of PAGES) for (const n of nodesOf(results[p].doc)) {
+    const types = [].concat(n['@type']);
+    for (const t of types) if (!byId[t] || !(byId[t]['@type'] === 'rdfs:Class' || [].concat(byId[t]['@type']).includes('rdfs:Class'))) problems.add(`${p}: unknown @type ${t}`);
+    for (const prop of Object.keys(n)) {
+      if (prop.startsWith('@')) continue; checked++;
+      const pn = byId[prop]; if (!pn) { problems.add(`${p}: unknown property ${prop} on ${types.join('/')}`); continue; }
+      const domains = [].concat(pn['schema:domainIncludes'] || []).map(d => d['@id'].replace('schema:', ''));
+      if (!domains.some(d => types.some(t => isA(t, d)))) problems.add(`${p}: property ${prop} is not defined for ${types.join('/')} (domains: ${domains.join(', ')})`);
+    }
+  }
+  if (problems.size) fail('schema.org vocabulary check\n  ' + [...problems].join('\n  '));
+  vocabNote = `schema.org vocabulary check passed (${checked} property uses, ${process.env.SCHEMAORG_VOCAB ? 'local file' : 'fetched'})`;
+}
 
 /* ---------- write / check ---------- */
 mkdirSync(OUTDIR, { recursive: true });

@@ -24,6 +24,7 @@ Every value is copied from visible page copy or from an attribute the page alrea
 | checkinTime / checkoutTime | 15:00 / 10:00 | faq.html, "What are check-in and check-out times?": "Check-in is from 3:00 PM and check-out is by 10:00 AM." |
 | amenityFeature (24 items) | verbatim list | the-casa.html amenities checklist, all three groups (The property, Indoor living, Services), in page order, HTML entities decoded |
 | containsPlace | #full-casa, #half-casa | book.html, the two booking cards |
+| makesOffer (4 Offers) | book direct → book.html; Airbnb → the listing, for each of #full-casa and #half-casa (itemOffered) | book.html card buttons "Check availability", "Book on Airbnb" and "View on Airbnb". No price, per the rules. The Offers sit on the VacationRental rather than on the Accommodation nodes because schema.org does not define `offers` for Accommodation; `makesOffer` is defined for every Organization, which a VacationRental is. |
 | slogan | **omitted** | no single tagline appears on every page; each hero has its own subtitle |
 
 ## #full-casa (Accommodation)
@@ -34,7 +35,6 @@ Every value is copied from visible page copy or from an attribute the page alrea
 | description | "Everyone you love, under one roof. 7 Bedrooms · 6 Bathrooms. Sleeps up to 14 guests. …" | book.html Full Casa card: its subtitle followed by its five detail lines, joined with full stops. There is no prose paragraph for the Full Casa on the page. |
 | numberOfBedrooms / numberOfBathroomsTotal | 7 / 6 | book.html card |
 | occupancy maxValue | 14 | book.html card, "Sleeps up to 14 guests" |
-| offers | book direct → book.html; Airbnb → the listing | book.html card buttons "Check availability" and "Book on Airbnb". No price, per the rules. |
 
 ## #half-casa (Accommodation)
 
@@ -44,7 +44,6 @@ Every value is copied from visible page copy or from an attribute the page alrea
 | description | "A three-bedroom home on the first floor with its own kitchen, living space and entrance…" | book.html, "Good to know" → "The Half Casa is private", verbatim |
 | numberOfBedrooms / numberOfBathroomsTotal | 3 / 2.5 | book.html card |
 | occupancy minValue / maxValue | 4 / 6 | book.html card, "Sleeps 4 to 6 guests" |
-| offers | book direct → book.html; Airbnb → the listing | book.html card buttons "Check availability" and "View on Airbnb" |
 
 ## #availability (ReserveAction)
 
