@@ -1,0 +1,113 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://casaninaflamingo.com/#website",
+      "url": "https://casaninaflamingo.com/",
+      "name": "Casa Nina Flamingo",
+      "publisher": {
+        "@id": "https://casaninaflamingo.com/#villa"
+      }
+    },
+    {
+      "@type": [
+        "WebPage",
+        "ImageGallery"
+      ],
+      "@id": "https://casaninaflamingo.com/gallery.html#webpage",
+      "url": "https://casaninaflamingo.com/gallery.html",
+      "name": "Photo Gallery | Casa Nina Flamingo, Playa Flamingo Villa",
+      "description": "Photos of Casa Nina Flamingo, a seven-bedroom oceanview villa in Playa Flamingo, Costa Rica: pool, living rooms, kitchens, bedrooms, rooftop and the bay.",
+      "isPartOf": {
+        "@id": "https://casaninaflamingo.com/#website"
+      },
+      "about": {
+        "@id": "https://casaninaflamingo.com/#villa"
+      },
+      "primaryImageOfPage": "https://casaninaflamingo.com/images/22-casanina76-2000.jpg",
+      "breadcrumb": {
+        "@id": "https://casaninaflamingo.com/gallery.html#breadcrumb"
+      },
+      "inLanguage": "en",
+      "video": {
+        "@id": "https://casaninaflamingo.com/#film"
+      },
+      "image": [
+        "https://casaninaflamingo.com/images/home-hero-villa-pool.jpg",
+        "https://casaninaflamingo.com/images/22-casanina76-2000.jpg",
+        "https://casaninaflamingo.com/images/photo-84.jpeg",
+        "https://casaninaflamingo.com/images/photo-81.jpeg",
+        "https://casaninaflamingo.com/images/photo-15.jpeg",
+        "https://casaninaflamingo.com/images/photo-07.jpeg",
+        "https://casaninaflamingo.com/images/photo-69.jpeg",
+        "https://casaninaflamingo.com/images/14-casanina4-1600.jpg",
+        "https://casaninaflamingo.com/images/photo-79.jpeg",
+        "https://casaninaflamingo.com/images/photo-02.jpeg",
+        "https://casaninaflamingo.com/images/photo-45.jpeg",
+        "https://casaninaflamingo.com/images/photo-83.jpeg",
+        "https://casaninaflamingo.com/images/38-casanina9-1600.jpg",
+        "https://casaninaflamingo.com/images/photo-66.jpeg",
+        "https://casaninaflamingo.com/images/photo-46.jpeg",
+        "https://casaninaflamingo.com/images/photo-22.jpeg",
+        "https://casaninaflamingo.com/images/photo-31.jpeg",
+        "https://casaninaflamingo.com/images/photo-41.jpeg",
+        "https://casaninaflamingo.com/images/gallery-living-08.jpg",
+        "https://casaninaflamingo.com/images/35-casanina23-1600.jpg",
+        "https://casaninaflamingo.com/images/photo-kitchen.jpeg",
+        "https://casaninaflamingo.com/images/photo-23.jpeg",
+        "https://casaninaflamingo.com/images/photo-05.jpeg",
+        "https://casaninaflamingo.com/images/photo-01.jpeg",
+        "https://casaninaflamingo.com/images/photo-37.jpeg",
+        "https://casaninaflamingo.com/images/photo-53.jpeg",
+        "https://casaninaflamingo.com/images/photo-71.jpeg",
+        "https://casaninaflamingo.com/images/photo-72.jpeg",
+        "https://casaninaflamingo.com/images/43-casanina68-1200.jpg",
+        "https://casaninaflamingo.com/images/48-casanina5-1200.jpg",
+        "https://casaninaflamingo.com/images/photo-21.jpeg",
+        "https://casaninaflamingo.com/images/photo-82.jpeg",
+        "https://casaninaflamingo.com/images/photo-03.jpeg",
+        "https://casaninaflamingo.com/images/photo-10.jpeg",
+        "https://casaninaflamingo.com/images/photo-16.jpeg",
+        "https://casaninaflamingo.com/images/photo-34.jpeg",
+        "https://casaninaflamingo.com/images/photo-40.jpeg",
+        "https://casaninaflamingo.com/images/photo-47.jpeg",
+        "https://casaninaflamingo.com/images/photo-50.jpeg",
+        "https://casaninaflamingo.com/images/photo-59.jpeg"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://casaninaflamingo.com/gallery.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Casa Nina Flamingo",
+          "item": "https://casaninaflamingo.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Gallery",
+          "item": "https://casaninaflamingo.com/gallery.html"
+        }
+      ]
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://casaninaflamingo.com/#film",
+      "name": "Casa Nina Flamingo from the air: a seven-bedroom villa above Playa Flamingo, Costa Rica",
+      "description": "Casa Nina Flamingo from above: three floors of terraces on the hillside over Playa Flamingo, the infinity pool facing the Pacific, and the whole bay laid out below. The villa sleeps fourteen across two independent homes, with seven bedrooms, six bathrooms, two kitchens, a rooftop terrace and a private elevator. Concierge, private airport transfers, daily housekeeping and two chef-cooked breakfasts included.",
+      "thumbnailUrl": [
+        "https://casaninaflamingo.com/images/home-film-poster-dusk.jpg"
+      ],
+      "uploadDate": "2026-09-15",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/lwvIslSuoEo",
+      "contentUrl": "https://youtu.be/lwvIslSuoEo",
+      "about": {
+        "@id": "https://casaninaflamingo.com/#villa"
+      }
+    }
+  ]
+}

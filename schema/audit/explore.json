@@ -1,0 +1,189 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://casaninaflamingo.com/#website",
+      "url": "https://casaninaflamingo.com/",
+      "name": "Casa Nina Flamingo",
+      "publisher": {
+        "@id": "https://casaninaflamingo.com/#villa"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://casaninaflamingo.com/explore.html#webpage",
+      "url": "https://casaninaflamingo.com/explore.html",
+      "name": "Things to Do in Playa Flamingo, Costa Rica",
+      "description": "The best things to do in Playa Flamingo, Costa Rica: Gold Coast beaches, catamaran sails, Catalina Islands diving, day trips and seasonal events, all minutes from Casa Nina.",
+      "isPartOf": {
+        "@id": "https://casaninaflamingo.com/#website"
+      },
+      "about": {
+        "@id": "https://casaninaflamingo.com/explore.html#destination"
+      },
+      "primaryImageOfPage": "https://casaninaflamingo.com/images/explore-hero-aerial.jpg",
+      "breadcrumb": {
+        "@id": "https://casaninaflamingo.com/explore.html#breadcrumb"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://casaninaflamingo.com/explore.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Casa Nina Flamingo",
+          "item": "https://casaninaflamingo.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Explore Playa Flamingo",
+          "item": "https://casaninaflamingo.com/explore.html"
+        }
+      ]
+    },
+    {
+      "@type": "VacationRental",
+      "@id": "https://casaninaflamingo.com/#villa",
+      "name": "Casa Nina Flamingo",
+      "url": "https://casaninaflamingo.com/",
+      "image": "https://casaninaflamingo.com/images/explore/cta-villa-dusk.jpg",
+      "description": "A seven-bedroom luxury villa for large groups and multigenerational stays, steps from Playa Flamingo beach on Costa Rica's Gold Coast. Sleeps fourteen across two independent living units, with an elevator and a dedicated concierge included with every stay.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Playa Flamingo",
+        "addressRegion": "Guanacaste",
+        "addressCountry": "CR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 10.428825,
+        "longitude": -85.790987
+      },
+      "hasMap": "https://maps.google.com/?cid=1469512052654509312",
+      "containedInPlace": {
+        "@id": "https://casaninaflamingo.com/explore.html#destination"
+      }
+    },
+    {
+      "@type": "TouristDestination",
+      "@id": "https://casaninaflamingo.com/explore.html#destination",
+      "name": "Playa Flamingo",
+      "alternateName": "Costa Rica's Gold Coast",
+      "description": "A white-sand beach community on the Gold Coast of Guanacaste, Costa Rica, known for calm swimmable water, Marina Flamingo, world-class sportfishing, the Catalina Islands and Pacific sunsets.",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 10.428825,
+        "longitude": -85.790987
+      },
+      "containedInPlace": {
+        "@type": "AdministrativeArea",
+        "name": "Guanacaste Province",
+        "containedInPlace": {
+          "@type": "Country",
+          "name": "Costa Rica"
+        }
+      },
+      "touristType": [
+        "Families",
+        "Large groups",
+        "Beach travelers",
+        "Adventure travelers"
+      ],
+      "includesAttraction": [
+        {
+          "@type": "TouristAttraction",
+          "name": "Playa Flamingo Beach",
+          "description": "Protected white-sand crescent with calm, swimmable water and Pacific sunsets."
+        },
+        {
+          "@type": "TouristAttraction",
+          "name": "Marina Flamingo",
+          "description": "Full-service marina and departure point for sportfishing charters and catamaran sails, five minutes from Casa Nina."
+        },
+        {
+          "@type": "TouristAttraction",
+          "name": "Playa Conchal",
+          "description": "Beach of crushed shells with clear turquoise water, ten minutes away."
+        },
+        {
+          "@type": "TouristAttraction",
+          "name": "Catalina Islands",
+          "description": "Volcanic islets with premier diving and snorkeling; giant Pacific manta season runs November to April."
+        },
+        {
+          "@type": "TouristAttraction",
+          "name": "Las Baulas National Marine Park",
+          "description": "Protected nesting grounds at Playa Grande where leatherback turtles nest from October to March."
+        },
+        {
+          "@type": "TouristAttraction",
+          "name": "Reserva Conchal Golf Course",
+          "description": "Robert Trent Jones II championship course above Conchal beach."
+        },
+        {
+          "@type": "TouristAttraction",
+          "name": "Rincón de la Vieja National Park",
+          "description": "Active volcano with fumaroles, waterfalls, hanging bridges, hot springs and mud baths, about ninety minutes inland."
+        },
+        {
+          "@type": "TouristAttraction",
+          "name": "Palo Verde National Park",
+          "description": "Wetland river safaris on the Tempisque with monkeys, crocodiles and more than 280 bird species."
+        },
+        {
+          "@type": "TouristAttraction",
+          "name": "Llanos de Cortés Waterfall",
+          "description": "Wide curtain waterfall with a sandy, swimmable pool, roughly seventy minutes away."
+        },
+        {
+          "@type": "TouristAttraction",
+          "name": "Tamarindo",
+          "description": "Surf town twenty-five minutes south with beginner-friendly breaks, shopping and dining."
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://casaninaflamingo.com/explore.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do we get from the airport to Casa Nina Flamingo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Liberia International Airport (LIR) is about 60 minutes from the villa, and every Casa Nina booking includes airport pick-up and drop-off arranged by the concierge team."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do we need to rent a car in Playa Flamingo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not necessarily. Golf carts (4 or 6 passenger) are street-legal on all local roads, and the concierge arranges golf cart or car rentals on request, with cars in all different sizes for larger groups."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When is the best time to visit Playa Flamingo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "December to April is the Guanacaste dry season, with reliable sunshine and calm seas. May to November is the green season: full waterfalls, quieter beaches and the best value."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who arranges tours and activities during a stay at Casa Nina?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A dedicated concierge is included with every stay. Boat charters, private chefs, transport, spa days and excursions are arranged before guests land and throughout the stay."
+          }
+        }
+      ]
+    }
+  ]
+}

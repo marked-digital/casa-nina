@@ -1,0 +1,166 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://casaninaflamingo.com/#website",
+      "url": "https://casaninaflamingo.com/",
+      "name": "Casa Nina Flamingo",
+      "publisher": {
+        "@id": "https://casaninaflamingo.com/#villa"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://casaninaflamingo.com/#webpage",
+      "url": "https://casaninaflamingo.com/",
+      "name": "Casa Nina Flamingo | 7-Bedroom Oceanview Villa, Playa Flamingo",
+      "description": "Casa Nina Flamingo: a seven-bedroom oceanview villa in Playa Flamingo, Costa Rica, sleeping 14 across two private units. Pool, rooftop, concierge included.",
+      "isPartOf": {
+        "@id": "https://casaninaflamingo.com/#website"
+      },
+      "about": {
+        "@id": "https://casaninaflamingo.com/#villa"
+      },
+      "primaryImageOfPage": "https://casaninaflamingo.com/images/home-hero-villa-pool.jpg",
+      "inLanguage": "en",
+      "video": {
+        "@id": "https://casaninaflamingo.com/#film"
+      }
+    },
+    {
+      "@type": "VacationRental",
+      "@id": "https://casaninaflamingo.com/#villa",
+      "name": "Casa Nina Flamingo",
+      "url": "https://casaninaflamingo.com/",
+      "image": [
+        "https://casaninaflamingo.com/images/home-hero-villa-pool.jpg",
+        "https://casaninaflamingo.com/images/77-casanina16-2000.jpg",
+        "https://casaninaflamingo.com/images/35-casanina23-1600.jpg",
+        "https://casaninaflamingo.com/images/14-casanina4-1600.jpg",
+        "https://casaninaflamingo.com/images/photo-69.jpeg"
+      ],
+      "description": "A newly built three-storey oceanview villa in Playa Flamingo, Guanacaste, Costa Rica: seven bedrooms, six bathrooms, two kitchens, a private infinity pool, a rooftop terrace and a private elevator, sleeping 14 across two independent living units. A dedicated concierge, private airport transfers, daily housekeeping and two chef breakfasts are included with every stay.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Playa Flamingo",
+        "addressRegion": "Guanacaste",
+        "addressCountry": "CR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 10.428825,
+        "longitude": -85.790987
+      },
+      "hasMap": "https://maps.google.com/?cid=1469512052654509312",
+      "telephone": "+1-647-328-4929",
+      "email": "info@casaninaflamingo.com",
+      "priceRange": "Rates on request",
+      "sameAs": [
+        "https://www.airbnb.ca/rooms/553696885568872196",
+        "https://www.airbnb.ca/rooms/54124007",
+        "https://www.instagram.com/casaninaflamingo/",
+        "https://www.youtube.com/@CasaNinaFlamingo",
+        "https://www.tiktok.com/@casaninaflamingo"
+      ],
+      "numberOfBedrooms": 7,
+      "numberOfBathroomsTotal": 6,
+      "occupancy": {
+        "@type": "QuantitativeValue",
+        "maxValue": 14,
+        "unitText": "guests"
+      },
+      "checkinTime": "15:00",
+      "checkoutTime": "10:00",
+      "amenityFeature": [
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Private infinity pool",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Rooftop terrace",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Private elevator",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Two kitchens",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Two living rooms",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Air conditioning",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "High-speed Wi-Fi (136 Mbps)",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "24/7 security in a gated community",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Dedicated concierge",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Private airport transfers",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Daily housekeeping",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Ocean view",
+          "value": true
+        }
+      ],
+      "containsPlace": [
+        {
+          "@id": "https://casaninaflamingo.com/book.html#full-casa"
+        },
+        {
+          "@id": "https://casaninaflamingo.com/book.html#half-casa"
+        }
+      ]
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://casaninaflamingo.com/#film",
+      "name": "Casa Nina Flamingo from the air: a seven-bedroom villa above Playa Flamingo, Costa Rica",
+      "description": "Casa Nina Flamingo from above: three floors of terraces on the hillside over Playa Flamingo, the infinity pool facing the Pacific, and the whole bay laid out below. The villa sleeps fourteen across two independent homes, with seven bedrooms, six bathrooms, two kitchens, a rooftop terrace and a private elevator. Concierge, private airport transfers, daily housekeeping and two chef-cooked breakfasts included.",
+      "thumbnailUrl": [
+        "https://casaninaflamingo.com/images/home-film-poster-dusk.jpg"
+      ],
+      "uploadDate": "2026-09-15",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/lwvIslSuoEo",
+      "contentUrl": "https://youtu.be/lwvIslSuoEo",
+      "about": {
+        "@id": "https://casaninaflamingo.com/#villa"
+      },
+      "publisher": {
+        "@id": "https://casaninaflamingo.com/#villa"
+      }
+    }
+  ]
+}
