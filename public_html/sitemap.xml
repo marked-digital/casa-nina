@@ -320,6 +320,12 @@
     <image:image>
       <image:loc>https://casaninaflamingo.com/images/photo-27.jpeg</image:loc>
     </image:image>
+    <video:video>
+      <video:thumbnail_loc>https://casaninaflamingo.com/images/home-film-poster-dusk.jpg</video:thumbnail_loc>
+      <video:title>Casa Nina Flamingo from the air: a seven-bedroom villa above Playa Flamingo, Costa Rica</video:title>
+      <video:description>Casa Nina Flamingo from above: three floors of terraces on the hillside over Playa Flamingo, the infinity pool facing the Pacific, and the whole bay laid out below. The villa sleeps fourteen across two independent homes, with seven bedrooms, six bathrooms, two kitchens, a rooftop terrace and a private elevator. Concierge, private airport transfers, daily housekeeping and two chef-cooked breakfasts included.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/lwvIslSuoEo</video:player_loc>
+    </video:video>
   </url>
   <url>
     <loc>https://casaninaflamingo.com/book.html</loc>
