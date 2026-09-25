@@ -1,0 +1,91 @@
+# Casa Nina Flamingo — Apache / LiteSpeed configuration for Spaceship (cPanel).
+# Deployed by .github/workflows/deploy.yml. Never served by Vercel (.vercelignore).
+# Staging note: cPanel Directory Privacy lines are prepended to this file on the
+# staging host by the workflow, from /home/<user>/staging-auth.htaccess.
+
+Options -Indexes
+
+# ---------------------------------------------------------------------------
+# Redirects and the availability endpoint
+# ---------------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # http -> https, on the SAME host (never the apex: staging must stay on staging).
+  # The second condition avoids a loop if a proxy (e.g. Cloudflare) terminates TLS.
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+  # www -> apex
+  RewriteCond %{HTTP_HOST} ^www\.casaninaflamingo\.com$ [NC]
+  RewriteRule ^ https://casaninaflamingo.com%{REQUEST_URI} [R=301,L]
+
+  # /api/availability (what js/availability.js fetches) -> the PHP port
+  RewriteRule ^api/availability/?$ php/availability.php [L,QSA]
+
+  # Never serve dotfiles (a stray .env, .git, .htpasswd); .well-known stays open for AutoSSL.
+  RewriteRule "(^|/)\.(?!well-known/)" - [F]
+</IfModule>
+
+ErrorDocument 404 /404.html
+
+# ---------------------------------------------------------------------------
+# Headers
+# ---------------------------------------------------------------------------
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
+
+  # HSTS: enable only after 48 clean hours on https (every page, every asset,
+  # the www redirect and staging all fine). It cannot be undone quickly.
+  # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+
+  # Staging never indexes, even with the Directory Privacy login lifted.
+  # Production must never send X-Robots-Tag (scripts/smoke.sh checks both).
+  SetEnvIf Host ^staging\. STAGING
+  Header always set X-Robots-Tag "noindex, nofollow" env=STAGING
+</IfModule>
+
+# ---------------------------------------------------------------------------
+# Caching: HTML is never cached, CSS/JS one day (filenames are not versioned),
+# images and fonts one year. The PHP endpoint sets its own Cache-Control.
+# ---------------------------------------------------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html                    "access plus 0 seconds"
+  ExpiresByType text/css                     "access plus 1 day"
+  ExpiresByType application/javascript       "access plus 1 day"
+  ExpiresByType text/javascript              "access plus 1 day"
+  ExpiresByType image/jpeg                   "access plus 1 year"
+  ExpiresByType image/png                    "access plus 1 year"
+  ExpiresByType image/webp                   "access plus 1 year"
+  ExpiresByType image/avif                   "access plus 1 year"
+  ExpiresByType image/svg+xml                "access plus 1 year"
+  ExpiresByType image/x-icon                 "access plus 1 year"
+  ExpiresByType image/vnd.microsoft.icon     "access plus 1 year"
+  ExpiresByType font/woff2                   "access plus 1 year"
+  ExpiresByType font/woff                    "access plus 1 year"
+  ExpiresByType application/font-woff2       "access plus 1 year"
+</IfModule>
+<IfModule mod_headers.c>
+  <FilesMatch "\.html?$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+  <FilesMatch "\.(jpe?g|png|webp|avif|svg|ico|woff2?)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>
+
+# ---------------------------------------------------------------------------
+# Compression for text types
+# ---------------------------------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript application/javascript application/json application/xml text/xml image/svg+xml application/manifest+json
+</IfModule>
+
+# Correct types for files cPanel's defaults may not know
+AddType application/manifest+json .webmanifest
+AddType font/woff2 .woff2

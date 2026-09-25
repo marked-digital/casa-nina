@@ -17,3 +17,7 @@ Thumbs.db
 # Secrets
 .env
 .env.*
+
+# Server config (the real file lives at /home/<user>/config/casa-nina.php)
+config/*.php
+!config/casa-nina.example.php
