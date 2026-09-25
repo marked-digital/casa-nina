@@ -5,7 +5,7 @@
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://casaninaflamingo.com/</loc>
-    <lastmod>2026-09-25T18:02:35+00:00</lastmod>
+    <lastmod>2026-09-25T18:21:32+00:00</lastmod>
     <image:image>
       <image:loc>https://casaninaflamingo.com/images/home-hero-villa-pool.jpg</image:loc>
     </image:image>
@@ -51,13 +51,13 @@
     <video:video>
       <video:thumbnail_loc>https://casaninaflamingo.com/images/home-film-poster-dusk.jpg</video:thumbnail_loc>
       <video:title>Casa Nina Flamingo from the air: a seven-bedroom villa above Playa Flamingo, Costa Rica</video:title>
-      <video:description>Casa Nina Flamingo from above: three floors of terraces on the hillside over Playa Flamingo, the infinity pool facing the Pacific, and the whole bay laid out below. The villa sleeps fourteen across two independent homes, with seven bedrooms, six bathrooms, two kitchens, a rooftop terrace and a private elevator. Concierge, private airport transfers, daily housekeeping and two chef-cooked breakfasts included.</video:description>
+      <video:description>Casa Nina Flamingo from above: three floors of terraces on the hillside over Playa Flamingo, the infinity pool facing the Pacific, and the whole bay laid out below. The villa sleeps fourteen across two independent homes, with seven bedrooms, six bathrooms, two kitchens, a rooftop terrace and a private elevator. Concierge, private airport transfers, daily housekeeping and two chef breakfasts are included with every stay.</video:description>
       <video:player_loc>https://www.youtube.com/embed/lwvIslSuoEo</video:player_loc>
     </video:video>
   </url>
   <url>
     <loc>https://casaninaflamingo.com/the-casa.html</loc>
-    <lastmod>2026-09-25T18:02:35+00:00</lastmod>
+    <lastmod>2026-09-25T18:21:32+00:00</lastmod>
     <image:image>
       <image:loc>https://casaninaflamingo.com/images/77-casanina16-2000.jpg</image:loc>
     </image:image>
@@ -88,7 +88,7 @@
   </url>
   <url>
     <loc>https://casaninaflamingo.com/gallery.html</loc>
-    <lastmod>2026-09-25T18:02:35+00:00</lastmod>
+    <lastmod>2026-09-25T18:21:32+00:00</lastmod>
     <image:image>
       <image:loc>https://casaninaflamingo.com/images/22-casanina76-2000.jpg</image:loc>
     </image:image>
@@ -323,13 +323,13 @@
     <video:video>
       <video:thumbnail_loc>https://casaninaflamingo.com/images/home-film-poster-dusk.jpg</video:thumbnail_loc>
       <video:title>Casa Nina Flamingo from the air: a seven-bedroom villa above Playa Flamingo, Costa Rica</video:title>
-      <video:description>Casa Nina Flamingo from above: three floors of terraces on the hillside over Playa Flamingo, the infinity pool facing the Pacific, and the whole bay laid out below. The villa sleeps fourteen across two independent homes, with seven bedrooms, six bathrooms, two kitchens, a rooftop terrace and a private elevator. Concierge, private airport transfers, daily housekeeping and two chef-cooked breakfasts included.</video:description>
+      <video:description>Casa Nina Flamingo from above: three floors of terraces on the hillside over Playa Flamingo, the infinity pool facing the Pacific, and the whole bay laid out below. The villa sleeps fourteen across two independent homes, with seven bedrooms, six bathrooms, two kitchens, a rooftop terrace and a private elevator. Concierge, private airport transfers, daily housekeeping and two chef breakfasts are included with every stay.</video:description>
       <video:player_loc>https://www.youtube.com/embed/lwvIslSuoEo</video:player_loc>
     </video:video>
   </url>
   <url>
     <loc>https://casaninaflamingo.com/book.html</loc>
-    <lastmod>2026-09-25T18:02:35+00:00</lastmod>
+    <lastmod>2026-09-25T18:21:32+00:00</lastmod>
     <image:image>
       <image:loc>https://casaninaflamingo.com/images/gallery-pool-12.jpg</image:loc>
     </image:image>
@@ -339,7 +339,7 @@
   </url>
   <url>
     <loc>https://casaninaflamingo.com/faq.html</loc>
-    <lastmod>2026-09-25T18:02:35+00:00</lastmod>
+    <lastmod>2026-09-25T18:21:32+00:00</lastmod>
     <image:image>
       <image:loc>https://casaninaflamingo.com/images/gallery-pool-06.jpg</image:loc>
     </image:image>
@@ -349,7 +349,7 @@
   </url>
   <url>
     <loc>https://casaninaflamingo.com/explore.html</loc>
-    <lastmod>2026-09-25T18:02:35+00:00</lastmod>
+    <lastmod>2026-09-25T18:21:32+00:00</lastmod>
     <image:image>
       <image:loc>https://casaninaflamingo.com/images/explore-hero-aerial.jpg</image:loc>
     </image:image>
@@ -419,7 +419,7 @@
   </url>
   <url>
     <loc>https://casaninaflamingo.com/concierge.html</loc>
-    <lastmod>2026-09-25T18:02:35+00:00</lastmod>
+    <lastmod>2026-09-25T18:21:32+00:00</lastmod>
     <image:image>
       <image:loc>https://casaninaflamingo.com/images/14-casanina4-1600.jpg</image:loc>
     </image:image>
