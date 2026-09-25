@@ -1,0 +1,34 @@
+# Runs on every push to main (each push is a publish: Vercel deploys main
+# automatically today, cPanel Git will after the move to Spaceship).
+# 1. Confirms the generated files are current, so a stale sitemap or schema
+#    never goes out.
+# 2. Pings IndexNow (Bing, and through it Copilot and ChatGPT search) with the
+#    page URLs, once the live sitemap matches the commit.
+# The ping only sends when the repository variable INDEXNOW_ENABLED is "true".
+# Set it at go-live (Settings → Secrets and variables → Actions → Variables);
+# until then the step prints a dry run and passes.
+name: publish
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # the sitemap's lastmod values come from git history
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Generated files are current
+        run: |
+          node scripts/build-sitemap.mjs --check
+          node scripts/build-schema.mjs --check
+          python3 scripts/check-robots.py
+      - name: Ping IndexNow
+        env:
+          INDEXNOW_ENABLED: ${{ vars.INDEXNOW_ENABLED }}
+        run: node scripts/indexnow-ping.mjs
