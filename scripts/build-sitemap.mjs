@@ -65,18 +65,22 @@ function cssUrls(css) {
   return out;
 }
 
-/* git commit date (W3C, with offset) of the last commit touching a file, or null if untracked. */
+/* W3C datetime in UTC with an explicit +00:00 offset, from a Date. Formatted here rather than by git so the
+   output is identical on every git version (git 2.47+ prints UTC iso-strict dates as "Z", older as "+00:00"). */
+function w3cUTC(d) {
+  const pad = (n) => String(n).padStart(2, '0');
+  return `${d.getUTCFullYear()}-${pad(d.getUTCMonth() + 1)}-${pad(d.getUTCDate())}T${pad(d.getUTCHours())}:${pad(d.getUTCMinutes())}:${pad(d.getUTCSeconds())}+00:00`;
+}
+/* Commit date of the last commit touching a file, or null if untracked. %ct is a unix timestamp, so it does not
+   depend on the committer's or the machine's time zone. */
 function gitDate(relPath) {
   try {
-    const out = execFileSync('git', ['log', '-1', '--format=%cI', '--', relPath], { cwd: ROOT, encoding: 'utf8' }).trim();
-    return out || null;
+    const out = execFileSync('git', ['log', '-1', '--format=%ct', '--', relPath], { cwd: ROOT, encoding: 'utf8' }).trim();
+    return out ? w3cUTC(new Date(Number(out) * 1000)) : null;
   } catch { return null; }
 }
 function mtimeW3C(absPath) {
-  const d = statSync(absPath).mtime;
-  const pad = (n) => String(n).padStart(2, '0');
-  const off = -d.getTimezoneOffset(), sign = off >= 0 ? '+' : '-', a = Math.abs(off);
-  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}${sign}${pad(Math.floor(a / 60))}:${pad(a % 60)}`;
+  return w3cUTC(statSync(absPath).mtime);
 }
 function lastmodFor(relPath) {
   const g = gitDate(relPath);
