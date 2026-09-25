@@ -1956,10 +1956,10 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
    11.64em at 500/.005em, so 7.4vw keeps it on one line down to 541px; the vh
    term shrinks it on short windows so kicker → h1 → sub → dek → buttons →
    rate note fit; the cap keeps it inside the 1240 wrap on wide screens. */
-:is(.page-home,.page-book,.page-casa,.page-concierge,.page-gallery) .xp-hero__inner{ width:auto; max-width:var(--xp-max); margin:0 auto;
+:is(.page-home,.page-book,.page-casa,.page-concierge,.page-gallery,.page-404) .xp-hero__inner{ width:auto; max-width:var(--xp-max); margin:0 auto;
   padding-left:var(--xp-gutter); padding-right:var(--xp-gutter); }   /* explore gets this from .xp-page .xp-wrap */
 @media (min-width:761px){
-  :is(.page-home,.page-book,.page-casa,.page-concierge,.page-gallery) .xp-hero__inner{ padding-top:calc(var(--xp-header-h) + clamp(24px,4vh,64px));
+  :is(.page-home,.page-book,.page-casa,.page-concierge,.page-gallery,.page-404) .xp-hero__inner{ padding-top:calc(var(--xp-header-h) + clamp(24px,4vh,64px));
     padding-bottom:calc(var(--xp-header-h) + clamp(24px,4vh,64px)); }
 }
 .page-home .xp-hero h1{ font-size:clamp(2.8rem, min(8.6vw, 11.5vh), 7rem);
@@ -2598,3 +2598,10 @@ body.lb-open{ overflow:hidden; }
 .page-book .form-thanks__title{ margin:12px 0 14px; font:500 var(--xp-title-card, 1.75rem)/1.2 var(--cn-display); color:var(--cn-navy); }
 .page-book .form-thanks__text{ margin:0; font-size:16px; font-weight:300; line-height:1.6; color:var(--cn-ink-muted); }
 .page-book .form-thanks__text a{ color:var(--cn-gold); text-decoration:underline; text-underline-offset:3px; }
+/* 2026-09-25: 404 page. One hero screen; the buttons reuse the homepage's hero button row. */
+.page-404 .xp-hero h1{ text-wrap:balance; max-width:12ch; }   /* "This one is off / the map." rather than a stranded last word */
+.page-404 .xp-hero__btns{ margin-top:34px; display:flex; gap:16px; flex-wrap:wrap; }
+.page-404 .xp-hero-note{ margin:26px 0 0; max-width:60ch; }
+.page-404 .xp-hero-note a{ color:var(--cn-gold-soft); text-decoration:underline; text-underline-offset:3px; }
+.page-404 .xp-hero-note a:hover{ color:var(--cn-gold); }
+@media (max-width:760px){ .page-404 .xp-hero__btns{ margin-top:24px; } .page-404 .xp-hero__btns .xp-btn{ width:100%; text-align:center; } }
