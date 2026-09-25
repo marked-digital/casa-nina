@@ -1,0 +1,961 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://casaninaflamingo.com/#website",
+      "name": "Casa Nina Flamingo",
+      "url": "https://casaninaflamingo.com/",
+      "publisher": {
+        "@id": "https://casaninaflamingo.com/#vacationrental"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "VacationRental",
+      "@id": "https://casaninaflamingo.com/#vacationrental",
+      "name": "Casa Nina Flamingo",
+      "url": "https://casaninaflamingo.com/",
+      "description": "Casa Nina Flamingo is a newly built three-storey villa above Playa Flamingo on Costa Rica’s Guanacaste coast, with seven bedrooms, six bathrooms and space for fourteen. The first floor is a complete home of its own; the second and third floors hold the main residence and the rooftop terrace, and a private elevator connects all three. Grandparents, parents and kids get to be together without being on top of each other.",
+      "image": [
+        "https://casaninaflamingo.com/images/home-hero-villa-pool.jpg",
+        "https://casaninaflamingo.com/images/gallery-exterior-03.jpg"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Playa Flamingo",
+        "addressRegion": "Guanacaste",
+        "addressCountry": "CR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 10.428825,
+        "longitude": -85.790987
+      },
+      "hasMap": "https://maps.google.com/?cid=1469512052654509312",
+      "telephone": "+16473284929",
+      "email": "info@casaninaflamingo.com",
+      "sameAs": [
+        "https://www.instagram.com/casaninaflamingo/",
+        "https://www.youtube.com/@CasaNinaFlamingo",
+        "https://www.tiktok.com/@casaninaflamingo",
+        "https://www.airbnb.ca/rooms/553696885568872196"
+      ],
+      "numberOfRooms": 7,
+      "checkinTime": "15:00",
+      "checkoutTime": "10:00",
+      "amenityFeature": [
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Private infinity pool",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Rooftop deck with panoramic views",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Elevator access (all 3 floors)",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "24/7 on-site security",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Gated parking",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Tropical landscaped gardens",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Outdoor dining areas",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "BBQ facilities",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "2 fully equipped kitchens",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "2 spacious living rooms",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "7 bedrooms / 6 bathrooms",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Air conditioning throughout",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "High-speed WiFi",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Smart TVs in both living rooms",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Premium linens & towels",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Washer & dryer",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Dedicated concierge, included",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Private chef, included (two breakfasts)",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Private airport transfers, included",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Daily housekeeping, included",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Tour & excursion booking",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Grocery pre-stocking",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Event coordination",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Golf cart & car rentals",
+          "value": true
+        }
+      ],
+      "containsPlace": [
+        {
+          "@id": "https://casaninaflamingo.com/book.html#full-casa"
+        },
+        {
+          "@id": "https://casaninaflamingo.com/book.html#half-casa"
+        }
+      ]
+    },
+    {
+      "@type": "Accommodation",
+      "@id": "https://casaninaflamingo.com/book.html#full-casa",
+      "name": "Full Casa",
+      "description": "Everyone you love, under one roof. 7 Bedrooms · 6 Bathrooms. Sleeps up to 14 guests. All 3 floors · 2 kitchens · 2 living rooms. Private infinity pool · Rooftop terrace. Elevator access · 24/7 security.",
+      "url": "https://casaninaflamingo.com/book.html",
+      "numberOfBedrooms": 7,
+      "numberOfBathroomsTotal": 6,
+      "occupancy": {
+        "@type": "QuantitativeValue",
+        "maxValue": 14,
+        "unitText": "guests"
+      },
+      "containedInPlace": {
+        "@id": "https://casaninaflamingo.com/#vacationrental"
+      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Full Casa, book direct",
+          "url": "https://casaninaflamingo.com/book.html",
+          "availability": "https://schema.org/InStock"
+        },
+        {
+          "@type": "Offer",
+          "name": "Full Casa on Airbnb",
+          "url": "https://www.airbnb.ca/rooms/553696885568872196",
+          "availability": "https://schema.org/InStock"
+        }
+      ]
+    },
+    {
+      "@type": "Accommodation",
+      "@id": "https://casaninaflamingo.com/book.html#half-casa",
+      "name": "Half Casa",
+      "description": "A three-bedroom home on the first floor with its own kitchen, living space and entrance. When you reserve it, the pool and patio are exclusively yours and never shared with anyone else.",
+      "url": "https://casaninaflamingo.com/book.html",
+      "numberOfBedrooms": 3,
+      "numberOfBathroomsTotal": 2.5,
+      "occupancy": {
+        "@type": "QuantitativeValue",
+        "minValue": 4,
+        "maxValue": 6,
+        "unitText": "guests"
+      },
+      "containedInPlace": {
+        "@id": "https://casaninaflamingo.com/#vacationrental"
+      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Half Casa, book direct",
+          "url": "https://casaninaflamingo.com/book.html",
+          "availability": "https://schema.org/InStock"
+        },
+        {
+          "@type": "Offer",
+          "name": "Half Casa on Airbnb",
+          "url": "https://www.airbnb.ca/rooms/553696885568872196",
+          "availability": "https://schema.org/InStock"
+        }
+      ]
+    },
+    {
+      "@type": "ImageGallery",
+      "@id": "https://casaninaflamingo.com/gallery.html#webpage",
+      "url": "https://casaninaflamingo.com/gallery.html",
+      "name": "Photo Gallery | Casa Nina Flamingo, Playa Flamingo Villa",
+      "description": "Photos of Casa Nina Flamingo, a seven-bedroom oceanview villa in Playa Flamingo, Costa Rica: pool, living rooms, kitchens, bedrooms, rooftop and the bay.",
+      "isPartOf": {
+        "@id": "https://casaninaflamingo.com/#website"
+      },
+      "about": {
+        "@id": "https://casaninaflamingo.com/#vacationrental"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "contentUrl": "https://casaninaflamingo.com/images/22-casanina76-2000.jpg",
+        "url": "https://casaninaflamingo.com/images/22-casanina76-2000.jpg"
+      },
+      "inLanguage": "en",
+      "associatedMedia": [
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/home-hero-villa-pool.jpg",
+          "url": "https://casaninaflamingo.com/images/home-hero-villa-pool.jpg",
+          "caption": "The villa from the pool terrace: three floors of terraces above the infinity pool at Casa Nina Flamingo",
+          "width": 2000,
+          "height": 1412,
+          "representativeOfPage": true
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/home-film-poster-dusk.jpg",
+          "url": "https://casaninaflamingo.com/images/home-film-poster-dusk.jpg",
+          "caption": "Casa Nina Flamingo at dusk, every room lit, above the infinity pool at Casa Nina Flamingo",
+          "width": 2000,
+          "height": 1406
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-exterior-03.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-exterior-03.jpg",
+          "caption": "The villa at dusk from above the pool, terraces lit on all three floors at Casa Nina Flamingo",
+          "width": 2000,
+          "height": 1500
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/77-casanina16-2000.jpg",
+          "url": "https://casaninaflamingo.com/images/77-casanina16-2000.jpg",
+          "caption": "The pool terrace at dusk with the villa lit up behind at Casa Nina Flamingo",
+          "width": 2000,
+          "height": 1333
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-exterior-09.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-exterior-09.jpg",
+          "caption": "The pool terrace at dusk, the villa lit on all three floors and a bedroom open to the patio at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1067
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-exterior-10.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-exterior-10.jpg",
+          "caption": "The covered dining terrace with the live-edge table, the pool and the bay beyond at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1067
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-exterior-07.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-exterior-07.jpg",
+          "caption": "The paved driveway and parking inside the gate, the pool terrace to the left at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1067
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-exterior-08.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-exterior-08.jpg",
+          "caption": "The step-free ramp with handrails from the driveway to the front door at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1067
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-pool-01.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-pool-01.jpg",
+          "caption": "The infinity pool and loungers with Playa Flamingo bay and the hills beyond at Casa Nina Flamingo",
+          "width": 2000,
+          "height": 1333
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-pool-02.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-pool-02.jpg",
+          "caption": "The infinity pool at sunset, the sky turning pink over the bay at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1067
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-pool-03.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-pool-03.jpg",
+          "caption": "Loungers by the pool, looking along the terrace to the covered patio at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1067
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-pool-04.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-pool-04.jpg",
+          "caption": "The covered patio at dusk with teal armchairs beside the pool at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1067
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-pool-05.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-pool-05.jpg",
+          "caption": "The live-edge dining table on the covered patio, the pool beyond at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1067
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-pool-06.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-pool-06.jpg",
+          "caption": "Lounge seating under the teak ceiling, the pool running out toward the bay at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1066
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-pool-07.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-pool-07.jpg",
+          "caption": "A second-floor balcony at dusk, with the bay and the hills in the distance at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1067
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-pool-08.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-pool-08.jpg",
+          "caption": "Dinner outside: the live-edge table on the patio at sunset at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1067
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-pool-09.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-pool-09.jpg",
+          "caption": "The rooftop terrace with its dining table, sofas and umbrella at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1067
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-pool-10.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-pool-10.jpg",
+          "caption": "The rooftop lounge and grill at sunset, the bay below at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1067
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-pool-11.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-pool-11.jpg",
+          "caption": "The rooftop lounge under the umbrella, looking out over the bay at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1067
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-pool-12.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-pool-12.jpg",
+          "caption": "Balcony chairs and red ginger flowers, with the bay and the hills beyond at Casa Nina Flamingo",
+          "width": 2000,
+          "height": 1334
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/38-casanina9-1600.jpg",
+          "url": "https://casaninaflamingo.com/images/38-casanina9-1600.jpg",
+          "caption": "Living room with the doors folded open to the terrace, kitchen beyond at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1067
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-living-03.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-living-03.jpg",
+          "caption": "Living room with a sectional sofa, live-edge coffee table and a blue armchair at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1067
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-living-04.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-living-04.jpg",
+          "caption": "Living room with the folding doors open to the balcony and the bay at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1067
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-living-02.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-living-02.jpg",
+          "caption": "The living room doors slid open to the terrace, the bay and the hills at sunset at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1067
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-living-05.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-living-05.jpg",
+          "caption": "The sofa looking out through the sliding doors to the pool terrace at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1067
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-living-06.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-living-06.jpg",
+          "caption": "Open-plan living room and kitchen with the doors open to the pool at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1067
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-living-07.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-living-07.jpg",
+          "caption": "The second living room with its folding doors open and the kitchen beyond at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1067
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-living-08.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-living-08.jpg",
+          "caption": "The first-floor living room: sectional sofa, live-edge coffee table, blue armchair and wall-mounted TV at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1067
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-kitchens-01.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-kitchens-01.jpg",
+          "caption": "The first-floor kitchen: white cabinetry, a navy island with bar seating, and the terrace beyond the window at Casa Nina Flamingo",
+          "width": 2000,
+          "height": 1333
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-kitchens-02.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-kitchens-02.jpg",
+          "caption": "The first-floor kitchen from the side, with its long island, gas range and fridge at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1067
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-kitchens-03.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-kitchens-03.jpg",
+          "caption": "The first-floor kitchen island at dusk, looking past the living room to the terrace and the bay at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1067
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-kitchens-04.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-kitchens-04.jpg",
+          "caption": "First-floor dining: the live-edge table and bench, with the kitchen island behind at Casa Nina Flamingo",
+          "width": 2000,
+          "height": 1333
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/photo-05.jpeg",
+          "url": "https://casaninaflamingo.com/images/photo-05.jpeg",
+          "caption": "First-floor dining from the living room: the live-edge table and bench, the kitchen beyond at Casa Nina Flamingo",
+          "width": 1200,
+          "height": 800
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/photo-72.jpeg",
+          "url": "https://casaninaflamingo.com/images/photo-72.jpeg",
+          "caption": "The first-floor kitchen’s range and counters, with the navy island and the dining table beyond at Casa Nina Flamingo",
+          "width": 1200,
+          "height": 800
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-kitchens-05.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-kitchens-05.jpg",
+          "caption": "The second-floor kitchen: white cabinets, a black island and hood, marble counters and splashback at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1067
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-kitchens-06.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-kitchens-06.jpg",
+          "caption": "The second-floor kitchen from the side, marble counters running the length of the room at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1067
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-kitchens-07.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-kitchens-07.jpg",
+          "caption": "The second-floor kitchen island at dusk, with the living room and the bay beyond the window at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1067
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-kitchens-08.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-kitchens-08.jpg",
+          "caption": "The second-floor kitchen window framing the bay, between the island and the range at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1067
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-kitchens-09.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-kitchens-09.jpg",
+          "caption": "Second-floor dining: the live-edge table and bench beside the kitchen at Casa Nina Flamingo",
+          "width": 2000,
+          "height": 1333
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/43-casanina68-1200.jpg",
+          "url": "https://casaninaflamingo.com/images/43-casanina68-1200.jpg",
+          "caption": "A live-edge wood bed with sliding doors to the terrace at Casa Nina Flamingo",
+          "width": 1200,
+          "height": 800
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-bedrooms-01.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-bedrooms-01.jpg",
+          "caption": "From the foot of the bed, the doors open to the terrace and the bay at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1070
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-bedrooms-closet-01.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-bedrooms-closet-01.jpg",
+          "caption": "A walk-in closet with shelving, drawers and a safe at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1067
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/48-casanina5-1200.jpg",
+          "url": "https://casaninaflamingo.com/images/48-casanina5-1200.jpg",
+          "caption": "A bedroom with a crib and balcony doors overlooking the pool at Casa Nina Flamingo",
+          "width": 1200,
+          "height": 800
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-bedrooms-02.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-bedrooms-02.jpg",
+          "caption": "The sliding doors open to the balcony and the view over the bay at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1067
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-bedrooms-03.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-bedrooms-03.jpg",
+          "caption": "A wood bed under a clerestory window, doors to the balcony at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1067
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-bedrooms-04.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-bedrooms-04.jpg",
+          "caption": "A live-edge headboard and doors straight out to the pool terrace at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1067
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-bedrooms-09.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-bedrooms-09.jpg",
+          "caption": "A king bedroom with a live-edge wood headboard and floating bedside shelves, a crib in the corner at Casa Nina Flamingo",
+          "width": 2000,
+          "height": 1333
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-bedrooms-05.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-bedrooms-05.jpg",
+          "caption": "A dark wood wardrobe and live-edge bedside shelves at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1067
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-bedrooms-closet-02.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-bedrooms-closet-02.jpg",
+          "caption": "A second walk-in closet, shelved and with a safe at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1067
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-bedrooms-06.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-bedrooms-06.jpg",
+          "caption": "A bedroom with a crib and sliding doors to the terrace at sunset at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1067
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-bedrooms-07.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-bedrooms-07.jpg",
+          "caption": "Looking past the bed to the patio and the sunset over the bay at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1067
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-bedrooms-08.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-bedrooms-08.jpg",
+          "caption": "The top-floor suite with its ensuite bathroom, wardrobes and a picture window over the bay at Casa Nina Flamingo",
+          "width": 2000,
+          "height": 1333
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/50-casanina75-1200.jpg",
+          "url": "https://casaninaflamingo.com/images/50-casanina75-1200.jpg",
+          "caption": "Marble bathroom with double vanity and walk-in glass shower at Casa Nina Flamingo",
+          "width": 1200,
+          "height": 800
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/photo-17.jpeg",
+          "url": "https://casaninaflamingo.com/images/photo-17.jpeg",
+          "caption": "Bathroom with walk-in shower at Casa Nina Flamingo",
+          "width": 1200,
+          "height": 800
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/photo-51.jpeg",
+          "url": "https://casaninaflamingo.com/images/photo-51.jpeg",
+          "caption": "Bathroom with dark vanity and glass shower at Casa Nina Flamingo",
+          "width": 1200,
+          "height": 800
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/photo-55.jpeg",
+          "url": "https://casaninaflamingo.com/images/photo-55.jpeg",
+          "caption": "Bathroom with vanity and mirror at Casa Nina Flamingo",
+          "width": 1200,
+          "height": 800
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/photo-57.jpeg",
+          "url": "https://casaninaflamingo.com/images/photo-57.jpeg",
+          "caption": "Bathroom with double vanity at Casa Nina Flamingo",
+          "width": 1200,
+          "height": 800
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-bathrooms-11.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-bathrooms-11.jpg",
+          "caption": "A full bathroom with a walk-in rain shower, dark stone vanity and a window onto the trees at Casa Nina Flamingo",
+          "width": 2000,
+          "height": 1333
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/photo-73.jpeg",
+          "url": "https://casaninaflamingo.com/images/photo-73.jpeg",
+          "caption": "Bathroom with walk-in shower and vanity at Casa Nina Flamingo",
+          "width": 1200,
+          "height": 800
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/photo-74.jpeg",
+          "url": "https://casaninaflamingo.com/images/photo-74.jpeg",
+          "caption": "Bathroom with vanity and shower at Casa Nina Flamingo",
+          "width": 1200,
+          "height": 800
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/photo-44.jpeg",
+          "url": "https://casaninaflamingo.com/images/photo-44.jpeg",
+          "caption": "Bathroom with pedestal sink at Casa Nina Flamingo",
+          "width": 1200,
+          "height": 800
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/photo-35.jpeg",
+          "url": "https://casaninaflamingo.com/images/photo-35.jpeg",
+          "caption": "Bathroom with dark vanity at Casa Nina Flamingo",
+          "width": 1200,
+          "height": 800
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/photo-48.jpeg",
+          "url": "https://casaninaflamingo.com/images/photo-48.jpeg",
+          "caption": "Bathroom with white vanity at Casa Nina Flamingo",
+          "width": 1200,
+          "height": 800
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-bathrooms-laundry.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-bathrooms-laundry.jpg",
+          "caption": "Stacked washer and dryer in the laundry room at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1067
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-rooftop-01.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-rooftop-01.jpg",
+          "caption": "The rooftop terrace at dusk: lounge chairs along the railing, the neighbouring tower and the bay beyond at Casa Nina Flamingo",
+          "width": 2000,
+          "height": 1333
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/37-casanina41-1600.jpg",
+          "url": "https://casaninaflamingo.com/images/37-casanina41-1600.jpg",
+          "caption": "Living room doors open onto the balcony and the bay at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1067
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-pool-01.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-pool-01.jpg",
+          "caption": "The infinity pool and loungers with Playa Flamingo bay and the hills beyond at Casa Nina Flamingo",
+          "width": 2000,
+          "height": 1333
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-pool-02.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-pool-02.jpg",
+          "caption": "The infinity pool at sunset, the sky turning pink over the bay at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1067
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-living-02.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-living-02.jpg",
+          "caption": "Sunset over the bay and the hills, seen through the open living room doors at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1067
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-pool-09.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-pool-09.jpg",
+          "caption": "The rooftop terrace with its dining table, sofas and umbrella at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1067
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-pool-10.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-pool-10.jpg",
+          "caption": "The rooftop lounge and grill at sunset, the bay below at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1067
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-pool-08.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-pool-08.jpg",
+          "caption": "Dinner outside on the patio at sunset, the pool and the hills beyond at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1067
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-views-01.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-views-01.jpg",
+          "caption": "Playa Flamingo bay from the villa: the anchorage, the beach and the hills beyond the trees at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1067
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-pool-12.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-pool-12.jpg",
+          "caption": "Balcony chairs and red ginger flowers, with the bay and the hills beyond at Casa Nina Flamingo",
+          "width": 2000,
+          "height": 1334
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/explore-hero-aerial.jpg",
+          "url": "https://casaninaflamingo.com/images/explore-hero-aerial.jpg",
+          "caption": "Aerial view of Casa Nina Flamingo above Playa Flamingo bay at Casa Nina Flamingo",
+          "width": 2000,
+          "height": 1500
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-area-01.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-area-01.jpg",
+          "caption": "Aerial view of Playa Flamingo’s white-sand crescent, with the villa pinned on the hillside above it at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1200
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-area-02.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-area-02.jpg",
+          "caption": "Aerial view over the villa, pinned, toward Flamingo Bay, the marina and the headlands at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1200
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/explore/beach-flamingo.jpg",
+          "url": "https://casaninaflamingo.com/images/explore/beach-flamingo.jpg",
+          "caption": "Playa Flamingo beach, a short walk downhill from the villa at Casa Nina Flamingo",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/explore/beach-potrero.jpg",
+          "url": "https://casaninaflamingo.com/images/explore/beach-potrero.jpg",
+          "caption": "Playa Potrero, the calm bay one beach to the north at Casa Nina Flamingo",
+          "width": 1000,
+          "height": 667
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/explore/beach-conchal.jpg",
+          "url": "https://casaninaflamingo.com/images/explore/beach-conchal.jpg",
+          "caption": "Playa Conchal, the shell-sand beach a short drive to the south at Casa Nina Flamingo",
+          "width": 1680,
+          "height": 945
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/explore/beach-penca.jpg",
+          "url": "https://casaninaflamingo.com/images/explore/beach-penca.jpg",
+          "caption": "Playa Penca, a small cove beyond Potrero at Casa Nina Flamingo",
+          "width": 1739,
+          "height": 1240
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/photo-36.jpeg",
+          "url": "https://casaninaflamingo.com/images/photo-36.jpeg",
+          "caption": "Playa Flamingo beach at Casa Nina Flamingo",
+          "width": 1200,
+          "height": 900
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/photo-27.jpeg",
+          "url": "https://casaninaflamingo.com/images/photo-27.jpeg",
+          "caption": "Playa Flamingo at golden hour at Casa Nina Flamingo",
+          "width": 1680,
+          "height": 1261
+        }
+      ],
+      "breadcrumb": {
+        "@id": "https://casaninaflamingo.com/gallery.html#breadcrumb"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://casaninaflamingo.com/gallery.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://casaninaflamingo.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Gallery",
+          "item": "https://casaninaflamingo.com/gallery.html"
+        }
+      ]
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://casaninaflamingo.com/#film",
+      "name": "Casa Nina Flamingo from the air: a seven-bedroom villa above Playa Flamingo, Costa Rica",
+      "description": "Casa Nina Flamingo from above: three floors of terraces on the hillside over Playa Flamingo, the infinity pool facing the Pacific, and the whole bay laid out below. The villa sleeps fourteen across two independent homes, with seven bedrooms, six bathrooms, two kitchens, a rooftop terrace and a private elevator. Concierge, private airport transfers, daily housekeeping and two chef breakfasts are included with every stay.",
+      "thumbnailUrl": "https://casaninaflamingo.com/images/home-film-poster-dusk.jpg",
+      "embedUrl": "https://www.youtube.com/embed/lwvIslSuoEo",
+      "uploadDate": "2026-09-15",
+      "publisher": {
+        "@id": "https://casaninaflamingo.com/#vacationrental"
+      }
+    }
+  ]
+}

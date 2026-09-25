@@ -380,38 +380,295 @@
   </footer>
 
 
+  <!-- schema:start -->
   <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "@id": "https://casaninaflamingo.com/#website",
-      "url": "https://casaninaflamingo.com/",
-      "name": "Casa Nina Flamingo",
-      "publisher": {
-        "@id": "https://casaninaflamingo.com/#villa"
-      }
-    },
-    {
-      "@type": "WebPage",
-      "@id": "https://casaninaflamingo.com/book.html#webpage",
-      "url": "https://casaninaflamingo.com/book.html",
-      "name": "Book Your Stay at Casa Nina Flamingo",
-      "description": "Book Casa Nina Flamingo direct or on Airbnb: the Full Casa (7 bedrooms, sleeps 14) or private Half Casa (3 bedrooms), steps from Playa Flamingo, Costa Rica.",
-      "isPartOf": {
-        "@id": "https://casaninaflamingo.com/#website"
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://casaninaflamingo.com/#website",
+        "name": "Casa Nina Flamingo",
+        "url": "https://casaninaflamingo.com/",
+        "publisher": {
+          "@id": "https://casaninaflamingo.com/#vacationrental"
+        },
+        "inLanguage": "en"
       },
-      "about": {
-        "@id": "https://casaninaflamingo.com/#villa"
+      {
+        "@type": "VacationRental",
+        "@id": "https://casaninaflamingo.com/#vacationrental",
+        "name": "Casa Nina Flamingo",
+        "url": "https://casaninaflamingo.com/",
+        "description": "Casa Nina Flamingo is a newly built three-storey villa above Playa Flamingo on Costa Rica’s Guanacaste coast, with seven bedrooms, six bathrooms and space for fourteen. The first floor is a complete home of its own; the second and third floors hold the main residence and the rooftop terrace, and a private elevator connects all three. Grandparents, parents and kids get to be together without being on top of each other.",
+        "image": [
+          "https://casaninaflamingo.com/images/home-hero-villa-pool.jpg",
+          "https://casaninaflamingo.com/images/gallery-exterior-03.jpg"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Playa Flamingo",
+          "addressRegion": "Guanacaste",
+          "addressCountry": "CR"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 10.428825,
+          "longitude": -85.790987
+        },
+        "hasMap": "https://maps.google.com/?cid=1469512052654509312",
+        "telephone": "+16473284929",
+        "email": "info@casaninaflamingo.com",
+        "sameAs": [
+          "https://www.instagram.com/casaninaflamingo/",
+          "https://www.youtube.com/@CasaNinaFlamingo",
+          "https://www.tiktok.com/@casaninaflamingo",
+          "https://www.airbnb.ca/rooms/553696885568872196"
+        ],
+        "numberOfRooms": 7,
+        "checkinTime": "15:00",
+        "checkoutTime": "10:00",
+        "amenityFeature": [
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Private infinity pool",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Rooftop deck with panoramic views",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Elevator access (all 3 floors)",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "24/7 on-site security",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Gated parking",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Tropical landscaped gardens",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Outdoor dining areas",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "BBQ facilities",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "2 fully equipped kitchens",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "2 spacious living rooms",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "7 bedrooms / 6 bathrooms",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Air conditioning throughout",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "High-speed WiFi",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Smart TVs in both living rooms",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Premium linens & towels",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Washer & dryer",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Dedicated concierge, included",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Private chef, included (two breakfasts)",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Private airport transfers, included",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Daily housekeeping, included",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Tour & excursion booking",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Grocery pre-stocking",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Event coordination",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Golf cart & car rentals",
+            "value": true
+          }
+        ],
+        "containsPlace": [
+          {
+            "@id": "https://casaninaflamingo.com/book.html#full-casa"
+          },
+          {
+            "@id": "https://casaninaflamingo.com/book.html#half-casa"
+          }
+        ]
       },
-      "primaryImageOfPage": "https://casaninaflamingo.com/images/gallery-pool-12.jpg",
-      "breadcrumb": {
-        "@id": "https://casaninaflamingo.com/book.html#breadcrumb"
+      {
+        "@type": "Accommodation",
+        "@id": "https://casaninaflamingo.com/book.html#full-casa",
+        "name": "Full Casa",
+        "description": "Everyone you love, under one roof. 7 Bedrooms · 6 Bathrooms. Sleeps up to 14 guests. All 3 floors · 2 kitchens · 2 living rooms. Private infinity pool · Rooftop terrace. Elevator access · 24/7 security.",
+        "url": "https://casaninaflamingo.com/book.html",
+        "numberOfBedrooms": 7,
+        "numberOfBathroomsTotal": 6,
+        "occupancy": {
+          "@type": "QuantitativeValue",
+          "maxValue": 14,
+          "unitText": "guests"
+        },
+        "containedInPlace": {
+          "@id": "https://casaninaflamingo.com/#vacationrental"
+        },
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Full Casa, book direct",
+            "url": "https://casaninaflamingo.com/book.html",
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "name": "Full Casa on Airbnb",
+            "url": "https://www.airbnb.ca/rooms/553696885568872196",
+            "availability": "https://schema.org/InStock"
+          }
+        ]
       },
-      "inLanguage": "en",
-      "potentialAction": {
+      {
+        "@type": "Accommodation",
+        "@id": "https://casaninaflamingo.com/book.html#half-casa",
+        "name": "Half Casa",
+        "description": "A three-bedroom home on the first floor with its own kitchen, living space and entrance. When you reserve it, the pool and patio are exclusively yours and never shared with anyone else.",
+        "url": "https://casaninaflamingo.com/book.html",
+        "numberOfBedrooms": 3,
+        "numberOfBathroomsTotal": 2.5,
+        "occupancy": {
+          "@type": "QuantitativeValue",
+          "minValue": 4,
+          "maxValue": 6,
+          "unitText": "guests"
+        },
+        "containedInPlace": {
+          "@id": "https://casaninaflamingo.com/#vacationrental"
+        },
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Half Casa, book direct",
+            "url": "https://casaninaflamingo.com/book.html",
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "name": "Half Casa on Airbnb",
+            "url": "https://www.airbnb.ca/rooms/553696885568872196",
+            "availability": "https://schema.org/InStock"
+          }
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://casaninaflamingo.com/book.html#webpage",
+        "url": "https://casaninaflamingo.com/book.html",
+        "name": "Book Your Stay: Full Casa or Half Casa | Casa Nina Flamingo",
+        "description": "Book Casa Nina Flamingo direct or on Airbnb: the Full Casa (7 bedrooms, sleeps 14) or private Half Casa (3 bedrooms), steps from Playa Flamingo, Costa Rica.",
+        "isPartOf": {
+          "@id": "https://casaninaflamingo.com/#website"
+        },
+        "about": {
+          "@id": "https://casaninaflamingo.com/#vacationrental"
+        },
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-pool-12.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-pool-12.jpg"
+        },
+        "inLanguage": "en",
+        "breadcrumb": {
+          "@id": "https://casaninaflamingo.com/book.html#breadcrumb"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://casaninaflamingo.com/book.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://casaninaflamingo.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Book",
+            "item": "https://casaninaflamingo.com/book.html"
+          }
+        ]
+      },
+      {
         "@type": "ReserveAction",
+        "@id": "https://casaninaflamingo.com/book.html#availability",
+        "name": "Check availability",
+        "object": {
+          "@id": "https://casaninaflamingo.com/#vacationrental"
+        },
         "target": {
           "@type": "EntryPoint",
           "urlTemplate": "https://casaninaflamingo.com/book.html#availability",
@@ -425,196 +682,10 @@
           "name": "Stay at Casa Nina Flamingo"
         }
       }
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://casaninaflamingo.com/book.html#breadcrumb",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Casa Nina Flamingo",
-          "item": "https://casaninaflamingo.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Book Your Stay",
-          "item": "https://casaninaflamingo.com/book.html"
-        }
-      ]
-    },
-    {
-      "@type": "VacationRental",
-      "@id": "https://casaninaflamingo.com/#villa",
-      "name": "Casa Nina Flamingo",
-      "url": "https://casaninaflamingo.com/",
-      "image": "https://casaninaflamingo.com/images/explore/cta-villa-dusk.jpg",
-      "description": "A seven-bedroom luxury villa for large groups and multigenerational stays, steps from Playa Flamingo beach on Costa Rica's Gold Coast. Sleeps fourteen across two independent living units, with an elevator and a dedicated concierge included with every stay.",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Playa Flamingo",
-        "addressRegion": "Guanacaste",
-        "addressCountry": "CR"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 10.428825,
-        "longitude": -85.790987
-      },
-      "hasMap": "https://maps.google.com/?cid=1469512052654509312",
-      "telephone": "+1-647-328-4929",
-      "email": "info@casaninaflamingo.com",
-      "priceRange": "Rates on request",
-      "sameAs": [
-        "https://www.airbnb.ca/rooms/553696885568872196",
-        "https://www.instagram.com/casaninaflamingo/",
-        "https://www.youtube.com/@CasaNinaFlamingo",
-        "https://www.tiktok.com/@casaninaflamingo"
-      ],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "reservations",
-        "telephone": "+1-647-328-4929",
-        "email": "info@casaninaflamingo.com",
-        "url": "https://casaninaflamingo.com/book.html#availability"
-      },
-      "numberOfBedrooms": 7,
-      "numberOfBathroomsTotal": 6,
-      "occupancy": {
-        "@type": "QuantitativeValue",
-        "maxValue": 14,
-        "unitText": "guests"
-      },
-      "checkinTime": "15:00",
-      "checkoutTime": "10:00",
-      "amenityFeature": [
-        {
-          "@type": "LocationFeatureSpecification",
-          "name": "Private infinity pool",
-          "value": true
-        },
-        {
-          "@type": "LocationFeatureSpecification",
-          "name": "Rooftop terrace",
-          "value": true
-        },
-        {
-          "@type": "LocationFeatureSpecification",
-          "name": "Elevator",
-          "value": true
-        },
-        {
-          "@type": "LocationFeatureSpecification",
-          "name": "Two kitchens",
-          "value": true
-        },
-        {
-          "@type": "LocationFeatureSpecification",
-          "name": "Two living rooms",
-          "value": true
-        },
-        {
-          "@type": "LocationFeatureSpecification",
-          "name": "24/7 security",
-          "value": true
-        },
-        {
-          "@type": "LocationFeatureSpecification",
-          "name": "Dedicated concierge",
-          "value": true
-        },
-        {
-          "@type": "LocationFeatureSpecification",
-          "name": "Private airport transfers from Liberia (LIR)",
-          "value": true
-        },
-        {
-          "@type": "LocationFeatureSpecification",
-          "name": "Ocean view",
-          "value": true
-        }
-      ],
-      "containsPlace": [
-        {
-          "@id": "https://casaninaflamingo.com/book.html#full-casa"
-        },
-        {
-          "@id": "https://casaninaflamingo.com/book.html#half-casa"
-        }
-      ]
-    },
-    {
-      "@type": "Accommodation",
-      "@id": "https://casaninaflamingo.com/book.html#full-casa",
-      "name": "Full Casa, Casa Nina Flamingo",
-      "description": "The whole villa across three floors: seven bedrooms, six bathrooms, two kitchens, two living rooms, private infinity pool, rooftop terrace, elevator access and 24/7 security. Sleeps up to 14.",
-      "numberOfBedrooms": 7,
-      "numberOfBathroomsTotal": 6,
-      "occupancy": {
-        "@type": "QuantitativeValue",
-        "maxValue": 14,
-        "unitText": "guests"
-      },
-      "containedInPlace": {
-        "@id": "https://casaninaflamingo.com/#villa"
-      },
-      "offers": [
-        {
-          "@type": "Offer",
-          "name": "Full Casa direct booking",
-          "url": "https://casaninaflamingo.com/book.html#availability",
-          "availability": "https://schema.org/InStock",
-          "priceCurrency": "USD",
-          "description": "Rates on request; 50% deposit, balance due 14 days before arrival."
-        },
-        {
-          "@type": "Offer",
-          "name": "Full Casa on Airbnb",
-          "url": "https://www.airbnb.ca/rooms/553696885568872196",
-          "availability": "https://schema.org/InStock",
-          "priceCurrency": "USD"
-        }
-      ]
-    },
-    {
-      "@type": "Accommodation",
-      "@id": "https://casaninaflamingo.com/book.html#half-casa",
-      "name": "Half Casa, Casa Nina Flamingo",
-      "description": "A private three-bedroom residence on the first floor with its own entrance, full kitchen, living and dining area, pool access and 24/7 security. Sleeps 4 to 6, with the pool and patio exclusively yours and never shared.",
-      "numberOfBedrooms": 3,
-      "numberOfBathroomsTotal": 2.5,
-      "occupancy": {
-        "@type": "QuantitativeValue",
-        "minValue": 4,
-        "maxValue": 6,
-        "unitText": "guests"
-      },
-      "containedInPlace": {
-        "@id": "https://casaninaflamingo.com/#villa"
-      },
-      "offers": [
-        {
-          "@type": "Offer",
-          "name": "Half Casa direct booking",
-          "url": "https://casaninaflamingo.com/book.html#availability",
-          "availability": "https://schema.org/InStock",
-          "priceCurrency": "USD",
-          "description": "Rates on request; 50% deposit, balance due 14 days before arrival."
-        },
-        {
-          "@type": "Offer",
-          "name": "Half Casa on Airbnb",
-          "url": "https://www.airbnb.ca/rooms/553696885568872196",
-          "availability": "https://schema.org/InStock",
-          "priceCurrency": "USD"
-        }
-      ],
-      "floorLevel": "1"
-    }
-  ]
-}
+    ]
+  }
   </script>
+  <!-- schema:end -->
   <script src="js/lenis.min.js"></script>
   <script src="js/smooth-scroll.js"></script>
   <script src="main.js"></script>

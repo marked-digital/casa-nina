@@ -101,109 +101,535 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "@id": "https://casaninaflamingo.com/#website",
-      "url": "https://casaninaflamingo.com/",
-      "name": "Casa Nina Flamingo",
-      "publisher": { "@id": "https://casaninaflamingo.com/#villa" }
-    },
-    {
-      "@type": "WebPage",
-      "@id": "https://casaninaflamingo.com/explore.html#webpage",
-      "url": "https://casaninaflamingo.com/explore.html",
-      "name": "Things to Do in Playa Flamingo, Costa Rica",
-      "description": "The best things to do in Playa Flamingo, Costa Rica: Gold Coast beaches, catamaran sails, Catalina Islands diving, day trips and seasonal events, all minutes from Casa Nina.",
-      "isPartOf": { "@id": "https://casaninaflamingo.com/#website" },
-      "about": { "@id": "https://casaninaflamingo.com/explore.html#destination" },
-      "primaryImageOfPage": "https://casaninaflamingo.com/images/explore-hero-aerial.jpg",
-      "breadcrumb": { "@id": "https://casaninaflamingo.com/explore.html#breadcrumb" },
-      "inLanguage": "en"
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://casaninaflamingo.com/explore.html#breadcrumb",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Casa Nina Flamingo", "item": "https://casaninaflamingo.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Explore Playa Flamingo", "item": "https://casaninaflamingo.com/explore.html" }
-      ]
-    },
-    {
-      "@type": "VacationRental",
-      "@id": "https://casaninaflamingo.com/#villa",
-      "name": "Casa Nina Flamingo",
-      "url": "https://casaninaflamingo.com/",
-      "image": "https://casaninaflamingo.com/images/explore/cta-villa-dusk.jpg",
-      "description": "A seven-bedroom luxury villa for large groups and multigenerational stays, steps from Playa Flamingo beach on Costa Rica's Gold Coast. Sleeps fourteen across two independent living units, with an elevator and a dedicated concierge included with every stay.",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Playa Flamingo",
-        "addressRegion": "Guanacaste",
-        "addressCountry": "CR"
+<!-- schema:start -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://casaninaflamingo.com/#website",
+        "name": "Casa Nina Flamingo",
+        "url": "https://casaninaflamingo.com/",
+        "publisher": {
+          "@id": "https://casaninaflamingo.com/#vacationrental"
+        },
+        "inLanguage": "en"
       },
-      "geo": { "@type": "GeoCoordinates", "latitude": 10.428825, "longitude": -85.790987 },
-      "hasMap": "https://maps.google.com/?cid=1469512052654509312",
-      "containedInPlace": { "@id": "https://casaninaflamingo.com/explore.html#destination" }
-    },
-    {
-      "@type": "TouristDestination",
-      "@id": "https://casaninaflamingo.com/explore.html#destination",
-      "name": "Playa Flamingo",
-      "alternateName": "Costa Rica's Gold Coast",
-      "description": "A white-sand beach community on the Gold Coast of Guanacaste, Costa Rica, known for calm swimmable water, Marina Flamingo, world-class sportfishing, the Catalina Islands and Pacific sunsets.",
-      "geo": { "@type": "GeoCoordinates", "latitude": 10.428825, "longitude": -85.790987 },
-      "containedInPlace": {
-        "@type": "AdministrativeArea",
-        "name": "Guanacaste Province",
-        "containedInPlace": { "@type": "Country", "name": "Costa Rica" }
+      {
+        "@type": "VacationRental",
+        "@id": "https://casaninaflamingo.com/#vacationrental",
+        "name": "Casa Nina Flamingo",
+        "url": "https://casaninaflamingo.com/",
+        "description": "Casa Nina Flamingo is a newly built three-storey villa above Playa Flamingo on Costa Rica’s Guanacaste coast, with seven bedrooms, six bathrooms and space for fourteen. The first floor is a complete home of its own; the second and third floors hold the main residence and the rooftop terrace, and a private elevator connects all three. Grandparents, parents and kids get to be together without being on top of each other.",
+        "image": [
+          "https://casaninaflamingo.com/images/home-hero-villa-pool.jpg",
+          "https://casaninaflamingo.com/images/gallery-exterior-03.jpg"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Playa Flamingo",
+          "addressRegion": "Guanacaste",
+          "addressCountry": "CR"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 10.428825,
+          "longitude": -85.790987
+        },
+        "hasMap": "https://maps.google.com/?cid=1469512052654509312",
+        "telephone": "+16473284929",
+        "email": "info@casaninaflamingo.com",
+        "sameAs": [
+          "https://www.instagram.com/casaninaflamingo/",
+          "https://www.youtube.com/@CasaNinaFlamingo",
+          "https://www.tiktok.com/@casaninaflamingo",
+          "https://www.airbnb.ca/rooms/553696885568872196"
+        ],
+        "numberOfRooms": 7,
+        "checkinTime": "15:00",
+        "checkoutTime": "10:00",
+        "amenityFeature": [
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Private infinity pool",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Rooftop deck with panoramic views",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Elevator access (all 3 floors)",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "24/7 on-site security",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Gated parking",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Tropical landscaped gardens",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Outdoor dining areas",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "BBQ facilities",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "2 fully equipped kitchens",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "2 spacious living rooms",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "7 bedrooms / 6 bathrooms",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Air conditioning throughout",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "High-speed WiFi",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Smart TVs in both living rooms",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Premium linens & towels",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Washer & dryer",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Dedicated concierge, included",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Private chef, included (two breakfasts)",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Private airport transfers, included",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Daily housekeeping, included",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Tour & excursion booking",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Grocery pre-stocking",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Event coordination",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Golf cart & car rentals",
+            "value": true
+          }
+        ],
+        "containsPlace": [
+          {
+            "@id": "https://casaninaflamingo.com/book.html#full-casa"
+          },
+          {
+            "@id": "https://casaninaflamingo.com/book.html#half-casa"
+          }
+        ]
       },
-      "touristType": ["Families", "Large groups", "Beach travelers", "Adventure travelers"],
-      "includesAttraction": [
-        { "@type": "TouristAttraction", "name": "Playa Flamingo Beach", "description": "Protected white-sand crescent with calm, swimmable water and Pacific sunsets." },
-        { "@type": "TouristAttraction", "name": "Marina Flamingo", "description": "Full-service marina and departure point for sportfishing charters and catamaran sails, five minutes from Casa Nina." },
-        { "@type": "TouristAttraction", "name": "Playa Conchal", "description": "Beach of crushed shells with clear turquoise water, ten minutes away." },
-        { "@type": "TouristAttraction", "name": "Catalina Islands", "description": "Volcanic islets with premier diving and snorkeling; giant Pacific manta season runs November to April." },
-        { "@type": "TouristAttraction", "name": "Las Baulas National Marine Park", "description": "Protected nesting grounds at Playa Grande where leatherback turtles nest from October to March." },
-        { "@type": "TouristAttraction", "name": "Reserva Conchal Golf Course", "description": "Robert Trent Jones II championship course above Conchal beach." },
-        { "@type": "TouristAttraction", "name": "Rincón de la Vieja National Park", "description": "Active volcano with fumaroles, waterfalls, hanging bridges, hot springs and mud baths, about ninety minutes inland." },
-        { "@type": "TouristAttraction", "name": "Palo Verde National Park", "description": "Wetland river safaris on the Tempisque with monkeys, crocodiles and more than 280 bird species." },
-        { "@type": "TouristAttraction", "name": "Llanos de Cortés Waterfall", "description": "Wide curtain waterfall with a sandy, swimmable pool, roughly seventy minutes away." },
-        { "@type": "TouristAttraction", "name": "Tamarindo", "description": "Surf town twenty-five minutes south with beginner-friendly breaks, shopping and dining." }
-      ]
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://casaninaflamingo.com/explore.html#faq",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "How do we get from the airport to Casa Nina Flamingo?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Liberia International Airport (LIR) is about 60 minutes from the villa, and every Casa Nina booking includes airport pick-up and drop-off arranged by the concierge team." }
+      {
+        "@type": "Accommodation",
+        "@id": "https://casaninaflamingo.com/book.html#full-casa",
+        "name": "Full Casa",
+        "description": "Everyone you love, under one roof. 7 Bedrooms · 6 Bathrooms. Sleeps up to 14 guests. All 3 floors · 2 kitchens · 2 living rooms. Private infinity pool · Rooftop terrace. Elevator access · 24/7 security.",
+        "url": "https://casaninaflamingo.com/book.html",
+        "numberOfBedrooms": 7,
+        "numberOfBathroomsTotal": 6,
+        "occupancy": {
+          "@type": "QuantitativeValue",
+          "maxValue": 14,
+          "unitText": "guests"
         },
-        {
-          "@type": "Question",
-          "name": "Do we need to rent a car in Playa Flamingo?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Not necessarily. Golf carts (4 or 6 passenger) are street-legal on all local roads, and the concierge arranges golf cart or car rentals on request, with cars in all different sizes for larger groups." }
+        "containedInPlace": {
+          "@id": "https://casaninaflamingo.com/#vacationrental"
         },
-        {
-          "@type": "Question",
-          "name": "When is the best time to visit Playa Flamingo?",
-          "acceptedAnswer": { "@type": "Answer", "text": "December to April is the Guanacaste dry season, with reliable sunshine and calm seas. May to November is the green season: full waterfalls, quieter beaches and the best value." }
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Full Casa, book direct",
+            "url": "https://casaninaflamingo.com/book.html",
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "name": "Full Casa on Airbnb",
+            "url": "https://www.airbnb.ca/rooms/553696885568872196",
+            "availability": "https://schema.org/InStock"
+          }
+        ]
+      },
+      {
+        "@type": "Accommodation",
+        "@id": "https://casaninaflamingo.com/book.html#half-casa",
+        "name": "Half Casa",
+        "description": "A three-bedroom home on the first floor with its own kitchen, living space and entrance. When you reserve it, the pool and patio are exclusively yours and never shared with anyone else.",
+        "url": "https://casaninaflamingo.com/book.html",
+        "numberOfBedrooms": 3,
+        "numberOfBathroomsTotal": 2.5,
+        "occupancy": {
+          "@type": "QuantitativeValue",
+          "minValue": 4,
+          "maxValue": 6,
+          "unitText": "guests"
         },
-        {
-          "@type": "Question",
-          "name": "Who arranges tours and activities during a stay at Casa Nina?",
-          "acceptedAnswer": { "@type": "Answer", "text": "A dedicated concierge is included with every stay. Boat charters, private chefs, transport, spa days and excursions are arranged before guests land and throughout the stay." }
+        "containedInPlace": {
+          "@id": "https://casaninaflamingo.com/#vacationrental"
+        },
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Half Casa, book direct",
+            "url": "https://casaninaflamingo.com/book.html",
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "name": "Half Casa on Airbnb",
+            "url": "https://www.airbnb.ca/rooms/553696885568872196",
+            "availability": "https://schema.org/InStock"
+          }
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://casaninaflamingo.com/explore.html#webpage",
+        "url": "https://casaninaflamingo.com/explore.html",
+        "name": "Things to Do in Playa Flamingo, Costa Rica | Casa Nina Flamingo",
+        "description": "The best things to do in Playa Flamingo, Costa Rica: Gold Coast beaches, catamaran sails, Catalina Islands diving, day trips and seasonal events, all minutes from Casa Nina.",
+        "isPartOf": {
+          "@id": "https://casaninaflamingo.com/#website"
+        },
+        "about": {
+          "@id": "https://casaninaflamingo.com/#vacationrental"
+        },
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/explore-hero-aerial.jpg",
+          "url": "https://casaninaflamingo.com/images/explore-hero-aerial.jpg"
+        },
+        "inLanguage": "en",
+        "mainEntity": {
+          "@id": "https://casaninaflamingo.com/explore.html#attractions"
+        },
+        "breadcrumb": {
+          "@id": "https://casaninaflamingo.com/explore.html#breadcrumb"
         }
-      ]
-    }
-  ]
-}
-</script>
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://casaninaflamingo.com/explore.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://casaninaflamingo.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Explore",
+            "item": "https://casaninaflamingo.com/explore.html"
+          }
+        ]
+      },
+      {
+        "@type": "TouristDestination",
+        "@id": "https://casaninaflamingo.com/explore.html#destination",
+        "name": "Playa Flamingo",
+        "description": "A calm, white-sand crescent on the Pacific. Every distance on this page is measured from the villa’s front door.",
+        "url": "https://casaninaflamingo.com/explore.html",
+        "containedInPlace": {
+          "@type": "AdministrativeArea",
+          "name": "Guanacaste",
+          "containedInPlace": {
+            "@type": "Country",
+            "name": "Costa Rica"
+          }
+        }
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://casaninaflamingo.com/explore.html#attractions",
+        "name": "Things to do around Playa Flamingo",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@type": "TouristAttraction",
+              "name": "Playa Flamingo",
+              "description": "The home beach: a protected white-sand crescent with water calm enough for every age, and the sunsets the coast is named for."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@type": "TouristAttraction",
+              "name": "Playa Potrero",
+              "description": "A long, quiet stretch around the bay with gentle water and low-key beach bars. The locals’ evening walk."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@type": "TouristAttraction",
+              "name": "Brasilito",
+              "description": "The working beach town next door: fishing boats pulled up on the shore, a sleepy plaza, and dinner with your feet in the sand."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@type": "TouristAttraction",
+              "name": "Playa Conchal",
+              "description": "Sand made of crushed shells and the clearest turquoise water in the region. Bring the snorkels."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "item": {
+              "@type": "TouristAttraction",
+              "name": "Playa Penca",
+              "description": "A small, sheltered cove past Potrero that rarely draws a crowd. Shallow, still, and made for little ones."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "item": {
+              "@type": "TouristAttraction",
+              "name": "Playa Grande",
+              "description": "A wilder, protected shore inside Las Baulas National Park. Surf by day, then join a guided night walk to watch leatherback turtles nest, October to March."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 7,
+            "item": {
+              "@type": "TouristAttraction",
+              "name": "The sunset catamaran",
+              "description": "Board at Flamingo or Potrero for an afternoon down the coast, with a snorkel stop, an open bar, and the sun dropping behind the Catalinas. The one everyone remembers."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 8,
+            "item": {
+              "@type": "TouristAttraction",
+              "name": "Sportfishing",
+              "description": "Half- and full-day charters run for sailfish, marlin, roosterfish, tuna and mahi from a coast with a serious billfish reputation."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 9,
+            "item": {
+              "@type": "TouristAttraction",
+              "name": "The Catalina Islands",
+              "description": "Volcanic islets with some of the Pacific’s best diving and snorkeling. Giant mantas cruise through November to April; white-tip sharks, rays and turtles hold the fort year-round."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 10,
+            "item": {
+              "@type": "TouristAttraction",
+              "name": "Learn to surf",
+              "description": "The forgiving breaks at Tamarindo and Playa Grande built Costa Rica’s surf reputation. Lessons run daily, boards included, all levels welcome."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 11,
+            "item": {
+              "@type": "TouristAttraction",
+              "name": "Kayak & paddleboard",
+              "description": "Flamingo and Potrero bays sit glassy until midday, which makes for easy paddling across all ages. Gear is delivered straight to the beach."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 12,
+            "item": {
+              "@type": "TouristAttraction",
+              "name": "Canopy zip-lining",
+              "description": "Coastal canopy runs crowned by a dual zipline over the ocean, one of the longest in the country, with a sloth sanctuary and botanical garden waiting below."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 13,
+            "item": {
+              "@type": "TouristAttraction",
+              "name": "Horseback riding",
+              "description": "Guided rides along the sand at low tide or up into the dry-forest hills, paced for confident riders and first-timers alike."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 14,
+            "item": {
+              "@type": "TouristAttraction",
+              "name": "ATV & UTV tours",
+              "description": "Quads and side-by-sides on ridge tracks and back roads, with lookouts over the whole bay along the way."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 15,
+            "item": {
+              "@type": "TouristAttraction",
+              "name": "Championship golf",
+              "description": "A Robert Trent Jones II course threaded through the dry forest above Conchal beach. Clubs and tee times arranged."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 16,
+            "item": {
+              "@type": "TouristAttraction",
+              "name": "Spa, at the villa",
+              "description": "Massages, facials and full spa days set up poolside or on the beach. The therapists come to you."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 17,
+            "item": {
+              "@type": "TouristAttraction",
+              "name": "Rincón de la Vieja",
+              "description": "An active volcano ringed by fumaroles, waterfalls and hanging bridges. Pair the national park with thermal hot springs and mineral mud baths at Vandara for the complete day."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 18,
+            "item": {
+              "@type": "TouristAttraction",
+              "name": "Palo Verde river safari",
+              "description": "A slow boat on the Tempisque through one of Central America’s great wetlands, with monkeys and crocodiles on the banks and more than 280 bird species overhead."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 19,
+            "item": {
+              "@type": "TouristAttraction",
+              "name": "Llanos de Cortés",
+              "description": "A wide curtain waterfall with a sandy pool you can swim in. It is the easiest add-on to any inland day, and a favourite with kids."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 20,
+            "item": {
+              "@type": "TouristAttraction",
+              "name": "Arenal & Monteverde",
+              "description": "The volcano and the cloud forest sit about three hours inland. The concierge arranges the hotels, transport and guides for a two- or three-day loop, and the villa will be ready when you return."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://casaninaflamingo.com/explore.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do we get from the airport?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Liberia International (LIR) is about an hour away, and every Casa Nina booking includes airport pick-up and drop-off."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do we need to rent a car?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Not necessarily. Golf carts (4 or 6 passenger) are street-legal on all local roads, and the concierge arranges cart or car rentals in all different sizes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "When should we come?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "December to April for guaranteed sun and the full social season. May to November for green hills, full waterfalls, quieter beaches and better value."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Who books all of this?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our concierge team, included with every stay. Charters, chefs, drivers and guides are arranged before you land."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- schema:end -->
 
 <link rel="stylesheet" href="styles.css">
 <style>
