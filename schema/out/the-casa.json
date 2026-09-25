@@ -301,11 +301,11 @@
         },
         {
           "@type": "ImageObject",
-          "contentUrl": "https://casaninaflamingo.com/images/50-casanina75-1200.jpg",
-          "url": "https://casaninaflamingo.com/images/50-casanina75-1200.jpg",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-bathrooms-02.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-bathrooms-02.jpg",
           "caption": "Marble bathroom at Casa Nina Flamingo with a double vanity and walk-in glass shower",
-          "width": 1200,
-          "height": 800
+          "width": 1600,
+          "height": 1066
         },
         {
           "@type": "ImageObject",
