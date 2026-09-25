@@ -726,6 +726,30 @@
         },
         {
           "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-bathrooms-06.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-bathrooms-06.jpg",
+          "caption": "Grey-tiled bathroom with a walk-in rain shower, double vanity and brass taps at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1066
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-bathrooms-07.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-bathrooms-07.jpg",
+          "caption": "Bathroom with a walk-in rain shower and a black stone vanity at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1066
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/gallery-bathrooms-08.jpg",
+          "url": "https://casaninaflamingo.com/images/gallery-bathrooms-08.jpg",
+          "caption": "Powder room with a pedestal sink and towel ring at Casa Nina Flamingo",
+          "width": 1600,
+          "height": 1066
+        },
+        {
+          "@type": "ImageObject",
           "contentUrl": "https://casaninaflamingo.com/images/gallery-bathrooms-laundry.jpg",
           "url": "https://casaninaflamingo.com/images/gallery-bathrooms-laundry.jpg",
           "caption": "Stacked washer and dryer in the laundry room at Casa Nina Flamingo",
