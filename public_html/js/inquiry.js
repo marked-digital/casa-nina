@@ -67,7 +67,7 @@
         thanks.innerHTML =
           '<p class="xp-eyebrow xp-eyebrow--center">Request received</p>' +
           '<h3 class="form-thanks__title">Thank you. Your request is on its way.</h3>' +
-          '<p class="form-thanks__text">We reply personally, usually the same day. If your plans are moving quickly, you can also reach us on ' +
+          '<p class="form-thanks__text">We reply personally, usually the same day and always within 24 hours. If your plans are moving quickly, you can also reach us on ' +
           '<a href="https://wa.me/16473284929" target="_blank" rel="noopener">WhatsApp</a>.</p>';
         form.parentNode.insertBefore(thanks, form);
         form.hidden = true;
