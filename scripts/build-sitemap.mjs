@@ -24,11 +24,8 @@ const SITE = path.join(ROOT, 'public_html');
 const OUT = path.join(SITE, 'sitemap.xml');
 const BASE = 'https://casaninaflamingo.com';
 
-/* Pages, in the fixed order they appear in the sitemap.
-   location.html is deliberately NOT listed: nothing on the site links to it, it
-   has no <link rel="canonical">, and its only image (an inline background) points
-   at a file that does not exist. Either of those fails this build. Add it back
-   here once the page is fixed or delete the page before launch. */
+/* Pages, in the fixed order they appear in the sitemap. (location.html was an
+   obsolete, unlinked page and was removed from the site on 2026-09-25.) */
 const PAGES = ['index', 'the-casa', 'gallery', 'book', 'faq', 'explore', 'concierge'];
 
 const FORBIDDEN = ['_vercel/image', 'vercel.app', 'staging.', 'localhost'];
