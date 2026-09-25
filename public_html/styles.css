@@ -1765,6 +1765,7 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
   align-items:center; }
 .xp-row + .xp-row{ margin-top:clamp(48px,7vh,84px); }
 .xp-row--flip .xp-row__media{ order:2; }
+.xp-row--flip{ grid-template-columns:.94fr 1.06fr; }   /* 2026-09-25: the wider track follows the media when it sits on the right, so flipped rows get the same image size */
 .xp-row__media .xp-media{ aspect-ratio:4/3; }
 .xp-row__text h3{ font-family:var(--cn-display); font-weight:500;
   font-size:clamp(28px,3vw,38px); line-height:1.08; margin:14px 0 12px; color:var(--cn-navy); }
