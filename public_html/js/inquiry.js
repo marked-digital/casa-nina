@@ -61,8 +61,18 @@
       .then(function (res) {
         if (!res.ok) throw new Error((res.data && res.data.message) || 'send failed');
         form.reset();
-        var note = form.querySelector('.form-note--submit'); if (note) note.hidden = true;   /* the status line says it now */
-        show('success', '<strong>Thank you, your request is on its way.</strong> We reply personally, usually the same day.');
+        /* Replace the form with a thank-you panel where it stood, and bring it into view. */
+        var thanks = document.createElement('div');
+        thanks.className = 'form-thanks'; thanks.setAttribute('role', 'status'); thanks.setAttribute('tabindex', '-1');
+        thanks.innerHTML =
+          '<p class="xp-eyebrow xp-eyebrow--center">Request received</p>' +
+          '<h3 class="form-thanks__title">Thank you. Your request is on its way.</h3>' +
+          '<p class="form-thanks__text">We reply personally, usually the same day. If your plans are moving quickly, you can also reach us on ' +
+          '<a href="https://wa.me/16473284929" target="_blank" rel="noopener">WhatsApp</a>.</p>';
+        form.parentNode.insertBefore(thanks, form);
+        form.hidden = true;
+        thanks.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        thanks.focus({ preventScroll: true });
       })
       .catch(function () {
         var mailto = form.getAttribute('action') || 'mailto:info@casaninaflamingo.com';

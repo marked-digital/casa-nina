@@ -2591,3 +2591,9 @@ body.lb-open{ overflow:hidden; }
 .page-book .form-status.is-success{ color:var(--cn-navy); }
 .page-book .form-status.is-error{ color:#9b3b2e; }
 .page-book .form-status a{ color:var(--cn-gold); text-decoration:underline; text-underline-offset:3px; }
+/* Thank-you panel that replaces the enquiry form after a successful send. */
+.page-book .form-thanks{ max-width:620px; margin:0 auto; padding:clamp(36px,5vh,56px) clamp(20px,4vw,40px); text-align:center;
+  background:var(--cn-white); border:1px solid var(--cn-gold); outline:none; }
+.page-book .form-thanks__title{ margin:12px 0 14px; font:500 var(--xp-title-card, 1.75rem)/1.2 var(--cn-display); color:var(--cn-navy); }
+.page-book .form-thanks__text{ margin:0; font-size:16px; font-weight:300; line-height:1.6; color:var(--cn-ink-muted); }
+.page-book .form-thanks__text a{ color:var(--cn-gold); text-decoration:underline; text-underline-offset:3px; }
