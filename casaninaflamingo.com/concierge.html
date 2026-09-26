@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7MXV425WVL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    /* Production only: previews (vercel.app) and staging load the tag but send nothing. */
+    if (location.hostname === 'casaninaflamingo.com') {
+      gtag('js', new Date());
+      gtag('config', 'G-7MXV425WVL');
+    }
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="manifest" href="site.webmanifest">
+  <title>Concierge & Experiences | Casa Nina Flamingo, Playa Flamingo</title>
+  <meta name="description" content="Casa Nina Flamingo&rsquo;s concierge arranges everything before you land: private chef, spa, groceries, fishing, catamaran, surf. Transfers and housekeeping included.">
+  <link rel="canonical" href="https://casaninaflamingo.com/concierge.html">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta name="theme-color" content="#0A1626">
+
+  <!-- Geo (same values as explore.html) -->
+  <meta name="geo.region" content="CR-G">
+  <meta name="geo.placename" content="Playa Flamingo, Guanacaste, Costa Rica">
+  <meta name="geo.position" content="10.428825;-85.790987">
+  <meta name="ICBM" content="10.428825, -85.790987">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Casa Nina Flamingo">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://casaninaflamingo.com/concierge.html">
+  <meta property="og:title" content="Concierge & Experiences | Casa Nina Flamingo, Playa Flamingo">
+  <meta property="og:description" content="Every detail of your stay arranged before you arrive, from a private chef and spa treatments at the villa to fishing charters, catamaran days and surf lessons on the Gold Coast.">
+  <meta property="og:image" content="https://casaninaflamingo.com/images/og/concierge.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:alt" content="Covered patio at Casa Nina Flamingo with a live-edge dining table beside the pool at sunset">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Concierge & Experiences | Casa Nina Flamingo, Playa Flamingo">
+  <meta name="twitter:description" content="Every detail of your stay arranged before you arrive, from a private chef and spa treatments at the villa to fishing charters, catamaran days and surf lessons on the Gold Coast.">
+  <meta name="twitter:image" content="https://casaninaflamingo.com/images/og/concierge.jpg">
+
+  <link rel="preload" as="image" href="images/14-casanina4-1600.jpg" fetchpriority="high">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-cn page-concierge">
+
+  <!-- SITE HEADER -->
+  <header class="xp-header" id="nav">
+    <div class="xp-wrap">
+      <a class="xp-logo" href="index.html" aria-label="Casa Nina Flamingo home">
+        <img class="xp-logo-img" src="images/brand/casa-nina-horizontal-reversed.svg" alt="Casa Nina Flamingo" width="760" height="200" decoding="async">
+      </a>
+      <nav class="xp-nav" aria-label="Primary">
+        <a href="the-casa.html">The Casa</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="concierge.html" aria-current="page">Concierge</a>
+        <a href="explore.html">Explore</a>
+        <a href="faq.html">FAQs</a>
+      </nav>
+      <div class="xp-header-actions">
+        <a class="xp-cta-btn" href="book.html">Book Now</a>
+        <button class="xp-burger" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <nav aria-label="Mobile">
+      <a href="the-casa.html">The Casa</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="concierge.html" aria-current="page">Concierge</a>
+      <a href="explore.html">Explore</a>
+      <a href="faq.html">FAQs</a>
+      <a href="book.html" class="mobile-menu-cta">Book Now</a>
+      <span class="share"><button type="button" class="mobile-menu-share" data-share aria-expanded="false">Share with your group</button></span>
+    </nav>
+  </div>
+
+  <main id="main">
+  <svg class="conc-sprite" aria-hidden="true" focusable="false" style="display:none" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M4 17h16M5 16a7 7 0 0 1 14 0M12 9V7M10 7h4"/></symbol>
+    <symbol id="i-plane" viewBox="0 0 24 24"><path d="M3 16V8h11l5 4.5V16zM3 12h11M14 8v4M7 19a1.5 1.5 0 1 0 0-.01M16 19a1.5 1.5 0 1 0 0-.01M9 16h5"/></symbol>
+    <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3v5M12 16v5M3 12h5M16 12h5M6.5 6.5l2 2M15.5 15.5l2 2M17.5 6.5l-2 2M8.5 15.5l-2 2"/></symbol>
+    <symbol id="i-coffee" viewBox="0 0 24 24"><path d="M4 9h12v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V9zM16 10h2a2 2 0 0 1 0 4h-2M7 6V4M11 6V4"/></symbol>
+    <symbol id="i-chef" viewBox="0 0 24 24"><path d="M7 21h10M7 21v-6.5C5 14.5 3.5 13 3.5 11S5 7.5 7 7.5c.6-2 2.6-3.5 5-3.5s4.4 1.5 5 3.5c2 0 3.5 1.5 3.5 3.5S19 14.5 17 14.5V21M7 17.5h10"/></symbol>
+    <symbol id="i-spa" viewBox="0 0 24 24"><path d="M12 20c-4-2-6-5-6-9 0-3 2-6 6-8 4 2 6 5 6 8 0 4-2 7-6 9zM12 20V9M8 13c2 .5 3 1.5 4 3M16 13c-2 .5-3 1.5-4 3"/></symbol>
+    <symbol id="i-basket" viewBox="0 0 24 24"><path d="M4 10h16l-1.5 9H5.5zM8 10l3-6M16 10l-3-6M9 14v2M12 14v2M15 14v2"/></symbol>
+    <symbol id="i-fish" viewBox="0 0 24 24"><path d="M3 12c3-5 9-6 14-2l4-3v10l-4-3c-5 4-11 3-14-2zM7 12h.01"/></symbol>
+    <symbol id="i-sail" viewBox="0 0 24 24"><path d="M4 17h16l-2 3H6zM12 3v14M12 4c4 2 6 6 7 10H12M12 6c-3 2-4 5-5 8h5"/></symbol>
+    <symbol id="i-wave" viewBox="0 0 24 24"><path d="M3 15c2-2 4-2 6 0s4 2 6 0 4-2 6 0M3 19c2-2 4-2 6 0s4 2 6 0 4-2 6 0M9 11c1-4 4-6 8-6-2 1-3 3-3 6"/></symbol>
+    <symbol id="i-jetski" viewBox="0 0 24 24"><path d="M3 17c2-1.5 4-1.5 6 0s4 1.5 6 0 4-1.5 6 0M5 13l3-4h6l4 4zM11 9V6h3"/></symbol>
+    <symbol id="i-zipline" viewBox="0 0 24 24"><path d="M2 6l20 8M11 10.5v3M11 13.5a2 2 0 1 0 0 .01M11 15.5v3M9 21l2-2.5 2 2.5"/></symbol>
+    <symbol id="i-horseshoe" viewBox="0 0 24 24"><path d="M6 20V11a6 6 0 0 1 12 0v9M6 17h3M15 17h3M6.5 12.5h2.5M15 12.5h2.5"/></symbol>
+    <symbol id="i-mountain" viewBox="0 0 24 24"><path d="M2 19l7-11 4 6 3-4 6 9zM8.5 13l2-2"/></symbol><symbol id="i-compass" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM15.5 8.5l-2 5-5 2 2-5z"/></symbol>
+    <symbol id="i-car" viewBox="0 0 24 24"><path d="M4 16v-4l2-5h12l2 5v4zM4 12h16M7 19a1.5 1.5 0 1 0 0-.01M17 19a1.5 1.5 0 1 0 0-.01M7 16h2M15 16h2"/></symbol>
+    <symbol id="i-question" viewBox="0 0 24 24"><path d="M9 9a3 3 0 1 1 4 2.8c-.7.4-1 1-1 1.7V15M12 18h.01M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z"/></symbol>
+  </svg>
+  <!-- HERO: universal .xp-hero with the navy overlay, as on explore and the FAQ -->
+  <section class="xp-hero" id="top">
+    <div class="xp-hero__img">
+      <img class="xp-media__photo" src="images/14-casanina4-1600.jpg"
+        alt="Covered patio at Casa Nina Flamingo with a live-edge dining table set beside the pool at sunset"
+        width="1600" height="1067" loading="eager" fetchpriority="high" decoding="async" onerror="this.remove()">
+    </div>
+    <div class="xp-hero-overlay" aria-hidden="true"></div>
+    <div class="xp-wrap xp-hero__inner fade-in">
+      <nav aria-label="Breadcrumb" class="xp-hero__kicker"><ol class="xp-breadcrumb"><li><a href="index.html">Home</a></li><li aria-current="page">Concierge</li></ol></nav>
+      <h1 class="xp-display">Concierge</h1>
+      <p class="xp-hero__sub">Every detail, arranged before you land</p>
+      <p class="xp-hero__dek">From your private chef to your fishing charter, every part of your stay at Casa Nina Flamingo can be arranged before you arrive. Our concierge team in Playa Flamingo handles the logistics, so you can focus on the trip itself.</p>
+    </div>
+    <div class="xp-hero__cue" aria-hidden="true"><span>Scroll</span><i></i></div>
+  </section>
+
+  <!-- INCLUDED WITH EVERY STAY (facts mirror faq.html) -->
+  <section class="conc-included section-padding" aria-labelledby="included-title">
+    <div class="container">
+      <div class="conc-head fade-in">
+        <p class="xp-eyebrow xp-eyebrow--center">Included with every stay</p>
+        <h2 class="xp-display xp-display--3" id="included-title">These are not extras</h2>
+        <p class="body-text mx-auto">Four things every group gets without asking. Everything further down this page is arranged on request.</p>
+      </div>
+      <div class="conc-inc fade-in">
+        <div class="conc-inc__item"><svg class="service-icon" aria-hidden="true"><use href="#i-bell"/></svg><h3>Dedicated concierge</h3><p>One point of contact from booking to checkout, on WhatsApp whenever you need them.</p></div>
+        <div class="conc-inc__item"><svg class="service-icon" aria-hidden="true"><use href="#i-plane"/></svg><h3>Private airport transfers</h3><p>Pick-up and drop-off at Liberia International (LIR), about an hour away, in air-conditioned vehicles with bilingual drivers.</p></div>
+        <div class="conc-inc__item"><svg class="service-icon" aria-hidden="true"><use href="#i-sparkle"/></svg><h3>Daily housekeeping</h3><p>The villa is refreshed every morning by our housekeeping team, so the beds are made, the bathrooms refreshed and the kitchen is clean.</p></div>
+        <div class="conc-inc__item"><svg class="service-icon" aria-hidden="true"><use href="#i-coffee"/></svg><h3>Two chef breakfasts</h3><p>Our private chef cooks breakfast for the whole group on two mornings of your stay. You pay only for the food.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AT THE VILLA -->
+  <section class="conc-group conc-group--villa section-padding" aria-labelledby="villa-title">
+    <div class="container">
+      <div class="conc-head fade-in">
+        <p class="xp-eyebrow xp-eyebrow--center">At the villa</p>
+        <h2 class="xp-display xp-display--3" id="villa-title">Brought to your door</h2>
+      </div>
+      <div class="services-grid">
+        <article class="service-card fade-in">
+          <svg class="service-icon" aria-hidden="true"><use href="#i-chef"/></svg>
+          <h3>Private chef</h3>
+          <p>Beyond the included breakfasts, our chef cooks lunches and dinners in your kitchen with fresh local ingredients: Costa Rican classics, or a menu built around your group. You choose the dishes.</p>
+        </article>
+        <article class="service-card fade-in">
+          <svg class="service-icon" aria-hidden="true"><use href="#i-spa"/></svg>
+          <h3>Spa &amp; massage</h3>
+          <p>Massages and treatments with professional therapists who come to you: by the pool, on the rooftop, or in your room.</p>
+        </article>
+        <article class="service-card fade-in">
+          <svg class="service-icon" aria-hidden="true"><use href="#i-basket"/></svg>
+          <h3>Grocery stocking</h3>
+          <p>Arrive to a full fridge. Send your list ahead and everything is put away before you land.</p>
+        </article>
+        <article class="service-card fade-in">
+          <svg class="service-icon" aria-hidden="true"><use href="#i-car"/></svg>
+          <h3>Golf carts &amp; cars</h3>
+          <p>Golf carts (4 or 6 passenger) are how Flamingo gets around, and they are welcome on all the local roads. For longer days out, rental cars in all different sizes are a message away.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ON THE WATER -->
+  <section class="conc-group conc-group--water section-padding" aria-labelledby="water-title">
+    <div class="container">
+      <div class="conc-head fade-in">
+        <p class="xp-eyebrow xp-eyebrow--center">On the water</p>
+        <h2 class="xp-display xp-display--3" id="water-title">Out of Marina Flamingo</h2>
+      </div>
+      <div class="services-grid">
+        <article class="service-card fade-in">
+          <svg class="service-icon" aria-hidden="true"><use href="#i-fish"/></svg>
+          <h3>Fishing charters</h3>
+          <p>Sport fishing out of Marina Flamingo, a few minutes from the villa. Full and half-day charters for marlin, sailfish, mahi-mahi, tuna and roosterfish, year-round. Bring dinner back to the kitchen.</p>
+        </article>
+        <article class="service-card fade-in">
+          <svg class="service-icon" aria-hidden="true"><use href="#i-sail"/></svg>
+          <h3>Catamaran tours</h3>
+          <p>Sunset sails, snorkelling stops and private catamaran charters along the Guanacaste coast. Drinks, snacks and snorkelling gear are on board.</p>
+        </article>
+        <article class="service-card fade-in">
+          <svg class="service-icon" aria-hidden="true"><use href="#i-wave"/></svg>
+          <h3>Surf lessons</h3>
+          <p>Lessons for first-timers through to advanced surfers at the nearby breaks. Boards, rash guards and coaching are provided, and the water is warm enough to skip the wetsuit.</p>
+        </article>
+        <article class="service-card fade-in">
+          <svg class="service-icon" aria-hidden="true"><use href="#i-jetski"/></svg>
+          <h3>Jet skis</h3>
+          <p>Rentals at the nearby beaches, with guided rides along the coast if you want someone who knows the coves.</p>
+        </article>
+      </div>
+      <div class="xp-sec-cta xp-sec-cta--center fade-in">
+        <a href="explore.html#water" class="xp-btn xp-btn--navy">Explore the water around Playa Flamingo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ON LAND -->
+  <section class="conc-group conc-group--land section-padding" aria-labelledby="land-title">
+    <div class="container">
+      <div class="conc-head fade-in">
+        <p class="xp-eyebrow xp-eyebrow--center">On land</p>
+        <h2 class="xp-display xp-display--3" id="land-title">Into the hills</h2>
+      </div>
+      <div class="services-grid">
+        <article class="service-card fade-in">
+          <svg class="service-icon" aria-hidden="true"><use href="#i-zipline"/></svg>
+          <h3>Ziplining</h3>
+          <p>Zipline courses through the forest canopy, with guides and gear taken care of. The quickest way to meet the trees, and the monkeys in them.</p>
+        </article>
+        <article class="service-card fade-in">
+          <svg class="service-icon" aria-hidden="true"><use href="#i-horseshoe"/></svg>
+          <h3>Horseback riding</h3>
+          <p>The beach at sunset, or hill trails with the ocean below. Guided rides for every level, first-timers included.</p>
+        </article>
+        <article class="service-card fade-in">
+          <svg class="service-icon" aria-hidden="true"><use href="#i-mountain"/></svg>
+          <h3>ATV tours</h3>
+          <p>Off-road through the backcountry, river crossings and hill trails, with guides, machines and safety gear included.</p>
+        </article>
+        <article class="service-card fade-in">
+          <svg class="service-icon" aria-hidden="true"><use href="#i-compass"/></svg>
+          <h3>Day trips</h3>
+          <p>The volcano and hot springs at Rinc&oacute;n de la Vieja, a river safari through Palo Verde, or the waterfall at Llanos de Cort&eacute;s. Leave after breakfast and be back for sunset, with the guide and the transport arranged.</p>
+        </article>
+      </div>
+      <div class="xp-sec-cta xp-sec-cta--center fade-in">
+        <a href="explore.html#land" class="xp-btn xp-btn--navy">Explore the land around Playa Flamingo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUESTIONS → FAQ -->
+  <section class="conc-faq section-padding-sm" aria-labelledby="faq-strip-title">
+    <div class="container">
+      <div class="conc-faq__inner fade-in">
+        <svg class="service-icon conc-faq__icon" aria-hidden="true"><use href="#i-question"/></svg>
+        <div>
+          <h2 class="conc-faq__title" id="faq-strip-title">Wondering how it all works?</h2>
+          <p>Deposits and payments, arrival day, the chef and the menus, the pool, Wi-Fi, cell coverage: the FAQ answers the questions groups ask us most.</p>
+        </div>
+        <a href="faq.html" class="xp-btn xp-btn--navy">Read the FAQ</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA: the universal .xp-cta band -->
+  <section class="xp-cta">
+    <div class="xp-media" aria-hidden="true"><div class="xp-media__img xp-ph--dusk"><img class="xp-media__photo" src="images/home-film-poster-dusk.jpg" alt="" width="2000" height="1406" loading="lazy" decoding="async" onerror="this.remove()"></div></div>
+    <div class="xp-wrap xp-cta__inner fade-in">
+      <p class="xp-eyebrow">Ready to plan your trip?</p>
+      <h2>Tell us what you love. <em>We&rsquo;ll arrange the rest.</em></h2>
+      <p>Message our concierge team with your dates and your wish list. The holiday starts before you land.</p>
+      <div class="xp-cta__btns">
+        <a href="https://wa.me/16473284929" target="_blank" rel="noopener" class="xp-btn xp-btn--solid">WhatsApp our concierge</a>
+        <a href="mailto:info@casaninaflamingo.com" class="xp-btn xp-btn--ghost">Email us</a>
+      </div>
+      <p class="rate-note">Contact us for nightly rates</p>
+      <p class="xp-cta__tag">Everyone &middot; Together &middot; Comfortably</p>
+    </div>
+  </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img class="footer-logo" src="images/brand/casa-nina-primary-white.svg" alt="Casa Nina Flamingo" width="600" height="420" loading="lazy" decoding="async">
+          <p>A luxury oceanview villa in Playa Flamingo, Costa Rica. Seven bedrooms, private infinity pool, and steps from the beach.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Your stay</h5>
+          <ul>
+            <li><a href="the-casa.html">The Casa</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="concierge.html">Concierge</a></li>
+            <li><a href="explore.html">Explore</a></li>
+            <li><a href="faq.html">FAQs</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Plan</h5>
+          <ul>
+            <li><a href="book.html">Book Now</a></li>
+            <li><a href="https://www.airbnb.ca/rooms/553696885568872196" target="_blank" rel="noopener">Airbnb</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <ul>
+            <li><a href="https://wa.me/16473284929" target="_blank" rel="noopener">WhatsApp +1 647 328 4929</a></li>
+            <li><a href="mailto:info@casaninaflamingo.com">info@casaninaflamingo.com</a></li>
+            <li>Playa Flamingo, Costa Rica</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-contact-block">
+        <div><span class="fcb-label">Reach Us</span></div>
+        <div class="fcb-links">
+          <a href="https://wa.me/16473284929" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="mailto:info@casaninaflamingo.com">info@casaninaflamingo.com</a>
+          <a href="https://www.instagram.com/casaninaflamingo/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.youtube.com/@CasaNinaFlamingo" target="_blank" rel="noopener">YouTube</a>
+          <a href="https://www.tiktok.com/@casaninaflamingo" target="_blank" rel="noopener">TikTok</a>
+          <span class="share"><button type="button" class="fcb-share" data-share aria-expanded="false">Share</button></span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Casa Nina Flamingo. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- schema:start -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://casaninaflamingo.com/#website",
+        "name": "Casa Nina Flamingo",
+        "url": "https://casaninaflamingo.com/",
+        "publisher": {
+          "@id": "https://casaninaflamingo.com/#vacationrental"
+        },
+        "inLanguage": "en"
+      },
+      {
+        "@type": "VacationRental",
+        "@id": "https://casaninaflamingo.com/#vacationrental",
+        "name": "Casa Nina Flamingo",
+        "url": "https://casaninaflamingo.com/",
+        "description": "Casa Nina Flamingo is a newly built three-storey villa above Playa Flamingo on Costa Rica’s Guanacaste coast, with seven bedrooms, six bathrooms and space for fourteen. The first floor is a complete home of its own; the second and third floors hold the main residence and the rooftop terrace, and a private elevator connects all three. Grandparents, parents and kids get to be together without being on top of each other.",
+        "image": [
+          "https://casaninaflamingo.com/images/home-hero-villa-pool.jpg",
+          "https://casaninaflamingo.com/images/gallery-exterior-03.jpg"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Playa Flamingo",
+          "addressRegion": "Guanacaste",
+          "addressCountry": "CR"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 10.428825,
+          "longitude": -85.790987
+        },
+        "hasMap": "https://maps.google.com/?cid=1469512052654509312",
+        "telephone": "+16473284929",
+        "email": "info@casaninaflamingo.com",
+        "sameAs": [
+          "https://www.instagram.com/casaninaflamingo/",
+          "https://www.youtube.com/@CasaNinaFlamingo",
+          "https://www.tiktok.com/@casaninaflamingo",
+          "https://www.airbnb.ca/rooms/553696885568872196"
+        ],
+        "numberOfRooms": 7,
+        "checkinTime": "15:00",
+        "checkoutTime": "10:00",
+        "amenityFeature": [
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Private infinity pool",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Rooftop deck with panoramic views",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Elevator access (all 3 floors)",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "24/7 on-site security",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Gated parking",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Tropical landscaped gardens",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Outdoor dining areas",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "BBQ facilities",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "2 fully equipped kitchens",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "2 spacious living rooms",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "7 bedrooms / 6 bathrooms",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Air conditioning throughout",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "High-speed WiFi",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Smart TVs in both living rooms",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Premium linens & towels",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Washer & dryer",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Dedicated concierge, included",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Private chef, included (two breakfasts)",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Private airport transfers, included",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Daily housekeeping, included",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Tour & excursion booking",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Grocery pre-stocking",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Event coordination",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Golf cart & car rentals",
+            "value": true
+          }
+        ],
+        "containsPlace": [
+          {
+            "@id": "https://casaninaflamingo.com/book.html#full-casa"
+          },
+          {
+            "@id": "https://casaninaflamingo.com/book.html#half-casa"
+          }
+        ],
+        "makesOffer": [
+          {
+            "@type": "Offer",
+            "name": "Full Casa, book direct",
+            "url": "https://casaninaflamingo.com/book.html",
+            "availability": "https://schema.org/InStock",
+            "itemOffered": {
+              "@id": "https://casaninaflamingo.com/book.html#full-casa"
+            }
+          },
+          {
+            "@type": "Offer",
+            "name": "Full Casa on Airbnb",
+            "url": "https://www.airbnb.ca/rooms/553696885568872196",
+            "availability": "https://schema.org/InStock",
+            "itemOffered": {
+              "@id": "https://casaninaflamingo.com/book.html#full-casa"
+            }
+          },
+          {
+            "@type": "Offer",
+            "name": "Half Casa, book direct",
+            "url": "https://casaninaflamingo.com/book.html",
+            "availability": "https://schema.org/InStock",
+            "itemOffered": {
+              "@id": "https://casaninaflamingo.com/book.html#half-casa"
+            }
+          },
+          {
+            "@type": "Offer",
+            "name": "Half Casa on Airbnb",
+            "url": "https://www.airbnb.ca/rooms/553696885568872196",
+            "availability": "https://schema.org/InStock",
+            "itemOffered": {
+              "@id": "https://casaninaflamingo.com/book.html#half-casa"
+            }
+          }
+        ]
+      },
+      {
+        "@type": "Accommodation",
+        "@id": "https://casaninaflamingo.com/book.html#full-casa",
+        "name": "Full Casa",
+        "description": "Everyone you love, under one roof. 7 Bedrooms · 6 Bathrooms. Sleeps up to 14 guests. All 3 floors · 2 kitchens · 2 living rooms. Private infinity pool · Rooftop terrace. Elevator access · 24/7 security.",
+        "url": "https://casaninaflamingo.com/book.html",
+        "numberOfBedrooms": 7,
+        "numberOfBathroomsTotal": 6,
+        "occupancy": {
+          "@type": "QuantitativeValue",
+          "maxValue": 14,
+          "unitText": "guests"
+        },
+        "containedInPlace": {
+          "@id": "https://casaninaflamingo.com/#vacationrental"
+        }
+      },
+      {
+        "@type": "Accommodation",
+        "@id": "https://casaninaflamingo.com/book.html#half-casa",
+        "name": "Half Casa",
+        "description": "A three-bedroom home on the first floor with its own kitchen, living space and entrance. When you reserve it, the pool and patio are exclusively yours and never shared with anyone else.",
+        "url": "https://casaninaflamingo.com/book.html",
+        "numberOfBedrooms": 3,
+        "numberOfBathroomsTotal": 2.5,
+        "occupancy": {
+          "@type": "QuantitativeValue",
+          "minValue": 4,
+          "maxValue": 6,
+          "unitText": "guests"
+        },
+        "containedInPlace": {
+          "@id": "https://casaninaflamingo.com/#vacationrental"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://casaninaflamingo.com/concierge.html#webpage",
+        "url": "https://casaninaflamingo.com/concierge.html",
+        "name": "Concierge & Experiences | Casa Nina Flamingo, Playa Flamingo",
+        "description": "Casa Nina Flamingo’s concierge arranges everything before you land: private chef, spa, groceries, fishing, catamaran, surf. Transfers and housekeeping included.",
+        "isPartOf": {
+          "@id": "https://casaninaflamingo.com/#website"
+        },
+        "about": {
+          "@id": "https://casaninaflamingo.com/#vacationrental"
+        },
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "contentUrl": "https://casaninaflamingo.com/images/14-casanina4-1600.jpg",
+          "url": "https://casaninaflamingo.com/images/14-casanina4-1600.jpg"
+        },
+        "inLanguage": "en",
+        "mainEntity": {
+          "@id": "https://casaninaflamingo.com/concierge.html#concierge"
+        },
+        "breadcrumb": {
+          "@id": "https://casaninaflamingo.com/concierge.html#breadcrumb"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://casaninaflamingo.com/concierge.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://casaninaflamingo.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Concierge",
+            "item": "https://casaninaflamingo.com/concierge.html"
+          }
+        ]
+      },
+      {
+        "@type": "Service",
+        "@id": "https://casaninaflamingo.com/concierge.html#concierge",
+        "name": "Casa Nina Flamingo concierge",
+        "url": "https://casaninaflamingo.com/concierge.html",
+        "provider": {
+          "@id": "https://casaninaflamingo.com/#vacationrental"
+        },
+        "areaServed": {
+          "@type": "Place",
+          "name": "Playa Flamingo, Guanacaste, Costa Rica"
+        },
+        "hasOfferCatalog": [
+          {
+            "@type": "OfferCatalog",
+            "name": "Included with every stay",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Dedicated concierge",
+                  "description": "One point of contact from booking to checkout, on WhatsApp whenever you need them."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Private airport transfers",
+                  "description": "Pick-up and drop-off at Liberia International (LIR), about an hour away, in air-conditioned vehicles with bilingual drivers."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Daily housekeeping",
+                  "description": "The villa is refreshed every morning by our housekeeping team, so the beds are made, the bathrooms refreshed and the kitchen is clean."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Two chef breakfasts",
+                  "description": "Our private chef cooks breakfast for the whole group on two mornings of your stay. You pay only for the food."
+                }
+              }
+            ]
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Arranged on request",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Private chef",
+                  "description": "Beyond the included breakfasts, our chef cooks lunches and dinners in your kitchen with fresh local ingredients: Costa Rican classics, or a menu built around your group. You choose the dishes."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Spa & massage",
+                  "description": "Massages and treatments with professional therapists who come to you: by the pool, on the rooftop, or in your room."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Grocery stocking",
+                  "description": "Arrive to a full fridge. Send your list ahead and everything is put away before you land."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Golf carts & cars",
+                  "description": "Golf carts (4 or 6 passenger) are how Flamingo gets around, and they are welcome on all the local roads. For longer days out, rental cars in all different sizes are a message away."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Fishing charters",
+                  "description": "Sport fishing out of Marina Flamingo, a few minutes from the villa. Full and half-day charters for marlin, sailfish, mahi-mahi, tuna and roosterfish, year-round. Bring dinner back to the kitchen."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Catamaran tours",
+                  "description": "Sunset sails, snorkelling stops and private catamaran charters along the Guanacaste coast. Drinks, snacks and snorkelling gear are on board."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Surf lessons",
+                  "description": "Lessons for first-timers through to advanced surfers at the nearby breaks. Boards, rash guards and coaching are provided, and the water is warm enough to skip the wetsuit."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Jet skis",
+                  "description": "Rentals at the nearby beaches, with guided rides along the coast if you want someone who knows the coves."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Ziplining",
+                  "description": "Zipline courses through the forest canopy, with guides and gear taken care of. The quickest way to meet the trees, and the monkeys in them."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Horseback riding",
+                  "description": "The beach at sunset, or hill trails with the ocean below. Guided rides for every level, first-timers included."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "ATV tours",
+                  "description": "Off-road through the backcountry, river crossings and hill trails, with guides, machines and safety gear included."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Day trips",
+                  "description": "The volcano and hot springs at Rincón de la Vieja, a river safari through Palo Verde, or the waterfall at Llanos de Cortés. Leave after breakfast and be back for sunset, with the guide and the transport arranged."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- schema:end -->
+  <script src="js/lenis.min.js"></script>
+  <script src="js/smooth-scroll.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
