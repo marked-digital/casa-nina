@@ -1,5 +1,7 @@
 # Casa Nina Flamingo — Apache / LiteSpeed configuration for Spaceship (cPanel).
-# Uploaded by hand through cPanel File Manager together with the rest of the site.
+# Deployed by .github/workflows/deploy.yml. Never served by Vercel (.vercelignore).
+# Staging note: cPanel Directory Privacy lines are prepended to this file on the
+# staging host by the workflow, from /home/<user>/staging-auth.htaccess.
 
 Options -Indexes
 
@@ -11,12 +13,15 @@ Options -Indexes
 
   # http -> https, on the SAME host (never the apex: staging must stay on staging).
   # The second condition avoids a loop if a proxy (e.g. Cloudflare) terminates TLS.
+  # The third keeps certificate validation (/.well-known/) on plain http.
   RewriteCond %{HTTPS} !=on
   RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+  RewriteCond %{REQUEST_URI} !^/\.well-known/
   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
   # www -> apex
   RewriteCond %{HTTP_HOST} ^www\.casaninaflamingo\.com$ [NC]
+  RewriteCond %{REQUEST_URI} !^/\.well-known/
   RewriteRule ^ https://casaninaflamingo.com%{REQUEST_URI} [R=301,L]
 
   # /api/availability (what js/availability.js fetches) -> the PHP port
