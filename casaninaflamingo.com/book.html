@@ -13,6 +13,7 @@
       gtag('config', 'G-7MXV425WVL');
     }
   </script>
+  <script src="js/tracking.js" defer></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
@@ -202,6 +203,17 @@
             data-endpoint="https://api.web3forms.com/submit" data-access-key="9b335964-a49e-4610-ad23-7a6d62771f0c">
         <!-- Honeypot for bots: hidden from people, never filled by them. -->
         <input type="checkbox" name="botcheck" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <!-- Ad-click attribution: filled by js/tracking.js from localStorage "cn_attr", sent with the enquiry by js/inquiry.js. -->
+        <input type="hidden" name="gclid" value="" data-attribution>
+        <input type="hidden" name="gbraid" value="" data-attribution>
+        <input type="hidden" name="wbraid" value="" data-attribution>
+        <input type="hidden" name="utm_source" value="" data-attribution>
+        <input type="hidden" name="utm_medium" value="" data-attribution>
+        <input type="hidden" name="utm_campaign" value="" data-attribution>
+        <input type="hidden" name="utm_term" value="" data-attribution>
+        <input type="hidden" name="utm_content" value="" data-attribution>
+        <input type="hidden" name="landing_page" value="" data-attribution>
+        <input type="hidden" name="referrer" value="" data-attribution>
         <div class="form-row">
           <div class="form-group">
             <label for="checkin">Check-in Date</label>
@@ -253,13 +265,13 @@
       <div class="book-talk fade-in">
         <p class="book-talk__lede">Prefer to talk it through? Message us directly.</p>
         <div class="book-contact-row">
-          <a href="https://wa.me/16473284929" target="_blank" rel="noopener" class="xp-btn xp-btn--solid">WhatsApp Us</a>
-          <a href="mailto:info@casaninaflamingo.com" class="xp-btn xp-btn--navy">Email Us</a>
+          <a data-location="book" href="https://wa.me/16473284929" target="_blank" rel="noopener" class="xp-btn xp-btn--solid">WhatsApp Us</a>
+          <a data-location="book" href="mailto:info@casaninaflamingo.com" class="xp-btn xp-btn--navy">Email Us</a>
         </div>
         <p class="book-talk__share">Planning together? <span class="share"><button type="button" class="book-talk__share-btn" data-share aria-expanded="false">Share with your group</button></span></p>
         <dl class="book-contact__ledger">
-          <div><dt>WhatsApp</dt><dd><a href="https://wa.me/16473284929" target="_blank" rel="noopener">+1 647 328 4929</a></dd></div>
-          <div><dt>Email</dt><dd><a href="mailto:info@casaninaflamingo.com">info@casaninaflamingo.com</a></dd></div>
+          <div><dt>WhatsApp</dt><dd><a data-location="book_ledger" href="https://wa.me/16473284929" target="_blank" rel="noopener">+1 647 328 4929</a></dd></div>
+          <div><dt>Email</dt><dd><a data-location="book_ledger" href="mailto:info@casaninaflamingo.com">info@casaninaflamingo.com</a></dd></div>
           <div><dt>Location</dt><dd>Playa Flamingo, Guanacaste, Costa Rica</dd></div>
         </dl>
         <p class="rate-note">Contact us for nightly rates</p>
@@ -325,7 +337,7 @@
        Hidden while the Check availability section is on screen so it never covers the calendar or the form. -->
   <div class="book-stickybar" id="bookStickybar" aria-label="Quick actions">
     <a class="xp-btn xp-btn--solid" href="#availability">Check availability</a>
-    <a class="xp-btn xp-btn--ghost" href="https://wa.me/16473284929" target="_blank" rel="noopener">WhatsApp</a>
+    <a data-location="bar" class="xp-btn xp-btn--ghost" href="https://wa.me/16473284929" target="_blank" rel="noopener">WhatsApp</a>
   </div>
 
   <!-- FOOTER -->
@@ -356,8 +368,8 @@
         <div class="footer-col">
           <h5>Contact</h5>
           <ul>
-            <li><a href="https://wa.me/16473284929" target="_blank" rel="noopener">WhatsApp +1 647 328 4929</a></li>
-            <li><a href="mailto:info@casaninaflamingo.com">info@casaninaflamingo.com</a></li>
+            <li><a data-location="footer" href="https://wa.me/16473284929" target="_blank" rel="noopener">WhatsApp +1 647 328 4929</a></li>
+            <li><a data-location="footer" href="mailto:info@casaninaflamingo.com">info@casaninaflamingo.com</a></li>
             <li>Playa Flamingo, Costa Rica</li>
           </ul>
         </div>
@@ -365,8 +377,8 @@
       <div class="footer-contact-block">
         <div><span class="fcb-label">Reach Us</span></div>
         <div class="fcb-links">
-          <a href="https://wa.me/16473284929" target="_blank" rel="noopener">WhatsApp</a>
-          <a href="mailto:info@casaninaflamingo.com">info@casaninaflamingo.com</a>
+          <a data-location="strip" href="https://wa.me/16473284929" target="_blank" rel="noopener">WhatsApp</a>
+          <a data-location="strip" href="mailto:info@casaninaflamingo.com">info@casaninaflamingo.com</a>
           <a href="https://www.instagram.com/casaninaflamingo/" target="_blank" rel="noopener">Instagram</a>
           <a href="https://www.youtube.com/@CasaNinaFlamingo" target="_blank" rel="noopener">YouTube</a>
           <a href="https://www.tiktok.com/@casaninaflamingo" target="_blank" rel="noopener">TikTok</a>
