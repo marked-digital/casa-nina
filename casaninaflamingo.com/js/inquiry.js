@@ -52,6 +52,11 @@
       'Message': val('message') || '—',
       'Page': location.href.split('#')[0]
     };
+    /* Ad-click attribution (hidden fields filled by js/tracking.js): send the non-empty ones. */
+    var attribution = form.querySelectorAll('input[type="hidden"][data-attribution]');
+    for (var i = 0; i < attribution.length; i++) {
+      if (attribution[i].value) payload[attribution[i].name] = attribution[i].value;
+    }
 
     button.disabled = true; var label = button.textContent; button.textContent = 'Sending…';
     show('sending', 'Sending your request…');
@@ -60,6 +65,7 @@
       .then(function (r) { return r.json().then(function (d) { return { ok: r.ok && d && d.success, data: d }; }); })
       .then(function (res) {
         if (!res.ok) throw new Error((res.data && res.data.message) || 'send failed');
+        if (typeof gtag === "function") gtag("event", "generate_lead", { method: "web3forms", form_id: "booking_inquiry" });
         form.reset();
         /* Replace the form with a thank-you panel where it stood, and bring it into view. */
         var thanks = document.createElement('div');
@@ -68,7 +74,7 @@
           '<p class="xp-eyebrow xp-eyebrow--center">Request received</p>' +
           '<h3 class="form-thanks__title">Thank you. Your request is on its way.</h3>' +
           '<p class="form-thanks__text">We reply personally, usually the same day and always within 24 hours. If your plans are moving quickly, you can also reach us on ' +
-          '<a href="https://wa.me/16473284929" target="_blank" rel="noopener">WhatsApp</a>.</p>';
+          '<a href="https://wa.me/16473284929" data-location="form_thanks" target="_blank" rel="noopener">WhatsApp</a>.</p>';
         form.parentNode.insertBefore(thanks, form);
         form.hidden = true;
         thanks.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -76,7 +82,7 @@
       })
       .catch(function () {
         var mailto = form.getAttribute('action') || 'mailto:info@casaninaflamingo.com';
-        show('error', 'Sorry, that did not send. Please try again, or <a href="' + mailto + '">email us directly</a> and we will reply personally.');
+        show('error', 'Sorry, that did not send. Please try again, or <a href="' + mailto + '" data-location="form_error">email us directly</a> and we will reply personally.');
       })
       .then(function () { button.disabled = false; button.textContent = label; });
   });
