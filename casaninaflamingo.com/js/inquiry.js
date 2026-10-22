@@ -48,7 +48,8 @@
       'Option': optionLabel,
       'Name': val('name'),
       'Email': val('email'),
-      'WhatsApp / phone': val('whatsapp') || '—',
+      'WhatsApp / phone': val('phone') || '—',
+      'Country': val('phone-country') || '—',
       'Message': val('message') || '—',
       'Page': location.href.split('#')[0]
     };

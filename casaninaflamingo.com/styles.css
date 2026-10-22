@@ -2605,3 +2605,31 @@ body.lb-open{ overflow:hidden; }
 .page-404 .xp-hero-note a{ color:var(--cn-gold-soft); text-decoration:underline; text-underline-offset:3px; }
 .page-404 .xp-hero-note a:hover{ color:var(--cn-gold); }
 @media (max-width:760px){ .page-404 .xp-hero__btns{ margin-top:24px; } .page-404 .xp-hero__btns .xp-btn{ width:100%; text-align:center; } }
+
+/* ============================================================================
+   PHONE FIELD (intl-tel-input 29.5.3, vendor/intl-tel-input) — book.html
+   Theme variables and type match the neighbouring .form-group fields. The
+   library's country search box sits inside .form-group, where the generic
+   ".form-group input" rule would override its icon spacing and border, so
+   those library values are restored here with a more specific selector.
+   ============================================================================ */
+.iti {
+  --iti-border-color: rgba(20,23,31,.22);
+  --iti-hover-color: rgba(194,154,91,.12);
+  --iti-country-selector-bg: var(--cn-white);
+  --iti-icon-color: var(--cn-ink);
+  font: 400 15px/1.5 var(--cn-body);
+  color: var(--cn-ink);
+}
+.form-group .iti { display: block; width: 100%; }
+.iti__country-selector { border-radius: 0; }
+.iti--inline-country-selector .iti__country-selector { box-shadow: 0 12px 40px rgba(0,0,0,.08); }
+.form-group .iti__search-input {
+  border-width: 0;
+  border-radius: 0;
+  padding: 8px calc(var(--iti-spacer-horizontal) + var(--iti-clear-icon-size) + var(--iti-spacer-horizontal)) 8px calc(var(--iti-spacer-horizontal) + var(--iti-globe-icon-size) + var(--iti-spacer-horizontal));
+  font: inherit;
+  color: var(--cn-ink);
+  outline: none;
+}
+.iti__dial-code { color: var(--cn-ink-muted); }

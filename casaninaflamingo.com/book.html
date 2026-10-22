@@ -55,6 +55,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="images/gallery-pool-12.jpg" fetchpriority="high">
+  <link rel="stylesheet" href="vendor/intl-tel-input/css/intlTelInput.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body class="page-cn page-book">
@@ -249,8 +250,10 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="whatsapp">WhatsApp or Phone <span class="form-optional">(optional)</span></label>
-          <input type="tel" id="whatsapp" name="whatsapp" autocomplete="tel" placeholder="Include your country code">
+          <label for="phone-input">WhatsApp or Phone <span class="form-optional">(optional)</span></label>
+          <input type="tel" id="phone-input" autocomplete="tel">
+          <input type="hidden" id="phone" name="phone">
+          <input type="hidden" id="phone-country" name="country">
         </div>
         <div class="form-group">
           <label for="message">Message</label>
@@ -830,6 +833,45 @@
   <script src="js/smooth-scroll.js"></script>
   <script src="main.js"></script>
   <script src="js/inquiry.js" defer></script>
+  <!-- intl-tel-input 29.5.3, self-hosted in vendor/intl-tel-input -->
+  <script src="vendor/intl-tel-input/js/intlTelInput.min.js"></script>
+  <script>
+    (function () {
+      var input = document.getElementById('phone-input');
+      var phoneField = document.getElementById('phone');
+      var countryField = document.getElementById('phone-country');
+      if (!input || !phoneField || !window.intlTelInput) return;
+
+      var iti = window.intlTelInput(input, {
+        initialCountry: 'us',
+        countryOrder: ['us', 'ca', 'cr', 'gb', 'mx'],
+        separateDialCode: true,
+        loadUtils: function () {
+          return import('./vendor/intl-tel-input/js/utils.js');
+        }
+      });
+
+      function sync() {
+        var digits = input.value.replace(/\D/g, '');
+        var country = iti.getSelectedCountry();
+        if (!digits) {
+          phoneField.value = '';
+          countryField.value = '';
+          return;
+        }
+        var number = '';
+        try { number = iti.getNumber('INTERNATIONAL'); } catch (e) { /* utils still loading */ }
+        if (!number) number = '+' + (country ? country.dialCode : '') + digits;
+        phoneField.value = number;
+        countryField.value = country ? country.name : '';
+      }
+
+      input.addEventListener('input', sync);
+      input.addEventListener('change', sync);
+      input.addEventListener('countrychange', sync);
+      input.form.addEventListener('submit', sync, true);
+    })();
+  </script>
   <script src="js/availability.js"></script>
   <script>
   (function(){
