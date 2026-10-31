@@ -215,16 +215,9 @@
         <input type="hidden" name="utm_content" value="" data-attribution>
         <input type="hidden" name="landing_page" value="" data-attribution>
         <input type="hidden" name="referrer" value="" data-attribution>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="checkin">Check-in Date</label>
-            <input type="date" id="checkin" name="checkin" aria-describedby="stay-note">
-          </div>
-          <div class="form-group">
-            <label for="checkout">Check-out Date</label>
-            <input type="date" id="checkout" name="checkout" aria-describedby="stay-note">
-          </div>
-        </div>
+        <!-- Stay dates: filled by the availability calendar above (js/availability.js), sent by js/inquiry.js. -->
+        <input type="hidden" id="checkin" name="checkin">
+        <input type="hidden" id="checkout" name="checkout">
         <p class="form-note" id="stay-note">Four-night minimum; seven nights over Christmas, New Year&rsquo;s, March Break and Easter.</p>
         <div class="form-row">
           <div class="form-group">
