@@ -1956,10 +1956,10 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
    11.64em at 500/.005em, so 7.4vw keeps it on one line down to 541px; the vh
    term shrinks it on short windows so kicker → h1 → sub → dek → buttons →
    rate note fit; the cap keeps it inside the 1240 wrap on wide screens. */
-:is(.page-home,.page-book,.page-casa,.page-concierge,.page-gallery,.page-404) .xp-hero__inner{ width:auto; max-width:var(--xp-max); margin:0 auto;
+:is(.page-home,.page-book,.page-casa,.page-concierge,.page-rates,.page-gallery,.page-404) .xp-hero__inner{ width:auto; max-width:var(--xp-max); margin:0 auto;
   padding-left:var(--xp-gutter); padding-right:var(--xp-gutter); }   /* explore gets this from .xp-page .xp-wrap */
 @media (min-width:761px){
-  :is(.page-home,.page-book,.page-casa,.page-concierge,.page-gallery,.page-404) .xp-hero__inner{ padding-top:calc(var(--xp-header-h) + clamp(24px,4vh,64px));
+  :is(.page-home,.page-book,.page-casa,.page-concierge,.page-rates,.page-gallery,.page-404) .xp-hero__inner{ padding-top:calc(var(--xp-header-h) + clamp(24px,4vh,64px));
     padding-bottom:calc(var(--xp-header-h) + clamp(24px,4vh,64px)); }
 }
 .page-home .xp-hero h1{ font-size:clamp(2.8rem, min(8.6vw, 11.5vh), 7rem);
@@ -1984,9 +1984,9 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
   .page-home .xp-hero__btns .xp-btn{ text-align:center; }
 }
 
-:is(.page-home,.page-book,.page-casa,.page-concierge,.page-gallery) .section-padding{ padding:clamp(84px,11vh,140px) 0; }
-:is(.page-home,.page-book,.page-casa,.page-concierge,.page-gallery) .section-padding-sm{ padding:clamp(56px,8vh,90px) 0; }
-:is(.page-home,.page-book,.page-casa,.page-concierge,.page-gallery) .body-text{ font-weight:300; color:var(--cn-ink-muted); }
+:is(.page-home,.page-book,.page-casa,.page-concierge,.page-rates,.page-gallery) .section-padding{ padding:clamp(84px,11vh,140px) 0; }
+:is(.page-home,.page-book,.page-casa,.page-concierge,.page-rates,.page-gallery) .section-padding-sm{ padding:clamp(56px,8vh,90px) 0; }
+:is(.page-home,.page-book,.page-casa,.page-concierge,.page-rates,.page-gallery) .body-text{ font-weight:300; color:var(--cn-ink-muted); }
 
 /* Surfaces (explore's palette; see banner). Scoped: .intro/.gallery/.villa/
    .experience/.villa-card/.half-casa-callout are still used by legacy pages. */
@@ -2003,11 +2003,11 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 .page-home .half-casa-callout{ border-left:3px solid var(--cn-gold); }
 
 /* Section heads: eyebrow → title → lede rhythm (explore: 16–18px, then 22px) */
-:is(.page-home,.page-book,.page-casa,.page-concierge,.page-gallery) .xp-display{ color:var(--cn-navy); }
-:is(.page-home,.page-book,.page-casa,.page-concierge,.page-gallery) .xp-eyebrow + .xp-display{ margin-top:16px; }
-:is(.page-home,.page-book,.page-casa,.page-concierge,.page-gallery) .xp-display + .body-text{ margin-top:22px; }
-:is(.page-home,.page-book,.page-casa,.page-concierge,.page-gallery) .body-text + .body-text{ margin-top:1rem; }   /* was inline on the intro's second paragraph */
-:is(.page-home,.page-book,.page-casa,.page-concierge,.page-gallery) .xp-sec-cta--center{ margin-top:48px; }        /* under grids; the FAQ's 22px is for text */
+:is(.page-home,.page-book,.page-casa,.page-concierge,.page-rates,.page-gallery) .xp-display{ color:var(--cn-navy); }
+:is(.page-home,.page-book,.page-casa,.page-concierge,.page-rates,.page-gallery) .xp-eyebrow + .xp-display{ margin-top:16px; }
+:is(.page-home,.page-book,.page-casa,.page-concierge,.page-rates,.page-gallery) .xp-display + .body-text{ margin-top:22px; }
+:is(.page-home,.page-book,.page-casa,.page-concierge,.page-rates,.page-gallery) .body-text + .body-text{ margin-top:1rem; }   /* was inline on the intro's second paragraph */
+:is(.page-home,.page-book,.page-casa,.page-concierge,.page-rates,.page-gallery) .xp-sec-cta--center{ margin-top:48px; }        /* under grids; the FAQ's 22px is for text */
 /* 2026-09-24: long section-CTA labels ("Explore the water around Playa Flamingo") wrap to two
    lines on phones. Balance the break so neither line is a lone word, and open the 1.0 leading
    that single-line buttons use. Padding trimmed so a one-line button keeps its ~50px height. */
@@ -2080,7 +2080,7 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 
 /* Booking CTA: universal .xp-cta; the rate note is the one homepage-specific line.
    .xp-cta p (0,1,1) would otherwise size and colour it as body copy. */
-:is(.page-home,.page-book,.page-casa,.page-concierge,.page-gallery) .xp-cta .rate-note{ margin:18px auto 0; max-width:none; font-size:.78rem; color:var(--cn-gold-soft); }
+:is(.page-home,.page-book,.page-casa,.page-concierge,.page-rates,.page-gallery) .xp-cta .rate-note{ margin:18px auto 0; max-width:none; font-size:.78rem; color:var(--cn-gold-soft); }
 
 /* ── book.html (2026-09-14) ──
    Utility-page hero shared with faq.html (.xp-faq-hero, breadcrumb, title,
@@ -2296,7 +2296,7 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
    ink .xp-cta → footer. Reordered 2026-09-15: facts first, feeling last. Legacy .story-nina / .amenities / .experience rules are
    shared with other pages, so everything here is scoped to .page-casa.
    DEPLOY-COUPLED with the-casa.html, js/floorplans.js, images/floorplans/. */
-:is(.page-book,.page-casa,.page-concierge,.page-gallery) .xp-hero h1{ color:var(--cn-white); }
+:is(.page-book,.page-casa,.page-concierge,.page-rates,.page-gallery) .xp-hero h1{ color:var(--cn-white); }
 .page-book .xp-hero h1{ font-size:clamp(3rem, min(9.6vw, 14vh), 8.625rem); }   /* vh guard: the booking hero carries two buttons and a note, so short laptop windows get a smaller title */   /* outranks the section-title navy from the shared .xp-display rule */
 .page-casa .intro{ background:var(--cn-white); }
 .page-casa .intro-image img{ width:100%; height:100%; object-fit:cover; }
@@ -2381,17 +2381,17 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
    four-column strip; facts mirror faq.html) → three service groups on white
    cards: at the villa (cream) · on the water (sand) · on land (cream) → ink
    .xp-cta → footer. The emoji service icons were dropped. */
-.page-concierge .conc-head{ text-align:center; max-width:640px; margin:0 auto 48px; }
-.page-concierge .conc-head .body-text{ max-width:none; }
+:is(.page-concierge,.page-rates) .conc-head{ text-align:center; max-width:640px; margin:0 auto 48px; }
+:is(.page-concierge,.page-rates) .conc-head .body-text{ max-width:none; }
 .page-concierge .conc-included{ background:var(--cn-white); }
-.page-concierge .conc-inc{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:clamp(20px,3vw,40px); max-width:1120px; margin:0 auto; }
-.page-concierge .conc-inc__item{ padding-top:18px; border-top:1px solid var(--cn-gold); }
-.page-concierge .conc-inc__item h3{ font:500 22px/1.15 var(--cn-display); color:var(--cn-navy); margin:0 0 10px; }
-.page-concierge .conc-inc__item p{ font-size:14.5px; font-weight:300; line-height:1.7; color:var(--cn-ink-muted); margin:0; }
+:is(.page-concierge,.page-rates) .conc-inc{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:clamp(20px,3vw,40px); max-width:1120px; margin:0 auto; }
+:is(.page-concierge,.page-rates) .conc-inc__item{ padding-top:18px; border-top:1px solid var(--cn-gold); }
+:is(.page-concierge,.page-rates) .conc-inc__item h3{ font:500 22px/1.15 var(--cn-display); color:var(--cn-navy); margin:0 0 10px; }
+:is(.page-concierge,.page-rates) .conc-inc__item p{ font-size:14.5px; font-weight:300; line-height:1.7; color:var(--cn-ink-muted); margin:0; }
 /* Gold line icons (inline SVG sprite in concierge.html): one stroke, round caps */
-.page-concierge .service-icon{ width:32px; height:32px; display:block; margin-bottom:16px; color:var(--cn-gold);
+:is(.page-concierge,.page-rates) .service-icon{ width:32px; height:32px; display:block; margin-bottom:16px; color:var(--cn-gold);
   fill:none; stroke:currentColor; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
-.page-concierge .conc-inc__item .service-icon{ width:28px; height:28px; margin-bottom:12px; }
+:is(.page-concierge,.page-rates) .conc-inc__item .service-icon{ width:28px; height:28px; margin-bottom:12px; }
 /* Questions strip: white, hairline-framed row with a link to the FAQ */
 .page-concierge .conc-faq{ background:var(--cn-white); }
 .page-concierge .conc-faq__inner{ display:grid; grid-template-columns:auto minmax(0,1fr) auto; align-items:center; gap:clamp(20px,3vw,40px);
@@ -2404,9 +2404,9 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 .page-concierge .conc-group--villa{ background:var(--cn-cream); }
 .page-concierge .conc-group--water{ background:var(--cn-sand); }
 .page-concierge .conc-group--land{ background:var(--cn-cream); }
-@media (max-width:1100px){ .page-concierge .services-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
-@media (max-width:900px){ .page-concierge .conc-inc{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
-@media (max-width:640px){ .page-concierge .services-grid, .page-concierge .conc-inc{ grid-template-columns:1fr; } }
+@media (max-width:1100px){ :is(.page-concierge,.page-rates) .services-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width:900px){ :is(.page-concierge,.page-rates) .conc-inc{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width:640px){ :is(.page-concierge,.page-rates) .services-grid, :is(.page-concierge,.page-rates) .conc-inc{ grid-template-columns:1fr; } }
 
 /* ── Brand marks (2026-09-15): outlined SVGs from the logo system, so no web font
    is needed to render them. Header: horizontal reversed (white + gold). Footer:
@@ -2633,3 +2633,90 @@ body.lb-open{ overflow:hidden; }
   outline: none;
 }
 .iti__dial-code { color: var(--cn-ink-muted); }
+
+/* ============================================================================
+   G. RATES PAGE (rates.html) — opts in via <body class="page-cn page-rates">
+   and the shared :is() lists above; reuses the concierge .conc-head,
+   .conc-inc and .service-icon rules and the book page's .booking-card.
+   Order: photo hero → seasonal rates (year strip + four season cards) →
+   two ways to stay → included services → additional services → ink .xp-cta.
+   ============================================================================ */
+.page-rates .xp-hero__dek + .xp-hero__dek{ margin-top:12px; }
+.page-rates .rates-seasons{ background:var(--cn-white); }
+.page-rates .rates-options{ background:var(--cn-cream); }
+.page-rates .rates-included{ background:var(--cn-white); }
+.page-rates .rates-extras{ background:var(--cn-sand); }
+
+/* Season colours: one per season, shared by the strip, the legend and the card rule */
+.page-rates [data-season="high"]{ --season:var(--cn-navy); }
+.page-rates [data-season="quiet"]{ --season:var(--cn-mist); }
+.page-rates [data-season="green"]{ --season:var(--cn-stone); }
+.page-rates [data-season="holiday"]{ --season:var(--cn-gold); }
+
+/* Year strip: segments and month labels are sized by days, so they line up */
+.page-rates .season-bar{ max-width:1120px; margin:0 auto clamp(36px,5vw,56px); }
+.page-rates .season-bar__track{ position:relative; display:grid; grid-template-columns:7fr 144fr 92fr 61fr 46fr 15fr; height:12px; margin-top:22px; }
+.page-rates .season-bar__track span{ background:var(--season); }
+.page-rates .season-bar__now{ position:absolute; top:-6px; bottom:-6px; width:2px; margin-left:-1px; background:var(--cn-ink); }
+.page-rates .season-bar__now::after{ content:"Today"; position:absolute; bottom:100%; left:50%; transform:translateX(-50%); padding-bottom:4px;
+  font:600 10px/1 var(--cn-body); letter-spacing:.14em; text-transform:uppercase; color:var(--cn-ink); white-space:nowrap; }
+.page-rates .season-bar__months{ display:grid; grid-template-columns:31fr 28fr 31fr 30fr 31fr 30fr 31fr 31fr 30fr 31fr 30fr 31fr; margin-top:10px;
+  font:500 11px/1 var(--cn-body); letter-spacing:.08em; color:var(--cn-ink-muted); }
+.page-rates .season-bar__legend{ display:flex; flex-wrap:wrap; gap:10px 28px; margin:22px 0 0; padding:0; list-style:none;
+  font-size:13.5px; font-weight:400; color:var(--cn-ink); }
+.page-rates .season-bar__legend li{ display:flex; align-items:center; gap:8px; }
+.page-rates .season-bar__legend li::before{ content:""; width:10px; height:10px; border-radius:50%; background:var(--season); }
+
+/* Season cards */
+.page-rates .season-grid{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:clamp(16px,2vw,24px); max-width:1120px; margin:0 auto; }
+.page-rates .season-card{ position:relative; display:flex; flex-direction:column; background:var(--cn-white); border:1px solid rgba(14,29,48,.1);
+  border-top:3px solid var(--season); padding:clamp(24px,2.4vw,32px) clamp(20px,2vw,28px);
+  transition:box-shadow .3s var(--xp-ease), transform .3s var(--xp-ease); }
+.page-rates .season-card:hover{ transform:translateY(-3px); box-shadow:0 18px 44px rgba(14,29,48,.08); }
+.page-rates .season-card .xp-chip{ align-self:flex-start; margin-bottom:14px; }
+.page-rates .season-card__name{ font:500 clamp(26px,2.4vw,30px)/1.05 var(--cn-display); color:var(--cn-navy); margin:0 0 10px; }
+.page-rates .season-card__dates{ margin:0 0 22px; font-size:14px; font-weight:400; line-height:1.6; color:var(--cn-ink-muted); }
+.page-rates .season-card__rates{ margin:0 0 22px; padding:0; }
+.page-rates .season-card__rates div{ padding:16px 0; border-top:1px solid rgba(14,29,48,.1); }
+.page-rates .season-card__rates dt{ font:600 11px/1.4 var(--cn-body); letter-spacing:.16em; text-transform:uppercase; color:var(--cn-navy); }
+.page-rates .season-card__rates dt span{ display:block; font-weight:400; letter-spacing:.08em; text-transform:none; color:var(--cn-ink-muted); }
+.page-rates .season-card__rates dd{ margin:8px 0 0; font-size:13px; font-weight:300; color:var(--cn-ink-muted); }
+.page-rates .season-card__price{ display:block; font:500 clamp(30px,2.8vw,36px)/1 var(--cn-display); color:var(--cn-navy); margin-bottom:4px; }
+.page-rates .season-card__min{ margin:auto 0 0; padding-top:16px; border-top:1px solid var(--cn-gold); font-size:13.5px; font-weight:500; color:var(--cn-navy); }
+/* Holiday: the ink card, so the seven-night season reads differently at a glance */
+.page-rates .season-card--holiday{ background:var(--cn-navy); border-color:var(--cn-navy); border-top-color:var(--cn-gold); }
+.page-rates .season-card--holiday .season-card__name,
+.page-rates .season-card--holiday .season-card__rates dt,
+.page-rates .season-card--holiday .season-card__min{ color:var(--cn-white); }
+.page-rates .season-card--holiday .season-card__price{ color:var(--cn-gold-soft); }
+.page-rates .season-card--holiday .season-card__dates,
+.page-rates .season-card--holiday .season-card__rates dt span,
+.page-rates .season-card--holiday .season-card__rates dd{ color:rgba(255,255,255,.72); }
+.page-rates .season-card--holiday .season-card__rates div{ border-top-color:rgba(255,255,255,.16); }
+.page-rates .season-card--holiday .xp-chip{ color:var(--cn-gold-soft); border-color:var(--cn-gold-soft); }
+.page-rates .rates-fine{ max-width:1120px; margin:clamp(28px,4vw,40px) auto 0; font-size:13px; font-weight:300; line-height:1.7; color:var(--cn-ink-muted); text-align:center; }
+@media (max-width:1100px){ .page-rates .season-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width:640px){
+  .page-rates .season-grid{ grid-template-columns:1fr; }
+  .page-rates .season-bar__months{ font-size:9.5px; letter-spacing:0; }
+}
+
+/* Two ways to stay: the book page's .booking-card with a photo on top */
+.page-rates .option-card{ padding:0; overflow:hidden; display:flex; flex-direction:column; }
+.page-rates .option-card__img{ display:block; width:100%; height:auto; aspect-ratio:3/2; object-fit:cover; }
+.page-rates .option-card__body{ display:flex; flex-direction:column; flex:1; padding:clamp(28px,3.5vw,44px) clamp(24px,3vw,40px); }
+.page-rates .option-card .booking-card__sub{ margin:-8px 0 22px; }
+.page-rates .option-card__text{ margin:0 0 14px; font-size:15px; font-weight:300; line-height:1.75; color:var(--cn-ink-muted); }
+.page-rates .option-card__from{ margin:auto 0 24px; padding-top:20px; border-top:1px solid rgba(14,29,48,.1);
+  font-size:13px; font-weight:400; letter-spacing:.06em; color:var(--cn-ink-muted); }
+.page-rates .option-card__from strong{ display:block; margin-top:6px; font:500 32px/1 var(--cn-display); letter-spacing:0; color:var(--cn-navy); }
+
+/* Included (six) and additional (nine) services sit three to a row on desktop */
+@media (min-width:901px){ .page-rates .conc-inc{ grid-template-columns:repeat(3,minmax(0,1fr)); row-gap:clamp(32px,4vw,48px); } }
+@media (min-width:1101px){ .page-rates .services-grid{ grid-template-columns:repeat(3,minmax(0,1fr)); } }
+.page-rates .rates-extras .rates-fine{ margin-top:clamp(32px,4vw,48px); }
+
+/* Header nav carries six links since the Rates page: keep each label on one
+   line and tighten the gap just above the 900px burger breakpoint (all pages). */
+.xp-header .xp-nav a{ white-space:nowrap; }
+@media (min-width:901px) and (max-width:1100px){ .xp-header .xp-nav{ gap:18px; } }

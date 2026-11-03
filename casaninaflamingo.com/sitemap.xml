@@ -421,4 +421,20 @@
       <image:loc>https://casaninaflamingo.com/images/home-film-poster-dusk.jpg</image:loc>
     </image:image>
   </url>
+  <url>
+    <loc>https://casaninaflamingo.com/rates.html</loc>
+    <lastmod>2026-11-03T19:51:25+00:00</lastmod>
+    <image:image>
+      <image:loc>https://casaninaflamingo.com/images/gallery-pool-01.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://casaninaflamingo.com/images/home-hero-villa-pool.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://casaninaflamingo.com/images/gallery-pool-03.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://casaninaflamingo.com/images/home-film-poster-dusk.jpg</image:loc>
+    </image:image>
+  </url>
 </urlset>
