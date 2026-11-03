@@ -1480,7 +1480,7 @@ body.page-cn{
 }
 .mobile-menu .mobile-menu-cta:hover{ background:transparent; color:var(--cn-gold); }
 
-@media (max-width: 900px){
+@media (max-width: 1023px){   /* was 900px; raised when the nav gained "Rates & Services", so the logo is never squeezed */
   .xp-header .xp-nav{ display:none; }
   .xp-burger{ display:flex; }
 }
@@ -2664,8 +2664,8 @@ body.lb-open{ overflow:hidden; }
   font:600 10px/1 var(--cn-body); letter-spacing:.14em; text-transform:uppercase; color:var(--cn-ink); white-space:nowrap; }
 .page-rates .season-bar__months{ display:grid; grid-template-columns:31fr 28fr 31fr 30fr 31fr 30fr 31fr 31fr 30fr 31fr 30fr 31fr; margin-top:10px;
   font:500 11px/1 var(--cn-body); letter-spacing:.08em; color:var(--cn-ink-muted); }
-.page-rates .season-bar__legend{ display:flex; flex-wrap:wrap; gap:10px 28px; margin:22px 0 0; padding:0; list-style:none;
-  font-size:13.5px; font-weight:400; color:var(--cn-ink); }
+.page-rates .season-bar__legend{ display:grid; grid-template-columns:repeat(4,max-content); gap:12px 36px; margin:22px 0 0; padding:0; list-style:none;
+  font-size:13.5px; font-weight:400; line-height:1.2; color:var(--cn-ink); }
 .page-rates .season-bar__legend li{ display:flex; align-items:center; gap:8px; }
 .page-rates .season-bar__legend li::before{ content:""; width:10px; height:10px; border-radius:50%; background:var(--season); }
 
@@ -2700,6 +2700,7 @@ body.lb-open{ overflow:hidden; }
 @media (max-width:1100px){ .page-rates .season-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
 @media (max-width:640px){
   .page-rates .season-grid{ grid-template-columns:1fr; }
+  .page-rates .season-bar__legend{ grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px 16px; }   /* two even columns on phones */
   .page-rates .season-bar__months{ font-size:9.5px; letter-spacing:0; }
 }
 
@@ -2718,7 +2719,8 @@ body.lb-open{ overflow:hidden; }
 @media (min-width:1101px){ .page-rates .services-grid{ grid-template-columns:repeat(3,minmax(0,1fr)); } }
 .page-rates .rates-extras .rates-fine{ margin-top:clamp(32px,4vw,48px); }
 
-/* Header nav carries six links since the Rates page: keep each label on one
-   line and tighten the gap just above the 900px burger breakpoint (all pages). */
+/* Header nav carries six links since the Rates & Services page: keep each
+   label on one line and tighten the gap just above the 1023px burger
+   breakpoint (all pages). */
 .xp-header .xp-nav a{ white-space:nowrap; }
-@media (min-width:901px) and (max-width:1100px){ .xp-header .xp-nav{ gap:18px; } }
+@media (min-width:1024px) and (max-width:1100px){ .xp-header .xp-nav{ gap:18px; } }
