@@ -1480,7 +1480,7 @@ body.page-cn{
 }
 .mobile-menu .mobile-menu-cta:hover{ background:transparent; color:var(--cn-gold); }
 
-@media (max-width: 900px){
+@media (max-width: 1023px){   /* was 900px; raised when the nav gained "Rates & Services", so the logo is never squeezed */
   .xp-header .xp-nav{ display:none; }
   .xp-burger{ display:flex; }
 }
@@ -2719,7 +2719,8 @@ body.lb-open{ overflow:hidden; }
 @media (min-width:1101px){ .page-rates .services-grid{ grid-template-columns:repeat(3,minmax(0,1fr)); } }
 .page-rates .rates-extras .rates-fine{ margin-top:clamp(32px,4vw,48px); }
 
-/* Header nav carries six links since the Rates page: keep each label on one
-   line and tighten the gap just above the 900px burger breakpoint (all pages). */
+/* Header nav carries six links since the Rates & Services page: keep each
+   label on one line and tighten the gap just above the 1023px burger
+   breakpoint (all pages). */
 .xp-header .xp-nav a{ white-space:nowrap; }
-@media (min-width:901px) and (max-width:1100px){ .xp-header .xp-nav{ gap:18px; } }
+@media (min-width:1024px) and (max-width:1100px){ .xp-header .xp-nav{ gap:18px; } }
