@@ -2641,7 +2641,9 @@ body.lb-open{ overflow:hidden; }
    Order: photo hero → seasonal rates (year strip + four season cards) →
    two ways to stay → included services → additional services → ink .xp-cta.
    ============================================================================ */
+.page-rates .xp-hero h1{ font-size:clamp(58px, min(8.2vw, 13vh), 6.75rem); }   /* "Rates & Services" is a long title: sized like book.html's so it sits over the text instead of overhanging it; phones keep the house 58px */
 .page-rates .xp-hero__sub{ max-width:24ch; text-wrap:balance; }   /* two balanced lines, so the hero column stays as compact as the gallery's */
+.page-rates .xp-hero__dek{ max-width:60ch; text-wrap:pretty; }     /* four lines under the title, no one-line "Full Casa." */
 .page-rates .rates-seasons{ background:var(--cn-white); }
 .page-rates .rates-options{ background:var(--cn-cream); }
 .page-rates .rates-included{ background:var(--cn-white); }
