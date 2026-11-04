@@ -73,7 +73,7 @@
 
   var SUMMARY = {
     full: { h: 'The Full Casa', s: '7 bedrooms \u00b7 6 bathrooms \u00b7 sleeps 14', t: 'All three floors: the Half Casa on the first, the main residence over the second and third with its own kitchen and the rooftop terrace, the pool, and the elevator between them.' },
-    half: { h: 'The Half Casa', s: '3 bedrooms \u00b7 2.5 bathrooms \u00b7 sleeps 4 to 6', t: 'The whole first floor: your own entrance, kitchen, living and dining room, three bedrooms, and the pool and patio. The upper floors stay empty; the rest of the villa is never rented at the same time.' }
+    half: { h: 'The Half Casa', s: '3 bedrooms \u00b7 2.5 bathrooms \u00b7 sleeps 4 to 6', t: 'The whole first floor: your own entrance, kitchen, living and dining room, three bedrooms, and the pool and patio. The upper floors stay empty; the rest of the villa is never rented at the same time.', n: 'Not offered over the holidays, <span class="cn-nowrap">December 17 \u2013 January 7</span>.' }
   };
 
   var mode = 'full', current = 'first', activeRoom = null;
@@ -120,7 +120,7 @@
     root.querySelectorAll('.fp__modebtn').forEach(function(b){ var on = b.getAttribute('data-mode') === m; b.classList.toggle('is-on', on); b.setAttribute('aria-pressed', on ? 'true' : 'false'); });
     root.querySelectorAll('.fp__floor').forEach(function(b){ var f = floor(b.getAttribute('data-floor')); b.classList.toggle('is-excluded', m === 'half' && !f.half); });
     var s = SUMMARY[m];
-    summaryEl.innerHTML = '<span class="fp__sum-h">' + s.h + '</span><span class="fp__sum-s">' + s.s + '</span><span class="fp__sum-t">' + s.t + '</span>';
+    summaryEl.innerHTML = '<span class="fp__sum-h">' + s.h + '</span><span class="fp__sum-s">' + s.s + '</span><span class="fp__sum-t">' + s.t + '</span>' + (s.n ? '<span class="fp__sum-n">' + s.n + '</span>' : '');
     ctaEl.href = BOOK.replace('{mode}', m);
     if (m === 'half' && !floor(current).half) selectFloor('first');
   }

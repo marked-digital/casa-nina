@@ -918,6 +918,11 @@ html.lenis, html.lenis body{ height:auto; }
   opacity: 0.85;
   margin-top: 1.25rem;
 }
+/* Since rates went public (2026-11-04) the note is a link to rates.html. .page-cn outranks explore's .xp-page a{ text-decoration:none } */
+.page-cn .rate-note a{ color:inherit; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:4px; text-decoration-color:rgba(220,192,140,.55); transition:color .25s var(--xp-ease), text-decoration-color .25s var(--xp-ease); }
+.page-cn .rate-note a:hover{ color:var(--cn-white); text-decoration-color:currentColor; }
+/* Keeps a date range such as "December 17 – January 7" on one line: a break is allowed after an en dash even beside &nbsp; */
+.cn-nowrap{ white-space:nowrap; }
 
 /* ===== STORY OF NINA ===== */
 .story-nina {
@@ -2080,7 +2085,7 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 
 /* Booking CTA: universal .xp-cta; the rate note is the one homepage-specific line.
    .xp-cta p (0,1,1) would otherwise size and colour it as body copy. */
-:is(.page-home,.page-book,.page-casa,.page-concierge,.page-rates,.page-gallery) .xp-cta .rate-note{ margin:18px auto 0; max-width:none; font-size:.78rem; color:var(--cn-gold-soft); }
+.page-cn .xp-cta .rate-note{ margin:18px auto 0; max-width:none; font-size:.78rem; color:var(--cn-gold-soft); }
 
 /* ── book.html (2026-09-14) ──
    Utility-page hero shared with faq.html (.xp-faq-hero, breadcrumb, title,
@@ -2139,6 +2144,9 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 /* Talk-to-us strip below the form */
 .page-book .book-talk{ text-align:center; max-width:820px; margin:clamp(48px,7vh,72px) auto 0; padding-top:clamp(32px,5vh,44px); border-top:1px solid rgba(14,29,48,.12); }
 .page-book .book-talk__lede{ margin:0; font-size:16px; font-weight:300; color:var(--cn-ink-muted); }
+.page-book .book-talk .rate-note{ margin-top:28px; color:var(--cn-stone); opacity:1; }   /* on white: the gold-light note was too faint */
+.page-book .book-talk .rate-note a{ text-decoration-color:rgba(194,154,91,.6); }
+.page-book .book-talk .rate-note a:hover{ color:var(--cn-navy); text-decoration-color:var(--cn-gold); }
 
 /* ── Availability calendar (book.html) ──
    Months are rendered by js/availability.js; this is the look. Two months from
@@ -2244,6 +2252,7 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 .fp__sum-h{ display:block; font:500 22px/1.1 var(--cn-display); color:var(--cn-navy); }
 .fp__sum-s{ display:block; margin-top:8px; font:600 10.5px/1.5 var(--cn-body); letter-spacing:.22em; text-transform:uppercase; color:var(--cn-gold); }
 .fp__sum-t{ display:block; margin-top:10px; font-size:14.5px; font-weight:300; line-height:1.65; color:var(--cn-ink-muted); }
+.fp__sum-n{ display:block; margin-top:10px; font-size:14.5px; font-weight:400; line-height:1.65; color:var(--cn-navy); }   /* Half Casa: not offered over the holidays */
 .fp__cta{ display:block; text-align:center; }
 .fp__planhead{ display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:6px 20px; margin-bottom:14px; }
 .fp__title{ margin:0; font:500 clamp(22px,2.2vw,28px)/1.1 var(--cn-display); color:var(--cn-navy); }
@@ -2716,9 +2725,15 @@ body.lb-open{ overflow:hidden; }
 .page-rates .option-card .booking-card__sub{ margin:-8px 0 22px; }
 .page-rates .option-card__text{ margin:0 0 14px; font-size:15px; font-weight:300; line-height:1.75; color:var(--cn-ink-muted); }
 .page-rates .option-card__note{ font-weight:400; color:var(--cn-navy); }   /* the Half Casa holiday exception; sits with the text so both cards' prices and buttons stay aligned */
-.page-rates .option-card__from{ margin:auto 0 24px; padding-top:20px; border-top:1px solid rgba(14,29,48,.1);
+:is(.page-rates,.page-book) .option-card__from{ margin:auto 0 24px; padding-top:20px; border-top:1px solid rgba(14,29,48,.1);
   font-size:13px; font-weight:400; letter-spacing:.06em; color:var(--cn-ink-muted); }
-.page-rates .option-card__from strong{ display:block; margin-top:6px; font:500 32px/1 var(--cn-display); letter-spacing:0; color:var(--cn-navy); }
+:is(.page-rates,.page-book) .option-card__from strong{ display:block; margin-top:6px; font:500 32px/1 var(--cn-display); letter-spacing:0; color:var(--cn-navy); }
+/* book.html: "From" prices on the two booking cards, the holiday note, and the link to the full table. The card is a flex column so both prices and button pairs line up. */
+.page-book .booking-card{ display:flex; flex-direction:column; }
+.page-book .booking-details{ margin-bottom:22px; }
+.page-book .booking-card__note{ margin:0 0 22px; font-size:14.5px; font-weight:400; line-height:1.6; color:var(--cn-navy); }
+.page-book .option-card__from a{ display:block; margin-top:14px; font-size:13px; letter-spacing:.02em; color:var(--cn-navy); text-decoration:underline; text-decoration-color:rgba(194,154,91,.6); text-underline-offset:3px; }
+.page-book .option-card__from a:hover{ text-decoration-color:var(--cn-gold); }
 
 /* Included (six) and additional (nine) services sit three to a row on desktop */
 @media (min-width:901px){ .page-rates .conc-inc{ grid-template-columns:repeat(3,minmax(0,1fr)); row-gap:clamp(32px,4vw,48px); } }
