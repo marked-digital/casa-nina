@@ -14,6 +14,10 @@
    · Picking a start and end date fills #checkin / #checkout in the form, and
      typing dates into the form highlights them here.
    · Two months side by side from 760px up, one below. Past dates disabled.
+   · The line under the calendar states the stay rules for the picked dates:
+     four-night minimum; over the holidays (nights of December 17 to January 7,
+     the Holiday season on rates.html) seven nights and the Full Casa only.
+     It never blocks a request: the team confirms every one personally.
    No dependencies.
    ============================================================================ */
 (function(){
@@ -31,7 +35,8 @@
   var badgeEl    = root.querySelector('[data-cal-badge]');
   var checkinEl  = document.getElementById('checkin');
   var checkoutEl = document.getElementById('checkout');
-  var MIN_NIGHTS = 4;
+  var optionEl   = document.getElementById('option');
+  var MIN_NIGHTS = 4, HOLIDAY_MIN_NIGHTS = 7;
 
   var NOTES = {
     live:       'Availability is refreshed a few times a day from our booking calendar. Every request is confirmed personally by our team.',
@@ -57,6 +62,8 @@
     return false;
   }
   function rangeHasBlockedNight(a, b){ for (var d = new Date(a); d < b; d = addDays(d, 1)){ if (isBlockedNight(d)) return true; } return false; }
+  function isHolidayNight(d){ var m = d.getMonth(), day = d.getDate(); return (m === 11 && day >= 17) || (m === 0 && day <= 7); }   /* same rule as js/rates.js */
+  function rangeHasHolidayNight(a, b){ for (var d = new Date(a); d < b; d = addDays(d, 1)){ if (isHolidayNight(d)) return true; } return false; }
   function monthsVisible(){ return window.matchMedia('(min-width: 760px)').matches ? 2 : 1; }
   var fmtMonth = new Intl.DateTimeFormat('en-US', { month: 'long', year: 'numeric' });
   var fmtLong  = new Intl.DateTimeFormat('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
@@ -123,7 +130,10 @@
     if (selStart && selEnd){
       var n = nightsBetween(selStart, selEnd);
       var text = fmtShort.format(selStart) + ' \u2192 ' + fmtShort.format(selEnd) + ' \u00b7 ' + n + (n === 1 ? ' night' : ' nights');
-      if (n < MIN_NIGHTS) text += ' \u00b7 four-night minimum';
+      if (rangeHasHolidayNight(selStart, selEnd)){
+        if (optionEl && optionEl.value === 'half') text += ' \u00b7 the Half Casa is not offered over the holidays, December\u00a017\u00a0\u2013\u2060\u00a0January\u00a07';   /* the dates never split, even after the dash */
+        else if (n < HOLIDAY_MIN_NIGHTS) text += ' \u00b7 seven-night minimum over the holidays';
+      } else if (n < MIN_NIGHTS) text += ' \u00b7 four-night minimum';
       pickEl.textContent = text; pickEl.hidden = false;
     } else if (selStart){
       pickEl.textContent = 'Check-in ' + fmtShort.format(selStart) + '. Now choose your check-out date.'; pickEl.hidden = false;
@@ -183,6 +193,7 @@
   nextBtn.addEventListener('click', function(){ view = new Date(view.getFullYear(), view.getMonth() + 1, 1); render(); });
   if (checkinEl)  checkinEl.addEventListener('change', fromInputs);
   if (checkoutEl) checkoutEl.addEventListener('change', fromInputs);
+  if (optionEl)   optionEl.addEventListener('change', function(){ if (selStart && selEnd) updatePick(); });
   var mq = window.matchMedia('(min-width: 760px)');
   (mq.addEventListener ? mq.addEventListener('change', render) : mq.addListener(render));
 

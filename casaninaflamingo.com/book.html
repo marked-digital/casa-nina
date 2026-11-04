@@ -876,7 +876,7 @@
   (function(){
     var sel = document.getElementById("option");
     var form = document.getElementById("availabilityForm");
-    function choose(v){ if(sel && (v === "full" || v === "half")) sel.value = v; }
+    function choose(v){ if(sel && (v === "full" || v === "half") && sel.value !== v){ sel.value = v; sel.dispatchEvent(new Event("change")); } }   /* change event: the calendar re-checks its holiday note */
     /* Card buttons: set the option, then let smooth-scroll.js handle the #availability jump */
     document.querySelectorAll("[data-option]").forEach(function(a){
       a.addEventListener("click", function(){ choose(a.getAttribute("data-option")); });
