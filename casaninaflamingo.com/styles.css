@@ -2698,6 +2698,9 @@ body.lb-open{ overflow:hidden; }
 .page-rates .season-card--holiday .season-card__rates dd{ color:rgba(255,255,255,.72); }
 .page-rates .season-card--holiday .season-card__rates div{ border-top-color:rgba(255,255,255,.16); }
 .page-rates .season-card--holiday .xp-chip{ color:var(--cn-gold-soft); border-color:var(--cn-gold-soft); }
+/* Half Casa is not offered over the holidays: a quiet italic in the price's line box, so the row keeps its height */
+.page-rates .season-card__price--none{ font-style:italic; font-weight:400; font-size:clamp(22px,2vw,26px); line-height:clamp(30px,2.8vw,36px); }
+.page-rates .season-card--holiday .season-card__price--none{ color:rgba(255,255,255,.86); }
 .page-rates .rates-fine{ max-width:1120px; margin:clamp(28px,4vw,40px) auto 0; font-size:13px; font-weight:300; line-height:1.7; color:var(--cn-ink-muted); text-align:center; }
 @media (max-width:1100px){ .page-rates .season-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
 @media (max-width:640px){
@@ -2712,6 +2715,7 @@ body.lb-open{ overflow:hidden; }
 .page-rates .option-card__body{ display:flex; flex-direction:column; flex:1; padding:clamp(28px,3.5vw,44px) clamp(24px,3vw,40px); }
 .page-rates .option-card .booking-card__sub{ margin:-8px 0 22px; }
 .page-rates .option-card__text{ margin:0 0 14px; font-size:15px; font-weight:300; line-height:1.75; color:var(--cn-ink-muted); }
+.page-rates .option-card__note{ font-weight:400; color:var(--cn-navy); }   /* the Half Casa holiday exception; sits with the text so both cards' prices and buttons stay aligned */
 .page-rates .option-card__from{ margin:auto 0 24px; padding-top:20px; border-top:1px solid rgba(14,29,48,.1);
   font-size:13px; font-weight:400; letter-spacing:.06em; color:var(--cn-ink-muted); }
 .page-rates .option-card__from strong{ display:block; margin-top:6px; font:500 32px/1 var(--cn-display); letter-spacing:0; color:var(--cn-navy); }
