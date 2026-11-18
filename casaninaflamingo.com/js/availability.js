@@ -40,7 +40,7 @@
 
   var NOTES = {
     live:       'Availability is refreshed a few times a day from our booking calendar. Every request is confirmed personally by our team.',
-    connecting: 'Live availability is being connected. Choose your dates and our team will confirm them personally, usually the same day.',
+    connecting: 'Our live calendar is being connected, so every date shows as open for now. Our team checks each request personally.',
     demo:       'Sample availability for design review. Live dates appear here once the booking calendar is connected.'
   };
 
