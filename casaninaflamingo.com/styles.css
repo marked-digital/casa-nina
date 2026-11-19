@@ -1834,13 +1834,13 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 .xp-cta .xp-media{ position:absolute; inset:0; opacity:.42; }
 .xp-cta .xp-media__img{ inset:0; }            /* no parallax over-scan here: the photo fills the band edge to edge */
 @media (min-width:900px){ .xp-cta{ aspect-ratio:2000/1406; } }   /* the band takes the photo's own proportions (home-film-poster-dusk.jpg), so the whole picture shows; the content can still grow it */
-.xp-cta__inner{ width:100%; }
+.xp-cta__inner{ width:100%; padding-left:var(--xp-gutter); padding-right:var(--xp-gutter); }   /* width:100% overrides .xp-wrap's own side margins, which left the band's text touching the screen edges on phones; explore.html already gets the same gutter from .xp-page .xp-wrap */
 .xp-cta__inner{ position:relative; z-index:2; }
 .xp-cta .xp-eyebrow{ justify-content:center; }
 .xp-cta .xp-eyebrow::before{ display:none; }
 .xp-cta h2{ font-family:var(--cn-display); font-weight:500;
   font-size:clamp(38px,6vw,72px); line-height:1.04; margin:22px auto 18px; max-width:26ch; }
-.xp-cta h2 em{ font-style:italic; color:var(--cn-gold-2); display:block; } /* gold line always second */
+.xp-cta h2 em{ font-style:italic; color:var(--cn-gold-2); display:block; text-wrap:balance; } /* gold line always second; balanced when it wraps on phones */
 .xp-cta p{ margin:0 auto; max-width:56ch; font-weight:300; font-size:16px;
   color:rgba(255,255,255,.85); }
 .xp-cta__btns{ margin-top:40px; display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
@@ -1851,6 +1851,12 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
    selector, explicit top margin and no width cap. */
 .xp-cta .xp-cta__tag{ margin:clamp(52px,7vh,76px) auto 0; max-width:none; font:600 11px/1 var(--cn-body);
   letter-spacing:.5em; text-transform:uppercase; color:var(--cn-gold-2); opacity:.85; }
+/* Phones: inside the band's side gutters, the tagline and the buttons keep to one line */
+@media (max-width:479px){ .xp-cta .xp-cta__tag{ letter-spacing:.28em; } }
+@media (max-width:359px){
+  .xp-cta .xp-cta__tag{ letter-spacing:.16em; }
+  .xp-cta__btns .xp-btn{ padding-left:16px; padding-right:16px; letter-spacing:.18em; }
+}
 
 /* Footer rules dropped: this page now uses the global .footer. */
 
@@ -2107,6 +2113,8 @@ body.xp-page{ /* body-qualified so it wins ties against the shared body.page-cn 
 .page-book #availability{ scroll-margin-top:calc(var(--xp-header-h) + 24px); }
 .page-book .book-options{ background:var(--cn-cream); }
 /* Why book direct: three short claims already made elsewhere on the site, gold dash markers as on the homepage list */
+/* Narrow phones: the card buttons ("Check Full Casa dates") keep to one line */
+@media (max-width:359px){ .page-book .booking-card__btns .xp-btn{ padding-left:16px; padding-right:16px; letter-spacing:.18em; } }
 .page-book .book-why{ list-style:none; margin:clamp(36px,5vh,56px) auto 0; padding:0; display:flex; flex-wrap:wrap; justify-content:center; gap:14px clamp(24px,4vw,56px); }
 .page-book .book-why li{ display:flex; align-items:center; gap:12px; font-size:14.5px; font-weight:400; color:var(--cn-navy); }
 .page-book .book-why li::before{ content:""; width:20px; height:1px; background:var(--cn-gold); flex:none; }
