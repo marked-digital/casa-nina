@@ -7,8 +7,8 @@
    · Three states, all shown honestly in the note under the calendar:
        live          feed connected: booked nights are dimmed
        connecting    no feed yet (status "unconfigured"/"error", or the request
-                     fails): every date shows as open, and the note says so
-                     and points to Airbnb for live availability
+                     fails): every date shows as open and the note says the
+                     live calendar is being connected
        demo          book.html?demo=1 renders sample bookings so the design
                      can be reviewed before the feed exists (never on by default)
    · Picking a start and end date fills #checkin / #checkout in the form, and
@@ -40,7 +40,7 @@
 
   var NOTES = {
     live:       'Availability is refreshed a few times a day from our booking calendar. Every request is confirmed personally by our team.',
-    connecting: 'Every date shows as open here. Our team checks yours personally, and live availability is on Airbnb.',
+    connecting: 'Live availability is being connected. Choose your dates and our team will confirm them personally, usually the same day.',
     demo:       'Sample availability for design review. Live dates appear here once the booking calendar is connected.'
   };
 
