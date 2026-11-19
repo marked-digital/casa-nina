@@ -2745,3 +2745,9 @@ body.lb-open{ overflow:hidden; }
    breakpoint (all pages). */
 .xp-header .xp-nav a{ white-space:nowrap; }
 @media (min-width:1024px) and (max-width:1100px){ .xp-header .xp-nav{ gap:18px; } }
+/* book.html's header button reads "Plan your stay with us": at small-laptop widths its nav
+   and button tighten so the logo keeps its full 198px (it fell to 141px at 1024). */
+@media (min-width:1024px) and (max-width:1100px){
+  .page-book .xp-header .xp-nav{ gap:12px; }
+  .page-book .xp-cta-btn{ padding-left:14px; padding-right:14px; letter-spacing:.1em; }
+}
