@@ -14,6 +14,11 @@
    3. Events. One delegated click listener sends whatsapp_click, phone_click
       and email_click to GA4, with the link's data-location as link_location.
       Links inside the share menu are sharing, not contact, and are skipped.
+   4. Airbnb. A second delegated click listener sends airbnb_click for any
+      link to an Airbnb listing (href with "airbnb." and "/rooms/"), with the
+      link's data-location as link_location and its URL as link_url. The
+      click is never held back: no preventDefault and no delay (gtag sends
+      with the beacon transport, and the listing opens in a new tab).
 
    ES5 only. Storage access is wrapped: private browsing or blocked storage
    simply means no attribution, never an error.
@@ -97,5 +102,14 @@
     if (a) { send('phone_click', a); return; }
     a = t.closest('a[href^="mailto:"]');
     if (a && !a.closest('.share__menu')) send('email_click', a);
+  });
+
+  /* ---------- 4. Airbnb listing clicks ---------- */
+  document.addEventListener('click', function (e) {
+    var t = e.target;
+    if (!t || typeof t.closest !== 'function' || typeof gtag !== 'function') return;
+    var a = t.closest('a[href*="airbnb."][href*="/rooms/"]');
+    if (!a) return;
+    gtag('event', 'airbnb_click', { link_location: a.getAttribute('data-location') || 'page', link_url: a.href, page_path: window.location.pathname });
   });
 })();
