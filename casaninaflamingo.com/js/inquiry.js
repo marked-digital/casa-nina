@@ -67,6 +67,7 @@
       .then(function (res) {
         if (!res.ok) throw new Error((res.data && res.data.message) || 'send failed');
         if (typeof gtag === "function") gtag("event", "generate_lead", { method: "web3forms", form_id: "booking_inquiry" });
+        if (typeof gtag === "function") gtag("event", "conversion", { send_to: "AW-18503477410/k6sqCPGW864dEKLRkvdE" });
         form.reset();
         /* Replace the form with a thank-you panel where it stood, and bring it into view. */
         var thanks = document.createElement('div');

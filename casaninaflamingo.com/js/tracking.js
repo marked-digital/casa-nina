@@ -14,6 +14,9 @@
    3. Events. One delegated click listener sends whatsapp_click, phone_click
       and email_click to GA4, with the link's data-location as link_location.
       Links inside the share menu are sharing, not contact, and are skipped.
+      The same listener sends the Google Ads conversions: WhatsApp (straight
+      after whatsapp_click) and Airbnb. Airbnb clicks send the Ads conversion
+      only; this listener sends no GA4 event for them.
    4. Airbnb. A second delegated click listener sends airbnb_click for any
       link to an Airbnb listing (href with "airbnb." and "/rooms/"), with the
       link's data-location as link_location and its URL as link_url. The
@@ -97,7 +100,20 @@
     var t = e.target;
     if (!t || typeof t.closest !== 'function') return;
     var a = t.closest('a[href*="wa.me"], a[href*="whatsapp.com"]');
-    if (a) { if (!a.closest('.share__menu')) send('whatsapp_click', a); return; }
+    if (a) {
+      if (!a.closest('.share__menu')) {
+        send('whatsapp_click', a);
+        if (typeof gtag === "function") gtag("event", "conversion", { send_to: "AW-18503477410/XllACPSW864dEKLRkvdE", transport_type: "beacon" });
+      }
+      return;
+    }
+    a = t.closest('a[href*="airbnb."]');
+    if (a) {
+      if (!a.closest('.share__menu')) {
+        if (typeof gtag === "function") gtag("event", "conversion", { send_to: "AW-18503477410/4uf-CNfj4LwdEKLRkvdE", transport_type: "beacon" });
+      }
+      return;
+    }
     a = t.closest('a[href^="tel:"]');
     if (a) { send('phone_click', a); return; }
     a = t.closest('a[href^="mailto:"]');
